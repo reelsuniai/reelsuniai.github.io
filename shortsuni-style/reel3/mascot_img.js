@@ -22,7 +22,7 @@
       const rot = (1 - p) * (cur[0].length % 2 ? -0.06 : 0.06);
       const talk = o.speaking ? o.speaking(t) * 0.012 : 0;
       const bob = Math.sin(t * Math.PI * 2 * 0.8) * 5;
-      const h = o.height, w = (img.width / img.height) * h;
+      const h = o.height * ((o.scales && o.scales[cur[0]]) || 1), w = (img.width / img.height) * h;
       ctx.save(); ctx.translate(o.x, o.y + bob); ctx.rotate(rot); ctx.scale(s + talk, s - talk * 0.5);
       ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(shadowOf(img), -w / 2 + 16, -h + 12, w, h);

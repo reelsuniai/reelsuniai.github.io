@@ -139,7 +139,7 @@
   function sentences() {
     if (SENT) return SENT;
     SENT = []; let cur = [];
-    WD.forEach((x, i) => { cur.push(i); if (/[.!?]$/.test(x.t) && !x.t.startsWith('@')) { SENT.push(cur); cur = []; } });
+    WD.forEach((x, i) => { cur.push(i); if ((/[.!?]$/.test(x.t) && !x.t.startsWith('@')) || (/[,;:]$/.test(x.t) && cur.length >= 6)) { SENT.push(cur); cur = []; } });
     if (cur.length) SENT.push(cur);
     return SENT;
   }
@@ -190,7 +190,7 @@
     if (R.mascot && window.MASCOT) {
       const poses = R.mascot.poses.map(([wi, name]) => [wi === 0 ? -0.01 : w(wi) - 0.06, name]);
       const speaking = (tt) => { for (const x of WD) if (tt >= x.s - 0.02 && tt <= x.e) return 0.35 + 0.6 * Math.abs(Math.sin((tt - x.s) * Math.PI * 2 * 5.5)); return 0; };
-      MASCOT.draw(ctx, t, { x: R.mascot.x || 830, y: R.mascot.y || 1630, scale: R.mascot.scale || 0.62, height: R.mascot.height || 640, poses, speaking, logo: IMG.logo, imgs: IMG });
+      MASCOT.draw(ctx, t, { x: R.mascot.x || 830, y: R.mascot.y || 1630, scale: R.mascot.scale || 0.62, height: R.mascot.height || 640, scales: R.mascot.scales, poses, speaking, logo: IMG.logo, imgs: IMG });
       return;
     }
     const cx = 838, cy = 1668, D = 400;
