@@ -18,7 +18,7 @@
   function pegboard() {
     const c = cv(W, 1460), x = c.getContext('2d');
     const g = x.createLinearGradient(0, 0, 0, 1460); g.addColorStop(0, 'rgba(222,196,160,0)'); g.addColorStop(0.12, '#E2C9A4'); g.addColorStop(1, '#D3B68C'); x.fillStyle = g; x.fillRect(0, 0, W, 1460);
-    for (let y = 60; y < 1460; y += 54) for (let i = 30 + ((y / 54) % 2) * 27; i < W; i += 54) { x.fillStyle = 'rgba(90,60,30,0.55)'; x.beginPath(); x.arc(i, y, 6, 0, 7); x.fill(); x.fillStyle = 'rgba(255,255,255,0.25)'; x.beginPath(); x.arc(i + 1.5, y + 2, 5, 0, 7); x.fill(); }
+    for (let y = 60; y < 1460; y += 54) for (let i = 30 + ((y / 54) % 2) * 27; i < W; i += 54) { x.fillStyle = 'rgba(70,45,20,0.85)'; x.beginPath(); x.arc(i, y, 7, 0, 7); x.fill(); x.fillStyle = 'rgba(255,255,255,0.25)'; x.beginPath(); x.arc(i + 1.5, y + 2, 5, 0, 7); x.fill(); }
     // hanging tools silhouettes
     x.fillStyle = 'rgba(60,40,25,0.28)';
     [[120, 160, 'w'], [950, 200, 'h'], [80, 820, 'r'], [990, 760, 'w']].forEach(([px, py, k]) => { x.save(); x.translate(px, py); if (k === 'w') { x.fillRect(-8, 0, 16, 150); x.beginPath(); x.arc(0, 0, 30, 0, 7); x.fill(); } if (k === 'h') { x.fillRect(-7, 0, 14, 160); x.fillRect(-40, -10, 80, 30); } if (k === 'r') { x.fillRect(-60, 0, 120, 14); for (let i = 0; i < 6; i++) x.fillRect(-55 + i * 22, 14, 6, 40); } x.restore(); });
@@ -31,7 +31,7 @@
   function cork() {
     const c = cv(W, 1460), x = c.getContext('2d');
     const g = x.createLinearGradient(0, 0, 0, 1460); g.addColorStop(0, 'rgba(160,112,66,0)'); g.addColorStop(0.1, '#A97A48'); g.addColorStop(1, '#8E6236'); x.fillStyle = g; x.fillRect(0, 0, W, 1460);
-    for (let i = 0; i < 9000; i++) { x.fillStyle = rnd(i) > 0.5 ? 'rgba(70,40,15,0.22)' : 'rgba(240,200,150,0.18)'; x.fillRect(rnd(i * 3.1) * W, 60 + rnd(i * 7.7) * 1040, 2 + rnd(i) * 3, 2); }
+    for (let i = 0; i < 26000; i++) { x.fillStyle = rnd(i) > 0.5 ? 'rgba(60,32,10,0.45)' : 'rgba(250,215,165,0.35)'; x.fillRect(rnd(i * 3.1) * W, 60 + rnd(i * 7.7) * 1040, 2 + rnd(i) * 3, 2); }
     // pinned papers + polaroids
     [[110, 170, -0.12, 170, 210], [920, 140, 0.1, 190, 150], [70, 760, 0.08, 160, 200], [960, 800, -0.09, 170, 220], [520, 1010, 0.04, 200, 90]].forEach(([px, py, r, w, h], i) => {
       x.save(); x.translate(px, py); x.rotate(r); x.fillStyle = 'rgba(0,0,0,0.25)'; x.fillRect(-w / 2 + 8, -h / 2 + 10, w, h); x.fillStyle = i % 2 ? '#FFF7D6' : '#FFFFFF'; x.fillRect(-w / 2, -h / 2, w, h);
@@ -56,7 +56,8 @@
   }
   function grid() {
     const c = cv(W, 1460), x = c.getContext('2d');
-    x.strokeStyle = 'rgba(225,10,15,0.10)'; x.lineWidth = 2;
+    x.strokeStyle = 'rgba(17,16,16,0.08)'; x.lineWidth = 1; for (let i = 0; i < W; i += 15) { x.beginPath(); x.moveTo(i, 40); x.lineTo(i, 1460); x.stroke(); } for (let j = 40; j < 1460; j += 15) { x.beginPath(); x.moveTo(0, j); x.lineTo(W, j); x.stroke(); }
+    x.strokeStyle = 'rgba(225,10,15,0.22)'; x.lineWidth = 2;
     for (let i = 0; i < W; i += 60) { x.beginPath(); x.moveTo(i, 40); x.lineTo(i, 1460); x.stroke(); }
     for (let j = 40; j < 1460; j += 60) { x.beginPath(); x.moveTo(0, j); x.lineTo(W, j); x.stroke(); }
     // blueprint corner marks + measure ticks
@@ -81,7 +82,7 @@
   }
   // ---------------------------------------------------------------- particles (always on) + debris bursts
   function particles(ctx, t, dark) {
-    for (let i = 0; i < 96; i++) {
+    for (let i = 0; i < 140; i++) {
       const sp = 20 + rnd(i * 3) * 50, x = ((rnd(i) * W + Math.sin(t * 0.7 + i) * 40) % W + W) % W, y = 520 + ((rnd(i * 7) * 1300 - t * sp) % 1300 + 1300) % 1300;
       const s = 4 + rnd(i * 11) * 11, r = t * (1.5 + rnd(i) * 2) + i;
       ctx.save(); ctx.translate(x, y); ctx.rotate(r); ctx.globalAlpha = 0.5 + 0.4 * rnd(i * 5);
