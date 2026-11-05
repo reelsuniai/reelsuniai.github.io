@@ -95,6 +95,7 @@ window.REGISTER_SCENES = function (G) {
 
   // ================================================================ SHOT 1
   SC.shot1 = (ctx, t, S) => {
+    { const br = 1 + 0.03 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 950 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
     const wMade = at(6), wNo = at(8), wType = at(14), wBuild = at(18), wWatch = at(29);
     // --- phone (hero at frame 0) -> shrinks aside when Claude Code arrives -> fades into the window on "No"
     let pS = 1, pX = 540, pY = 900, pA = 1;
@@ -158,6 +159,7 @@ window.REGISTER_SCENES = function (G) {
 
   // ================================================================ SHOT 2
   SC.shot2 = (ctx, t, S) => {
+    { const br = 1 + 0.03 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 950 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
     const wFix = at(38), wPass = at(41), wTool = at(42), wFree = at(48), wCom = at(49);
     // --- MOTION CHECK card: graph + film strip, playhead scans, FLAT -> FIXED -> PASS
     const out = ease(t, wTool - 0.15, 8 * F1, E.inOutC);

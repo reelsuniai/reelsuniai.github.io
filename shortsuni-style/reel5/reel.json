@@ -567,6 +567,24 @@
   "m_hype1": "assets/cut/m_hype1_r.png",
   "m_wave1": "assets/cut/m_wave1_r.png"
  },
- "fx": false,
- "kicks": []
+ "fx": true,
+ "kicks": [
+  2,
+  6,
+  7,
+  9,
+  11,
+  13,
+  17,
+  21,
+  24,
+  26,
+  33,
+  38,
+  40,
+  48,
+  50,
+  56
+ ],
+ "fxEnv": false
 }

@@ -387,7 +387,7 @@
     const inWipe = wa != null && t >= wa - 0.17 && t < wa + 0.45;
     // card stack (§8): previous scene shrinks to 0.96, blurs, fades over 6 f while the new one rises 60 px and fades in
     const KICKS = (R.kicks || R.accents || []).map((k) => w(k));
-    const full = (c, j, tt) => { if (window.FX && R.fx !== false) { FX.env(c, tt, R.scenes[j].env); FX.particles(c, tt, R.scenes[j].env === 'spotlight'); } drawScene(c, j, tt); };
+    const full = (c, j, tt) => { if (window.FX && R.fx !== false && R.fxEnv !== false) { FX.env(c, tt, R.scenes[j].env); FX.particles(c, tt, R.scenes[j].env === 'spotlight'); } drawScene(c, j, tt); };
     ctx.save(); if (window.FX && R.fx !== false) FX.camera(ctx, t, KICKS);
     const st = pr(t, t0, t0 + (R.transition === 'whip' ? 7 : 6) * F1), stacking = i > 0 && st < 1 && R.scenes[i].enter !== 'wipe';
     if (stacking && R.transition === 'whip') {      // whip pan: old scene flies left, new one arrives from the right, with motion-blur ghosts
