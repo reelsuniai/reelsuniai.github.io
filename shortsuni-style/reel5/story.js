@@ -26,6 +26,11 @@ window.REGISTER_SCENES = function (G) {
     T(ctx, 'Claude Code', 92, 21, 17, 600, '#D8D6DE', UI); T(ctx, '⌄', 196, 18, 15, 600, '#8C8A94', UI);
     T(ctx, 'ai-video', ww - 22, 21, 15, 500, '#8C8A94', MONO, 'right');
     T(ctx, 'Started on this computer · ~/ai-video', 24, 62, 14, 500, '#7D7B85', UI);
+    // live detail: streaming log lines on the right edge + file list (moves every frame, like a real app)
+    { const LOG = ['read SKILL.md', 'write script.json', 'voice: am_michael', 'align 57 words', 'gen o_camera.png', 'gen o_piggy.png', 'cut 9 objects', 'scene 1/7 ok', 'scene 2/7 ok', 'motion check', 'mix -14 LUFS', 'render 544 frames'];
+      ctx.save(); rr(ctx, ww - 200, 74, 182, hh - 190, 10); ctx.clip(); ctx.fillStyle = '#18171C'; ctx.fillRect(ww - 200, 74, 182, hh - 190);
+      const off = (t * 38) % 22; for (let i = 0; i < 14; i++) { const ln = LOG[(Math.floor(t * 38 / 22) + i) % LOG.length], y = 92 + i * 22 - off; T(ctx, (i % 3 ? '✓ ' : '› ') + ln, ww - 190, y, 12, 500, i % 3 ? '#6FCF7F' : '#B9B7C2', MONO); }
+      ctx.restore(); }
     if (o.view === 'build') {
       T(ctx, '✳  Building your reel', 24, 104, 20, 700, '#ECEAF2', UI);
       o.rows.forEach(([lab, sub, t0, t1], i) => { const y = 150 + i * 72, on = t >= t0, done = t >= t1;
@@ -37,9 +42,10 @@ window.REGISTER_SCENES = function (G) {
         if (on && !done) T(ctx, Math.round(100 * pr(t, t0, t1)) + '%', ww - 36, y, 16, 700, RED, MONO, 'right'); else if (done) T(ctx, 'done', ww - 36, y, 16, 600, '#8C8A94', MONO, 'right'); });
     } else {
       // empty state: sparkle + question
-      const sp = 1 + 0.08 * Math.sin(t * 5); ctx.save(); ctx.translate(ww / 2, 150); ctx.scale(sp, sp); ctx.strokeStyle = '#E8754F'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+      const sp = 1 + 0.08 * Math.sin(t * 5); ctx.save(); ctx.translate(ww / 2 - 90, 150); ctx.scale(sp, sp); ctx.strokeStyle = '#E8754F'; ctx.lineWidth = 4; ctx.lineCap = 'round';
       for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2 + t * 0.6; ctx.beginPath(); ctx.moveTo(Math.cos(a) * 5, Math.sin(a) * 5); ctx.lineTo(Math.cos(a) * 18, Math.sin(a) * 18); ctx.stroke(); } ctx.restore();
-      T(ctx, 'What should we build?', ww / 2, 200, 22, 600, '#D8D6DE', UI, 'center');
+      T(ctx, 'What should we build?', ww / 2 - 90, 200, 22, 600, '#D8D6DE', UI, 'center');
+      ['SKILL.md', 'scenes.js', 'voice.wav', 'renders/'].forEach((f, i) => { ctx.fillStyle = '#26252B'; rr(ctx, 40, 228 + i * 0, 0, 0, 0); T(ctx, '□  ' + f, 60 + (i % 2) * 190, 238 + Math.floor(i / 2) * 26, 14, 500, '#8C8A94', MONO); });
     }
     // input bar
     const glow = o.glow || 0, iy = hh - 96;
@@ -95,7 +101,7 @@ window.REGISTER_SCENES = function (G) {
 
   // ================================================================ SHOT 1
   SC.shot1 = (ctx, t, S) => {
-    { const br = 1 + 0.03 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 950 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
+    { const br = 1.05 + 0.025 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 1000 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
     const wMade = at(6), wNo = at(8), wType = at(14), wBuild = at(18), wWatch = at(29);
     // --- phone (hero at frame 0) -> shrinks aside when Claude Code arrives -> fades into the window on "No"
     let pS = 1, pX = 540, pY = 900, pA = 1;
@@ -159,7 +165,7 @@ window.REGISTER_SCENES = function (G) {
 
   // ================================================================ SHOT 2
   SC.shot2 = (ctx, t, S) => {
-    { const br = 1 + 0.03 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 950 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
+    { const br = 1.05 + 0.025 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 1000 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
     const wFix = at(38), wPass = at(41), wTool = at(42), wFree = at(48), wCom = at(49);
     // --- MOTION CHECK card: graph + film strip, playhead scans, FLAT -> FIXED -> PASS
     const out = ease(t, wTool - 0.15, 8 * F1, E.inOutC);
