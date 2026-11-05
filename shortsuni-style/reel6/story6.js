@@ -159,7 +159,16 @@ window.REGISTER_SCENES = function (G) {
     ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k); T(ctx, s, 0, 0, size, 400, p < 0.5 ? '#F3A6A6' : col, STAMP, 'center'); ctx.restore();
     if (t < t0 + 6 * F1 && Math.floor(t * 30) % 2 === 0) { ctx.strokeStyle = RED; ctx.lineWidth = 5; ctx.lineCap = 'round'; const wd = tw(ctx, s, size, 400, STAMP) / 2; for (let q = 0; q < 8; q++) { const a = (q / 8) * Math.PI * 2 + 0.4, r0 = wd + 14, r1 = r0 + 24; ctx.beginPath(); ctx.moveTo(x + Math.cos(a) * r0, y + Math.sin(a) * r0 * 0.5); ctx.lineTo(x + Math.cos(a) * r1, y + Math.sin(a) * r1 * 0.5); ctx.stroke(); } }
   }
-  function shadowImg(ctx, key, cx, cy, h, rot = 0, k = 1) { const im = IMG[key]; if (!im || k <= 0) return; const ww = (im.width / im.height) * h; ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(k, k); ctx.imageSmoothingEnabled = true; ctx.drawImage(sh(im), -ww / 2 + 10, -h / 2 + 9, ww, h); ctx.drawImage(im, -ww / 2, -h / 2, ww, h); ctx.restore(); }
+  function vecObj(ctx, key, cx, cy, h, rot, k) {       // folder + price tag drawn in code (the local model's versions were unusable)
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(k * h / 300, k * h / 300);
+    if (key === 'o_folder') { dotShadow(ctx, -170, -110, 340, 250, 20, 10, 7, 2); ctx.fillStyle = '#3E8EF0'; rr(ctx, -170, -130, 140, 50, 14); ctx.fill(); rr(ctx, -170, -110, 340, 250, 18); ctx.fill();
+      ctx.fillStyle = '#FFFFFF'; rr(ctx, -140, -96, 280, 90, 8); ctx.fill(); ctx.fillStyle = '#E8E6E2'; rr(ctx, -130, -110, 260, 60, 6); ctx.fill();
+      const g = ctx.createLinearGradient(0, -60, 0, 140); g.addColorStop(0, '#7DB9FF'); g.addColorStop(1, '#4F9CF5'); ctx.fillStyle = g; rr(ctx, -170, -60, 340, 200, 18); ctx.fill(); ctx.fillStyle = 'rgba(255,255,255,0.35)'; rr(ctx, -150, -48, 300, 8, 4); ctx.fill(); }
+    else { dotShadow(ctx, -110, -90, 220, 180, 18, 8, 7, 2); ctx.fillStyle = RED; ctx.beginPath(); ctx.moveTo(-110, -60); ctx.lineTo(-60, -110); ctx.lineTo(110, -110); ctx.lineTo(110, 110); ctx.lineTo(-60, 110); ctx.lineTo(-110, 60); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#F2F0EE'; ctx.beginPath(); ctx.arc(-62, 0, 16, 0, 7); ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(-62, 0); ctx.quadraticCurveTo(-140, -60, -150, -140); ctx.stroke(); }
+    ctx.restore();
+  }
+  function shadowImg(ctx, key, cx, cy, h, rot = 0, k = 1) { if (key === 'o_folder' || key === 'o_pricetag') { if (k > 0) vecObj(ctx, key, cx, cy, h, rot, k); return; } const im = IMG[key]; if (!im || k <= 0) return; const ww = (im.width / im.height) * h; ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(k, k); ctx.imageSmoothingEnabled = true; ctx.drawImage(sh(im), -ww / 2 + 10, -h / 2 + 9, ww, h); ctx.drawImage(im, -ww / 2, -h / 2, ww, h); ctx.restore(); }
   const push = (t, t0, d = 2.5) => { const z = 1 + 0.04 * pr(t, t0, t0 + d); return z; };
   function withPush(ctx, t, t0, fn) { const z = push(t, t0); ctx.save(); ctx.translate(540, 980); ctx.scale(z, z); ctx.translate(-540, -980); fn(); ctx.restore(); }
 
@@ -204,11 +213,11 @@ window.REGISTER_SCENES = function (G) {
       const kP = pop(t, w(43) - 0.05, 7 * F1), kB = pop(t, w(44) - 0.05, 7 * F1), kT = pop(t, w(46) - 0.05, 7 * F1);
       if (kP > 0) shadowImg(c, 'o_plane', L(ww + 200, 190, clamp(kP)), 190 + Math.sin(t * 3) * 8, 170, -0.08, 1);
       if (kB > 0) shadowImg(c, 'o_bottle', ww / 2 + 40, L(-100, 200, clamp(kB)) + Math.sin(t * 4) * 5, 220, 0.05, 1);
-      if (kT > 0) { shadowImg(c, 'o_pricetag', ww - 170, 190, 190, Math.sin(t * 5) * 0.2, kT); T(c, '$8', ww - 170, 200, 52, 400, '#FFF', STAMP, 'center'); }
+      if (kT > 0) { shadowImg(c, 'o_pricetag', ww - 170, 190, 190, Math.sin(t * 5) * 0.2, kT); T(c, '$8', ww - 160, 196, 56, 400, '#FFF', STAMP, 'center'); }
       inputBar(c, ww, hh, P.slice(0, n), t, pr(t, w(37) - 0.1, w(37) + 3 * F1), t < we(46) + 0.3);
     }, t);
     bigBadge(ctx, 3, t, w(36) - 0.05, [box.x + box.w - 20, box.y + 10]);
-    if (t >= w(38)) { const k = pop(t, w(38), 6 * F1); ctx.save(); ctx.translate(820, box.y + box.h - 150); ctx.rotate(-0.08); ctx.scale(k, k); ctx.fillStyle = RED; rr(ctx, -110, -46, 220, 92, 46); ctx.fill(); T(ctx, '1 LINE', 0, 4, 62, 400, '#FFF', STAMP, 'center'); ctx.restore(); }
+    if (t >= w(38)) { const k = pop(t, w(38), 6 * F1); ctx.save(); ctx.translate(820, box.y + box.h - 250); ctx.rotate(-0.08); ctx.scale(k, k); ctx.fillStyle = RED; rr(ctx, -110, -46, 220, 92, 46); ctx.fill(); T(ctx, '1 LINE', 0, 4, 62, 400, '#FFF', STAMP, 'center'); ctx.restore(); }
     if (t >= w(37)) { const k = pop(t, w(37), 6 * F1); ctx.save(); ctx.translate(200, box.y + box.h + 50); ctx.scale(k, k); ctx.strokeStyle = RED; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 40); ctx.lineTo(0, -8); ctx.moveTo(-14, 6); ctx.lineTo(0, -10); ctx.lineTo(14, 6); ctx.stroke(); T(ctx, 'TYPE THIS', 26, 20, 56, 400, INK, STAMP); ctx.restore(); }
   });
 
@@ -216,14 +225,14 @@ window.REGISTER_SCENES = function (G) {
   SC.four = (ctx, t) => withPush(ctx, t, w(47), () => {
     const sent = t >= w(49) + 0.05;
     const box = darkWin(ctx, 540, 980, 1.12, 'Claude Code', (c, ww, hh) => {
-      if (!sent) { shadowImg(c, 'o_plane', 190, 190, 170, -0.08); shadowImg(c, 'o_bottle', ww / 2 + 40, 200, 220, 0.05); shadowImg(c, 'o_pricetag', ww - 170, 190, 190, Math.sin(t * 5) * 0.2); T(c, '$8', ww - 170, 200, 52, 400, '#FFF', STAMP, 'center'); inputBar(c, ww, hh, 'why does airport water cost $8?', t, 1, true); }
+      if (!sent) { shadowImg(c, 'o_plane', 190, 190, 170, -0.08); shadowImg(c, 'o_bottle', ww / 2 + 40, 200, 220, 0.05); shadowImg(c, 'o_pricetag', ww - 170, 190, 190, Math.sin(t * 5) * 0.2); T(c, '$8', ww - 160, 196, 56, 400, '#FFF', STAMP, 'center'); inputBar(c, ww, hh, 'why does airport water cost $8?', t, 1, true); }
       else { T(c, '✳  Working on it…', 40, 96, 24, 700, '#ECEAF2', UI); const p = pr(t, w(49) + 0.05, we(52) + 0.4); c.fillStyle = '#2A2930'; rr(c, 40, 140, ww - 80, 18, 9); c.fill(); c.fillStyle = RED; rr(c, 40, 140, (ww - 80) * p, 18, 9); c.fill();
         T(c, Math.round(p * 100) + '%', ww - 40, 190, 20, 700, RED, MONO, 'right'); const LOG = ['read SKILL.md', 'plan 7 scenes', 'write script', 'pick voice', 'gen objects']; LOG.forEach((l, i) => { if (t >= w(50) + i * 0.12) T(c, '✓ ' + l, 40, 240 + i * 34, 17, 500, '#6FCF7F', MONO); }); inputBar(c, ww, hh, '', t); }
     }, t);
     bigBadge(ctx, 4, t, w(47) - 0.05, [box.x + box.w - 20, box.y + 10]);
     // the ENTER key
     const down = t >= w(49) - 0.04 && t < w(49) + 0.12, k = pop(t, w(48) - 0.1, 6 * F1), out = pr(t, w(51), w(51) + 0.2);
-    if (k > 0 && out < 1) { ctx.save(); ctx.translate(800, box.y + box.h + 120); ctx.rotate(-0.08); ctx.scale(k * (1 - out), k * (1 - out)); ctx.fillStyle = '#8A0708'; rr(ctx, -150, -60 + 10, 300, 120, 20); ctx.fill(); ctx.fillStyle = RED; rr(ctx, -150, -60 + (down ? 10 : 0), 300, 110, 20); ctx.fill(); T(ctx, 'ENTER ↵', 0, (down ? 6 : -4), 52, 400, '#FFF', STAMP, 'center'); ctx.restore(); }
+    if (k > 0 && out < 1) { ctx.save(); ctx.translate(430, box.y + box.h + 130); ctx.rotate(-0.08); ctx.scale(k * (1 - out), k * (1 - out)); ctx.fillStyle = '#8A0708'; rr(ctx, -150, -60 + 10, 300, 120, 20); ctx.fill(); ctx.fillStyle = RED; rr(ctx, -150, -60 + (down ? 10 : 0), 300, 110, 20); ctx.fill(); T(ctx, 'ENTER ↵', 0, (down ? 6 : -4), 52, 400, '#FFF', STAMP, 'center'); ctx.restore(); }
     if (t >= w(51)) { const k2 = pop(t, w(51), 7 * F1); ctx.save(); ctx.translate(300, box.y + box.h + 120); ctx.scale(k2, k2); ctx.strokeStyle = INK; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(0, 0, 58, 0, 7); ctx.stroke(); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(Math.cos(t * 8) * 40, Math.sin(t * 8) * 40); ctx.moveTo(0, 0); ctx.lineTo(Math.cos(t * 0.7) * 26, Math.sin(t * 0.7) * 26); ctx.stroke(); T(ctx, 'WALK AWAY', 90, 0, 48, 400, INK, STAMP); ctx.restore(); }
   });
 
@@ -288,7 +297,7 @@ window.REGISTER_SCENES = function (G) {
       T(ctx, 'My channel · last 28 days · YouTube Studio', 0, ch / 2 + 40, 28, 600, GREY, SANS, 'center');
       ctx.restore();
       // 28-day calendar grid ticks off on "28 days"
-      if (t >= w(93) - 0.05) { const k2 = pop(t, w(93) - 0.05, 6 * F1); ctx.save(); ctx.translate(800, 1420); ctx.scale(k2, k2); lightCard(ctx, -190, -110, 380, 220, 18); T(ctx, '28 DAYS', -160, -76, 30, 400, INK, STAMP);
+      if (t >= w(93) - 0.05) { const k2 = pop(t, w(93) - 0.05, 6 * F1); ctx.save(); ctx.translate(320, 1440); ctx.scale(k2, k2); lightCard(ctx, -190, -110, 380, 220, 18); T(ctx, '28 DAYS', -160, -76, 30, 400, INK, STAMP);
         for (let d = 0; d < 28; d++) { const on = d < Math.round(28 * pr(t, w(93), we(94) + 0.3)); ctx.fillStyle = on ? RED : '#E4E1DD'; rr(ctx, -160 + (d % 7) * 46, -40 + Math.floor(d / 7) * 34, 38, 26, 5); ctx.fill(); } ctx.restore(); }
       ctx.globalAlpha = 1;
     }

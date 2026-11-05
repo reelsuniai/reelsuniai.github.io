@@ -141,7 +141,7 @@
     if (SENT) return SENT;
     SENT = []; let cur = [];
     const JOIN = /^(with|and|but|because|than|so|then|without|from)$/i;
-    WD.forEach((x, i) => { if (cur.length >= 3 && JOIN.test(x.t.replace(/[^A-Za-z]/g, ''))) { SENT.push(cur); cur = []; } cur.push(i); if ((/[.!?]$/.test(x.t) && !x.t.startsWith('@')) || /[,;:]$/.test(x.t) || cur.length >= 8) { SENT.push(cur); cur = []; } });
+    WD.forEach((x, i) => { if (cur.length >= 3 && JOIN.test(x.t.replace(/[^A-Za-z]/g, ''))) { SENT.push(cur); cur = []; } cur.push(i); if ((/[.!?]$/.test(x.t) && !x.t.startsWith('@')) || /[,;:]$/.test(x.t) || cur.map((j) => WD[j].t.length + 1).reduce((p, q) => p + q, 0) >= 38) { SENT.push(cur); cur = []; } });
     if (cur.length) SENT.push(cur);
     return SENT;
   }
@@ -374,7 +374,7 @@
   function drawScene(ctx, i, t) { ctx.save(); SC[R.scenes[i].type](ctx, t, R.scenes[i]); ctx.restore(); }
   function badges(ctx, t) {   // the step badge sits top-right of the stage for its chapter (§6); the wipe chapter pops it centre first
     let cur = null; R.scenes.forEach((s, i) => { if (s.badge && t >= START[i]) cur = [s, i]; });
-    if (!cur) return;
+    if (!cur || sceneIdx(t) !== cur[1]) return;
     const [s, i] = cur, t0 = START[i] + (s.enter === 'wipe' ? 0.33 : 0.05);
     if (s.enter === 'wipe' && t < t0 + 0.45) { badge(ctx, s.badge, 540, 980, t, t0, 1.9); return; }
     if (s.enter === 'wipe') { const p = E.inOutC(pr(t, t0 + 0.45, t0 + 0.45 + 8 * F1)); badge(ctx, s.badge, lerp(540, 926, p), lerp(980, 600, p), t, t0 - 1, lerp(1.9, 1, p)); return; }
