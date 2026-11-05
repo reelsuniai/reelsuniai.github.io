@@ -112,10 +112,10 @@ window.REGISTER_SCENES = function (G) {
       const cyc = 0.45 + rnd(i) * 0.3, ph = (t + i * 0.37) / cyc, k = Math.floor(ph), u = ph - k;      // each slot swaps its item every ~0.55-0.9 s
       const inK = u < 0.18 ? E.outBack(u / 0.18, 2.2) : u > 0.86 ? 1 - E.inC((u - 0.86) / 0.14) : 1;
       if (inK <= 0.01) return;
-      const bob = Math.sin(t * (2.4 + rnd(i) * 2.2) + i) * 24, rot = Math.sin(t * (1.6 + rnd(i * 3)) + i) * 0.22, x = sx + Math.cos(t * 1.1 + i) * 14, y = sy + bob;
+      const bob = Math.sin(t * (2.4 + rnd(i) * 2.2) + i) * 24, rot = Math.sin(t * (1.6 + rnd(i * 3)) + i) * 0.3, x = sx + Math.cos(t * 1.1 + i) * 14, y = sy + bob;
       ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(inK * level, inK * level);
       const kind = (k + i) % 3;
-      if (kind === 0) { img(ctx, BUSY_OBJ[(k * 3 + i) % BUSY_OBJ.length], 0, 0, 120); }
+      if (kind === 0) { img(ctx, BUSY_OBJ[(k * 3 + i) % BUSY_OBJ.length], 0, 0, 160); }
       else if (kind === 1) { const s2 = BUSY_TXT[(k * 5 + i) % BUSY_TXT.length]; const red = (k + i) % 2; const wd = tw(ctx, s2, 30, 800, UI) + 40; dotShadow(ctx, -wd / 2, -26, wd, 52, 26, 6, 6, 1.8); ctx.fillStyle = red ? RED : '#FFFFFF'; rr(ctx, -wd / 2, -26, wd, 52, 26); ctx.fill(); if (!red) { ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.stroke(); } T(ctx, s2, 0, 1, 30, 800, red ? '#FFF' : INK, UI, 'center'); }
       else { ctx.strokeStyle = (k + i) % 2 ? RED : INK; ctx.lineWidth = 7; ctx.lineCap = 'round'; const r = 26 + 8 * Math.sin(t * 9 + i); ctx.beginPath(); ctx.moveTo(-r, 0); ctx.lineTo(r, 0); ctx.moveTo(0, -r); ctx.lineTo(0, r); ctx.stroke(); ctx.beginPath(); ctx.arc(0, 0, r * 1.6, t * 4, t * 4 + 2.2); ctx.stroke(); }
       ctx.restore();
