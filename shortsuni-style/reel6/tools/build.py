@@ -28,7 +28,7 @@ html = f'''<!doctype html>
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
 <title>{R["title"]}</title>
 <link rel="stylesheet" href="assets/fonts.css" />
-<script src="assets/gsap.min.js"></script><script src="words.js"></script><script src="reel.js"></script><script src="fx.js"></script><script src="mascot_rig.js"></script><script src="story6.js"></script><script src="engine.js"></script>
+<script src="assets/gsap.min.js"></script><script src="words.js"></script><script src="reel.js"></script><script src="fx.js"></script><script src="mascot_rig.js"></script><script src="vec.js"></script><script src="story6.js"></script><script src="engine.js"></script>
 <style>html,body{{margin:0;padding:0;background:#F2F0EE}} #root{{position:relative;width:1080px;height:1920px;overflow:hidden}} #cv{{position:absolute;inset:0;width:1080px;height:1920px}}</style>
 </head><body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{DUR:.3f}" data-width="1080" data-height="1920">

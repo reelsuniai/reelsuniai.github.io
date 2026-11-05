@@ -8,7 +8,7 @@ window.REGISTER_SCENES = function (G) {
   const SHC = {};
   function sh(img) { if (SHC[img.src]) return SHC[img.src]; const c = document.createElement('canvas'); c.width = img.width; c.height = img.height; const x = c.getContext('2d'); x.drawImage(img, 0, 0); x.globalCompositeOperation = 'source-in';
     const tl = document.createElement('canvas'); tl.width = tl.height = 8; const q = tl.getContext('2d'); q.fillStyle = 'rgba(20,16,16,0.55)'; q.beginPath(); q.arc(4, 4, 2.2, 0, 7); q.fill(); x.fillStyle = x.createPattern(tl, 'repeat'); x.fillRect(0, 0, c.width, c.height); return (SHC[img.src] = c); }
-  function img(ctx, key, cx, cy, h, rot = 0) { const im = IMG[key]; if (!im) return; const ww = (im.width / im.height) * h; ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.imageSmoothingEnabled = true; ctx.drawImage(im, -ww / 2, -h / 2, ww, h); ctx.restore(); }
+  function img(ctx, key, cx, cy, h, rot = 0) { if (window.VEC && VEC.draw(ctx, key, cx, cy, h, rot)) return; const im = IMG[key]; if (!im) return; const ww = (im.width / im.height) * h; ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.imageSmoothingEnabled = true; ctx.drawImage(im, -ww / 2, -h / 2, ww, h); ctx.restore(); }
 
   // ---------------------------------------------------------------- phone with a reel playing (content swaps every ~0.27 s like his)
   const FRAMES = [['o_piggy', 'SAVE IT'], ['o_camera', 'NO CAMERA'], ['o_trophy', 'VIRAL.'], ['o_magnifier', 'LOOK'], ['o_filmreel', 'EVERY SCENE'], ['o_gift', 'FREE']];
@@ -19,7 +19,7 @@ window.REGISTER_SCENES = function (G) {
     T(ctx, 'Why your Shorts', x + 22, y + 52, 26, 800, INK, UI); T(ctx, 'get 0 views.', x + 22, y + 84, 26, 800, RED, UI);
     img(ctx, key, x + ww / 2, y + hh * 0.48, hh * 0.36, Math.sin(t * 6) * 0.06);
     T(ctx, word, x + ww / 2, y + hh * 0.75, 40, 400, RED, STAMP, 'center');
-    const m = IMG.m_wave1; if (m) { const h = hh * 0.22, w2 = (m.width / m.height) * h; ctx.drawImage(m, x + ww - w2 - 6, y + hh - h - 18, w2, h); }
+    if (IMG.logo) { const h = hh * 0.13; ctx.drawImage(IMG.logo, x + ww - h - 16, y + hh - h - 26, h, h); }
     ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.fillRect(x, y + hh - 10, ww, 5); ctx.fillStyle = RED; ctx.fillRect(x, y + hh - 10, ww * ((t * 0.4 + seed * 0.3) % 1), 5);
   }
   function phone(ctx, cx, cy, s, rot, t, o = {}) {
@@ -168,7 +168,7 @@ window.REGISTER_SCENES = function (G) {
       ctx.fillStyle = '#F2F0EE'; ctx.beginPath(); ctx.arc(-62, 0, 16, 0, 7); ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(-62, 0); ctx.quadraticCurveTo(-140, -60, -150, -140); ctx.stroke(); }
     ctx.restore();
   }
-  function shadowImg(ctx, key, cx, cy, h, rot = 0, k = 1) { if (key === 'o_folder' || key === 'o_pricetag') { if (k > 0) vecObj(ctx, key, cx, cy, h, rot, k); return; } const im = IMG[key]; if (!im || k <= 0) return; const ww = (im.width / im.height) * h; ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(k, k); ctx.imageSmoothingEnabled = true; ctx.drawImage(sh(im), -ww / 2 + 10, -h / 2 + 9, ww, h); ctx.drawImage(im, -ww / 2, -h / 2, ww, h); ctx.restore(); }
+  function shadowImg(ctx, key, cx, cy, h, rot = 0, k = 1) { if (window.VEC && VEC.has(key)) { if (k > 0) { ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k); VEC.draw(ctx, key, 0, 0, h, rot); ctx.restore(); } return; } const im = IMG[key]; if (!im || k <= 0) return; const ww = (im.width / im.height) * h; ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(k, k); ctx.imageSmoothingEnabled = true; ctx.drawImage(sh(im), -ww / 2 + 10, -h / 2 + 9, ww, h); ctx.drawImage(im, -ww / 2, -h / 2, ww, h); ctx.restore(); }
   const push = (t, t0, d = 2.5) => { const z = 1 + 0.04 * pr(t, t0, t0 + d); return z; };
   function withPush(ctx, t, t0, fn) { const z = push(t, t0); ctx.save(); ctx.translate(540, 980); ctx.scale(z, z); ctx.translate(-540, -980); fn(); ctx.restore(); }
 

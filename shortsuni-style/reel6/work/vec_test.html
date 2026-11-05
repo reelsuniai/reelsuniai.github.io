@@ -1,0 +1,4 @@
+<!doctype html><html><body style="margin:0;background:#F2F0EE"><canvas id="c" width="1800" height="700"></canvas><script src="../vec.js"></script><script>
+document.fonts.ready.then(()=>{ const c=document.getElementById('c').getContext('2d'); c.fillStyle='#F2F0EE'; c.fillRect(0,0,1800,700);
+['o_plane','o_bottle','o_pricetag','o_folder','o_camera','o_magnifier','o_piggy','o_trophy','o_filmreel','o_gift','o_mic'].forEach((k,i)=>VEC.draw(c,k,150+(i%6)*300,170+Math.floor(i/6)*340,260)); document.title='done'; });
+</script></body></html>
