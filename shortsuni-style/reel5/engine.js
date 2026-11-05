@@ -155,19 +155,19 @@
     // layout (all words of the sentence, so lines never reflow)
     const lay = []; let x = CX, line = 0;
     s.forEach((i) => {
-      const acc = ACC.has(i), txt = WD[i].t.replace(/^"|"$/g, ''), f = acc ? `italic 400 ${ACCS}px ${SERIF}` : `600 ${BODY}px ${SANS}`;
+      const acc = ACC.has(i), txt = WD[i].t.replace(/^"|"$/g, ''), f = acc ? `italic 400 ${ACCS}px ${SERIF}` : `500 ${BODY}px ${SANS}`;
       ctx.font = f; const ww = ctx.measureText(txt).width, sp = ctx.measureText(' ').width * (acc ? 0.9 : 1);
       if (x > CX && x + ww > CX + MAXW) { x = CX; line++; }
       lay.push({ i, acc, txt, f, x, line }); x += ww + (acc ? 20 : sp);
     });
     lay.forEach((L) => {
-      const on = w(L.i), g0 = on - 0.2, a0 = on - 2 * F1, a1 = on + F1;
+      const on = w(L.i), g0 = on - 3 * F1, a0 = on - 2 * F1, a1 = on + 1 * F1;
       if (t < g0 && L.i !== 0) return;
       const k = L.i === 0 ? 1 : E.outC(pr(t, a0, a1));
       ctx.save(); ctx.font = L.f; ctx.textBaseline = 'alphabetic';
       ctx.fillStyle = L.acc ? mixHex(GHOSTR, RED, k) : mixHex(GHOST, INK, k);
-      const blur = 4.5 * (1 - k); if (blur > 0.2) ctx.filter = `blur(${blur.toFixed(1)}px)`;
-      ctx.globalAlpha = lerp(0.55, 1, k);
+      const blur = 2 * (1 - k); if (blur > 0.2) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+      ctx.globalAlpha = lerp(0.5, 1, k);
       ctx.fillText(L.txt, L.x, CY + L.line * LH + (L.acc ? 4 : 0));
       ctx.restore();
     });
@@ -181,9 +181,9 @@
     T(ctx, L.num, 946, 141, 22, 700, RED, MONO, 'right');
     T(ctx, L.right + ' ', 946 - nw, 141, 22, 500, GREY, MONO, 'right');
     // watermark: IG glyph + handle, right side (§6), 45 % opacity
-    ctx.save(); ctx.globalAlpha = 0.45; ctx.strokeStyle = '#7A7774'; ctx.lineWidth = 3; rr(ctx, 910, 372, 36, 36, 10); ctx.stroke();
-    ctx.beginPath(); ctx.arc(928, 390, 8, 0, 7); ctx.stroke(); ctx.fillStyle = '#7A7774'; ctx.beginPath(); ctx.arc(939, 380, 2.5, 0, 7); ctx.fill(); ctx.restore();
-    ctx.save(); ctx.globalAlpha = 0.45; T(ctx, R.brand.handle, 946, 428, 20, 700, '#7A7774', SANS, 'right'); ctx.restore();
+    ctx.save(); ctx.globalAlpha = 0.45; ctx.strokeStyle = '#7A7774'; ctx.lineWidth = 3; rr(ctx, 910, 492, 36, 36, 10); ctx.stroke();
+    ctx.beginPath(); ctx.arc(928, 510, 8, 0, 7); ctx.stroke(); ctx.fillStyle = '#7A7774'; ctx.beginPath(); ctx.arc(939, 500, 2.5, 0, 7); ctx.fill(); ctx.restore();
+    ctx.save(); ctx.globalAlpha = 0.45; T(ctx, R.brand.handle, 946, 548, 20, 700, '#7A7774', SANS, 'right'); ctx.restore();
   }
 
   // ======================================================== presenter slot -> the @shortsuni logo (§6: always on screen, pose every 0.5-1 s)
@@ -387,7 +387,7 @@
     const inWipe = wa != null && t >= wa - 0.17 && t < wa + 0.45;
     // card stack (§8): previous scene shrinks to 0.96, blurs, fades over 6 f while the new one rises 60 px and fades in
     const KICKS = (R.kicks || R.accents || []).map((k) => w(k));
-    const full = (c, j, tt) => { if (window.FX && R.fx !== false && R.fxEnv !== false) { FX.env(c, tt, R.scenes[j].env); FX.particles(c, tt, R.scenes[j].env === 'spotlight'); } drawScene(c, j, tt); };
+    const full = (c, j, tt) => { if (window.FX && R.fx !== false) { if (R.fxEnv !== false) FX.env(c, tt, R.scenes[j].env); if (R.particles !== false) FX.particles(c, tt, R.scenes[j].env === 'spotlight'); } drawScene(c, j, tt); };
     ctx.save(); if (window.FX && R.fx !== false) FX.camera(ctx, t, KICKS);
     const st = pr(t, t0, t0 + (R.transition === 'whip' ? 7 : 6) * F1), stacking = i > 0 && st < 1 && R.scenes[i].enter !== 'wipe';
     if (stacking && R.transition === 'whip') {      // whip pan: old scene flies left, new one arrives from the right, with motion-blur ghosts

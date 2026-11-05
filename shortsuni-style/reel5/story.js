@@ -99,9 +99,32 @@ window.REGISTER_SCENES = function (G) {
     T(ctx, label, 0, 82, 30, 400, INK, STAMP, 'center'); ctx.restore();
   }
 
+
+  // ---------------------------------------------------------------- busy-motion layer (clean background, lots of moving small things)
+  const BUSY_OBJ = ['o_camera', 'o_palette', 'o_magnifier', 'o_piggy', 'o_trophy', 'o_gift', 'o_mic', 'o_filmreel', 'o_brush2'];
+  const BUSY_TXT = ['HOOK', '0:01', 'VIRAL', '+1', 'NEW', '✓ done', 'AUTO', '9 words', 'FREE', 'REEL', 'x2', 'LIVE'];
+  const SLOTS = [[150, 600], [930, 620], [140, 820], [940, 860], [150, 1080], [930, 1100], [220, 1330], [560, 590], [700, 1380], [430, 1430], [340, 650], [760, 650], [150, 1450], [320, 1230], [800, 1240]];
+  function busy(ctx, t, level = 1) {
+    // rotating dashed ring + pulsing glow behind the hero
+    ctx.save(); ctx.translate(540, 980); ctx.rotate(t * 0.6); ctx.strokeStyle = 'rgba(225,10,15,0.28)'; ctx.lineWidth = 5; ctx.setLineDash([22, 18]); ctx.beginPath(); ctx.arc(0, 0, 400 + 18 * Math.sin(t * 2.2), 0, 7); ctx.stroke();
+    ctx.rotate(-t * 1.3); ctx.strokeStyle = 'rgba(17,16,16,0.16)'; ctx.setLineDash([6, 14]); ctx.beginPath(); ctx.arc(0, 0, 470, 0, 7); ctx.stroke(); ctx.restore(); ctx.setLineDash([]);
+    SLOTS.forEach(([sx, sy], i) => {
+      const cyc = 0.45 + rnd(i) * 0.3, ph = (t + i * 0.37) / cyc, k = Math.floor(ph), u = ph - k;      // each slot swaps its item every ~0.55-0.9 s
+      const inK = u < 0.18 ? E.outBack(u / 0.18, 2.2) : u > 0.86 ? 1 - E.inC((u - 0.86) / 0.14) : 1;
+      if (inK <= 0.01) return;
+      const bob = Math.sin(t * (2.4 + rnd(i) * 2.2) + i) * 24, rot = Math.sin(t * (1.6 + rnd(i * 3)) + i) * 0.22, x = sx + Math.cos(t * 1.1 + i) * 14, y = sy + bob;
+      ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(inK * level, inK * level);
+      const kind = (k + i) % 3;
+      if (kind === 0) { img(ctx, BUSY_OBJ[(k * 3 + i) % BUSY_OBJ.length], 0, 0, 120); }
+      else if (kind === 1) { const s2 = BUSY_TXT[(k * 5 + i) % BUSY_TXT.length]; const red = (k + i) % 2; const wd = tw(ctx, s2, 30, 800, UI) + 40; dotShadow(ctx, -wd / 2, -26, wd, 52, 26, 6, 6, 1.8); ctx.fillStyle = red ? RED : '#FFFFFF'; rr(ctx, -wd / 2, -26, wd, 52, 26); ctx.fill(); if (!red) { ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.stroke(); } T(ctx, s2, 0, 1, 30, 800, red ? '#FFF' : INK, UI, 'center'); }
+      else { ctx.strokeStyle = (k + i) % 2 ? RED : INK; ctx.lineWidth = 7; ctx.lineCap = 'round'; const r = 26 + 8 * Math.sin(t * 9 + i); ctx.beginPath(); ctx.moveTo(-r, 0); ctx.lineTo(r, 0); ctx.moveTo(0, -r); ctx.lineTo(0, r); ctx.stroke(); ctx.beginPath(); ctx.arc(0, 0, r * 1.6, t * 4, t * 4 + 2.2); ctx.stroke(); }
+      ctx.restore();
+    });
+  }
   // ================================================================ SHOT 1
   SC.shot1 = (ctx, t, S) => {
-    { const br = 1.05 + 0.025 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 1000 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
+    { const br = 1.05 + 0.03 * Math.sin(t * 1.9) + 0.015 * Math.sin(t * 4.3), dx = Math.sin(t * 1.3) * 16 + Math.sin(t * 3.1) * 5, dy = Math.cos(t * 1.5) * 12; ctx.translate(540 + dx, 1000 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
+    busy(ctx, t);
     const wMade = at(6), wNo = at(8), wType = at(14), wBuild = at(18), wWatch = at(29);
     // --- phone (hero at frame 0) -> shrinks aside when Claude Code arrives -> fades into the window on "No"
     let pS = 1, pX = 540, pY = 900, pA = 1;
@@ -165,7 +188,8 @@ window.REGISTER_SCENES = function (G) {
 
   // ================================================================ SHOT 2
   SC.shot2 = (ctx, t, S) => {
-    { const br = 1.05 + 0.025 * Math.sin(t * 1.4) + 0.012 * Math.sin(t * 3.7), dx = Math.sin(t * 0.9) * 10, dy = Math.cos(t * 1.1) * 8; ctx.translate(540 + dx, 1000 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
+    { const br = 1.05 + 0.03 * Math.sin(t * 1.9) + 0.015 * Math.sin(t * 4.3), dx = Math.sin(t * 1.3) * 16 + Math.sin(t * 3.1) * 5, dy = Math.cos(t * 1.5) * 12; ctx.translate(540 + dx, 1000 + dy); ctx.rotate(Math.sin(t * 0.7) * 0.006); ctx.scale(br, br); ctx.translate(-540, -950); }
+    busy(ctx, t);
     const wFix = at(38), wPass = at(41), wTool = at(42), wFree = at(48), wCom = at(49);
     // --- MOTION CHECK card: graph + film strip, playhead scans, FLAT -> FIXED -> PASS
     const out = ease(t, wTool - 0.15, 8 * F1, E.inOutC);

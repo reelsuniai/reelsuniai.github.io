@@ -86,7 +86,7 @@
       const sp = 20 + rnd(i * 3) * 50, x = ((rnd(i) * W + Math.sin(t * 0.7 + i) * 40) % W + W) % W, y = 520 + ((rnd(i * 7) * 1300 - t * sp) % 1300 + 1300) % 1300;
       const s = 4 + rnd(i * 11) * 11, r = t * (1.5 + rnd(i) * 2) + i;
       ctx.save(); ctx.translate(x, y); ctx.rotate(r); ctx.globalAlpha = 0.5 + 0.4 * rnd(i * 5);
-      ctx.fillStyle = i % 7 === 0 ? '#E10A0F' : dark ? 'rgba(255,245,230,0.7)' : 'rgba(60,50,45,0.45)'; ctx.fillRect(-s / 2, -s / 4, s, s / 2); ctx.restore();
+      ctx.fillStyle = i % 6 === 0 ? '#E10A0F' : dark ? 'rgba(255,245,230,0.7)' : 'rgba(40,34,30,0.55)'; ctx.fillRect(-s / 2, -s / 4, s, s / 2); ctx.restore();
     }
   }
   function debris(ctx, t, t0, cx, cy, n = 16, seed = 1, col = '#111010') {

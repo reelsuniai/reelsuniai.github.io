@@ -586,5 +586,6 @@
   50,
   56
  ],
- "fxEnv": false
+ "fxEnv": false,
+ "particles": true
 }
