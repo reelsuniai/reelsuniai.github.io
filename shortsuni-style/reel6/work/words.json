@@ -73,49 +73,679 @@
 "i": 10,
 "text": "It",
 "line": 1,
-"start": 2.544,
-"end": 2.585
+"start": 2.541,
+"end": 2.582
 },
 {
 "i": 11,
 "text": "looks",
 "line": 1,
-"start": 2.626,
-"end": 2.81
+"start": 2.622,
+"end": 2.803
 },
 {
 "i": 12,
 "text": "hard.",
 "line": 1,
-"start": 2.852,
-"end": 3.118
+"start": 2.843,
+"end": 3.104
 },
 {
 "i": 13,
 "text": "It's",
 "line": 1,
-"start": 3.18,
-"end": 3.303
+"start": 3.164,
+"end": 3.285
 },
 {
 "i": 14,
 "text": "only",
 "line": 1,
-"start": 3.344,
-"end": 3.488
+"start": 3.325,
+"end": 3.466
 },
 {
 "i": 15,
 "text": "five",
 "line": 1,
-"start": 3.57,
-"end": 3.796
+"start": 3.546,
+"end": 3.767
 },
 {
 "i": 16,
 "text": "steps!",
 "line": 1,
-"start": 3.878,
-"end": 4.186
+"start": 3.848,
+"end": 4.149
+},
+{
+"i": 17,
+"text": "One.",
+"line": 2,
+"start": 4.37,
+"end": 4.471
+},
+{
+"i": 18,
+"text": "Drop",
+"line": 2,
+"start": 4.531,
+"end": 4.711
+},
+{
+"i": 19,
+"text": "my",
+"line": 2,
+"start": 4.791,
+"end": 4.872
+},
+{
+"i": 20,
+"text": "skill",
+"line": 2,
+"start": 4.952,
+"end": 5.192
+},
+{
+"i": 21,
+"text": "folder",
+"line": 2,
+"start": 5.273,
+"end": 5.573
+},
+{
+"i": 22,
+"text": "into",
+"line": 2,
+"start": 5.614,
+"end": 5.734
+},
+{
+"i": 23,
+"text": "Claude",
+"line": 2,
+"start": 5.794,
+"end": 6.055
+},
+{
+"i": 24,
+"text": "Code.",
+"line": 2,
+"start": 6.115,
+"end": 6.396
+},
+{
+"i": 25,
+"text": "Two.",
+"line": 3,
+"start": 6.656,
+"end": 6.737
+},
+{
+"i": 26,
+"text": "Ask",
+"line": 3,
+"start": 6.977,
+"end": 7.098
+},
+{
+"i": 27,
+"text": "it",
+"line": 3,
+"start": 7.178,
+"end": 7.218
+},
+{
+"i": 28,
+"text": "to",
+"line": 3,
+"start": 7.258,
+"end": 7.318
+},
+{
+"i": 29,
+"text": "check",
+"line": 3,
+"start": 7.359,
+"end": 7.519
+},
+{
+"i": 30,
+"text": "your",
+"line": 3,
+"start": 7.559,
+"end": 7.68
+},
+{
+"i": 31,
+"text": "setup.",
+"line": 3,
+"start": 7.7,
+"end": 7.961
+},
+{
+"i": 32,
+"text": "It",
+"line": 3,
+"start": 8.241,
+"end": 8.302
+},
+{
+"i": 33,
+"text": "installs",
+"line": 3,
+"start": 8.362,
+"end": 8.823
+},
+{
+"i": 34,
+"text": "what's",
+"line": 3,
+"start": 8.884,
+"end": 9.084
+},
+{
+"i": 35,
+"text": "missing.",
+"line": 3,
+"start": 9.144,
+"end": 9.445
+},
+{
+"i": 36,
+"text": "Three.",
+"line": 4,
+"start": 9.706,
+"end": 9.927
+},
+{
+"i": 37,
+"text": "Type",
+"line": 4,
+"start": 10.087,
+"end": 10.288
+},
+{
+"i": 38,
+"text": "one",
+"line": 4,
+"start": 10.448,
+"end": 10.549
+},
+{
+"i": 39,
+"text": "line,",
+"line": 4,
+"start": 10.609,
+"end": 10.829
+},
+{
+"i": 40,
+"text": "like:",
+"line": 4,
+"start": 10.89,
+"end": 11.07
+},
+{
+"i": 41,
+"text": "why",
+"line": 4,
+"start": 11.311,
+"end": 11.411
+},
+{
+"i": 42,
+"text": "does",
+"line": 4,
+"start": 11.511,
+"end": 11.612
+},
+{
+"i": 43,
+"text": "airport",
+"line": 4,
+"start": 11.712,
+"end": 12.013
+},
+{
+"i": 44,
+"text": "water",
+"line": 4,
+"start": 12.073,
+"end": 12.273
+},
+{
+"i": 45,
+"text": "cost",
+"line": 4,
+"start": 12.334,
+"end": 12.574
+},
+{
+"i": 46,
+"text": "$8?",
+"line": 4,
+"start": 12.695,
+"end": 12.855
+},
+{
+"i": 47,
+"text": "Four.",
+"line": 5,
+"start": 13.518,
+"end": 13.719
+},
+{
+"i": 48,
+"text": "Hit",
+"line": 5,
+"start": 13.82,
+"end": 13.92
+},
+{
+"i": 49,
+"text": "enter",
+"line": 5,
+"start": 13.981,
+"end": 14.162
+},
+{
+"i": 50,
+"text": "and",
+"line": 5,
+"start": 14.202,
+"end": 14.262
+},
+{
+"i": 51,
+"text": "walk",
+"line": 5,
+"start": 14.303,
+"end": 14.444
+},
+{
+"i": 52,
+"text": "away.",
+"line": 5,
+"start": 14.524,
+"end": 14.826
+},
+{
+"i": 53,
+"text": "It",
+"line": 6,
+"start": 15.047,
+"end": 15.107
+},
+{
+"i": 54,
+"text": "writes",
+"line": 6,
+"start": 15.147,
+"end": 15.368
+},
+{
+"i": 55,
+"text": "the",
+"line": 6,
+"start": 15.448,
+"end": 15.528
+},
+{
+"i": 56,
+"text": "script,",
+"line": 6,
+"start": 15.568,
+"end": 15.849
+},
+{
+"i": 57,
+"text": "voices",
+"line": 6,
+"start": 16.029,
+"end": 16.37
+},
+{
+"i": 58,
+"text": "it,",
+"line": 6,
+"start": 16.47,
+"end": 16.51
+},
+{
+"i": 59,
+"text": "animates",
+"line": 6,
+"start": 16.75,
+"end": 17.171
+},
+{
+"i": 60,
+"text": "each",
+"line": 6,
+"start": 17.312,
+"end": 17.452
+},
+{
+"i": 61,
+"text": "scene",
+"line": 6,
+"start": 17.532,
+"end": 17.792
+},
+{
+"i": 62,
+"text": "and",
+"line": 6,
+"start": 17.893,
+"end": 17.953
+},
+{
+"i": 63,
+"text": "times",
+"line": 6,
+"start": 18.013,
+"end": 18.293
+},
+{
+"i": 64,
+"text": "the",
+"line": 6,
+"start": 18.354,
+"end": 18.434
+},
+{
+"i": 65,
+"text": "captions.",
+"line": 6,
+"start": 18.454,
+"end": 18.915
+},
+{
+"i": 66,
+"text": "Then",
+"line": 7,
+"start": 19.196,
+"end": 19.276
+},
+{
+"i": 67,
+"text": "it",
+"line": 7,
+"start": 19.337,
+"end": 19.377
+},
+{
+"i": 68,
+"text": "scores",
+"line": 7,
+"start": 19.417,
+"end": 19.74
+},
+{
+"i": 69,
+"text": "its",
+"line": 7,
+"start": 19.781,
+"end": 19.881
+},
+{
+"i": 70,
+"text": "own",
+"line": 7,
+"start": 19.962,
+"end": 20.063
+},
+{
+"i": 71,
+"text": "cut",
+"line": 7,
+"start": 20.164,
+"end": 20.386
+},
+{
+"i": 72,
+"text": "and",
+"line": 7,
+"start": 20.507,
+"end": 20.587
+},
+{
+"i": 73,
+"text": "fixes",
+"line": 7,
+"start": 20.648,
+"end": 20.951
+},
+{
+"i": 74,
+"text": "the",
+"line": 7,
+"start": 21.031,
+"end": 21.092
+},
+{
+"i": 75,
+"text": "weak",
+"line": 7,
+"start": 21.132,
+"end": 21.293
+},
+{
+"i": 76,
+"text": "spots.",
+"line": 7,
+"start": 21.374,
+"end": 21.757
+},
+{
+"i": 77,
+"text": "Five.",
+"line": 8,
+"start": 22.019,
+"end": 22.3
+},
+{
+"i": 78,
+"text": "Post",
+"line": 8,
+"start": 22.44,
+"end": 22.661
+},
+{
+"i": 79,
+"text": "it,",
+"line": 8,
+"start": 22.761,
+"end": 22.801
+},
+{
+"i": 80,
+"text": "then",
+"line": 8,
+"start": 22.861,
+"end": 22.982
+},
+{
+"i": 81,
+"text": "make",
+"line": 8,
+"start": 23.042,
+"end": 23.182
+},
+{
+"i": 82,
+"text": "another",
+"line": 8,
+"start": 23.242,
+"end": 23.483
+},
+{
+"i": 83,
+"text": "one",
+"line": 8,
+"start": 23.583,
+"end": 23.663
+},
+{
+"i": 84,
+"text": "tomorrow.",
+"line": 8,
+"start": 23.703,
+"end": 24.185
+},
+{
+"i": 85,
+"text": "That's",
+"line": 9,
+"start": 24.385,
+"end": 24.566
+},
+{
+"i": 86,
+"text": "how",
+"line": 9,
+"start": 24.606,
+"end": 24.726
+},
+{
+"i": 87,
+"text": "my",
+"line": 9,
+"start": 24.846,
+"end": 24.947
+},
+{
+"i": 88,
+"text": "channel",
+"line": 9,
+"start": 25.087,
+"end": 25.408
+},
+{
+"i": 89,
+"text": "hit",
+"line": 9,
+"start": 25.488,
+"end": 25.628
+},
+{
+"i": 90,
+"text": "9.2M",
+"line": 9,
+"start": 25.749,
+"end": 26.651
+},
+{
+"i": 91,
+"text": "views",
+"line": 9,
+"start": 26.791,
+"end": 27.112
+},
+{
+"i": 92,
+"text": "in",
+"line": 9,
+"start": 27.192,
+"end": 27.473
+},
+{
+"i": 93,
+"text": "28",
+"line": 9,
+"start": 27.573,
+"end": 27.613
+},
+{
+"i": 94,
+"text": "days,",
+"line": 9,
+"start": 27.713,
+"end": 28.154
+},
+{
+"i": 95,
+"text": "without",
+"line": 9,
+"start": 28.194,
+"end": 28.475
+},
+{
+"i": 96,
+"text": "filming",
+"line": 9,
+"start": 28.776,
+"end": 29.077
+},
+{
+"i": 97,
+"text": "a",
+"line": 9,
+"start": 29.177,
+"end": 29.498
+},
+{
+"i": 98,
+"text": "thing.",
+"line": 9,
+"start": 29.558,
+"end": 29.578
+},
+{
+"i": 99,
+"text": "Comment",
+"line": 10,
+"start": 30.14,
+"end": 30.443
+},
+{
+"i": 100,
+"text": "SYSTEM",
+"line": 10,
+"start": 30.463,
+"end": 30.767
+},
+{
+"i": 101,
+"text": "and",
+"line": 10,
+"start": 30.949,
+"end": 31.03
+},
+{
+"i": 102,
+"text": "I'll",
+"line": 10,
+"start": 31.09,
+"end": 31.272
+},
+{
+"i": 103,
+"text": "send",
+"line": 10,
+"start": 31.313,
+"end": 31.454
+},
+{
+"i": 104,
+"text": "it",
+"line": 10,
+"start": 31.515,
+"end": 31.576
+},
+{
+"i": 105,
+"text": "to",
+"line": 10,
+"start": 31.616,
+"end": 31.677
+},
+{
+"i": 106,
+"text": "you.",
+"line": 10,
+"start": 31.738,
+"end": 31.839
 }
 ]

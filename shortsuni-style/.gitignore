@@ -44,3 +44,5 @@ reel6/work/*.wav
 reel6/work/snaps*/
 reel6/work/render.log
 reel6/assets/audio/sfx.wav
+reel6/assets/gen2/
+reel6/work/gen2.log

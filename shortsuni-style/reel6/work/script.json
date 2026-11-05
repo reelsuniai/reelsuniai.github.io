@@ -5,6 +5,15 @@
  "lead": 0.02,
  "lines": [
   ["Here's how to make reels like this with Claude Code.", "Here's how to make reels like this with Claude Code."],
-  ["It looks hard. It's only five steps!", "It looks hard. It's only five steps!"]
+  ["It looks hard. It's only five steps!", "It looks hard. It's only five steps!"],
+  ["One. Drop my skill folder into Claude Code.", "One. Drop my skill folder into Claude Code."],
+  ["Two. Ask it to check your setup. It installs what's missing.", "Two. Ask it to check your setup. It installs what's missing."],
+  ["Three. Type one line, like: why does airport water cost $8?", "Three. Type one line, like: why does airport water cost eight dollars?"],
+  ["Four. Hit enter and walk away.", "Four. Hit enter and walk away."],
+  ["It writes the script, voices it, animates each scene and times the captions.", "It writes the script, voices it, animates each scene and times the captions."],
+  ["Then it scores its own cut and fixes the weak spots.", "Then it scores its own cut and fixes the weak spots."],
+  ["Five. Post it, then make another one tomorrow.", "Five. Post it, then make another one tomorrow."],
+  ["That's how my channel hit 9.2M views in 28 days, without filming a thing.", "That's how my channel hit nine_point_two million views in twenty-eight days, without filming a thing."],
+  ["Comment SYSTEM and I'll send it to you.", "Comment system and I'll send it to you."]
  ]
 }
