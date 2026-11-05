@@ -1,0 +1,14 @@
+{
+ "voice": "am_michael",
+ "speed": 1.12,
+ "gap": 0.06,
+ "lead": 0.05,
+ "lines": [
+  ["Most Shorts die in the first second.", "Most Shorts die in the first second."],
+  ["Here's how Claude fixes that.", "Here's how Claude fixes that."],
+  ["One. Ask Claude for 10 hooks under 8 words.", "One. Ask Claude for ten hooks under eight words."],
+  ["Two. Make it cut every line that doesn't raise the stakes.", "Two. Make it cut every line that doesn't raise the stakes."],
+  ["Three. Get on-screen text for every beat.", "Three. Get on-screen text for every beat."],
+  ["Post. Then follow @shortsuni for part two.", "Post. Then follow shorts_uni for part two."]
+ ]
+}

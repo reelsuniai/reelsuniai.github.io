@@ -3,3 +3,8 @@ references/frames/
 references/cuts/
 references/audio/
 references/analysis/full/
+template/renders/
+template/.hyperframes/
+template/work/*.wav
+template/work/snaps/
+template/assets/audio/sfx.wav

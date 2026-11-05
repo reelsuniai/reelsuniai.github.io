@@ -1,0 +1,324 @@
+[
+{
+"i": 0,
+"text": "Most",
+"line": 0,
+"start": 0.08,
+"end": 0.221
+},
+{
+"i": 1,
+"text": "Shorts",
+"line": 0,
+"start": 0.301,
+"end": 0.583
+},
+{
+"i": 2,
+"text": "die",
+"line": 0,
+"start": 0.683,
+"end": 0.924
+},
+{
+"i": 3,
+"text": "in",
+"line": 0,
+"start": 0.965,
+"end": 1.005
+},
+{
+"i": 4,
+"text": "the",
+"line": 0,
+"start": 1.045,
+"end": 1.125
+},
+{
+"i": 5,
+"text": "first",
+"line": 0,
+"start": 1.165,
+"end": 1.387
+},
+{
+"i": 6,
+"text": "second.",
+"line": 0,
+"start": 1.467,
+"end": 1.788
+},
+{
+"i": 7,
+"text": "Here's",
+"line": 1,
+"start": 2.01,
+"end": 2.192
+},
+{
+"i": 8,
+"text": "how",
+"line": 1,
+"start": 2.232,
+"end": 2.313
+},
+{
+"i": 9,
+"text": "Claude",
+"line": 1,
+"start": 2.455,
+"end": 2.799
+},
+{
+"i": 10,
+"text": "fixes",
+"line": 1,
+"start": 2.88,
+"end": 3.224
+},
+{
+"i": 11,
+"text": "that.",
+"line": 1,
+"start": 3.305,
+"end": 3.467
+},
+{
+"i": 12,
+"text": "One.",
+"line": 2,
+"start": 3.809,
+"end": 3.909
+},
+{
+"i": 13,
+"text": "Ask",
+"line": 2,
+"start": 4.17,
+"end": 4.251
+},
+{
+"i": 14,
+"text": "Claude",
+"line": 2,
+"start": 4.391,
+"end": 4.653
+},
+{
+"i": 15,
+"text": "for",
+"line": 2,
+"start": 4.693,
+"end": 4.773
+},
+{
+"i": 16,
+"text": "10",
+"line": 2,
+"start": 4.853,
+"end": 5.014
+},
+{
+"i": 17,
+"text": "hooks",
+"line": 2,
+"start": 5.095,
+"end": 5.295
+},
+{
+"i": 18,
+"text": "under",
+"line": 2,
+"start": 5.336,
+"end": 5.476
+},
+{
+"i": 19,
+"text": "8",
+"line": 2,
+"start": 5.557,
+"end": 5.697
+},
+{
+"i": 20,
+"text": "words.",
+"line": 2,
+"start": 5.778,
+"end": 6.119
+},
+{
+"i": 21,
+"text": "Two.",
+"line": 3,
+"start": 6.46,
+"end": 6.601
+},
+{
+"i": 22,
+"text": "Make",
+"line": 3,
+"start": 6.902,
+"end": 7.023
+},
+{
+"i": 23,
+"text": "it",
+"line": 3,
+"start": 7.083,
+"end": 7.123
+},
+{
+"i": 24,
+"text": "cut",
+"line": 3,
+"start": 7.164,
+"end": 7.304
+},
+{
+"i": 25,
+"text": "every",
+"line": 3,
+"start": 7.485,
+"end": 7.646
+},
+{
+"i": 26,
+"text": "line",
+"line": 3,
+"start": 7.726,
+"end": 8.007
+},
+{
+"i": 27,
+"text": "that",
+"line": 3,
+"start": 8.048,
+"end": 8.148
+},
+{
+"i": 28,
+"text": "doesn't",
+"line": 3,
+"start": 8.188,
+"end": 8.429
+},
+{
+"i": 29,
+"text": "raise",
+"line": 3,
+"start": 8.49,
+"end": 8.731
+},
+{
+"i": 30,
+"text": "the",
+"line": 3,
+"start": 8.811,
+"end": 8.871
+},
+{
+"i": 31,
+"text": "stakes.",
+"line": 3,
+"start": 8.911,
+"end": 9.253
+},
+{
+"i": 32,
+"text": "Three.",
+"line": 4,
+"start": 9.614,
+"end": 9.835
+},
+{
+"i": 33,
+"text": "Get",
+"line": 4,
+"start": 10.055,
+"end": 10.175
+},
+{
+"i": 34,
+"text": "on-screen",
+"line": 4,
+"start": 10.276,
+"end": 10.676
+},
+{
+"i": 35,
+"text": "text",
+"line": 4,
+"start": 10.777,
+"end": 11.017
+},
+{
+"i": 36,
+"text": "for",
+"line": 4,
+"start": 11.097,
+"end": 11.198
+},
+{
+"i": 37,
+"text": "every",
+"line": 4,
+"start": 11.318,
+"end": 11.498
+},
+{
+"i": 38,
+"text": "beat.",
+"line": 4,
+"start": 11.578,
+"end": 11.799
+},
+{
+"i": 39,
+"text": "Post.",
+"line": 5,
+"start": 12.019,
+"end": 12.3
+},
+{
+"i": 40,
+"text": "Then",
+"line": 5,
+"start": 12.501,
+"end": 12.621
+},
+{
+"i": 41,
+"text": "follow",
+"line": 5,
+"start": 12.741,
+"end": 13.022
+},
+{
+"i": 42,
+"text": "@shortsuni",
+"line": 5,
+"start": 13.143,
+"end": 13.684
+},
+{
+"i": 43,
+"text": "for",
+"line": 5,
+"start": 13.764,
+"end": 13.865
+},
+{
+"i": 44,
+"text": "part",
+"line": 5,
+"start": 13.925,
+"end": 14.126
+},
+{
+"i": 45,
+"text": "two.",
+"line": 5,
+"start": 14.226,
+"end": 14.386
+}
+]
