@@ -31,3 +31,9 @@ reel4/work/*.wav
 reel4/work/snaps*/
 reel4/work/render.log
 reel4/assets/audio/sfx.wav
+reel5/renders/
+reel5/.hyperframes/
+reel5/work/*.wav
+reel5/work/snaps*/
+reel5/work/render.log
+reel5/assets/audio/sfx.wav

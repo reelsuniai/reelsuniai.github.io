@@ -1,0 +1,36 @@
+/root/.cache/motion-graphics-v3/venv/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+[transformers] `CLIPImageProcessor` requires torchvision (not installed); falling back to `CLIPImageProcessorPil` for backward compatibility. Install torchvision to use the default backend, or import `CLIPImageProcessorPil` directly to silence this warning.
+[transformers] `SiglipImageProcessor` requires torchvision (not installed); falling back to `SiglipImageProcessorPil` for backward compatibility. Install torchvision to use the default backend, or import `SiglipImageProcessorPil` directly to silence this warning.
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 3057.12it/s]
+Loading pipeline components...:  50%|█████     | 3/6 [00:00<00:00, 15.52it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 20.50it/s]
+m_point1 41.3s
+m_point2 21.0s
+m_palms1 21.5s
+m_shrug1 21.5s
+m_wave1 21.7s
+m_thumb1 21.4s
+m_think1 21.8s
+m_wow1 23.2s
+m_cross1 21.0s
+m_hype1 21.2s
+/root/.cache/motion-graphics-v3/venv/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+[transformers] `CLIPImageProcessor` requires torchvision (not installed); falling back to `CLIPImageProcessorPil` for backward compatibility. Install torchvision to use the default backend, or import `CLIPImageProcessorPil` directly to silence this warning.
+[transformers] `SiglipImageProcessor` requires torchvision (not installed); falling back to `SiglipImageProcessorPil` for backward compatibility. Install torchvision to use the default backend, or import `SiglipImageProcessorPil` directly to silence this warning.
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00, 38.03it/s]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 3792.00it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 22.93it/s]
+o_clapper 21.2s
+o_filmreel 20.9s
+o_camera 21.1s
+o_scissors 20.7s
+o_palette 21.3s
+o_keyboard 21.2s
+o_mic 20.8s
+o_brush 20.9s
+o_magnifier 21.2s
+o_piggy 21.2s
+o_gift 21.2s
+o_trophy 21.1s
