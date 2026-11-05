@@ -1,0 +1,17 @@
+{
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "gap": 0.03,
+ "lead": 0.02,
+ "lines": [
+  ["Your Shorts get zero views for three reasons.", "Your Shorts get zero views for three reasons."],
+  ["Mistake one: a slow start. Viewers decide in one second.", "Mistake one: a slow start. Viewers decide in one second."],
+  ["Fix: open on your most shocking frame.", "Fix: open on your most shocking frame."],
+  ["Mistake two: tiny captions nobody can read.", "Mistake two: tiny captions nobody can read."],
+  ["Fix: big words, three at a time.", "Fix: big words, three at a time."],
+  ["Mistake three: posting once, then quitting.", "Mistake three: posting once, then quitting."],
+  ["Fix: post every day for thirty days.", "Fix: post every day for thirty days."],
+  ["That's how my channel hit 9.2M views in 28 days.", "That's how my channel hit nine_point_two million views in twenty-eight days."],
+  ["Comment GROW and I'll send you my posting plan.", "Comment grow and I'll send you my posting plan."]
+ ]
+}
