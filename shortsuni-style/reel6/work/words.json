@@ -1,0 +1,121 @@
+[
+{
+"i": 0,
+"text": "Here's",
+"line": 0,
+"start": 0.02,
+"end": 0.202
+},
+{
+"i": 1,
+"text": "how",
+"line": 0,
+"start": 0.242,
+"end": 0.323
+},
+{
+"i": 2,
+"text": "to",
+"line": 0,
+"start": 0.363,
+"end": 0.424
+},
+{
+"i": 3,
+"text": "make",
+"line": 0,
+"start": 0.464,
+"end": 0.585
+},
+{
+"i": 4,
+"text": "reels",
+"line": 0,
+"start": 0.666,
+"end": 0.968
+},
+{
+"i": 5,
+"text": "like",
+"line": 0,
+"start": 1.009,
+"end": 1.15
+},
+{
+"i": 6,
+"text": "this",
+"line": 0,
+"start": 1.21,
+"end": 1.352
+},
+{
+"i": 7,
+"text": "with",
+"line": 0,
+"start": 1.452,
+"end": 1.574
+},
+{
+"i": 8,
+"text": "Claude",
+"line": 0,
+"start": 1.654,
+"end": 1.916
+},
+{
+"i": 9,
+"text": "Code.",
+"line": 0,
+"start": 1.977,
+"end": 2.259
+},
+{
+"i": 10,
+"text": "It",
+"line": 1,
+"start": 2.544,
+"end": 2.585
+},
+{
+"i": 11,
+"text": "looks",
+"line": 1,
+"start": 2.626,
+"end": 2.81
+},
+{
+"i": 12,
+"text": "hard.",
+"line": 1,
+"start": 2.852,
+"end": 3.118
+},
+{
+"i": 13,
+"text": "It's",
+"line": 1,
+"start": 3.18,
+"end": 3.303
+},
+{
+"i": 14,
+"text": "only",
+"line": 1,
+"start": 3.344,
+"end": 3.488
+},
+{
+"i": 15,
+"text": "five",
+"line": 1,
+"start": 3.57,
+"end": 3.796
+},
+{
+"i": 16,
+"text": "steps!",
+"line": 1,
+"start": 3.878,
+"end": 4.186
+}
+]

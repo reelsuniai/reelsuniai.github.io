@@ -1,0 +1,10 @@
+{
+ "voice": "am_fenrir",
+ "speed": 1.12,
+ "gap": 0.04,
+ "lead": 0.02,
+ "lines": [
+  ["Here's how to make reels like this with Claude Code.", "Here's how to make reels like this with Claude Code."],
+  ["It looks hard. It's only five steps!", "It looks hard. It's only five steps!"]
+ ]
+}
