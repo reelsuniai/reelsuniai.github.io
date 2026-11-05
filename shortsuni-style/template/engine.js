@@ -39,10 +39,14 @@
     ctx.drawImage(BGC, 0, 0);
   }
   // §6 shadow rule: halftone dots, never blur. Draws a dot field shaped like a rounded rect, offset down-right.
+  const PAT = {};
+  function dotPat(ctx, pitch, dr, col) {      // one cached tile per (pitch, radius, colour) -> CanvasPattern
+    const key = pitch + '|' + dr + '|' + col;
+    if (!PAT[key]) { const c = document.createElement('canvas'); c.width = c.height = pitch; const x = c.getContext('2d'); x.fillStyle = col; x.beginPath(); x.arc(pitch / 2, pitch / 2, dr, 0, 7); x.fill(); PAT[key] = c; }
+    return ctx.createPattern(PAT[key], 'repeat');
+  }
   function dotShadow(ctx, x, y, ww, hh, r, off = 12, pitch = 9, dr = 2.6, col = 'rgba(20,16,16,0.55)') {
-    ctx.save(); rr(ctx, x + off, y + off, ww, hh, r); ctx.clip(); ctx.fillStyle = col;
-    for (let yy = Math.floor((y + off) / pitch) * pitch; yy < y + off + hh; yy += pitch) for (let xx = Math.floor((x + off) / pitch) * pitch; xx < x + off + ww; xx += pitch) { ctx.beginPath(); ctx.arc(xx, yy, dr, 0, 7); ctx.fill(); }
-    ctx.restore();
+    ctx.save(); ctx.fillStyle = dotPat(ctx, pitch, dr, col); rr(ctx, x + off, y + off, ww, hh, r); ctx.fill(); ctx.restore();
   }
   function lightCard(ctx, x, y, ww, hh, r = 21) {   // §6 light card
     dotShadow(ctx, x, y, ww, hh, r);
@@ -190,11 +194,12 @@
     const k = E.inOutC(clamp((ph - 0.85) / 0.15));     // pose switch in the last ~4 f of each 0.75 s
     const rot = lerp(ra, rb, k) * Math.PI / 180, s = lerp(sa, sb, k), bob = Math.sin(t * Math.PI * 2) * 3;
     ctx.save(); ctx.translate(cx, cy + bob); ctx.rotate(rot); ctx.scale(s, s);
-    // halftone dot shadow, circular
-    ctx.save(); ctx.beginPath(); ctx.arc(16, 18, D / 2, 0, 7); ctx.clip(); ctx.fillStyle = 'rgba(20,16,16,0.5)';
-    for (let y = -D; y < D; y += 9) for (let x = -D; x < D; x += 9) { ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 7); ctx.fill(); }
-    ctx.restore();
-    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high'; ctx.drawImage(IMG.logo, -D / 2, -D / 2, D, D);
+    if (!IMG.pres) {        // logo + circular halftone shadow, rendered once
+      const c = document.createElement('canvas'); c.width = c.height = D + 60; const x = c.getContext('2d');
+      x.fillStyle = dotPat(x, 9, 2.6, 'rgba(20,16,16,0.5)'); x.beginPath(); x.arc(D / 2 + 16 + 10, D / 2 + 18 + 10, D / 2, 0, 7); x.fill();
+      x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high'; x.drawImage(IMG.logo, 10, 10, D, D); IMG.pres = c;
+    }
+    ctx.imageSmoothingEnabled = true; ctx.drawImage(IMG.pres, -D / 2 - 10, -D / 2 - 10);
     ctx.restore();
   }
 
@@ -371,8 +376,8 @@
     // card stack (§8): previous scene shrinks to 0.96, blurs, fades over 6 f while the new one rises 60 px and fades in
     const st = pr(t, t0, t0 + 6 * F1), stacking = i > 0 && st < 1 && R.scenes[i].enter !== 'wipe';
     if (stacking) {
-      ctx.save(); ctx.globalAlpha = 1 - st; ctx.filter = `blur(${(6 * st).toFixed(1)}px)`; ctx.translate(540, 980); ctx.scale(lerp(1, 0.96, st), lerp(1, 0.96, st)); ctx.translate(-540, -980); drawScene(ctx, i - 1, t); ctx.restore();
-      ctx.save(); ctx.globalAlpha = E.outC(st); ctx.filter = st < 0.6 ? `blur(${(3 * (1 - st / 0.6)).toFixed(1)}px)` : 'none'; ctx.translate(0, 60 * (1 - E.outC(st))); drawScene(ctx, i, t); ctx.restore();
+      ctx.save(); ctx.globalAlpha = 1 - st; ctx.translate(540, 980); ctx.scale(lerp(1, 0.96, st), lerp(1, 0.96, st)); ctx.translate(-540, -980); drawScene(ctx, i - 1, t); ctx.restore();
+      ctx.save(); ctx.globalAlpha = E.outC(st); ctx.translate(0, 60 * (1 - E.outC(st))); drawScene(ctx, i, t); ctx.restore();
     } else drawScene(ctx, i, t);
     badges(ctx, t);
     presenter(ctx, t);

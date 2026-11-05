@@ -8,3 +8,4 @@ template/.hyperframes/
 template/work/*.wav
 template/work/snaps/
 template/assets/audio/sfx.wav
+template/work/render.log
