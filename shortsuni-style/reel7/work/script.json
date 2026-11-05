@@ -1,0 +1,17 @@
+{
+ "voice": "am_fenrir",
+ "speed": 1.12,
+ "gap": 0.04,
+ "lead": 0.02,
+ "lines": [
+  ["Here's how to make commentary Shorts people watch to the end.", "Here's how to make commentary Shorts people watch to the end."],
+  ["Most beginners lose viewers in two seconds. Fix it in five steps!", "Most beginners lose viewers in two seconds. Fix it in five steps!"],
+  ["One. Pick a clip that opens with a question.", "One. Pick a clip that opens with a question."],
+  ["Two. Say the payoff first, in under eight words.", "Two. Say the payoff first, in under eight words."],
+  ["Three. Cut every pause. No silence longer than a breath.", "Three. Cut every pause. No silence longer than a breath."],
+  ["Four. Don't narrate the clip. React to it every three seconds.", "Four. Don't narrate the clip. React to it every three seconds."],
+  ["Five. End on a line that loops back to the start.", "Five. End on a line that loops back to the start."],
+  ["That's how my channel hit 9.2M views in 28 days.", "That's how my channel hit nine_point_two million views in twenty-eight days."],
+  ["Comment HOOK and I'll send you my checklist.", "Comment hook and I'll send you my checklist."]
+ ]
+}
