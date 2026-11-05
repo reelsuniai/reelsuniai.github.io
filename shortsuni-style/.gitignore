@@ -16,3 +16,11 @@ reel2/work/snaps*/
 reel2/assets/audio/sfx.wav
 reel2/work/render.log
 references/ref4.mp4
+reel3/renders/
+reel3/.hyperframes/
+reel3/work/*.wav
+reel3/work/snaps*/
+reel3/work/gen.log
+reel3/assets/audio/sfx.wav
+references/ref5.mp4
+references/ref6.mp4

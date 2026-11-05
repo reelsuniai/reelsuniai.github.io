@@ -1,0 +1,401 @@
+[
+{
+"i": 0,
+"text": "This",
+"line": 0,
+"start": 0.04,
+"end": 0.161
+},
+{
+"i": 1,
+"text": "entire",
+"line": 0,
+"start": 0.262,
+"end": 0.645
+},
+{
+"i": 2,
+"text": "reel",
+"line": 0,
+"start": 0.746,
+"end": 0.948
+},
+{
+"i": 3,
+"text": "was",
+"line": 0,
+"start": 1.008,
+"end": 1.109
+},
+{
+"i": 4,
+"text": "made",
+"line": 0,
+"start": 1.169,
+"end": 1.351
+},
+{
+"i": 5,
+"text": "by",
+"line": 0,
+"start": 1.432,
+"end": 1.532
+},
+{
+"i": 6,
+"text": "Claude",
+"line": 0,
+"start": 1.633,
+"end": 1.895
+},
+{
+"i": 7,
+"text": "Code.",
+"line": 0,
+"start": 1.976,
+"end": 2.299
+},
+{
+"i": 8,
+"text": "No",
+"line": 1,
+"start": 2.611,
+"end": 2.711
+},
+{
+"i": 9,
+"text": "camera.",
+"line": 1,
+"start": 2.812,
+"end": 3.133
+},
+{
+"i": 10,
+"text": "No",
+"line": 1,
+"start": 3.314,
+"end": 3.414
+},
+{
+"i": 11,
+"text": "editor.",
+"line": 1,
+"start": 3.575,
+"end": 3.837
+},
+{
+"i": 12,
+"text": "No",
+"line": 1,
+"start": 4.078,
+"end": 4.178
+},
+{
+"i": 13,
+"text": "animator.",
+"line": 1,
+"start": 4.399,
+"end": 4.821
+},
+{
+"i": 14,
+"text": "I",
+"line": 2,
+"start": 5.113,
+"end": 5.133
+},
+{
+"i": 15,
+"text": "typed",
+"line": 2,
+"start": 5.234,
+"end": 5.495
+},
+{
+"i": 16,
+"text": "one",
+"line": 2,
+"start": 5.636,
+"end": 5.737
+},
+{
+"i": 17,
+"text": "sentence.",
+"line": 2,
+"start": 5.838,
+"end": 6.261
+},
+{
+"i": 18,
+"text": "It",
+"line": 3,
+"start": 6.612,
+"end": 6.653
+},
+{
+"i": 19,
+"text": "wrote",
+"line": 3,
+"start": 6.713,
+"end": 6.914
+},
+{
+"i": 20,
+"text": "the",
+"line": 3,
+"start": 6.974,
+"end": 7.034
+},
+{
+"i": 21,
+"text": "script,",
+"line": 3,
+"start": 7.094,
+"end": 7.416
+},
+{
+"i": 22,
+"text": "recorded",
+"line": 3,
+"start": 7.637,
+"end": 8.018
+},
+{
+"i": 23,
+"text": "the",
+"line": 3,
+"start": 8.058,
+"end": 8.119
+},
+{
+"i": 24,
+"text": "voice,",
+"line": 3,
+"start": 8.179,
+"end": 8.5
+},
+{
+"i": 25,
+"text": "and",
+"line": 4,
+"start": 8.672,
+"end": 8.733
+},
+{
+"i": 26,
+"text": "animated",
+"line": 4,
+"start": 8.874,
+"end": 9.298
+},
+{
+"i": 27,
+"text": "every",
+"line": 4,
+"start": 9.56,
+"end": 9.742
+},
+{
+"i": 28,
+"text": "scene",
+"line": 4,
+"start": 9.823,
+"end": 10.065
+},
+{
+"i": 29,
+"text": "you're",
+"line": 4,
+"start": 10.106,
+"end": 10.287
+},
+{
+"i": 30,
+"text": "watching.",
+"line": 4,
+"start": 10.328,
+"end": 10.691
+},
+{
+"i": 31,
+"text": "Then",
+"line": 5,
+"start": 10.862,
+"end": 10.963
+},
+{
+"i": 32,
+"text": "it",
+"line": 5,
+"start": 11.003,
+"end": 11.044
+},
+{
+"i": 33,
+"text": "watched",
+"line": 5,
+"start": 11.104,
+"end": 11.406
+},
+{
+"i": 34,
+"text": "its",
+"line": 5,
+"start": 11.466,
+"end": 11.567
+},
+{
+"i": 35,
+"text": "own",
+"line": 5,
+"start": 11.668,
+"end": 11.768
+},
+{
+"i": 36,
+"text": "video",
+"line": 5,
+"start": 11.829,
+"end": 12.151
+},
+{
+"i": 37,
+"text": "and",
+"line": 5,
+"start": 12.272,
+"end": 12.352
+},
+{
+"i": 38,
+"text": "fixed",
+"line": 5,
+"start": 12.433,
+"end": 12.654
+},
+{
+"i": 39,
+"text": "the",
+"line": 5,
+"start": 12.714,
+"end": 12.775
+},
+{
+"i": 40,
+"text": "slow",
+"line": 5,
+"start": 12.835,
+"end": 13.057
+},
+{
+"i": 41,
+"text": "parts.",
+"line": 5,
+"start": 13.157,
+"end": 13.52
+},
+{
+"i": 42,
+"text": "Every",
+"line": 6,
+"start": 13.872,
+"end": 14.033
+},
+{
+"i": 43,
+"text": "other",
+"line": 6,
+"start": 14.113,
+"end": 14.274
+},
+{
+"i": 44,
+"text": "tool",
+"line": 6,
+"start": 14.334,
+"end": 14.515
+},
+{
+"i": 45,
+"text": "it",
+"line": 6,
+"start": 14.595,
+"end": 14.656
+},
+{
+"i": 46,
+"text": "used",
+"line": 6,
+"start": 14.837,
+"end": 14.997
+},
+{
+"i": 47,
+"text": "was",
+"line": 6,
+"start": 15.078,
+"end": 15.178
+},
+{
+"i": 48,
+"text": "free.",
+"line": 6,
+"start": 15.279,
+"end": 15.5
+},
+{
+"i": 49,
+"text": "Comment",
+"line": 7,
+"start": 15.792,
+"end": 16.114
+},
+{
+"i": 50,
+"text": "REEL",
+"line": 7,
+"start": 16.195,
+"end": 16.477
+},
+{
+"i": 51,
+"text": "and",
+"line": 7,
+"start": 16.799,
+"end": 16.88
+},
+{
+"i": 52,
+"text": "I'll",
+"line": 7,
+"start": 16.94,
+"end": 17.101
+},
+{
+"i": 53,
+"text": "send",
+"line": 7,
+"start": 17.162,
+"end": 17.323
+},
+{
+"i": 54,
+"text": "you",
+"line": 7,
+"start": 17.363,
+"end": 17.464
+},
+{
+"i": 55,
+"text": "the",
+"line": 7,
+"start": 17.525,
+"end": 17.585
+},
+{
+"i": 56,
+"text": "setup.",
+"line": 7,
+"start": 17.625,
+"end": 17.928
+}
+]
