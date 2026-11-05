@@ -18,7 +18,7 @@ window.REGISTER_SCENES = function (G) {
     if (p < 1) for (let g = 3; g >= 1; g--) { const pg = pr(t - g * F1 * 1.5, t0, t0 + 7 * F1), kg = E.outBack(pg, 2.2); if (pg <= 0) continue;
       ctx.save(); ctx.globalAlpha = 0.16; ctx.translate(cx, cy + lerp(-260, 0, Math.min(1, kg))); ctx.rotate((o.rot || 0) + (1 - pg) * 0.5); const sg = lerp(0.5, 1, Math.min(1.1, kg)); ctx.scale(sg, sg); ctx.drawImage(img, -ww / 2, -h / 2, ww, h); ctx.restore(); }
     if (window.FX && t >= t0 + 6 * F1) FX.debris(ctx, t, t0 + 6 * F1, cx, cy + h * 0.42, 8, Math.round(cx), 'rgba(90,80,70,0.7)');
-    const wob = Math.sin(t * 2.6 + cx * 0.02) * 0.035 * (o.float ?? 1), br = 1 + 0.018 * Math.sin(t * 3.2 + cx * 0.01);
+    const wob = Math.sin(t * 2.6 + cx * 0.02) * 0.07 * (o.float ?? 1), br = 1 + 0.035 * Math.sin(t * 3.2 + cx * 0.01);
     ctx.save(); ctx.translate(cx, cy + lerp(-260, 0, Math.min(1, k)) + fl); ctx.rotate((o.rot || 0) + (1 - p) * 0.5 + wob); ctx.scale(lerp(0.5, 1, Math.min(1.1, k)) * br, lerp(0.5, 1, Math.min(1.1, k)) / br);
     if (o.squash && t >= o.squash && t < o.squash + 4 * F1) ctx.scale(1.08, 0.9);
     ctx.globalAlpha = clamp(p * 3); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
@@ -151,7 +151,7 @@ window.REGISTER_SCENES = function (G) {
     stageXf(ctx, t, w(s.at));
     lightCard(ctx, 90, 610, 900, 140, 24);
     const kw = 'REEL', n = Math.round(kw.length * pr(t, w(s.typeAt), we(s.typeAt)));
-    T(ctx, n ? kw.slice(0, n) : 'Add a comment…', 140, 680, 42, n ? 800 : 500, n ? INK : '#A9A6A2', UI);
+    T(ctx, n ? kw.slice(0, n) : 'Add a comment…', 140, 680, 42, n ? 700 : 500, n ? INK : '#A9A6A2', UI);
     const sent = t >= w(s.sendAt); ctx.fillStyle = sent ? RED : '#C9C6C2'; ctx.beginPath(); ctx.arc(920, 680, 36, 0, 7); ctx.fill();
     ctx.fillStyle = '#FFF'; ctx.beginPath(); ctx.moveTo(902, 665); ctx.lineTo(942, 680); ctx.lineTo(902, 695); ctx.lineTo(910, 680); ctx.fill();
     sprung(ctx, t, we(s.typeAt) + 0.02, 450, 900, (c) => { dotShadow(c, -250, -80, 500, 160, 80, 10, 8, 2.2); c.fillStyle = RED; rr(c, -250, -80, 500, 160, 80); c.fill();

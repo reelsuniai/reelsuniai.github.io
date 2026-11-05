@@ -408,7 +408,7 @@
     if (inWipe) {
       const g0 = wa - 0.17, g1 = g0 + 5 * F1, h1 = g1 + 3 * F1, r1 = h1 + 10 * F1;
       if (t < g1) { const p = pr(t, g0, g1); dots(ctx, (x, y) => clamp(p * 1.9 - Math.hypot(W - x, y) / Math.hypot(W, H) * 0.9)); }
-      else if (t < h1) { ctx.fillStyle = '#0A0A0A'; ctx.fillRect(0, 0, W, H); }
+      else if (t < h1) { ctx.fillStyle = '#0A0A0A'; ctx.fillRect(0, 0, W, H); dots(ctx, (x, y) => 0.1 + 0.08 * Math.sin(t * 40 + x * 0.05 + y * 0.03)); ctx.globalCompositeOperation = 'difference'; ctx.fillStyle = '#141414'; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = 'source-over'; }
       else if (t < r1) { const p = pr(t, h1, r1); dots(ctx, (x, y) => clamp(1 - (p * 1.8 - Math.hypot(x - 540, y - 980) / Math.hypot(540, 980) * 0.8))); badges(ctx, t); }
     }
   };

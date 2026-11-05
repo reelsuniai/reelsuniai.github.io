@@ -22,6 +22,10 @@
     // hanging tools silhouettes
     x.fillStyle = 'rgba(60,40,25,0.28)';
     [[120, 160, 'w'], [950, 200, 'h'], [80, 820, 'r'], [990, 760, 'w']].forEach(([px, py, k]) => { x.save(); x.translate(px, py); if (k === 'w') { x.fillRect(-8, 0, 16, 150); x.beginPath(); x.arc(0, 0, 30, 0, 7); x.fill(); } if (k === 'h') { x.fillRect(-7, 0, 14, 160); x.fillRect(-40, -10, 80, 30); } if (k === 'r') { x.fillRect(-60, 0, 120, 14); for (let i = 0; i < 6; i++) x.fillRect(-55 + i * 22, 14, 6, 40); } x.restore(); });
+    for (let i = 0; i < 14; i++) { const px = 60 + rnd(i * 5.3) * 960, py = 100 + rnd(i * 9.1) * 1250; if (px > 200 && px < 880 && py > 150 && py < 900) continue;
+      x.save(); x.translate(px, py); x.rotate((rnd(i) - 0.5) * 0.6); x.fillStyle = ['rgba(225,10,15,0.55)', 'rgba(40,40,48,0.5)', 'rgba(59,123,255,0.45)', 'rgba(248,168,0,0.55)'][i % 4];
+      if (i % 3 === 0) { x.fillRect(-10, 0, 20, 110); x.fillRect(-36, -18, 72, 22); } else if (i % 3 === 1) { x.beginPath(); x.arc(0, 0, 34, 0, 7); x.fill(); x.fillStyle = 'rgba(0,0,0,0.3)'; x.fillRect(-6, 30, 12, 70); } else { x.fillRect(-46, -30, 92, 60); x.fillStyle = 'rgba(255,255,255,0.5)'; x.fillRect(-36, -18, 50, 8); }
+      x.restore(); }
     return c;
   }
   function cork() {
@@ -33,6 +37,9 @@
       x.save(); x.translate(px, py); x.rotate(r); x.fillStyle = 'rgba(0,0,0,0.25)'; x.fillRect(-w / 2 + 8, -h / 2 + 10, w, h); x.fillStyle = i % 2 ? '#FFF7D6' : '#FFFFFF'; x.fillRect(-w / 2, -h / 2, w, h);
       x.fillStyle = 'rgba(0,0,0,0.18)'; for (let l = 0; l < 5; l++) x.fillRect(-w / 2 + 16, -h / 2 + 22 + l * 22, w * (0.5 + rnd(i * 9 + l) * 0.4), 6);
       x.fillStyle = '#E10A0F'; x.beginPath(); x.arc(0, -h / 2 + 8, 9, 0, 7); x.fill(); x.restore(); });
+    for (let i = 0; i < 12; i++) { const px = 40 + rnd(i * 3.7 + 1) * 1000, py = 120 + rnd(i * 6.1 + 2) * 1250, w = 90 + rnd(i) * 80, h = 70 + rnd(i * 2) * 90; x.save(); x.translate(px, py); x.rotate((rnd(i * 4) - 0.5) * 0.4);
+      x.fillStyle = 'rgba(0,0,0,0.25)'; x.fillRect(-w / 2 + 6, -h / 2 + 8, w, h); x.fillStyle = ['#FFFFFF', '#FFE16B', '#FFD0D0', '#DDEEFF'][i % 4]; x.fillRect(-w / 2, -h / 2, w, h); x.fillStyle = 'rgba(0,0,0,0.2)'; for (let l = 0; l < 3; l++) x.fillRect(-w / 2 + 10, -h / 2 + 16 + l * 18, w * 0.6, 5);
+      x.fillStyle = i % 2 ? '#E10A0F' : '#2A2A30'; x.beginPath(); x.arc(0, -h / 2 + 6, 7, 0, 7); x.fill(); x.restore(); }
     x.strokeStyle = 'rgba(225,10,15,0.7)'; x.lineWidth = 3; x.beginPath(); x.moveTo(110, 170 - 97); x.quadraticCurveTo(500, 260, 920, 140 - 67); x.stroke(); x.beginPath(); x.moveTo(70, 760 - 92); x.quadraticCurveTo(540, 900, 960, 800 - 102); x.stroke();
     return c;
   }
@@ -41,6 +48,7 @@
     // wall with sticky notes, wooden desk top at the bottom
     [[130, 150, -0.1, '#FFE16B'], [930, 120, 0.12, '#FFB3B3'], [980, 420, -0.06, '#BDE7FF'], [100, 520, 0.08, '#C9F2B5']].forEach(([px, py, r, col], i) => { x.save(); x.translate(px, py); x.rotate(r); x.fillStyle = 'rgba(0,0,0,0.12)'; x.fillRect(-62, -58, 130, 130); x.fillStyle = col; x.fillRect(-70, -66, 130, 130);
       x.strokeStyle = 'rgba(0,0,0,0.35)'; x.lineWidth = 4; for (let l = 0; l < 3; l++) { x.beginPath(); x.moveTo(-52, -36 + l * 30); x.lineTo(-52 + 60 + rnd(i + l) * 30, -36 + l * 30); x.stroke(); } x.restore(); });
+    for (let i = 0; i < 10; i++) { const px = 60 + rnd(i * 2.9 + 5) * 960, py = 80 + rnd(i * 4.3 + 7) * 700; x.save(); x.translate(px, py); x.rotate((rnd(i) - 0.5) * 0.5); x.fillStyle = ['#FFE16B', '#FFB3B3', '#BDE7FF', '#C9F2B5', '#FFFFFF'][i % 5]; x.fillRect(-50, -50, 100, 100); x.strokeStyle = 'rgba(0,0,0,0.3)'; x.lineWidth = 3; x.beginPath(); x.moveTo(-34, -20); x.lineTo(26, -20); x.moveTo(-34, 4); x.lineTo(10, 4); x.stroke(); x.restore(); }
     const g = x.createLinearGradient(0, 860, 0, 1460); g.addColorStop(0, '#C08A55'); g.addColorStop(1, '#8E5C30'); x.fillStyle = g; x.fillRect(0, 860, W, 240);
     x.fillStyle = 'rgba(0,0,0,0.08)'; for (let i = 0; i < 18; i++) x.fillRect(0, 870 + i * 13, W, 2);
     x.fillStyle = '#7A4D25'; x.fillRect(0, 860, W, 10);
@@ -63,18 +71,20 @@
       [[300, 0.9], [780, 1.3]].forEach(([cx, sp], i) => { const a = Math.sin(t * sp + i) * 0.12; ctx.save(); ctx.translate(cx, 470); ctx.rotate(a);
         const lg = ctx.createLinearGradient(0, 0, 0, 1460); lg.addColorStop(0, 'rgba(255,240,210,0.45)'); lg.addColorStop(1, 'rgba(255,240,210,0)'); ctx.fillStyle = lg; ctx.beginPath(); ctx.moveTo(-30, 0); ctx.lineTo(30, 0); ctx.lineTo(320, 1460); ctx.lineTo(-320, 1460); ctx.fill(); ctx.restore(); });
       ctx.fillStyle = 'rgba(255,240,210,0.12)'; ctx.beginPath(); ctx.ellipse(540, 1420, 460, 70, 0, 0, 7); ctx.fill();
+      for (let i = 0; i < 60; i++) { const tw = 0.5 + 0.5 * Math.sin(t * (3 + rnd(i) * 5) + i * 2); ctx.fillStyle = `rgba(255,236,190,${(0.2 + 0.7 * tw).toFixed(2)})`; const sx = rnd(i * 3.3) * W, sy = 520 + rnd(i * 5.1) * 900, s = 2 + tw * 5; ctx.fillRect(sx - s / 2, sy - 1, s, 2); ctx.fillRect(sx - 1, sy - s / 2, 2, s); }
+      for (let r = 0; r < 3; r++) for (let i = 0; i < 16; i++) { const hx = i * 72 + (r % 2) * 36 + Math.sin(t * 2 + i + r) * 3, hy = 1660 + r * 70 + Math.abs(Math.sin(t * 3 + i * 1.7 + r)) * -10; ctx.fillStyle = `rgba(8,7,12,${0.75 - r * 0.1})`; ctx.beginPath(); ctx.arc(hx, hy, 26, 0, 7); ctx.fill(); ctx.fillRect(hx - 34, hy + 18, 68, 80); }
       return;
     }
     if (!C[name]) C[name] = ENV[name]();
-    const dx = Math.sin(t * 0.6) * 10, dy = Math.cos(t * 0.5) * 6;          // slow parallax drift
+    const dx = Math.sin(t * 0.9) * 18, dy = Math.cos(t * 0.7) * 10;          // slow parallax drift
     ctx.drawImage(C[name], -12 + dx, 470 + dy, W + 24, 1460);
   }
   // ---------------------------------------------------------------- particles (always on) + debris bursts
   function particles(ctx, t, dark) {
-    for (let i = 0; i < 46; i++) {
+    for (let i = 0; i < 96; i++) {
       const sp = 20 + rnd(i * 3) * 50, x = ((rnd(i) * W + Math.sin(t * 0.7 + i) * 40) % W + W) % W, y = 520 + ((rnd(i * 7) * 1300 - t * sp) % 1300 + 1300) % 1300;
-      const s = 3 + rnd(i * 11) * 7, r = t * (1 + rnd(i)) + i;
-      ctx.save(); ctx.translate(x, y); ctx.rotate(r); ctx.globalAlpha = 0.35 + 0.3 * rnd(i * 5);
+      const s = 4 + rnd(i * 11) * 11, r = t * (1.5 + rnd(i) * 2) + i;
+      ctx.save(); ctx.translate(x, y); ctx.rotate(r); ctx.globalAlpha = 0.5 + 0.4 * rnd(i * 5);
       ctx.fillStyle = i % 7 === 0 ? '#E10A0F' : dark ? 'rgba(255,245,230,0.7)' : 'rgba(60,50,45,0.45)'; ctx.fillRect(-s / 2, -s / 4, s, s / 2); ctx.restore();
     }
   }
@@ -88,7 +98,7 @@
   window.FX = {
     camera(ctx, t, kicks) {
       const k = kickAmt(t, kicks), z = 1 + 0.065 * k;
-      const dx = Math.sin(t * 1.7) * 5 + Math.sin(t * 3.1) * 2, dy = Math.cos(t * 1.3) * 4, r = Math.sin(t * 0.9) * 0.004;
+      const dx = Math.sin(t * 1.7) * 9 + Math.sin(t * 3.1) * 4, dy = Math.cos(t * 1.3) * 8 + Math.sin(t * 2.3) * 3, r = Math.sin(t * 0.9) * 0.008;
       ctx.translate(540 + dx, 980 + dy); ctx.rotate(r); ctx.scale(z, z); ctx.translate(-540, -980);
     },
     env, particles, debris,

@@ -125,7 +125,7 @@
       // continuous life: talking hands, head nods on words, sway (never a still frame)
       const e = o.energy ? o.energy(t) : 0;
       ['L', 'R'].forEach((side, si) => { const a = P[side].slice(), up = a[3] < 300, ph = si * 1.9;
-        const g = (up ? 1 : 0.25) * (0.35 + e);
+        const g = (up ? 1.5 : 0.5) * (0.45 + e);
         a[2] += Math.sin(t * 6.3 + ph) * 16 * g; a[3] += Math.cos(t * 5.1 + ph) * 13 * g; a[0] += Math.sin(t * 4.7 + ph) * 9 * g; a[1] += Math.cos(t * 4.2 + ph) * 9 * g; a[5] += Math.sin(t * 7.1 + ph) * 10 * g;
         P[side] = a; });
       P.tilt = (P.tilt || 0) + (o.nod ? o.nod(t) : 0) + Math.sin(t * 1.6) * 2;
