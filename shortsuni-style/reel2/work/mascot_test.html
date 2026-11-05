@@ -1,0 +1,6 @@
+<!doctype html><html><body style="margin:0;background:#F2F0EE"><canvas id="c" width="2700" height="1100"></canvas>
+<script src="../mascot.js"></script><script>
+const img=new Image(); img.onload=()=>{ const c=document.getElementById('c').getContext('2d'); c.fillStyle='#F2F0EE'; c.fillRect(0,0,2700,1100);
+ const P=MASCOT.POSES; P.forEach((p,i)=>{ MASCOT.draw(c, 1, {x:270+(i%5)*540, y:330+Math.floor(i/5)*560, scale:0.55, poses:[[0,p]], speaking:()=> i%2?0.7:0, logo:img}); c.fillStyle='#000'; c.font='30px sans-serif'; c.fillText(p,60+(i%5)*540,40+Math.floor(i/5)*560); });
+ document.title='done'; }; img.src='../assets/img/logo_cut.png';
+</script></body></html>

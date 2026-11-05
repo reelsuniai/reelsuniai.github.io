@@ -1,0 +1,15 @@
+{
+ "voice": "am_michael",
+ "speed": 1.12,
+ "gap": 0.05,
+ "lead": 0.03,
+ "lines": [
+  ["Your face isn't why your Shorts flop.", "Your face isn't why your Shorts flop."],
+  ["My channel hit 9.2M views in 28 days. No face. Ever.", "My channel hit nine_point_two_million views in twenty-eight days. No face. Ever."],
+  ["The real reason is the first second.", "The real reason is the first second."],
+  ["Claude writes 10 hooks. You pick one.", "Claude writes ten hooks. You pick one."],
+  ["Then it cuts every line that doesn't raise the stakes.", "Then it cuts every line that doesn't raise the stakes."],
+  ["Faceless Shorts are still wide open, but not for long.", "Faceless Shorts are still wide open, but not for long."],
+  ["Comment HOOK and I'll send you my prompts.", "Comment hook and I'll send you my prompts."]
+ ]
+}

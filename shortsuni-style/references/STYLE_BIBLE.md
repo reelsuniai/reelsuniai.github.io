@@ -216,3 +216,30 @@ Words are summarised (not copied) as content beats. Sound = an onset not on a wo
 | their accent red #DF4D31 | **@shortsuni red** (we'll lock the exact hex with you; the default is #E5352B, which sits in the same family) |
 | their words, products, McDonald's/ChatLLM content | your script and your real screenshot `assets/ballblitz_analytics_card.png` (unaltered) |
 | their voice, music, SFX files | local TTS voice; SFX synthesised locally |
+
+---
+
+## 13. Addendum: ref4 (66.6 s, 720×1280, 30 fps, −13.9 LUFS, peak 0.0 dBFS, 0 hard cuts)
+
+**Density is the style.** A new illustrated object or state lands **every 0.5–1.0 s** (78 distinct stage states in 61 s of speech, which works out to **one every 0.78 s**). Each object is a small, detailed illustration with a story: a ring light labelled "face cam", a profile mock with a red ring on the follower count, a growth chart with a "YOU ARE HERE" pin, a crowd of about 200 tiny figures, a tear-off calendar, an hourglass of slots, stamped words ("VIRAL", "NEVER SHOWN", "WIDE OPEN", "HUGE REACH", "FIRST COME", "SLOP", "PASS", "MADE THIS WAY"), file folders, waveforms, chain links, a film strip with weak moments marked.
+
+**Script structure (by second):**
+
+| s | Beat | Device |
+|---|---|---|
+| 0–1.3 | **Contrarian hook**: "you don't need X to get Y" | the X object gets crossed out, then "VIRAL" stamp |
+| 2–6.5 | **Personal proof** with hard numbers (followers, weeks) | a real-looking profile; marker ring on the number; "NEVER SHOWN" stamp |
+| 7–21 | **Window / urgency**: early-market analogy, few creators now, it fills fast | chart + "YOU ARE HERE", crowd + "WIDE OPEN", fill bar "8/10", calendar "3 months later" |
+| 22–24 | **Enemy**: everyone else's output is bad | grid of samey cards + "SLOP" stamp |
+| 24–42 | **Mechanism**, listed fast (4–6 items) | each item is a labelled card stacking up; counters roll ("191 FILES") |
+| 43–51 | **Ease**: drop it in, one line, it does everything | app window, typed one-liner, checklist ticking |
+| 51–57 | **Autonomy + "no X, no Y, no Z"** | three cards crossed out one by one |
+| 57–59 | **Proof wall**: every video was made this way | dense wall of thumbnails + stamp |
+| 60–61 | **CTA keyword**: "comment WORD and I'll send you the link" | comment box types the word → red pill → "SENT" stamp → DM card |
+| 61–66.6 | outro: dimmed frame + IG glyph | (4–5 s hold; not needed for Shorts) |
+
+**Mascot:** in frame 100 % of the time, bottom-right, cropped at the bottom edge. It changes pose on almost every phrase (**about every 0.6 s**): point up, open palms, both hands out, shrug, hand on chin, facepalm, thumbs up, hands on head. Its mouth is animated with the voice, and it gets a halftone shadow. It occasionally reacts to the stage (looks at it, flinches).
+
+**Halftone wipes:** at 7.0, 22.0, 29.0, 43.0 and 60.0 s, i.e. at **every chapter change, about every 10–14 s** (not only once).
+
+**Audio:** voice + SFX, very close to ref2 and ref3. The peak hits 0.0 dBFS, which is the uploader's mastering, not a target.

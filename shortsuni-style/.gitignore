@@ -9,3 +9,10 @@ template/work/*.wav
 template/work/snaps/
 template/assets/audio/sfx.wav
 template/work/render.log
+reel2/renders/
+reel2/.hyperframes/
+reel2/work/*.wav
+reel2/work/snaps*/
+reel2/assets/audio/sfx.wav
+reel2/work/render.log
+references/ref4.mp4
