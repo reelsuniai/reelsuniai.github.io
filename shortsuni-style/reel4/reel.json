@@ -1,0 +1,568 @@
+{
+ "title": "This entire reel was made by Claude Code",
+ "brand": {
+  "red": "#E10A0F",
+  "handle": "@shortsuni",
+  "logo": "assets/img/logo_cut.png"
+ },
+ "tail": 0.2,
+ "accents": [
+  2,
+  6,
+  7,
+  9,
+  11,
+  13,
+  17,
+  21,
+  24,
+  26,
+  33,
+  38,
+  40,
+  48,
+  50,
+  56
+ ],
+ "labels": [
+  {
+   "at": 0,
+   "left": "// 01 \u00b7 the reel",
+   "right": "CAMERAS",
+   "num": "0"
+  },
+  {
+   "at": 14,
+   "left": "// 02 \u00b7 one sentence",
+   "right": "PROMPTS",
+   "num": "1"
+  },
+  {
+   "at": 18,
+   "left": "// 03 \u00b7 the build",
+   "right": "STEPS",
+   "num": "3"
+  },
+  {
+   "at": 31,
+   "left": "// 04 \u00b7 self-check",
+   "right": "FIXES",
+   "num": "2"
+  },
+  {
+   "at": 42,
+   "left": "// 05 \u00b7 the cost",
+   "right": "PAID TOOLS",
+   "num": "0"
+  },
+  {
+   "at": 49,
+   "left": "// 06 \u00b7 comment",
+   "right": "KEYWORD",
+   "num": "REEL"
+  }
+ ],
+ "mascot": {
+  "x": 838,
+  "y": 1640,
+  "scale": 0.6,
+  "poses": [
+   [
+    0,
+    "present"
+   ],
+   [
+    2,
+    "point"
+   ],
+   [
+    6,
+    "thumbs"
+   ],
+   [
+    8,
+    "shrug"
+   ],
+   [
+    9,
+    "palms"
+   ],
+   [
+    12,
+    "facepalm"
+   ],
+   [
+    14,
+    "chin"
+   ],
+   [
+    17,
+    "point"
+   ],
+   [
+    18,
+    "present"
+   ],
+   [
+    22,
+    "palms"
+   ],
+   [
+    26,
+    "hype"
+   ],
+   [
+    29,
+    "present"
+   ],
+   [
+    31,
+    "chin"
+   ],
+   [
+    36,
+    "point"
+   ],
+   [
+    38,
+    "thumbs"
+   ],
+   [
+    40,
+    "facepalm"
+   ],
+   [
+    42,
+    "present"
+   ],
+   [
+    46,
+    "shrug"
+   ],
+   [
+    48,
+    "hype"
+   ],
+   [
+    49,
+    "point"
+   ],
+   [
+    53,
+    "palms"
+   ],
+   [
+    56,
+    "thumbs"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "type": "made",
+   "at": 0,
+   "clapAt": 2,
+   "chipAt": 6,
+   "markAt": 4,
+   "stampAt": 5,
+   "stampKey": 6,
+   "env": "spotlight"
+  },
+  {
+   "type": "nos",
+   "at": 8,
+   "xs": [
+    9,
+    11,
+    13
+   ],
+   "env": "pegboard"
+  },
+  {
+   "type": "typed",
+   "at": 14,
+   "enter": "wipe",
+   "typeFrom": 15,
+   "typeTo": 17,
+   "countAt": 15,
+   "stampKey": 17,
+   "env": "desk"
+  },
+  {
+   "type": "build",
+   "at": 18,
+   "scriptAt": 21,
+   "voiceAt": 24,
+   "scenesAt": 26,
+   "countAt": 28,
+   "env": "grid"
+  },
+  {
+   "type": "check",
+   "at": 31,
+   "enter": "wipe",
+   "scanTo": 36,
+   "slowAt": 35,
+   "fixAt": 38,
+   "passAt": 41,
+   "env": "cork"
+  },
+  {
+   "type": "free",
+   "at": 42,
+   "c1": 42,
+   "c2": 44,
+   "c3": 46,
+   "zeroAt": 48,
+   "env": "spotlight"
+  },
+  {
+   "type": "cta",
+   "at": 49,
+   "typeAt": 50,
+   "sendAt": 53,
+   "dmAt": 56,
+   "env": "pegboard"
+  }
+ ],
+ "sfx": [
+  [
+   -1,
+   0.0,
+   "pop",
+   0.6
+  ],
+  [
+   2,
+   0,
+   "thump",
+   0.8
+  ],
+  [
+   2,
+   0.25,
+   "slap",
+   0.7
+  ],
+  [
+   4,
+   0,
+   "swish",
+   0.7
+  ],
+  [
+   5,
+   0,
+   "slap",
+   0.5
+  ],
+  [
+   6,
+   0,
+   "thump",
+   1.0
+  ],
+  [
+   6,
+   0,
+   "slap",
+   0.8
+  ],
+  [
+   8,
+   -0.2,
+   "swish",
+   0.7
+  ],
+  [
+   8,
+   -0.1,
+   "pop",
+   0.5
+  ],
+  [
+   8,
+   0.02,
+   "pop",
+   0.5
+  ],
+  [
+   8,
+   0.14,
+   "pop",
+   0.5
+  ],
+  [
+   9,
+   0,
+   "slap",
+   0.9
+  ],
+  [
+   9,
+   0.12,
+   "slap",
+   0.7
+  ],
+  [
+   11,
+   0,
+   "slap",
+   0.9
+  ],
+  [
+   11,
+   0.12,
+   "slap",
+   0.7
+  ],
+  [
+   13,
+   0,
+   "slap",
+   0.9
+  ],
+  [
+   13,
+   0.12,
+   "slap",
+   0.7
+  ],
+  [
+   13,
+   0.5,
+   "thump",
+   0.9
+  ],
+  [
+   15,
+   0,
+   "tick",
+   0.6
+  ],
+  [
+   15,
+   0.1,
+   "tick",
+   0.6
+  ],
+  [
+   15,
+   0.2,
+   "tick",
+   0.6
+  ],
+  [
+   16,
+   0,
+   "tick",
+   0.6
+  ],
+  [
+   16,
+   0.1,
+   "tick",
+   0.6
+  ],
+  [
+   17,
+   0,
+   "tick",
+   0.6
+  ],
+  [
+   17,
+   0.1,
+   "thump",
+   0.9
+  ],
+  [
+   17,
+   0.1,
+   "slap",
+   0.8
+  ],
+  [
+   18,
+   -0.2,
+   "swish",
+   0.7
+  ],
+  [
+   21,
+   0.3,
+   "ding",
+   0.6
+  ],
+  [
+   24,
+   0,
+   "pop",
+   0.7
+  ],
+  [
+   24,
+   0.3,
+   "ding",
+   0.6
+  ],
+  [
+   26,
+   0,
+   "pop",
+   0.7
+  ],
+  [
+   28,
+   0,
+   "pop",
+   0.7
+  ],
+  [
+   30,
+   0,
+   "ding",
+   0.6
+  ],
+  [
+   33,
+   0,
+   "swish",
+   0.6
+  ],
+  [
+   36,
+   0,
+   "swish",
+   0.6
+  ],
+  [
+   38,
+   0,
+   "ding",
+   0.7
+  ],
+  [
+   40,
+   0,
+   "slap",
+   0.6
+  ],
+  [
+   41,
+   0,
+   "thump",
+   1.0
+  ],
+  [
+   41,
+   0,
+   "slap",
+   0.9
+  ],
+  [
+   42,
+   -0.2,
+   "swish",
+   0.7
+  ],
+  [
+   42,
+   0,
+   "pop",
+   0.7
+  ],
+  [
+   44,
+   0,
+   "pop",
+   0.7
+  ],
+  [
+   46,
+   0,
+   "pop",
+   0.7
+  ],
+  [
+   48,
+   0,
+   "thump",
+   1.0
+  ],
+  [
+   48,
+   0.05,
+   "ding",
+   0.7
+  ],
+  [
+   49,
+   -0.2,
+   "swish",
+   0.7
+  ],
+  [
+   50,
+   0,
+   "tick",
+   0.7
+  ],
+  [
+   50,
+   0.1,
+   "tick",
+   0.7
+  ],
+  [
+   50,
+   0.2,
+   "tick",
+   0.7
+  ],
+  [
+   50,
+   0.3,
+   "pop",
+   0.9
+  ],
+  [
+   53,
+   0,
+   "swish",
+   0.9
+  ],
+  [
+   53,
+   0.05,
+   "thump",
+   0.8
+  ],
+  [
+   56,
+   -0.1,
+   "pop",
+   0.8
+  ],
+  [
+   56,
+   0.1,
+   "ding",
+   0.6
+  ]
+ ],
+ "images": {
+  "o_camera": "assets/cut/o_camera.png",
+  "o_filmreel": "assets/cut/o_filmreel.png",
+  "o_palette": "assets/cut/o_palette.png",
+  "o_mic": "assets/cut/o_mic.png",
+  "o_brush2": "assets/cut/o_brush2.png",
+  "o_magnifier": "assets/cut/o_magnifier.png",
+  "o_piggy": "assets/cut/o_piggy.png",
+  "o_gift": "assets/cut/o_gift.png",
+  "o_trophy": "assets/cut/o_trophy.png",
+  "m_hype1": "assets/cut/m_hype1_r.png",
+  "m_wave1": "assets/cut/m_wave1_r.png"
+ },
+ "transition": "whip"
+}

@@ -25,3 +25,9 @@ reel3/assets/audio/sfx.wav
 references/ref5.mp4
 references/ref6.mp4
 reel3/work/render.log
+reel4/renders/
+reel4/.hyperframes/
+reel4/work/*.wav
+reel4/work/snaps*/
+reel4/work/render.log
+reel4/assets/audio/sfx.wav
