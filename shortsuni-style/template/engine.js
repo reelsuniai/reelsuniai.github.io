@@ -378,6 +378,9 @@
     if (stacking) {
       ctx.save(); ctx.globalAlpha = 1 - st; ctx.translate(540, 980); ctx.scale(lerp(1, 0.96, st), lerp(1, 0.96, st)); ctx.translate(-540, -980); drawScene(ctx, i - 1, t); ctx.restore();
       ctx.save(); ctx.globalAlpha = E.outC(st); ctx.translate(0, 60 * (1 - E.outC(st))); drawScene(ctx, i, t); ctx.restore();
+    } else if (R.scenes[i].enter === 'wipe') {   // §8: badge reveals alone on the empty stage, UI rises in once the badge docks
+      const k = E.outC(pr(t, t0 + 0.85, t0 + 0.85 + 6 * F1));
+      if (k > 0) { ctx.save(); ctx.globalAlpha = k; ctx.translate(0, 60 * (1 - k)); drawScene(ctx, i, t); ctx.restore(); }
     } else drawScene(ctx, i, t);
     badges(ctx, t);
     presenter(ctx, t);
