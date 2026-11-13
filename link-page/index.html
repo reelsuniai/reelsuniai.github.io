@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+
+<!-- ─────────────────────────────────────────────────────────────────────────
+     SOCIAL PREVIEW META
+     Crawlers do not run JavaScript, so these have to be real tags. They mirror
+     CONFIG.meta below — if you change one, change the other.
+     og:image and og:url need absolute https:// URLs; fill them in once hosted.
+     ───────────────────────────────────────────────────────────────────────── -->
+<title>ShortsUniversity — AI Tools</title>
+<meta name="description" content="Free, open-source AI tools I use to make viral videos. Claude skills, AI video generators and more.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ShortsUniversity — AI Tools">
+<meta property="og:description" content="Free, open-source AI tools I use to make viral videos.">
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ShortsUniversity — AI Tools">
+<meta name="twitter:description" content="Free, open-source AI tools I use to make viral videos.">
+<meta name="twitter:image" content="">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23d10a0a'/%3E%3Ccircle cx='32' cy='32' r='20' fill='%23fff'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23d10a0a'%3ES%3C/text%3E%3C/svg%3E">
+
+
+<!-- ═════════════════════════════════════════════════════════════════════════
+     ██  CONFIG — this is the only block you need to edit.  ██
+     Name, bio, avatar, colours and links all live here.
+     Everything below this object reads from it.
+     ═════════════════════════════════════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  nameLines:  ["Shorts", "University"],     // the big chrome title, one entry per line
+  name:       "ShortsUniversity",           // plain-text name (alt text, footer)
+  nameUrl:    "https://www.instagram.com/shortsuni/",
+  kicker:     "AI Tools & Claude Education",
+  bio:        "I help creators make viral videos with AI. Free Claude skills & open-source tools I actually use ↓",
+  handle:     "@shortsuni",                 // runs vertically down the right edge
+
+  // Your logo. To use a real photo instead, put "avatar.jpg" next to this file
+  // and write  avatar: "avatar.jpg",
+  avatar: "data:image/svg+xml," + encodeURIComponent(
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" +
+    "<defs><radialGradient id='r' cx='38%' cy='28%' r='80%'>" +
+    "<stop offset='0' stop-color='#ff3b2f'/><stop offset='.55' stop-color='#c80d06'/><stop offset='1' stop-color='#4d0000'/></radialGradient>" +
+    "<linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#fff' stop-opacity='.55'/><stop offset='1' stop-color='#fff' stop-opacity='0'/></linearGradient></defs>" +
+    "<circle cx='100' cy='100' r='100' fill='url(#r)'/>" +
+    "<circle cx='100' cy='100' r='62' fill='#fff'/>" +
+    "<text x='100' y='134' font-family='Georgia, Times New Roman, serif' font-weight='700' font-size='100' text-anchor='middle' fill='#d10a0a' stroke='#3a0000' stroke-width='2.5'>S</text>" +
+    "<ellipse cx='88' cy='42' rx='62' ry='26' fill='url(#g)'/></svg>"),
+  avatarAlt:  "ShortsUniversity logo",
+
+  /* ── Social preview (mirror of the <meta> tags above) ───────────────── */
+  meta: {
+    title:       "ShortsUniversity — AI Tools",
+    description: "Free, open-source AI tools I use to make viral videos.",
+    image:       "",   // absolute https:// URL to a 1200×630 image, once hosted
+    url:         ""    // absolute https:// URL of this page, once hosted
+  },
+
+  /* ── Social icon row ───────────────────────────────────────────────────
+     Available: instagram · youtube · tiktok · x · facebook · linkedin · email
+     ─────────────────────────────────────────────────────────────────────── */
+  socials: [
+    { platform: "instagram", url: "https://www.instagram.com/shortsuni/",  label: "Instagram @shortsuni" },
+    { platform: "instagram", url: "https://www.instagram.com/reelsuniai/", label: "Instagram @reelsuniai" }
+  ],
+
+  /* ── Red ticker band words ─────────────────────────────────────────── */
+  ticker: ["Free Claude skills", "Open source", "AI video", "No paywall", "Viral shorts"],
+
+  /* ── Small heading above the links ─────────────────────────────────── */
+  sectionLabel: "The open-source stack",
+
+  footer: "Curated by ShortsUniversity",
+
+  /* ── Behaviour ──────────────────────────────────────────────────────── */
+  utmSource: "bio",    // appended to every outbound link as ?utm_source=…
+
+  motion: {
+    intro: true,       // staggered rise as the page loads
+    float: true        // link cards drift gently, forever
+  },
+
+  /* ── Theme tokens ───────────────────────────────────────────────────── */
+  theme: {
+    light: {
+      "--bg":           "#e9f2ff",
+      "--bg-2":         "#ffffff",
+      "--fg":           "#07122e",
+      "--muted":        "rgba(7,18,46,0.62)",
+      "--red":          "#e0130b",
+      "--red-deep":     "#9e0702",
+      "--blue":         "#2f7bff",
+      "--navy":         "#0a2266",
+      "--ring-a":       "#0a2266",
+      "--ring-b":       "#ffffff",
+      "--ring-c":       "#4f95ff",
+      "--rings-opacity":"0.78",
+      "--gloss":        "0.7",
+      "--btn-bg":       "linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.34))",
+      "--btn-fg":       "#07122e",
+      "--btn-border":   "rgba(255,255,255,.9)",
+      "--btn-radius":   "24px",
+      "--glass-shadow": "0 12px 30px rgba(10,34,102,.16), 0 2px 6px rgba(10,34,102,.08)",
+      "--chrome-edge":  "#07122e",
+      "--accent":       "#e0130b",
+      "--ring":         "#2f7bff",
+      "--font-display": "'Arial Black', 'Helvetica Neue', Impact, system-ui, -apple-system, sans-serif",
+      "--font-body":    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    },
+    dark: {
+      "--bg":           "#040a1f",
+      "--bg-2":         "#0b1a45",
+      "--fg":           "#f2f6ff",
+      "--muted":        "rgba(226,236,255,0.66)",
+      "--red":          "#ff2a1f",
+      "--red-deep":     "#a00802",
+      "--blue":         "#4f95ff",
+      "--navy":         "#0a2266",
+      "--ring-a":       "#03081a",
+      "--ring-b":       "#1b3f9e",
+      "--ring-c":       "#4f95ff",
+      "--rings-opacity":"0.45",
+      "--gloss":        "0.18",
+      "--btn-bg":       "linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.05))",
+      "--btn-fg":       "#f2f6ff",
+      "--btn-border":   "rgba(255,255,255,.22)",
+      "--btn-radius":   "24px",
+      "--glass-shadow": "0 14px 36px rgba(0,0,0,.5)",
+      "--chrome-edge":  "#000000",
+      "--accent":       "#ff2a1f",
+      "--ring":         "#7fb2ff",
+      "--font-display": "'Arial Black', 'Helvetica Neue', Impact, system-ui, -apple-system, sans-serif",
+      "--font-body":    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    }
+  },
+
+  /* ── Links, in display order ────────────────────────────────────────────
+     { label, url }        → standard glass card
+     + sub:      "small line under the label"
+     + icon:     github | link | play | spark
+     + featured: true      → red liquid-glass card, for the priority link
+     ─────────────────────────────────────────────────────────────────────── */
+  links: [
+    {
+      featured: true,
+      label: "OpenMontage",
+      sub:   "OpenMontageInc / OpenMontage",
+      icon:  "github",
+      url:   "https://github.com/OpenMontageInc/OpenMontage"
+    },
+    {
+      label: "MoneyPrinterTurbo",
+      sub:   "harry0703 / MoneyPrinterTurbo",
+      icon:  "github",
+      url:   "https://github.com/harry0703/MoneyPrinterTurbo"
+    },
+    {
+      label: "Open Generative AI",
+      sub:   "anil-matcha / open-generative-ai",
+      icon:  "github",
+      url:   "https://github.com/anil-matcha/open-generative-ai"
+    },
+    {
+      label: "Freefield",
+      sub:   "Higgsfield, free · neuregex / freefield",
+      icon:  "github",
+      url:   "https://github.com/neuregex/freefield"
+    },
+    {
+      label: "Supoclips",
+      sub:   "share.google",
+      icon:  "play",
+      url:   "https://share.google/6fmMhqkauZIUmiGTB"
+    }
+  ]
+};
+
+/* Paint theme tokens and motion switches before first render so there is no flash. */
+(function () {
+  const decl = o => Object.entries(o).map(([k, v]) => k + ":" + v).join(";");
+  const s = document.createElement("style");
+  s.textContent =
+    ":root{" + decl(CONFIG.theme.light) + "}" +
+    (CONFIG.theme.dark
+      ? "@media (prefers-color-scheme: dark){:root:not([data-theme=light]){" + decl(CONFIG.theme.dark) + "}}" +
+        ":root[data-theme=dark]{" + decl(CONFIG.theme.dark) + "}"
+      : "");
+  document.head.appendChild(s);
+
+  const m = CONFIG.motion || {};
+  if (m.intro === false) document.documentElement.classList.add("no-intro");
+  if (m.float !== true)  document.documentElement.classList.add("no-float");
+})();
+</script>
+
+
+<style>
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(120% 60% at 50% 0%, var(--bg-2), transparent 70%),
+    var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+html { overflow-x: clip; }
+
+/* ══ Backdrop: Y2K ring targets, liquid blobs, sparkles, grain ═════════════ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(46px);
+  opacity: .55;
+  animation: blob 22s ease-in-out infinite alternate;
+}
+.blob--red  { width: 62vmin; height: 62vmin; left: -18vmin; top: 34%;  background: var(--red); opacity: .32; }
+.blob--blue { width: 78vmin; height: 78vmin; right: -26vmin; top: -14vmin; background: var(--blue); animation-duration: 28s; animation-delay: -9s; }
+.blob--sky  { width: 56vmin; height: 56vmin; right: -10vmin; bottom: -16vmin; background: var(--ring-c); animation-duration: 25s; animation-delay: -4s; }
+@keyframes blob {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(6vmin, -5vmin, 0) scale(1.12); }
+}
+
+/* Concentric targets — the poster's signature motif */
+.target {
+  position: absolute;
+  border-radius: 50%;
+  opacity: var(--rings-opacity);
+  background: repeating-radial-gradient(circle,
+    var(--ring-b) 0 7%,
+    var(--ring-a) 7% 13%,
+    var(--ring-b) 13% 19%,
+    var(--ring-c) 19% 26%,
+    var(--ring-b) 26% 31%);
+  box-shadow: 0 0 0 3px var(--ring-a);
+  animation: wobble 18s ease-in-out infinite alternate;
+}
+.target--1 { width: 64vmin; height: 64vmin; max-width: 380px; max-height: 380px; right: -30vmin; top: 30vh; }
+.target--2 { width: 44vmin; height: 44vmin; max-width: 260px; max-height: 260px; left: -16vmin; top: 64vh; animation-delay: -7s; }
+.target--3 { width: 22vmin; height: 22vmin; max-width: 130px; max-height: 130px; left: 6vmin; top: 6vh; animation-delay: -12s; opacity: calc(var(--rings-opacity) * .8); }
+@keyframes wobble {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2vmin, 3vmin, 0) scale(1.06); }
+}
+
+.spark {
+  position: absolute;
+  width: var(--s, 22px);
+  height: var(--s, 22px);
+  background: #fff;
+  clip-path: polygon(50% 0, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0 50%, 42% 42%);
+  filter: drop-shadow(0 0 6px rgba(120,170,255,.9));
+  animation: twinkle var(--t, 3.2s) ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { transform: scale(.35) rotate(0deg); opacity: .2; }
+  50%      { transform: scale(1) rotate(45deg);  opacity: 1; }
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: .1;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vertical handle down the right edge, like the poster's side URL */
+.side {
+  position: fixed;
+  right: 5px;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ══ Page ═════════════════════════════════════════════════════════════════ */
+.page {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: clamp(34px, 8vh, 72px) 22px calc(48px + env(safe-area-inset-bottom));
+}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+.header { text-align: center; margin-bottom: 26px; }
+
+.avatar-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from 210deg, #fff, #9fb1cf, #fff, #6d7f9f, #fff);
+  box-shadow: 0 10px 28px rgba(224,19,11,.35), 0 0 0 1px rgba(10,34,102,.25);
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(40px, 13.4vw, 58px);
+  line-height: .9;
+  letter-spacing: -.035em;
+}
+.name a { color: inherit; text-decoration: none; display: inline-block; border-radius: 12px; }
+.name a:focus-visible { outline: 3px solid var(--ring); outline-offset: 6px; }
+
+/* Liquid chrome lettering */
+.chrome {
+  display: block;
+  padding: 0 .08em;
+  background-image: linear-gradient(180deg,
+    #ffffff 0%, #eef3fb 18%, #a7b4ca 36%, #22305a 48%, #0a1430 52%,
+    #9db0d6 60%, #ffffff 70%, #c8d3e6 84%, #ffffff 100%);
+  background-size: 100% 220%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1.6px var(--chrome-edge);
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.9))
+          drop-shadow(0 6px 10px rgba(47,123,255,.38))
+          drop-shadow(0 0 22px rgba(224,19,11,.18));
+  animation: sheen 7s ease-in-out infinite alternate;
+}
+.chrome + .chrome { font-size: .78em; margin-top: .04em; }
+@keyframes sheen {
+  from { background-position: 0 0; }
+  to   { background-position: 0 100%; }
+}
+
+.kicker {
+  margin: 0 0 10px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.kicker::before, .kicker::after { content: "✦"; margin: 0 .7em; color: var(--blue); }
+
+.bio {
+  margin: 0 auto;
+  max-width: 32ch;
+  text-shadow: 0 0 10px var(--bg), 0 0 2px var(--bg);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ── Social row ───────────────────────────────────────────────────────── */
+.socials {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.social {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--btn-fg);
+  text-decoration: none;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+          backdrop-filter: blur(14px) saturate(170%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), var(--glass-shadow);
+  transition: transform .2s cubic-bezier(.2,.8,.3,1);
+}
+.social svg { width: 19px; height: 19px; display: block; }
+a.social:hover { transform: translateY(-2px); }
+a.social:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+.social--empty { opacity: .35; }
+
+/* ── Ticker band ─────────────────────────────────────────────────────── */
+.ticker {
+  position: relative;
+  margin: 0 -22px 26px;
+  padding: 9px 0;
+  transform: rotate(-2.2deg);
+  background: linear-gradient(180deg, #ff4436, var(--red) 45%, var(--red-deep));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 10px 24px rgba(224,19,11,.32);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker 22s linear infinite;
+}
+.ticker__item {
+  padding: 0 14px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+}
+.ticker__item::after { content: "✦"; margin-left: 28px; color: #bcd6ff; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── Section label ───────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 4px 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.section::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .4; }
+.section b { color: var(--red); font-weight: 900; }
+
+/* ── Link stack ───────────────────────────────────────────────────────── */
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Liquid glass card */
+.tile {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 14px 16px 14px 14px;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+          backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -14px 24px rgba(47,123,255,.08),
+    var(--glass-shadow);
+  overflow: hidden;
+  transition: transform .25s cubic-bezier(.2,.8,.3,1), box-shadow .25s ease;
+}
+/* glossy top highlight — the "liquid" lip */
+.tile::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  right: 8%;
+  top: 2px;
+  height: 46%;
+  border-radius: 999px 999px 40% 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,0));
+  opacity: var(--gloss, .7);
+  pointer-events: none;
+}
+.tile:hover  { transform: translateY(-3px) scale(1.01); }
+.tile:active { transform: translateY(1px) scale(.99); }
+.tile:focus-visible { outline: 3px solid var(--ring); outline-offset: 4px; }
+
+.tile__num {
+  flex: 0 0 auto;
+  width: 22px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 12px;
+  color: var(--blue);
+  opacity: .85;
+}
+
+.tile__icon {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: radial-gradient(circle at 34% 28%, #9cc3ff 0%, var(--blue) 42%, var(--navy) 100%);
+  box-shadow: inset 0 2px 3px rgba(255,255,255,.7), inset 0 -3px 6px rgba(0,0,0,.25), 0 4px 10px rgba(10,34,102,.3);
+}
+.tile__icon svg { width: 20px; height: 20px; display: block; }
+
+.tile__text  { flex: 1 1 auto; min-width: 0; }
+.tile__label {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 16.5px;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.tile__sub {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.tile__chev { flex: 0 0 auto; width: 16px; height: 16px; color: var(--muted); }
+.tile__chev svg { width: 100%; height: 100%; display: block; }
+
+/* Featured: red liquid glass */
+.tile--featured {
+  min-height: 88px;
+  padding-top: 26px;
+  color: #fff;
+  border-color: rgba(255,255,255,.55);
+  background: linear-gradient(180deg, rgba(255,80,66,.92), rgba(224,19,11,.86) 55%, rgba(150,6,2,.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    inset 0 -16px 26px rgba(80,0,0,.35),
+    0 16px 34px rgba(224,19,11,.38);
+}
+.tile--featured::before { opacity: .55; }
+.tile--featured .tile__num,
+.tile--featured .tile__sub,
+.tile--featured .tile__chev { color: rgba(255,255,255,.85); }
+.tile--featured .tile__icon {
+  color: var(--red);
+  background: radial-gradient(circle at 34% 28%, #fff 0%, #f1f4fa 50%, #b9c4d8 100%);
+}
+.tile--featured .tile__label { font-size: 19px; }
+.tile__badge {
+  position: absolute;
+  top: 9px;
+  right: 14px;
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: .9;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+.footer {
+  margin-top: 34px;
+  text-align: center;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer p { margin: 0; }
+.footer p + p { margin-top: 6px; opacity: .7; letter-spacing: .2em; }
+
+.noscript {
+  padding: 16px;
+  border-radius: var(--btn-radius);
+  background: rgba(255,255,255,.7);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.avatar-wrap { animation: rise .7s cubic-bezier(.2,.8,.3,1) backwards; }
+.name    { animation: rise .7s cubic-bezier(.2,.8,.3,1) 70ms backwards; }
+.kicker  { animation: rise .7s cubic-bezier(.2,.8,.3,1) 140ms backwards; }
+.bio     { animation: rise .7s cubic-bezier(.2,.8,.3,1) 190ms backwards; }
+.socials { animation: rise .7s cubic-bezier(.2,.8,.3,1) 240ms backwards; }
+.footer  { animation: rise .7s cubic-bezier(.2,.8,.3,1) 800ms backwards; }
+.tile    { animation: rise .7s cubic-bezier(.2,.8,.3,1) backwards;
+           animation-delay: var(--intro-delay, 0ms); }
+
+.links > li {
+  animation: drift var(--f-dur, 12s) ease-in-out infinite;
+  animation-delay: var(--f-delay, 0s);
+}
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25%  { transform: translate3d(calc(var(--fx, 3) * 1px),  calc(var(--fy, 4) * -1px),   0) rotate(calc(var(--fr, .3) * 1deg)); }
+  50%  { transform: translate3d(calc(var(--fx, 3) * .3px), calc(var(--fy, 4) * -.25px), 0) rotate(0deg); }
+  75%  { transform: translate3d(calc(var(--fx, 3) * -1px), calc(var(--fy, 4) * 1px),    0) rotate(calc(var(--fr, .3) * -1deg)); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+html.no-intro .avatar-wrap,
+html.no-intro .name,
+html.no-intro .kicker,
+html.no-intro .bio,
+html.no-intro .socials,
+html.no-intro .footer,
+html.no-intro .tile { animation: none; }
+html.no-float .links > li { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: .001ms !important;
+  }
+  .ticker__track { flex-wrap: wrap; width: auto; justify-content: center; }
+  .ticker__item:nth-child(n + 6) { display: none; }
+  .tile:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="backdrop" aria-hidden="true">
+  <div class="blob blob--blue"></div>
+  <div class="blob blob--red"></div>
+  <div class="blob blob--sky"></div>
+  <div class="target target--1"></div>
+  <div class="target target--2"></div>
+  <div class="target target--3"></div>
+  <span class="spark" style="--s:26px;left:14%;top:18%;--d:-.4s"></span>
+  <span class="spark" style="--s:16px;right:16%;top:9%;--d:-1.6s;--t:2.6s"></span>
+  <span class="spark" style="--s:22px;right:9%;top:48%;--d:-2.2s"></span>
+  <span class="spark" style="--s:14px;left:7%;top:56%;--d:-1s;--t:2.8s"></span>
+  <span class="spark" style="--s:20px;left:22%;bottom:8%;--d:-2.8s;--t:3.6s"></span>
+  <span class="spark" style="--s:12px;right:28%;bottom:16%;--d:-.9s"></span>
+  <div class="grain"></div>
+</div>
+
+<div class="side" id="side" aria-hidden="true"></div>
+
+<main class="page">
+  <header class="header" id="header"></header>
+
+  <div class="ticker" id="ticker" aria-hidden="true"></div>
+
+  <nav aria-labelledby="section-label">
+    <p class="section" id="section-label"></p>
+    <ul class="links" id="links"></ul>
+  </nav>
+
+  <noscript>
+    <p class="noscript">This page needs JavaScript to render its links.</p>
+  </noscript>
+
+  <footer class="footer" id="footer"></footer>
+</main>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   RENDERER — reads CONFIG, writes the page. No need to edit below here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  const ICONS = {
+    github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2.2Z"/></svg>',
+    play:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a.8.8 0 0 0 1.22.68l11-6.8a.8.8 0 0 0 0-1.36l-11-6.8A.8.8 0 0 0 8 5.2Z"/></svg>',
+    spark:  '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 7.1L21 12l-7.1 1.9L12 21l-1.9-7.1L3 12l7.1-2.9z"/></svg>',
+    link:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a3.6 3.6 0 0 0 5.4.4l2.6-2.6a3.6 3.6 0 0 0-5.1-5.1l-1.5 1.5"/><path d="M14 10.5a3.6 3.6 0 0 0-5.4-.4L6 12.7a3.6 3.6 0 0 0 5.1 5.1l1.5-1.5"/></svg>',
+    chev:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>'
+  };
+
+  const S = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
+  const SOCIALS = {
+    instagram: { label: "Instagram", svg: '<svg ' + S + '><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"/></svg>' },
+    youtube:   { label: "YouTube",   svg: '<svg ' + S + '><rect x="2.4" y="5.4" width="19.2" height="13.2" rx="4.2"/><path d="M10.3 9.3v5.4l4.7-2.7z" fill="currentColor" stroke="none"/></svg>' },
+    tiktok:    { label: "TikTok",    svg: '<svg ' + S + '><path d="M14.2 4.2v9.6a3.5 3.5 0 1 1-2.9-3.45"/><path d="M14.2 4.2c.35 2.35 1.85 3.75 4.2 3.95"/></svg>' },
+    x:         { label: "X",         svg: '<svg ' + S + ' stroke-width="1.8"><path d="M5.2 5.2 18.8 18.8"/><path d="M18.8 5.2 5.2 18.8"/></svg>' },
+    facebook:  { label: "Facebook",  svg: '<svg ' + S + '><path d="M13.6 21v-7.6h2.5l.45-3.05H13.6V8.4c0-.9.3-1.5 1.6-1.5h1.45V4.15A21 21 0 0 0 14.5 4C12.15 4 10.5 5.4 10.5 8.05v2.3H8v3.05h2.5V21"/></svg>' },
+    linkedin:  { label: "LinkedIn",  svg: '<svg ' + S + '><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="3.4"/><path d="M8 10.6v5.9"/><path d="M8 7.7v.05"/><path d="M11.9 16.5v-3.3a2 2 0 0 1 4 0v3.3"/></svg>' },
+    email:     { label: "Email",     svg: '<svg ' + S + '><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="3.2"/><path d="m4.6 8.2 6.5 4.5a1.6 1.6 0 0 0 1.8 0l6.5-4.5"/></svg>' }
+  };
+
+  function withUtm(href) {
+    if (!CONFIG.utmSource) return href;
+    try {
+      const u = new URL(href, location.href);
+      if (u.protocol !== "http:" && u.protocol !== "https:") return href;
+      u.searchParams.set("utm_source", CONFIG.utmSource);
+      return u.toString();
+    } catch (e) {
+      return href + (href.indexOf("?") === -1 ? "?" : "&") +
+             "utm_source=" + encodeURIComponent(CONFIG.utmSource);
+    }
+  }
+
+  const el = (tag, cls, html) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html != null) n.innerHTML = html;
+    return n;
+  };
+
+  const esc = s => String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+  const pad2 = n => (n < 10 ? "0" : "") + n;
+
+  function setMeta(attr, key, value) {
+    let tag = document.head.querySelector('meta[' + attr + '="' + key + '"]');
+    if (!tag) {
+      tag = document.createElement("meta");
+      tag.setAttribute(attr, key);
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute("content", value);
+  }
+
+  function renderMeta() {
+    const m = CONFIG.meta || {};
+    if (m.title) {
+      document.title = m.title;
+      setMeta("property", "og:title", m.title);
+      setMeta("name", "twitter:title", m.title);
+    }
+    if (m.description) {
+      setMeta("name", "description", m.description);
+      setMeta("property", "og:description", m.description);
+      setMeta("name", "twitter:description", m.description);
+    }
+    if (m.image) {
+      setMeta("property", "og:image", m.image);
+      setMeta("name", "twitter:image", m.image);
+    }
+    if (m.url) setMeta("property", "og:url", m.url);
+  }
+
+  /* ── Header ──────────────────────────────────────────────────────────── */
+  function renderHeader() {
+    const host = document.getElementById("header");
+
+    if (CONFIG.avatar) {
+      const wrap = el("div", "avatar-wrap");
+      const img = el("img", "avatar");
+      img.src = CONFIG.avatar;
+      img.alt = CONFIG.avatarAlt || CONFIG.name || "Profile photo";
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.width = 88;
+      img.height = 88;
+      wrap.appendChild(img);
+      host.appendChild(wrap);
+    }
+
+    const h1 = el("h1", "name");
+    const lines = (CONFIG.nameLines && CONFIG.nameLines.length) ? CONFIG.nameLines : [CONFIG.name];
+    let target = h1;
+    if (CONFIG.nameUrl) {
+      const a = el("a");
+      a.href = withUtm(CONFIG.nameUrl);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.setAttribute("aria-label", CONFIG.name);
+      h1.appendChild(a);
+      target = a;
+    } else {
+      h1.setAttribute("aria-label", CONFIG.name);
+    }
+    lines.forEach(function (line) {
+      const span = el("span", "chrome");
+      span.textContent = line;
+      span.setAttribute("aria-hidden", "true");
+      target.appendChild(span);
+    });
+    host.appendChild(h1);
+
+    if (CONFIG.kicker) {
+      const k = el("p", "kicker");
+      k.textContent = CONFIG.kicker;
+      host.appendChild(k);
+    }
+
+    if (CONFIG.bio) {
+      const p = el("p", "bio");
+      p.textContent = CONFIG.bio;
+      host.appendChild(p);
+    }
+
+    renderSocials(host);
+
+    if (CONFIG.handle) {
+      document.getElementById("side").textContent =
+        CONFIG.handle + "  —  " + (CONFIG.kicker || "");
+    }
+  }
+
+  function renderSocials(host) {
+    const list = (CONFIG.socials || []).filter(s => SOCIALS[s.platform]);
+    if (!list.length) return;
+
+    const ul = el("ul", "socials");
+    ul.setAttribute("aria-label", "Social profiles");
+
+    list.forEach(function (s) {
+      const meta = SOCIALS[s.platform];
+      const li = el("li");
+      let node;
+      if (s.url) {
+        node = el("a", "social", meta.svg);
+        node.href = withUtm(s.url);
+        node.setAttribute("aria-label", s.label || meta.label);
+        node.title = s.label || meta.label;
+        node.target = "_blank";
+        node.rel = "noopener noreferrer";
+      } else {
+        node = el("span", "social social--empty", meta.svg);
+        node.setAttribute("aria-hidden", "true");
+      }
+      li.appendChild(node);
+      ul.appendChild(li);
+    });
+
+    host.appendChild(ul);
+  }
+
+  /* ── Ticker ──────────────────────────────────────────────────────────── */
+  function renderTicker() {
+    const host = document.getElementById("ticker");
+    const words = CONFIG.ticker || [];
+    if (!words.length) { host.remove(); return; }
+    const track = el("div", "ticker__track");
+    // Two identical halves so translating -50% lands on an identical frame.
+    for (let r = 0; r < 2; r++) {
+      words.forEach(w => {
+        const s = el("span", "ticker__item");
+        s.textContent = w;
+        track.appendChild(s);
+      });
+    }
+    host.appendChild(track);
+  }
+
+  /* ── Links ───────────────────────────────────────────────────────────── */
+  function renderLinks() {
+    const label = document.getElementById("section-label");
+    const n = (CONFIG.links || []).length;
+    label.innerHTML = esc(CONFIG.sectionLabel || "Links") + ' <b>/ ' + pad2(n) + '</b>';
+
+    const host = document.getElementById("links");
+    const frag = document.createDocumentFragment();
+    const rnd = (lo, hi) => lo + Math.random() * (hi - lo);
+
+    (CONFIG.links || []).forEach(function (link, i) {
+      const li = el("li");
+      li.style.setProperty("--fx",      rnd(2, 4).toFixed(2));
+      li.style.setProperty("--fy",      rnd(2, 4).toFixed(2));
+      li.style.setProperty("--fr",      rnd(0.15, 0.35).toFixed(2));
+      li.style.setProperty("--f-dur",   rnd(10, 16).toFixed(1) + "s");
+      li.style.setProperty("--f-delay", "-" + rnd(0, 14).toFixed(1) + "s");
+
+      const a = el("a", "tile" + (link.featured ? " tile--featured" : ""));
+      a.href = withUtm(link.url);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.style.setProperty("--intro-delay", (320 + i * 80) + "ms");
+      a.innerHTML =
+        (link.featured ? '<span class="tile__badge" aria-hidden="true">★ Top pick</span>' : '') +
+        '<span class="tile__num" aria-hidden="true">' + pad2(i + 1) + '</span>' +
+        '<span class="tile__icon" aria-hidden="true">' + (ICONS[link.icon] || ICONS.link) + '</span>' +
+        '<span class="tile__text">' +
+          '<span class="tile__label">' + esc(link.label) + '</span>' +
+          (link.sub ? '<span class="tile__sub">' + esc(link.sub) + '</span>' : '') +
+        '</span>' +
+        '<span class="tile__chev">' + ICONS.chev + '</span>';
+
+      li.appendChild(a);
+      frag.appendChild(li);
+    });
+
+    host.appendChild(frag);
+  }
+
+  function renderFooter() {
+    const host = document.getElementById("footer");
+    const p = el("p");
+    p.textContent = CONFIG.footer || CONFIG.name;
+    const p2 = el("p");
+    p2.textContent = "© " + new Date().getFullYear() + " " + CONFIG.name;
+    host.appendChild(p);
+    host.appendChild(p2);
+  }
+
+  renderMeta();
+  renderHeader();
+  renderTicker();
+  renderLinks();
+  renderFooter();
+})();
+</script>
+</body>
+</html>
