@@ -68,6 +68,11 @@ const CONFIG = {
   /* null = links open exactly as written (clean GitHub URLs). */
   utmSource: null,
 
+  /* Private view counter (GoatCounter, free, no cookies, no banner needed).
+     Your stats: https://reelsuniai.goatcounter.com — only you can log in.
+     Counts page views plus which tool cards get tapped. "" turns it off. */
+  goatcounter: "reelsuniai",
+
   motion: { intro: true },
 
   /* ── Colours (one look, on purpose: a cutting mat doesn't change at night) ── */
@@ -783,6 +788,31 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
     });
   }
 
+  /* Sends a one-pixel "+1" to your private GoatCounter. No script is loaded
+     from anywhere else and nothing is stored on the visitor's phone. */
+  function setupCounter() {
+    const code = CONFIG.goatcounter;
+    if (!code || location.protocol !== "https:") return;      // skip local previews
+    const base = "https://" + code + ".goatcounter.com/count";
+    const ping = q => {
+      try {
+        const img = new Image();
+        img.src = base + "?" + q + "&rnd=" + Math.random().toString(36).slice(2);
+      } catch (e) { /* stats are optional */ }
+    };
+    const enc = encodeURIComponent;
+    ping("p=" + enc(location.pathname || "/") +
+         "&t=" + enc(document.title) +
+         "&r=" + enc(document.referrer || "") +
+         "&s=" + enc(screen.width + "," + screen.height + "," + (window.devicePixelRatio || 1)));
+    document.getElementById("links").addEventListener("click", function (e) {
+      const a = e.target.closest("a.tile");
+      if (!a) return;
+      const label = a.querySelector(".tile__label");
+      ping("p=" + enc("click: " + (label ? label.textContent : a.href)) + "&e=true&t=" + enc(a.href));
+    });
+  }
+
   function renderFooter() {
     const host = document.getElementById("footer");
     const p = el("p", "footer__brand");
@@ -798,6 +828,7 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
   renderHeader();
   renderLinks();
   renderFooter();
+  setupCounter();
 })();
 </script>
 </body>
