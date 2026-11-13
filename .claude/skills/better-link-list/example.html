@@ -1,0 +1,673 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+
+<!-- ─────────────────────────────────────────────────────────────────────────
+     SOCIAL PREVIEW META
+     Crawlers do not run JavaScript, so these have to be real tags. They mirror
+     CONFIG.meta below — if you change one, change the other.
+     og:image and og:url need absolute https:// URLs to work; fill them in once
+     the page is hosted.
+     ───────────────────────────────────────────────────────────────────────── */ -->
+<title>Mitchell Kucher</title>
+<meta name="description" content="Video creator. Social media coach. Based in Canada">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mitchell Kucher">
+<meta property="og:description" content="Video creator. Social media coach. Based in Canada">
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mitchell Kucher">
+<meta name="twitter:description" content="Video creator. Social media coach. Based in Canada">
+<meta name="twitter:image" content="">
+
+<!-- Favicon, inline so the page stays one file. Swap the colours to match. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111827'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23f9fafb'/%3E%3C/svg%3E">
+
+
+<!-- ═════════════════════════════════════════════════════════════════════════
+     ██  CONFIG — this is the only block you need to edit.  ██
+     Name, bio, avatar, colours and links all live here.
+     Everything below this object reads from it.
+     ═════════════════════════════════════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+
+  /* ── Header ─────────────────────────────────────────────────────────── */
+  name:       "Mitchell Kucher",
+  nameUrl:    "https://example.com",   // makes the name a link; null = plain text
+  bio:        "Video creator. Social media coach. Based in Canada",
+
+  // Save a photo next to this file and point at it ("avatar.jpg"), or inline it
+  // as a data URI to keep the page self-contained. Falls back to the monogram
+  // below if the file is missing, so the page never renders broken.
+  avatar:     "avatar.jpg",
+  avatarAlt:  "Mitchell Kucher",
+  avatarFallback: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23111827'/%3E%3Ctext x='100' y='128' font-family='-apple-system,Segoe UI,Roboto,sans-serif' font-size='72' font-weight='600' text-anchor='middle' fill='%23f9fafb'%3EMK%3C/text%3E%3C/svg%3E",
+
+  /* ── Social preview (mirror of the <meta> tags above) ───────────────── */
+  meta: {
+    title:       "Mitchell Kucher",
+    description: "Video creator. Social media coach. Based in Canada",
+    image:       "",   // absolute https:// URL to a 1200×630 image, once hosted
+    url:         ""    // absolute https:// URL of this page, once hosted
+  },
+
+  /* ── Social icon row (sits under the bio) ───────────────────────────────
+     Fill in a url to make an icon live. Leave "" and it renders dimmed, so the
+     empty slot is visible while editing. Add placeholder: true and it looks
+     exactly like a live icon but goes nowhere — drop the url in later and it
+     becomes real with no other change. Delete a line to remove it entirely.
+     Email takes a mailto: address.
+     Available: instagram · youtube · tiktok · x · facebook · linkedin · email
+     Six is the most that fit one row at 375px; a seventh wraps.
+     ─────────────────────────────────────────────────────────────────────── */
+  socials: [
+    { platform: "instagram", url: "", placeholder: true },
+    { platform: "youtube",   url: "", placeholder: true },
+    { platform: "email",     url: "", placeholder: true }
+  ],
+
+  /* ── Behaviour ──────────────────────────────────────────────────────── */
+  utmSource: "bio",    // appended to every outbound link as ?utm_source=…
+
+  motion: {
+    intro: true,       // staggered rise as the page loads
+    float: false       // link cards drift gently, forever
+  },
+
+  /* ── Theme tokens ───────────────────────────────────────────────────────
+     "light" is the design; "dark" is what people with dark-mode phones get.
+     Delete the dark block entirely if you want the page light for everyone.
+     ─────────────────────────────────────────────────────────────────────── */
+  theme: {
+    light: {
+      "--bg":           "#f4f4f5",
+      "--fg":           "#18181b",
+      "--muted":        "rgba(24,24,27,0.62)",
+      "--btn-bg":       "#ffffff",
+      "--btn-fg":       "#18181b",
+      "--btn-border":   "#18181b",
+      "--btn-radius":   "14px",
+      "--accent":       "#2563eb",
+      "--ring":         "#2563eb",
+      "--shadow":       "4px 5px 0 #18181b",
+      "--font-display": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      "--font-body":    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    },
+    dark: {
+      "--bg":           "#0c0c0e",
+      "--fg":           "#f4f4f5",
+      "--muted":        "rgba(244,244,245,0.60)",
+      "--btn-bg":       "#1a1a1f",
+      "--btn-fg":       "#f4f4f5",
+      "--btn-border":   "#3f3f46",
+      "--btn-radius":   "14px",
+      "--accent":       "#60a5fa",
+      "--ring":         "#60a5fa",
+      "--shadow":       "4px 5px 0 #000000",
+      "--font-display": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      "--font-body":    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    }
+  },
+
+  /* ── Links, in display order ────────────────────────────────────────────
+     { label, url }                      → standard button
+     + sub:      "small line under the label"
+     + icon:     cloud | bag | play | device | link   (see ICONS below)
+     + featured: true                    → highlighted, for the priority link
+     + type: "video" + thumb, thumbAlt   → wide tile with a preview image
+     ─────────────────────────────────────────────────────────────────────── */
+  links: [
+    {
+      featured: true,
+      label: "Work with me",
+      sub:   "Bookings and enquiries",
+      icon:  "link",
+      url:   "https://example.com/work-with-me"
+    },
+    {
+      label: "Get my free guide",
+      sub:   "Free download",
+      icon:  "bag",
+      url:   "https://example.com/guide"
+    },
+    {
+      label: "Newsletter",
+      sub:   "One letter a month, no more",
+      icon:  "cloud",
+      url:   "https://example.com/newsletter"
+    }
+  ]
+};
+
+/* Paint theme tokens and motion switches before first render so there is no flash. */
+(function () {
+  const decl = o => Object.entries(o).map(([k, v]) => k + ":" + v).join(";");
+  const s = document.createElement("style");
+  s.textContent =
+    ":root{" + decl(CONFIG.theme.light) + "}" +
+    (CONFIG.theme.dark
+      ? "@media (prefers-color-scheme: dark){:root{" + decl(CONFIG.theme.dark) + "}}"
+      : "");
+  document.head.appendChild(s);
+
+  const m = CONFIG.motion || {};
+  if (m.intro === false) document.documentElement.classList.add("no-intro");
+  if (m.float !== true)  document.documentElement.classList.add("no-float");
+})();
+</script>
+
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   The styling below is a plain, solid starting point — deliberately not a look.
+   Replace it with whatever the reference calls for. The structure, the tokens
+   and the renderer are what you want to keep.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.page {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: clamp(40px, 12vh, 88px) 22px calc(52px + env(safe-area-inset-bottom));
+}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+.header { text-align: center; margin-bottom: 40px; }
+
+.avatar-wrap { width: 92px; height: 92px; margin: 0 auto 18px; }
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--btn-border);
+  background: var(--btn-bg);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -.02em;
+  margin: 0 0 8px;
+}
+.name a { color: inherit; text-decoration: none; }
+.name a:hover { text-decoration: underline; }
+
+.bio {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 30ch;
+  margin-inline: auto;
+}
+
+/* ── Social row ───────────────────────────────────────────────────────── */
+.socials {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.social {
+  display: grid;
+  place-items: center;
+  width: 44px;                     /* exactly the 44px tap-target floor */
+  height: 44px;
+  border-radius: 50%;
+  color: var(--btn-fg);
+  text-decoration: none;
+  background: var(--btn-bg);
+  border: 2px solid var(--btn-border);
+  transition: transform .2s cubic-bezier(.2,.8,.3,1);
+}
+.social svg { width: 19px; height: 19px; display: block; }
+a.social:hover, .social--pending:hover { transform: translateY(-2px); }
+a.social:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+
+/* Two kinds of url-less icon.
+   --empty  : visibly unfilled, so the slot is obvious while editing.
+   --pending: styled exactly like a live one. It is a <span>, not an <a>, and is
+              hidden from assistive tech — announcing a link that goes nowhere is
+              worse than not announcing it at all. */
+.social--empty { opacity: .35; cursor: default; }
+.social--pending { cursor: pointer; }
+
+/* ── Link stack ───────────────────────────────────────────────────────── */
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;                /* comfortably past the 44px tap floor */
+  padding: 14px 18px;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 2px solid var(--btn-border);
+  box-shadow: var(--shadow);
+  transition: transform .2s cubic-bezier(.2,.8,.3,1), box-shadow .2s ease;
+}
+.tile:hover  { transform: translate(-2px, -3px); box-shadow: 6px 8px 0 var(--btn-border); }
+.tile:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--btn-border); }
+.tile:focus-visible { outline: 3px solid var(--ring); outline-offset: 4px; }
+
+.tile--featured { border-color: var(--accent); }
+.tile--featured .tile__icon { color: var(--accent); border-color: var(--accent); }
+
+.tile__icon {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--muted);
+}
+.tile__icon svg { width: 18px; height: 18px; display: block; }
+
+.tile__text  { flex: 1 1 auto; min-width: 0; }
+.tile__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.tile__sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+.tile__chev { flex: 0 0 auto; width: 16px; height: 16px; color: var(--muted); }
+.tile__chev svg { width: 100%; height: 100%; display: block; }
+
+/* ── Media tile (video / image preview) ───────────────────────────────── */
+.tile--media { display: block; padding: 12px 12px 16px; }
+.media {
+  position: relative;
+  display: block;
+  border-radius: calc(var(--btn-radius) - 4px);
+  overflow: hidden;
+  border: 2px solid var(--btn-border);
+}
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.media__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 2px solid var(--btn-border);
+}
+.media__play svg { width: 20px; height: 20px; margin-left: 3px; display: block; }
+.media__meta { display: flex; align-items: center; gap: 14px; padding: 14px 6px 0; }
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.noscript {
+  padding: 16px;
+  border-radius: var(--btn-radius);
+  border: 2px solid var(--btn-border);
+  background: var(--btn-bg);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.name    { animation: rise .7s cubic-bezier(.2,.8,.3,1) backwards; }
+.avatar-wrap { animation: rise .7s cubic-bezier(.2,.8,.3,1) 60ms backwards; }
+.bio     { animation: rise .7s cubic-bezier(.2,.8,.3,1) 140ms backwards; }
+.socials { animation: rise .7s cubic-bezier(.2,.8,.3,1) 210ms backwards; }
+.footer  { animation: rise .7s cubic-bezier(.2,.8,.3,1) 600ms backwards; }
+.tile    { animation: rise .7s cubic-bezier(.2,.8,.3,1) backwards;
+           animation-delay: var(--intro-delay, 0ms); }   /* set per-item in JS */
+
+/* Optional drift. Amplitude stays under half the stack gap so neighbours never
+   touch, and every card gets a negative delay so they are already out of phase
+   on the first frame rather than bobbing in unison. */
+.links > li {
+  animation: drift var(--f-dur, 12s) ease-in-out infinite;
+  animation-delay: var(--f-delay, 0s);
+}
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25%  { transform: translate3d(calc(var(--fx, 4) * 1px),  calc(var(--fy, 5) * -1px),   0) rotate(calc(var(--fr, .4) * 1deg)); }
+  50%  { transform: translate3d(calc(var(--fx, 4) * .3px), calc(var(--fy, 5) * -.25px), 0) rotate(0deg); }
+  75%  { transform: translate3d(calc(var(--fx, 4) * -1px), calc(var(--fy, 5) * 1px),    0) rotate(calc(var(--fr, .4) * -1deg)); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+html.no-intro .name,
+html.no-intro .avatar-wrap,
+html.no-intro .bio,
+html.no-intro .socials,
+html.no-intro .footer,
+html.no-intro .tile { animation: none; }
+html.no-float .links > li { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: .001ms !important;
+  }
+  .tile:hover { transform: none; }
+}
+</style>
+
+
+<main class="page">
+  <header class="header" id="header"></header>
+
+  <nav aria-label="Links">
+    <ul class="links" id="links"></ul>
+  </nav>
+
+  <noscript>
+    <p class="noscript">This page needs JavaScript to render its links.</p>
+  </noscript>
+
+  <footer class="footer" id="footer"></footer>
+</main>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   RENDERER — reads CONFIG, writes the page. No need to edit below here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  const ICONS = {
+    cloud:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 18a4.5 4.5 0 0 1-.6-8.96 6 6 0 0 1 11.64-1.3A4.25 4.25 0 0 1 18 18H6.5Z"/><path d="M12 11v5m0 0-2-2m2 2 2-2"/></svg>',
+    bag:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 11.5a1.5 1.5 0 0 1-1.5 1.4h-11A1.5 1.5 0 0 1 4 19.5L5 8Z"/><path d="M8.75 10.5V7a3.25 3.25 0 0 1 6.5 0v3.5"/></svg>',
+    play:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a.8.8 0 0 0 1.22.68l11-6.8a.8.8 0 0 0 0-1.36l-11-6.8A.8.8 0 0 0 8 5.2Z"/></svg>',
+    device: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.5 5.5h3"/></svg>',
+    link:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a3.6 3.6 0 0 0 5.4.4l2.6-2.6a3.6 3.6 0 0 0-5.1-5.1l-1.5 1.5"/><path d="M14 10.5a3.6 3.6 0 0 0-5.4-.4L6 12.7a3.6 3.6 0 0 0 5.1 5.1l1.5-1.5"/></svg>',
+    chev:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>'
+  };
+
+  /* Social glyphs, drawn to a single line weight so the row reads as one set. */
+  const S = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
+  const SOCIALS = {
+    instagram: { label: "Instagram", svg: '<svg ' + S + '><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"/></svg>' },
+    youtube:   { label: "YouTube",   svg: '<svg ' + S + '><rect x="2.4" y="5.4" width="19.2" height="13.2" rx="4.2"/><path d="M10.3 9.3v5.4l4.7-2.7z" fill="currentColor" stroke="none"/></svg>' },
+    tiktok:    { label: "TikTok",    svg: '<svg ' + S + '><path d="M14.2 4.2v9.6a3.5 3.5 0 1 1-2.9-3.45"/><path d="M14.2 4.2c.35 2.35 1.85 3.75 4.2 3.95"/></svg>' },
+    x:         { label: "X",         svg: '<svg ' + S + ' stroke-width="1.8"><path d="M5.2 5.2 18.8 18.8"/><path d="M18.8 5.2 5.2 18.8"/></svg>' },
+    facebook:  { label: "Facebook",  svg: '<svg ' + S + '><path d="M13.6 21v-7.6h2.5l.45-3.05H13.6V8.4c0-.9.3-1.5 1.6-1.5h1.45V4.15A21 21 0 0 0 14.5 4C12.15 4 10.5 5.4 10.5 8.05v2.3H8v3.05h2.5V21"/></svg>' },
+    linkedin:  { label: "LinkedIn",  svg: '<svg ' + S + '><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="3.4"/><path d="M8 10.6v5.9"/><path d="M8 7.7v.05"/><path d="M11.9 16.5v-3.3a2 2 0 0 1 4 0v3.3"/></svg>' },
+    email:     { label: "Email",     svg: '<svg ' + S + '><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="3.2"/><path d="m4.6 8.2 6.5 4.5a1.6 1.6 0 0 0 1.8 0l6.5-4.5"/></svg>' }
+  };
+
+  /* Append the utm param, preserving whatever query the URL already has.
+     Non-http schemes (mailto:, tel:) are returned untouched. */
+  function withUtm(href) {
+    if (!CONFIG.utmSource) return href;
+    try {
+      const u = new URL(href, location.href);
+      if (u.protocol !== "http:" && u.protocol !== "https:") return href;
+      u.searchParams.set("utm_source", CONFIG.utmSource);
+      return u.toString();
+    } catch (e) {
+      return href + (href.indexOf("?") === -1 ? "?" : "&") +
+             "utm_source=" + encodeURIComponent(CONFIG.utmSource);
+    }
+  }
+
+  const el = (tag, cls, html) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html != null) n.innerHTML = html;
+    return n;
+  };
+
+  const esc = s => String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+  /* ── Head: keep title and social tags in sync with CONFIG ────────────── */
+  function setMeta(attr, key, value) {
+    let tag = document.head.querySelector('meta[' + attr + '="' + key + '"]');
+    if (!tag) {
+      tag = document.createElement("meta");
+      tag.setAttribute(attr, key);
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute("content", value);
+  }
+
+  function renderMeta() {
+    const m = CONFIG.meta || {};
+    if (m.title) {
+      document.title = m.title;
+      setMeta("property", "og:title", m.title);
+      setMeta("name", "twitter:title", m.title);
+    }
+    if (m.description) {
+      setMeta("name", "description", m.description);
+      setMeta("property", "og:description", m.description);
+      setMeta("name", "twitter:description", m.description);
+    }
+    if (m.image) {
+      setMeta("property", "og:image", m.image);
+      setMeta("name", "twitter:image", m.image);
+    }
+    if (m.url) setMeta("property", "og:url", m.url);
+  }
+
+  /* ── Header ──────────────────────────────────────────────────────────── */
+  function renderHeader() {
+    const host = document.getElementById("header");
+
+    const h1 = el("h1", "name");
+    if (CONFIG.nameUrl) {
+      const a = el("a");
+      a.href = withUtm(CONFIG.nameUrl);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = CONFIG.name;
+      h1.appendChild(a);
+    } else {
+      h1.textContent = CONFIG.name;
+    }
+    host.appendChild(h1);
+
+    if (CONFIG.avatar) {
+      const wrap = el("div", "avatar-wrap");
+      const img = el("img", "avatar");
+      img.src = CONFIG.avatar;
+      img.alt = CONFIG.avatarAlt || CONFIG.name || "Profile photo";
+      if (CONFIG.avatarFallback) {
+        img.addEventListener("error", function once() {
+          img.removeEventListener("error", once);   // never loop on a bad fallback
+          img.src = CONFIG.avatarFallback;
+        });
+      }
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.width = 92;
+      img.height = 92;
+      wrap.appendChild(img);
+      host.appendChild(wrap);
+    }
+
+    if (CONFIG.bio) {
+      const p = el("p", "bio");
+      p.textContent = CONFIG.bio;
+      host.appendChild(p);
+    }
+
+    renderSocials(host);
+  }
+
+  function renderSocials(host) {
+    const list = (CONFIG.socials || []).filter(s => SOCIALS[s.platform]);
+    if (!list.length) return;
+
+    const ul = el("ul", "socials");
+    ul.setAttribute("aria-label", "Social profiles");
+
+    list.forEach(function (s) {
+      const meta = SOCIALS[s.platform];
+      const li = el("li");
+      let node;
+
+      if (s.url) {
+        node = el("a", "social", meta.svg);
+        node.href = withUtm(s.url);
+        node.setAttribute("aria-label", s.label || meta.label);
+        if (node.protocol === "http:" || node.protocol === "https:") {
+          node.target = "_blank";
+          node.rel = "noopener noreferrer";
+        }
+      } else {
+        node = el("span", "social social--" + (s.placeholder ? "pending" : "empty"), meta.svg);
+        node.title = s.placeholder
+          ? (s.label || meta.label)
+          : (s.label || meta.label) + " — add a url in CONFIG.socials";
+        node.setAttribute("aria-hidden", "true");
+      }
+
+      li.appendChild(node);
+      ul.appendChild(li);
+    });
+
+    host.appendChild(ul);
+  }
+
+  /* ── Links ───────────────────────────────────────────────────────────── */
+  function renderLinks() {
+    const host = document.getElementById("links");
+    const frag = document.createDocumentFragment();
+    const rnd = (lo, hi) => lo + Math.random() * (hi - lo);
+
+    (CONFIG.links || []).forEach(function (link, i) {
+      const li = el("li");
+
+      // Drift, randomised per card, with a negative delay so no two are in phase.
+      li.style.setProperty("--fx",      rnd(3, 6).toFixed(2));
+      li.style.setProperty("--fy",      rnd(3, 5).toFixed(2));
+      li.style.setProperty("--fr",      rnd(0.2, 0.5).toFixed(2));
+      li.style.setProperty("--f-dur",   rnd(10, 16).toFixed(1) + "s");
+      li.style.setProperty("--f-delay", "-" + rnd(0, 14).toFixed(1) + "s");
+
+      const a = el("a", "tile" +
+        (link.type === "video" ? " tile--media" : "") +
+        (link.featured ? " tile--featured" : ""));
+      a.href = withUtm(link.url);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.style.setProperty("--intro-delay", (280 + i * 80) + "ms");
+      a.innerHTML = link.type === "video" ? videoTile(link) : standardTile(link);
+
+      li.appendChild(a);
+      frag.appendChild(li);
+    });
+
+    host.appendChild(frag);
+  }
+
+  function standardTile(link) {
+    return '' +
+      '<span class="tile__icon" aria-hidden="true">' + (ICONS[link.icon] || ICONS.link) + '</span>' +
+      '<span class="tile__text">' +
+        '<span class="tile__label">' + esc(link.label) + '</span>' +
+        (link.sub ? '<span class="tile__sub">' + esc(link.sub) + '</span>' : '') +
+      '</span>' +
+      '<span class="tile__chev">' + ICONS.chev + '</span>';
+  }
+
+  function videoTile(link) {
+    return '' +
+      '<span class="media">' +
+        '<img src="' + esc(link.thumb) + '" alt="' + esc(link.thumbAlt || link.label) + '" ' +
+             'loading="lazy" decoding="async" width="440" height="248">' +
+        '<span class="media__play" aria-hidden="true">' + ICONS.play + '</span>' +
+      '</span>' +
+      '<span class="media__meta">' +
+        '<span class="tile__text">' +
+          '<span class="tile__label">' + esc(link.label) + '</span>' +
+          (link.sub ? '<span class="tile__sub">' + esc(link.sub) + '</span>' : '') +
+        '</span>' +
+        '<span class="tile__chev">' + ICONS.chev + '</span>' +
+      '</span>';
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────────────── */
+  function renderFooter() {
+    const host = document.getElementById("footer");
+    const p = el("p");
+    p.style.margin = "0";
+    p.textContent = "© " + new Date().getFullYear() + " " + CONFIG.name;
+    host.appendChild(p);
+  }
+
+  renderMeta();
+  renderHeader();
+  renderLinks();
+  renderFooter();
+})();
+</script>
