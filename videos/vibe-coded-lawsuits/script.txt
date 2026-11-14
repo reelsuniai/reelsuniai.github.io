@@ -1,0 +1,8 @@
+You can vibe code an app in a weekend and get sued for it by Monday.
+There are four ways it usually happens, and the last one catches almost everyone.
+The first is accessibility. If a blind user's screen reader can't get through your signup, that's what law firms scan for, and AI builders skip the labels by default.
+The second is privacy. The moment you collect an email, you need a privacy policy that matches what your app actually does, and most vibe coded apps don't have one.
+The third is trackers. Drop in an analytics pixel or a chat widget without asking, and you could be recording visitors in ways the law doesn't allow.
+And the last one is your database. AI will happily ship your app with no access rules, so anyone with the link can read every user's data.
+Your users don't care that AI wrote the code. To the law, it's yours.
+Comment LAWSUIT and I'll send you the checklist I run before every launch.

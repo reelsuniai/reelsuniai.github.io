@@ -1,0 +1,62 @@
+{
+  "style": "classic",
+  "name": "vibe-coded-lawsuits",
+  "cta": {
+    "keyword": "LAWSUIT"
+  },
+  "presenter": {
+    "skin": "medium",
+    "hair": "swept",
+    "hairColor": "darkbrown",
+    "beard": "none",
+    "beanie": false,
+    "glasses": false,
+    "glassesStyle": "round",
+    "top": "tee",
+    "topColor": "#4A5260",
+    "innerColor": "#F6F5F1",
+    "accessories": [],
+    "face": "adult"
+  },
+  "captions": {
+    "emphasize": [
+      "weekend",
+      "sued",
+      "Monday",
+      "four",
+      "everyone",
+      "accessibility",
+      "blind",
+      "scan",
+      "labels",
+      "privacy",
+      "email",
+      "policy",
+      "one.",
+      "trackers",
+      "pixel",
+      "widget",
+      "recording",
+      "database",
+      "rules",
+      "link",
+      "data",
+      "care",
+      "yours",
+      "yours.",
+      "lawsuit"
+    ],
+    "swap": {
+      "26": "one",
+      "89": "one.",
+      "120": "one"
+    }
+  },
+  "theme": {
+    "accent": "#FF3B1F"
+  },
+  "ui": {
+    "sentLink": "sent you the checklist",
+    "sceneGet": "get the checklist"
+  }
+}
