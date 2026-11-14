@@ -4,142 +4,237 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reel Skills · ShortsUniversity</title>
-<meta name="description" content="Claude Code skills that make animated Instagram reels in one prompt. Five styles. ₹499 each or all five for ₹999.">
-<meta property="og:title" content="Reel Skills by ShortsUniversity">
-<meta property="og:description" content="Type one topic. Claude Code makes the whole animated reel. Five styles, ₹499 each or ₹999 for all.">
+<meta name="description" content="The Claude Code skills behind @reelsuniai. Type one prompt, get a finished animated reel. 5 styles, ₹499 each or all 5 for ₹999.">
+<meta property="og:title" content="Reels from one prompt · ShortsUniversity">
+<meta property="og:description" content="The exact Claude Code skills behind 495K views in 30 days. 5 styles, ₹499 each or ₹999 for all.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#f4efe4">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23d62828'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23fff'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-weight='700' font-size='34' text-anchor='middle' fill='%23d62828'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f4efe4; --paper-2:#ebe4d4; --card:#fffdf8; --ink:#1b1a17; --ink-2:#55514a; --line:#d9d0bd;
-  --red:#d62828; --red-dark:#a81c1c; --tape:#efe1b8; --green:#2f8f4e;
+  --paper:#f4efe4; --paper-2:#ebe4d4; --card:#fffdf8; --ink:#1b1a17; --ink-2:#5a554c; --line:#ddd4c1;
+  --red:#d62828; --red-dark:#a81c1c; --tape:#efe1b8; --green:#2f8f4e; --dark:#17150f; --dark-2:#24211a;
   --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
-  --r:14px; --shadow:0 1px 0 var(--line),0 8px 24px -12px rgba(40,30,10,.25);
+  --shadow:0 1px 0 var(--line),0 10px 30px -14px rgba(40,30,10,.3);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;
   background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:18px 18px}
 a{color:inherit}
 img,video{max-width:100%;display:block}
-.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
-.accent{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red)}
-.tape{display:inline-block;background:var(--tape);padding:6px 14px;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.08em;
-  text-transform:uppercase;transform:rotate(-1.5deg);box-shadow:0 1px 0 rgba(0,0,0,.08)}
-.tag{display:inline-block;background:var(--red);color:#fff;font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.04em}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.narrow{max-width:680px;margin:0 auto}
+.center{text-align:center}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.hl{color:var(--red)}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--red);letter-spacing:0}
+.tape{display:inline-block;background:var(--tape);color:var(--ink);padding:5px 12px;font:700 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;transform:rotate(-1.5deg)}
+.muted{color:var(--ink-2)}
 
-/* nav */
-.bar{background:var(--ink);color:#fff;text-align:center;padding:8px 16px;font-size:13px}
-.bar b{color:#ffcf5a}
-nav{position:sticky;top:0;z-index:20;background:rgba(244,239,228,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}
-.logo i{width:32px;height:32px;border-radius:50%;background:var(--red);display:grid;place-items:center;flex:none}
-.logo i span{width:24px;height:24px;border-radius:50%;background:#fff;color:var(--red);font:700 17px/24px Georgia,serif;text-align:center}
-.navlinks{display:flex;gap:20px;align-items:center;font-size:14px}
-.navlinks a{text-decoration:none;color:var(--ink-2)}
-.navlinks a:hover{color:var(--ink)}
-@media(max-width:640px){.navlinks .hide-sm{display:none}}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;text-decoration:none;font:600 15px var(--sans);
-  padding:13px 22px;border-radius:999px;background:var(--red);color:#fff;transition:transform .15s,background .15s;box-shadow:0 4px 0 var(--red-dark)}
+/* buttons */
+.btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;border:0;cursor:pointer;text-decoration:none;font:700 17px var(--sans);
+  padding:15px 26px;border-radius:14px;background:var(--red);color:#fff;transition:transform .15s,background .15s;box-shadow:0 5px 0 var(--red-dark),0 14px 30px -10px rgba(214,40,40,.55)}
+.btn small{font:500 12px var(--sans);opacity:.85;margin-top:2px}
 .btn:hover{background:var(--red-dark);transform:translateY(-1px)}
-.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--red-dark)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--red-dark)}
+.btn.block{width:100%}
+.btn.sm{padding:10px 18px;font-size:14.5px;border-radius:10px;box-shadow:0 3px 0 var(--red-dark)}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:#fff}
-.btn.sm{padding:9px 16px;font-size:14px}
-.btn.block{width:100%}
+.assure{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-top:12px;font-size:13px;color:var(--ink-2)}
+.assure span::before{content:"✓ ";color:var(--green);font-weight:700}
 
-/* hero */
-.hero{padding:56px 0 40px;text-align:center}
-.hero h1{font-size:clamp(38px,7vw,76px);line-height:1.02;letter-spacing:-.03em;font-weight:800;margin:18px auto 18px;max-width:880px}
-.hero h1 .accent{font-weight:400;letter-spacing:-.01em}
-.hero p.lead{font-size:clamp(16px,2.2vw,19px);color:var(--ink-2);max-width:620px;margin:0 auto 28px}
-.hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.trust{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-top:26px;color:var(--ink-2);font-size:14px}
-.trust span::before{content:"✓ ";color:var(--green);font-weight:700}
+section{padding:72px 0}
+.eyebrow{display:block;font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+h2{font-size:clamp(30px,5.2vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:800}
+.sub{color:var(--ink-2);font-size:17px;margin-top:12px}
 
-/* terminal */
-.term{max-width:640px;margin:40px auto 0;background:#16150f;color:#e9e4d6;border-radius:var(--r);text-align:left;box-shadow:var(--shadow);overflow:hidden}
-.term .top{display:flex;gap:6px;padding:12px 14px;background:#22201a}
-.term .top i{width:10px;height:10px;border-radius:50%;background:#555}
-.term .top i:first-child{background:#ff5f57}.term .top i:nth-child(2){background:#febc2e}.term .top i:nth-child(3){background:#28c840}
-.term pre{font-family:var(--mono);font-size:13.5px;padding:16px 18px 20px;white-space:pre-wrap;line-height:1.7}
-.term .p{color:#ff8a65}.term .ok{color:#7ddc8f}.term .dim{color:#8d8776}
-.cursor{display:inline-block;width:8px;height:15px;background:#e9e4d6;vertical-align:-2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
+/* ---------- hero ---------- */
+.hero{padding:40px 0 20px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 16px 6px 6px;font-size:14px;color:var(--ink-2)}
+.pill i{width:30px;height:30px;border-radius:50%;background:var(--red);display:grid;place-items:center;flex:none}
+.pill i span{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--red);font:700 15px/22px Georgia,serif;text-align:center}
+.hero h1{font-size:clamp(36px,7.2vw,72px);line-height:1.02;letter-spacing:-.04em;font-weight:900;margin:22px auto 14px;max-width:900px}
+.hero .kicker{font-size:clamp(17px,2.4vw,21px);font-weight:600;margin-bottom:14px}
+.hero .lead{font-size:clamp(16px,2.1vw,18.5px);color:var(--ink-2);max-width:640px;margin:0 auto}
+.hero .lead b{color:var(--ink)}
 
-/* sections */
-section{padding:64px 0}
-.sec-head{text-align:center;margin-bottom:36px}
-.sec-head h2{font-size:clamp(30px,5vw,48px);letter-spacing:-.025em;line-height:1.08;margin-top:14px;font-weight:800}
-.sec-head p{color:var(--ink-2);margin-top:10px;max-width:560px;margin-left:auto;margin-right:auto}
+/* reel strip */
+.reelwall{margin:34px auto 0;max-width:900px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 0;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.marq{display:flex;gap:10px;width:max-content;animation:scroll 40s linear infinite}
+.marq.rev{animation-direction:reverse;margin-top:10px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.mini{width:92px;aspect-ratio:9/16;border-radius:10px;border:3px solid var(--ink);background:var(--bg);flex:none;padding:8px 6px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.mini img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+.mini b{font:italic 400 15px/1 var(--serif);color:var(--fg)}
+.mini i{display:block;height:8px;border-radius:3px;background:var(--fg);opacity:.6;margin-top:4px}
+.mini i+i{width:60%;opacity:.35}
+.wall-title{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.wall-title div{background:rgba(255,253,248,.94);border:1px solid var(--line);border-radius:16px;padding:14px 22px;font-size:clamp(20px,3.5vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1.1;box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:reduce){.marq{animation:none}}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative}
-.step .n{font-family:var(--serif);font-style:italic;font-size:44px;color:var(--red);line-height:1}
-.step h3{font-size:18px;margin:8px 0 6px}
-.step p{color:var(--ink-2);font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px;margin:22px auto 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 8px;text-align:center}
+.stats b{display:block;font-size:clamp(24px,4.5vw,34px);font-weight:900;letter-spacing:-.03em;color:var(--red);line-height:1.1}
+.stats span{font-size:13px;color:var(--ink-2)}
 
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.skill{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s}
-.skill:hover{transform:translateY(-3px)}
-.prev{aspect-ratio:4/5;position:relative;overflow:hidden;display:grid;place-items:center;background:var(--paper-2)}
+/* offer box */
+.offer{max-width:680px;margin:40px auto 0;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow);text-align:left}
+.offer p.intro{font-size:17px;margin-bottom:16px}
+.files{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px}
+.files span{font:700 11px var(--mono);padding:6px 9px;border-radius:7px;background:var(--paper-2);border:1px solid var(--line)}
+.files span:nth-child(1){background:#fde7e7;border-color:#f3c4c4;color:var(--red)}
+.files em{font:500 13px var(--mono);font-style:normal;color:var(--ink-2);margin-left:4px}
+.ticks{list-style:none;display:grid;gap:12px;margin-bottom:22px}
+.ticks li{padding-left:30px;position:relative;color:var(--ink-2)}
+.ticks li::before{content:"✓";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}
+.ticks li b{color:var(--ink)}
+.priceline{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:14px}
+.priceline b{font-size:46px;font-weight:900;letter-spacing:-.04em}
+.priceline s{color:var(--ink-2);font-size:18px}
+.priceline .chip{font:700 11px var(--mono);background:var(--red);color:#fff;padding:4px 8px;border-radius:6px;align-self:center}
+
+/* ---------- numbers ---------- */
+.dash{background:var(--dark);color:#f4efe4;border-radius:22px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
+.dash .who{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#b8b09f}
+.dash .who b{color:#fff}
+.dash .metric span{font-size:13px;color:#b8b09f}
+.dash .metric b{display:block;font-size:clamp(30px,5vw,44px);letter-spacing:-.03em;line-height:1.1}
+.dash .metric em{font-style:normal;color:#7ddc8f;font-size:13px;font-weight:600}
+.dash svg{width:100%;height:70px;margin-top:8px}
+.dash .note{grid-column:1/-1;font-size:12px;color:#8d8776}
+@media(max-width:640px){.dash{grid-template-columns:1fr}}
+.reels{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 2px 10px;margin-top:6px}
+.reels::-webkit-scrollbar{height:6px}.reels::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.rc{flex:0 0 190px;scroll-snap-align:start;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s}
+.rc:hover{transform:translateY(-3px)}
+.rc .th{aspect-ratio:9/14;background:var(--bg);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;position:relative}
+.rc .th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rc .th b{position:relative;font:italic 400 22px/1.05 var(--serif);color:var(--fg)}
+.rc .th .play{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:11px;display:grid;place-items:center}
+.rc .meta{padding:10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.rc .meta span{font-size:11px;color:var(--ink-2)}
+.rc .meta b{display:block;font-size:15px;color:var(--ink)}
+.swipe{font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* ---------- why now ---------- */
+.prose p{font-size:17.5px;color:var(--ink-2);margin-top:16px}
+.prose p b{color:var(--ink)}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0}
+.timeline div{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--card);position:relative}
+.timeline div:first-child{border:2px solid var(--red);background:#fff6f4}
+.timeline div:first-child::before{content:"YOU ARE HERE";position:absolute;top:-11px;left:14px;background:var(--red);color:#fff;font:700 10px var(--mono);letter-spacing:.08em;padding:3px 8px;border-radius:5px}
+.timeline b{display:block;font-size:17px;margin-bottom:4px}
+.timeline span{font-size:14px;color:var(--ink-2)}
+.timeline div:not(:first-child){opacity:.7}
+@media(max-width:640px){.timeline{grid-template-columns:1fr}}
+.xlist{list-style:none;display:grid;gap:10px;margin-top:16px}
+.xlist li{padding-left:30px;position:relative;color:var(--ink-2);font-size:16.5px}
+.xlist li::before{content:"✕";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}
+.prose .punch,.punch{color:var(--ink);font-size:clamp(24px,4vw,34px);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-top:34px}
+
+/* ---------- about ---------- */
+.about{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow)}
+.about .head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.avatar{width:62px;height:62px;border-radius:50%;background:var(--red);display:grid;place-items:center;flex:none;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar span{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--red);font:700 30px/46px Georgia,serif;text-align:center}
+.about .head b{font-size:22px;display:block;line-height:1.2}
+.about .head a{font-size:14px;color:var(--red);text-decoration:none}
+.sign{font:italic 400 34px var(--serif);color:var(--red);margin-top:18px}
+
+/* ---------- compare ---------- */
+.compare{margin-top:30px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.compare .row{display:grid;grid-template-columns:1fr 1fr}
+.compare .row>div{padding:14px 16px;font-size:15px;border-top:1px solid var(--line)}
+.compare .row>div:first-child{color:var(--ink-2);border-right:1px solid var(--line)}
+.compare .row>div:last-child{background:#fff6f4;color:var(--ink);font-weight:500}
+.compare .row>div:last-child::before{content:"✓ ";color:var(--red);font-weight:800}
+.compare .row>div:first-child::before{content:"✕ ";color:#a39b8b}
+.compare .hd>div{border-top:0!important;font:700 12px var(--mono)!important;letter-spacing:.08em;text-transform:uppercase}
+.compare .hd>div::before{content:""!important}
+.compare .hd>div:last-child{background:var(--red)!important;color:#fff!important}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:30px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.prev{aspect-ratio:5/4;position:relative;overflow:hidden;display:grid;place-items:center;background:var(--paper-2)}
 .prev video,.prev img{width:100%;height:100%;object-fit:cover}
-.prev .ph{width:58%;aspect-ratio:9/16;border-radius:18px;border:5px solid var(--ink);background:var(--bg);display:flex;flex-direction:column;justify-content:space-between;
-  padding:14px 12px;transform:rotate(-3deg);box-shadow:8px 10px 0 rgba(0,0,0,.12)}
-.prev .ph b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px;line-height:1;color:var(--fg)}
-.prev .ph .shapes{display:flex;gap:6px;flex-wrap:wrap}
-.prev .ph .shapes i{width:26px;height:26px;border-radius:var(--rad);background:var(--fg);opacity:.85}
+.prev .ph{width:42%;aspect-ratio:9/16;border-radius:14px;border:4px solid var(--ink);background:var(--bg);display:flex;flex-direction:column;justify-content:space-between;padding:10px;transform:rotate(-3deg);box-shadow:6px 8px 0 rgba(0,0,0,.12)}
+.prev .ph b{font:italic 400 20px/1 var(--serif);color:var(--fg)}
+.prev .ph .shapes{display:flex;gap:5px}
+.prev .ph .shapes i{width:18px;height:18px;border-radius:var(--rad);background:var(--fg);opacity:.85}
 .prev .ph .shapes i:nth-child(2){opacity:.5}.prev .ph .shapes i:nth-child(3){opacity:.3}
-.prev .num{position:absolute;top:12px;left:12px}
-.prev .badge{position:absolute;top:12px;right:12px;background:var(--ink);color:#fff;font:700 11px var(--mono);padding:4px 8px;border-radius:6px;letter-spacing:.05em}
-.skill .body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
-.skill h3{font-size:21px;letter-spacing:-.01em}
-.skill .style{color:var(--red);font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-.skill p{color:var(--ink-2);font-size:14.5px;margin:6px 0 14px}
-.skill ul{list-style:none;font-size:13.5px;color:var(--ink-2);margin-bottom:16px;display:grid;gap:4px}
-.skill ul li::before{content:"→ ";color:var(--red)}
-.price{display:flex;align-items:baseline;gap:10px;margin-top:auto;margin-bottom:14px}
-.price b{font-size:28px;letter-spacing:-.02em}
-.price s{color:var(--ink-2);font-size:15px}
-.price .off{font:700 11px var(--mono);color:var(--green);background:rgba(47,143,78,.12);padding:3px 7px;border-radius:5px}
+.prev .num{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font:700 11px var(--mono);padding:3px 8px;border-radius:6px}
+.prev .badge{position:absolute;top:10px;right:10px;background:var(--ink);color:#fff;font:700 11px var(--mono);padding:3px 8px;border-radius:6px}
+.skill .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.skill .style{color:var(--red);font:700 11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.skill h3{font-size:21px;letter-spacing:-.02em;margin:2px 0 4px}
+.skill p{color:var(--ink-2);font-size:14.5px;margin-bottom:14px}
+.skill .pr{display:flex;align-items:baseline;gap:8px;margin-top:auto;margin-bottom:12px}
+.skill .pr b{font-size:26px;letter-spacing:-.03em}
+.skill .pr s{color:var(--ink-2)}
 
-/* bundle */
-.bundle{background:var(--ink);color:#f4efe4;border-radius:24px;padding:40px 28px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
-.bundle::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:var(--red);opacity:.25}
-.bundle h2{font-size:clamp(30px,5vw,46px);line-height:1.05;letter-spacing:-.025em;margin:14px 0 12px}
-.bundle p{color:#c8c1b0}
-.bundle ul{list-style:none;margin-top:18px;display:grid;gap:8px}
-.bundle ul li::before{content:"✓ ";color:#7ddc8f;font-weight:700}
-.bundle .box{background:var(--card);color:var(--ink);border-radius:18px;padding:26px;text-align:center;position:relative;z-index:1}
-.bundle .box .big{font-size:56px;font-weight:800;letter-spacing:-.04em;line-height:1}
-.bundle .box s{color:var(--ink-2)}
-.bundle .box .save{display:inline-block;margin:10px 0 18px;background:var(--red);color:#fff;font:700 12px var(--mono);padding:5px 10px;border-radius:6px}
-.bundle .box small{display:block;margin-top:12px;color:var(--ink-2);font-size:12.5px}
-@media(max-width:760px){.bundle{grid-template-columns:1fr;padding:30px 20px}}
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.step .mono{color:var(--red)}
+.step h3{font-size:20px;margin:6px 0 6px;letter-spacing:-.02em}
+.step p{color:var(--ink-2);font-size:15px}
+.step code{display:block;margin-top:14px;background:var(--dark);color:#e9e4d6;font:500 12.5px/1.5 var(--mono);padding:10px 12px;border-radius:10px}
+.step code .g{color:#7ddc8f}.step code .o{color:#ff8a65}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
 
-/* needs */
-.needs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.need{border:1.5px dashed var(--line);border-radius:var(--r);padding:20px;background:rgba(255,253,248,.6)}
-.need h3{font-size:17px;margin-bottom:6px}
-.need p{color:var(--ink-2);font-size:14.5px}
+/* ---------- inside ---------- */
+.inside{display:grid;gap:14px;margin-top:30px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;grid-template-columns:200px 1fr;gap:18px}
+.feat .label{font:700 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.feat h3{font-size:21px;letter-spacing:-.02em;line-height:1.2;margin-top:4px}
+.feat p{color:var(--ink-2);font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips span{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink-2)}
+.feat.bonus{border:2px dashed var(--red);background:#fff6f4}
+@media(max-width:700px){.feat{grid-template-columns:1fr;gap:6px}}
 
-/* proof */
-.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;text-align:center}
-.proof div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 12px}
-.proof b{display:block;font-size:34px;letter-spacing:-.03em}
-.proof span{color:var(--ink-2);font-size:14px}
+/* ---------- pricing ---------- */
+.plans{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;margin-top:30px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column}
+.plan.best{background:var(--dark);color:#f4efe4;border:0;position:relative;box-shadow:0 20px 40px -18px rgba(0,0,0,.5)}
+.plan.best .tape{position:absolute;top:-12px;right:20px}
+.plan h3{font-size:22px;letter-spacing:-.02em}
+.plan .big{font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;margin:14px 0 4px}
+.plan .big s{font-size:20px;font-weight:500;color:#9a927f;letter-spacing:0;margin-left:8px}
+.plan ul{list-style:none;display:grid;gap:9px;margin:18px 0 22px;font-size:15px}
+.plan ul li::before{content:"✓ ";color:var(--red);font-weight:800}
+.plan.best ul li::before{color:#7ddc8f}
+.plan .btn{margin-top:auto}
+.plan select{width:100%;margin-top:auto;margin-bottom:10px;padding:12px;border-radius:10px;border:1px solid var(--line);font:500 15px var(--sans);background:var(--paper)}
+@media(max-width:760px){.plans{grid-template-columns:1fr}}
+
+/* ---------- needs / guarantee ---------- */
+.needs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.need{border:1.5px dashed var(--line);border-radius:16px;padding:18px;background:rgba(255,253,248,.6)}
+.need b{display:block;margin-bottom:4px}
+.need span{color:var(--ink-2);font-size:14.5px}
+@media(max-width:760px){.needs{grid-template-columns:1fr}}
+.guar{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+.seal{width:120px;height:120px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;box-shadow:0 0 0 6px var(--card),0 0 0 8px var(--red);transform:rotate(-8deg)}
+.seal b{font-size:44px;line-height:1;display:block}.seal span{font:700 11px var(--mono);letter-spacing:.1em}
+.guar h3{font-size:clamp(22px,3.5vw,28px);letter-spacing:-.02em;line-height:1.2}
+.guar p{color:var(--ink-2);margin-top:8px}
+.guar small{display:block;color:var(--ink-2);font-size:12.5px;margin-top:10px}
+@media(max-width:600px){.guar{grid-template-columns:1fr;text-align:center}.seal{margin:0 auto}}
+
+/* recap */
+.recap{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+.recap .ticks{margin-top:18px}
 
 /* faq */
-.faq{max-width:760px;margin:0 auto}
+.faq{margin-top:26px}
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
 summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:600;display:flex;justify-content:space-between;gap:12px}
 summary::-webkit-details-marker{display:none}
@@ -147,261 +242,435 @@ summary::after{content:"+";font-size:22px;line-height:1;color:var(--red)}
 details[open] summary::after{content:"−"}
 details p{padding:0 18px 18px;color:var(--ink-2);font-size:15px}
 
-footer{border-top:1px solid var(--line);padding:32px 0 100px;color:var(--ink-2);font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
-footer nav{position:static;background:none;border:0;backdrop-filter:none}
-footer .links{display:flex;flex-wrap:wrap;gap:16px}
+footer{border-top:1px solid var(--line);padding:28px 0 110px;color:var(--ink-2);font-size:13.5px;text-align:center}
+footer .links{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:8px 0}
+footer .disc{font-size:12px;max-width:640px;margin:10px auto 0}
 
-/* sticky mobile cta */
-.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:none;background:var(--ink);color:#fff;border-radius:16px;padding:10px 10px 10px 16px;
-  align-items:center;justify-content:space-between;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+/* sticky bar */
+.sticky{position:fixed;left:50%;bottom:14px;transform:translate(-50%,140%);z-index:40;width:min(560px,calc(100% - 24px));background:var(--dark);color:#fff;border-radius:16px;
+  padding:10px 10px 10px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 14px 40px rgba(0,0,0,.35);transition:transform .35s ease}
+.sticky.show{transform:translate(-50%,0)}
 .sticky small{display:block;color:#bdb6a5;font-size:12px}
-@media(max-width:760px){.sticky.show{display:flex}}
+.sticky b{font-size:15px}
 
-.soon{opacity:.9}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.soon{opacity:.92}
 </style>
 </head>
 <body>
 
-<div class="bar" id="topbar">🎓 Launch offer: <b>all 5 skills for ₹999</b>. Price goes up after launch week.</div>
-
-<nav>
-  <div class="wrap">
-    <a class="logo" href="#"><i><span>S</span></i>ShortsUniversity</a>
-    <div class="navlinks">
-      <a class="hide-sm" href="#how">How it works</a>
-      <a class="hide-sm" href="#skills">Skills</a>
-      <a class="hide-sm" href="#faq">FAQ</a>
-      <a class="btn sm" href="#bundle">Get bundle</a>
-    </div>
-  </div>
-</nav>
-
+<!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap">
-    <span class="tape">Skills for Claude Code</span>
-    <h1>Make my animated reels <span class="accent">with one prompt.</span></h1>
-    <p class="lead">These are the exact Claude Code skills I use to make the reels on @reelsuniai. Install one, type a topic, and Claude writes, animates, voices and renders a ready-to-post reel.</p>
-    <div class="ctas">
-      <a class="btn" href="#bundle">Get all 5 for ₹999</a>
-      <a class="btn ghost" href="#skills">See the 5 styles</a>
-    </div>
-    <div class="trust">
-      <span>Pay once, keep forever</span>
-      <span>UPI, cards &amp; netbanking</span>
-      <span>Instant download</span>
-      <span>No coding needed</span>
+    <div class="pill"><i><span>S</span></i>For creators who want to post every day without editing</div>
+    <h1>How I got <span class="hl">495K views in 30 days</span> with reels made from <span class="it">one prompt</span></h1>
+    <p class="kicker">…without filming, editing or hiring an editor</p>
+    <p class="lead">Type one line into Claude Code. It writes the script, voices it, animates every scene and renders the reel. <b>Your first one can be posted tonight.</b></p>
+
+    <div class="reelwall rv" aria-hidden="true">
+      <div class="marq" id="marqA"></div>
+      <div class="marq rev" id="marqB"></div>
+      <div class="wall-title"><div>Ready-to-post reels<br><span class="it">from 1 prompt.</span></div></div>
     </div>
 
-    <div class="term" aria-label="Example of using the skill in Claude Code">
-      <div class="top"><i></i><i></i><i></i></div>
-<pre><span class="p">›</span> make a reel on "stop paying for these 4 AI apps" in paper-desk style
-<span class="dim">  ✓ script written · 6 scenes</span>
-<span class="dim">  ✓ scenes animated</span>
-<span class="dim">  ✓ voiceover + captions</span>
-<span class="dim">  ✓ rendered 1080×1920</span>
-<span class="ok">  ● reel.mp4 + caption + hashtags ready</span> <span class="cursor"></span></pre>
+    <div class="stats rv">
+      <div><b data-k="views30">495K+</b><span>views in 30 days</span></div>
+      <div><b data-k="topReel">122K</b><span>views on one reel</span></div>
+      <div><b data-k="followers">4.8K+</b><span>followers</span></div>
+    </div>
+
+    <div class="offer rv">
+      <p class="intro">You get the <b>exact skills I use</b> for every reel on <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a>: 5 animation styles, my scene templates and the prompt playbook behind my best reels.</p>
+      <div class="files"><span>SKILL.md</span><span>scenes/</span><span>voice.py</span><span>render.mjs</span><span>playbook.pdf</span><em>· 5 styles</em></div>
+      <ul class="ticks">
+        <li><b>Describe your topic in one line</b> and it does the rest, from the hook to the last caption.</li>
+        <li><b>Nothing to film, nothing to edit.</b> So you can post every day without losing your evenings.</li>
+        <li><b>It's exactly what I use</b> on my own page. Not a theory, the real files.</li>
+      </ul>
+      <div class="priceline"><b>₹999</b><s>₹2,495</s><span class="chip">ALL 5 STYLES</span></div>
+      <a class="btn block" data-buy="bundle" href="#pricing">Get all 5 skills →<small>Instant download · pay once</small></a>
+      <div class="assure"><span>7-day guarantee</span><span>UPI, cards &amp; netbanking</span><span>Instant access</span></div>
     </div>
   </div>
 </header>
 
-<section id="how">
+<!-- ================= REAL NUMBERS ================= -->
+<section id="numbers">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="mono">// how it works</span>
-      <h2>From topic to reel <span class="accent">in 3 steps.</span></h2>
+    <div class="center rv">
+      <span class="eyebrow">Real numbers</span>
+      <h2>Straight from <span class="it">my Instagram.</span></h2>
+      <p class="sub">Every reel below was made with these skills. No ads, no editor, no team.</p>
     </div>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><h3>Buy &amp; download</h3><p>Pay on the secure checkout. The skill folder lands in your email right away.</p></div>
-      <div class="step"><div class="n">02</div><h3>Drop it into Claude</h3><p>Copy the folder into your Claude skills folder. The included 2-minute setup video shows you how.</p></div>
-      <div class="step"><div class="n">03</div><h3>Type a topic</h3><p>Say what the reel is about. Claude writes the script, animates every scene and renders the MP4.</p></div>
-      <div class="step"><div class="n">04</div><h3>Post it</h3><p>You get the video, a caption and hashtags. Upload to Reels, Shorts or TikTok.</p></div>
+
+    <div class="dash rv">
+      <div class="who"><b>@reelsuniai</b><span>Last 30 days</span></div>
+      <div class="metric">
+        <span>Views</span><b data-k="views30full">495,500</b><em>↑ growing every week</em>
+        <svg viewBox="0 0 300 70" preserveAspectRatio="none"><path d="M0,66 C40,64 70,62 100,55 C130,48 150,50 180,36 C210,22 240,26 270,10 L300,4" fill="none" stroke="#d62828" stroke-width="3"/><path d="M0,66 C40,64 70,62 100,55 C130,48 150,50 180,36 C210,22 240,26 270,10 L300,4 L300,70 L0,70Z" fill="#d62828" opacity=".15"/></svg>
+      </div>
+      <div class="metric">
+        <span>Followers</span><b data-k="followersFull">4,801</b><em>↑ from reels alone</em>
+        <svg viewBox="0 0 300 70" preserveAspectRatio="none"><path d="M0,64 C50,63 90,58 130,50 C170,42 200,34 240,22 C260,16 280,12 300,8" fill="none" stroke="#7ddc8f" stroke-width="3"/><path d="M0,64 C50,63 90,58 130,50 C170,42 200,34 240,22 C260,16 280,12 300,8 L300,70 L0,70Z" fill="#7ddc8f" opacity=".12"/></svg>
+      </div>
+      <div class="note">From my Instagram professional dashboard.</div>
+    </div>
+
+    <div class="reels rv" id="reelRow"></div>
+    <div class="swipe"><span>Tap any reel to watch it on Instagram, or see them all on <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai ↗</a></span><span>Swipe for more →</span></div>
+  </div>
+</section>
+
+<!-- ================= WHY NOW ================= -->
+<section id="why" style="padding-top:20px">
+  <div class="wrap narrow prose">
+    <div class="rv">
+      <span class="eyebrow">Why now</span>
+      <h2>Animated AI reels are wide open. <span class="it">For now.</span></h2>
+      <p>Every platform has an early window. The first people to post short videos on Instagram, YouTube Shorts and TikTok got the reach. Later arrivals fought millions of others for it.</p>
+      <p>Animated explainer reels made by AI are in that window today. <b>Not AI-generated footage, but real motion graphics, captions and voiceover, built from one prompt.</b> Most creators don't know it's possible yet.</p>
+    </div>
+    <div class="timeline rv">
+      <div><b>Now: early</b><span>Few people do it. Big reach for anyone who shows up.</span></div>
+      <div><b>Next year: crowded</b><span>Everyone starts posting AI reels. Reach gets harder.</span></div>
+      <div><b>After: saturated</b><span>Only the best-made reels get seen.</span></div>
+    </div>
+    <div class="rv">
+      <p>And most people are wasting the window:</p>
+      <ul class="xlist">
+        <li>Editing by hand for hours, so they post twice a week while others post daily.</li>
+        <li>Posting generic AI videos that look like AI slop, and wondering why no one watches.</li>
+        <li>Waiting until they "figure it out". By then the feed is full.</li>
+      </ul>
+      <p class="punch">Early movers win.<br><span class="it">Start with a system that already works.</span></p>
     </div>
   </div>
 </section>
 
-<section id="skills" style="padding-top:24px">
+<!-- ================= ABOUT ================= -->
+<section style="padding-top:10px">
+  <div class="wrap narrow">
+    <div class="about rv">
+      <span class="eyebrow">So I built a system</span>
+      <div class="head">
+        <div class="avatar" id="avatar"><span>S</span></div>
+        <div><b>hey, I'm <span data-k="name">the creator behind ShortsUniversity</span></b><a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a></div>
+      </div>
+      <div class="prose">
+        <p>I didn't want to make one good reel. I wanted a good reel <b>every single day</b>. So I built Claude skills that handle the whole edit from one prompt: script, voice, animation, captions and render. Same quality every time.</p>
+        <p>In the last 30 days my reels pulled in <b>495K+ views</b>, and one reel alone crossed <b>122K</b>. People kept asking in my DMs: <i>"how do you make these?"</i></p>
+        <p>Most creators still edit by hand, or post whatever the AI gives them. Using AI the right way for short-form is one of the biggest untapped chances right now.</p>
+        <p>So I'm sharing the exact skills, so you can do the same.</p>
+      </div>
+      <div class="sign" data-k="signName">ShortsUniversity</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARE ================= -->
+<section>
+  <div class="wrap narrow">
+    <div class="rv">
+      <span class="eyebrow">The real problem</span>
+      <h2>Making a video isn't the hard part. <span class="it">Growing is.</span></h2>
+      <div class="prose">
+        <p>Plain Claude will make you <i>a</i> video. But a video isn't a system. What grows a page is a <b>repeatable format</b>: a hook that stops the scroll, pacing that holds attention, and the same quality on reel 1 and reel 50.</p>
+        <p>Same prompt, very different reel. These skills make Claude do it the way my reels do, every time.</p>
+      </div>
+    </div>
+    <div class="compare rv">
+      <div class="row hd"><div>Plain Claude</div><div>My skills</div></div>
+      <div class="row"><div>Makes up a new look every time</div><div>5 fixed styles from my page, consistent every reel</div></div>
+      <div class="row"><div>Guesses the hook and pacing</div><div>Hook patterns and pacing rules from my best reels</div></div>
+      <div class="row"><div>Captions just sit on screen</div><div>Word-timed captions with key words that pop</div></div>
+      <div class="row"><div>Robotic default voiceover</div><div>Voice settings tuned for retention, with music ducked under</div></div>
+      <div class="row"><div>You re-prompt until it looks right</div><div>Checks its own frames and fixes weak scenes first</div></div>
+      <div class="row"><div>Blank-page every time</div><div>Ready scene templates: hooks, lists, price tags, CTAs</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STYLES ================= -->
+<section id="skills" style="padding-top:20px">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="mono">// the skills</span>
-      <h2>Pick a style. <span class="accent">Claude does the rest.</span></h2>
-      <p>Each skill teaches Claude one animation style. Buy only the ones you want, or get all five in the bundle.</p>
+    <div class="center rv">
+      <span class="eyebrow">5 styles</span>
+      <h2>Any topic. <span class="it">Five looks.</span></h2>
+      <p class="sub">Each skill teaches Claude one animation style. Buy one for ₹499, or all five for ₹999.</p>
     </div>
     <div class="skills" id="skillGrid"></div>
   </div>
 </section>
 
-<section id="bundle" style="padding-top:24px">
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how" style="padding-top:20px">
   <div class="wrap">
-    <div class="bundle">
-      <div style="position:relative;z-index:1">
-        <span class="tape" style="color:var(--ink)">Best value</span>
-        <h2>All 5 skills.<br><span class="accent">One price.</span></h2>
-        <p>Every style I use on my page, plus every new style I add to this bundle later.</p>
+    <div class="center rv">
+      <span class="eyebrow">How it works</span>
+      <h2>No editing skills. No code. <span class="it">Three steps.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="mono">Step 1</span><h3>Add the skill</h3><p>Drop the folder into Claude Code. The setup guide walks you through every click.</p><code><span class="g">✓</span> skill ready</code></div>
+      <div class="step rv"><span class="mono">Step 2</span><h3>Type the topic</h3><p>One line, or paste your own script. A tool, a tip, a hot take, in English or Hinglish.</p><code><span class="o">›</span> /reel stop paying for these 4 AI apps</code></div>
+      <div class="step rv"><span class="mono">Step 3</span><h3>Get the reel</h3><p>It writes, voices, animates, checks its own work and renders. You just post.</p><code><span class="g">→</span> reel.mp4 · 1080×1920 · ready</code></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section id="inside" style="padding-top:20px">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">What's inside</span>
+      <h2>Every secret behind my reels. <span class="it">Yours today.</span></h2>
+    </div>
+    <div class="inside">
+      <div class="feat rv"><div><div class="label">The skills</div><h3>5 animation styles</h3></div><div><p>One prompt in, a finished 1080×1920 reel out, in whichever style fits the topic.</p><div class="chips"><span>Paper Desk</span><span>Sticker Pop</span><span>Comic Panel</span><span>Chalkboard</span><span>Pixel Arcade</span><span>smooth motion</span><span>pop-in stickers</span><span>zoom &amp; shake</span></div></div></div>
+      <div class="feat rv"><div><div class="label">Sound</div><h3>Voice &amp; music</h3></div><div><p>Raw text-to-speech sounds like a robot. This sounds like a reel.</p><div class="chips"><span>voice tuned for retention</span><span>English &amp; Hinglish</span><span>music auto-ducking</span><span>sound effects on beats</span><span>or use your own voice</span></div></div></div>
+      <div class="feat rv"><div><div class="label">Writing</div><h3>Hooks &amp; scripts, decoded</h3></div><div><p>The patterns behind my best-performing reels, built right into the skill.</p><div class="chips"><span>hook formulas</span><span>curiosity loops</span><span>banned boring openers</span><span>"comment X" CTAs</span><span>caption + hashtags</span></div></div></div>
+      <div class="feat rv"><div><div class="label">Scenes</div><h3>My scene templates</h3></div><div><p>The building blocks I reuse across my reels, so Claude never starts from a blank page.</p><div class="chips"><span>hooks</span><span>app lists</span><span>price tags</span><span>before / after</span><span>step-by-step</span><span>CTAs</span></div></div></div>
+      <div class="feat rv"><div><div class="label">Quality</div><h3>It checks its own reel</h3></div><div><p>Before you see it, Claude reviews the frames and fixes anything flat, cut off or off-brand.</p><div class="chips"><span>frame review</span><span>safe zones for IG UI</span><span>text-fit check</span><span>still preview sheet</span></div></div></div>
+      <div class="feat rv"><div><div class="label">Included</div><h3>Guided setup</h3></div><div><p>A step-by-step guide plus video. About 10 minutes, no coding.</p><div class="chips"><span>Mac / Windows</span><span>Claude Code</span><span>prompt cheat-sheet</span><span>DM support</span></div></div></div>
+      <div class="feat rv"><div><div class="label">Included</div><h3>Updates + commercial use</h3></div><div><p>Fixes and improvements included. Make reels for your brand or clients (just don't resell the skill).</p><div class="chips"><span>free updates</span><span>new scenes</span><span>client work allowed</span></div></div></div>
+      <div class="feat bonus rv"><div><div class="label">Bundle bonus</div><h3>Content idea bank</h3></div><div><p>100 reel topics for the AI-tools niche that are proven to get views, ready to paste in as prompts.</p><div class="chips"><span>100 topics</span><span>hook for each</span><span>bundle only</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" style="padding-top:20px">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Pricing</span>
+      <h2>Pay once. <span class="it">Keep forever.</span></h2>
+      <p class="sub">No subscription. Instant download after payment.</p>
+    </div>
+    <div class="plans">
+      <div class="plan rv">
+        <h3>One style</h3>
+        <div class="big">₹499</div>
+        <span class="muted">per skill</span>
+        <ul><li>1 animation style of your choice</li><li>Scene templates for that style</li><li>Setup guide + cheat-sheet</li><li>Free updates</li></ul>
+        <select id="pickSkill" aria-label="Choose a style"></select>
+        <a class="btn ghost block" id="pickBtn" target="_blank" rel="noopener">Buy this style</a>
+      </div>
+      <div class="plan best rv">
+        <span class="tape">Best value · save 60%</span>
+        <h3>All 5 styles</h3>
+        <div class="big"><span data-k="bundlePrice">₹999</span><s data-k="bundleWas">₹2,495</s></div>
+        <span style="color:#b8b09f">one-time · everything</span>
         <ul id="bundleList"></ul>
-      </div>
-      <div class="box">
-        <div class="mono" style="margin-bottom:10px">Complete bundle</div>
-        <div class="big" id="bundlePrice">₹999</div>
-        <div><s id="bundleWas">₹2,495</s></div>
-        <div class="save" id="bundleSave">SAVE 60%</div>
-        <a class="btn block" id="bundleBtn" href="#" target="_blank" rel="noopener">Get the bundle</a>
-        <small>One-time payment · Instant access · Secure checkout</small>
+        <a class="btn block" data-buy="bundle" target="_blank" rel="noopener">Get all 5 skills →<small>Instant download · pay once</small></a>
       </div>
     </div>
+    <div class="assure"><span>7-day guarantee</span><span>Secure checkout</span><span>UPI, cards &amp; netbanking</span></div>
   </div>
 </section>
 
-<section style="padding-top:24px">
+<!-- ================= NEEDS + GUARANTEE ================= -->
+<section style="padding-top:20px">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="mono">// made with these skills</span>
-      <h2>Reels that <span class="accent">actually perform.</span></h2>
-    </div>
-    <div class="proof">
-      <div><b>495K+</b><span>views in 30 days</span></div>
-      <div><b>122K</b><span>views on a single reel</span></div>
-      <div><b>4,800+</b><span>followers and growing</span></div>
-      <div><b>~20 min</b><span>to make one reel</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="mono">// what you need</span>
-      <h2>No editing skills. <span class="accent">No coding.</span></h2>
-    </div>
+    <div class="center rv"><span class="eyebrow">What else you need</span><h2>Just two things.</h2></div>
     <div class="needs">
-      <div class="need"><h3>01 · Claude, paid plan</h3><p>The Claude desktop app on a Pro or Max plan, using Claude Code. Claude does the coding for you.</p></div>
-      <div class="need"><h3>02 · A laptop</h3><p>Mac, Windows or Linux. Reels render on your own computer.</p></div>
-      <div class="need"><h3>03 · Internet</h3><p>For the setup and the voiceover. The guide walks you through every step.</p></div>
+      <div class="need rv"><b>Claude, paid plan</b><span>The Claude desktop app (Pro or Max) with Claude Code. Claude does all the coding for you.</span></div>
+      <div class="need rv"><b>A voiceover account</b><span>For the voice. The free tier works to start.</span></div>
+      <div class="need rv"><b>Don't have them yet?</b><span>Fine. The setup guide walks you through both, step by step. You do it once.</span></div>
+    </div>
+
+    <div class="guar rv" style="margin-top:40px">
+      <div class="seal"><div><b>7</b><span>DAYS</span></div></div>
+      <div>
+        <h3>Try it. If it doesn't work for you, it's free.</h3>
+        <p>Make your first reels with it. If you can't get it working, DM or email me within 7 days. I'll help you fix it first, and if it still doesn't work, I'll refund you in full.</p>
+        <small>One refund per customer. A refund ends your licence to use the skill. <a href="policies.html#refund">Full refund policy</a>.</small>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="mono">// questions</span>
-      <h2>Questions, <span class="accent">answered.</span></h2>
+<!-- ================= RECAP ================= -->
+<section style="padding-top:10px">
+  <div class="wrap narrow">
+    <div class="recap rv">
+      <span class="eyebrow">For the scrollers</span>
+      <h2 style="font-size:clamp(26px,4.5vw,38px)">Scrolled straight to the bottom? <span class="it">Here's everything.</span></h2>
+      <ul class="ticks">
+        <li>All 5 animation style skills for Claude Code</li>
+        <li>My scene templates and hook and script playbook</li>
+        <li>Voice and music setup that sounds like a real reel</li>
+        <li>Guided setup, from zero to your first reel</li>
+        <li>Free updates and commercial use for you and your clients</li>
+        <li>Bonus: 100 proven reel topics</li>
+        <li>7-day guarantee</li>
+      </ul>
+      <div class="priceline"><b data-k="bundlePrice">₹999</b><s data-k="bundleWas">₹2,495</s></div>
+      <a class="btn block" data-buy="bundle" target="_blank" rel="noopener">Get all 5 skills →<small>Instant download · pay once</small></a>
     </div>
-    <div class="faq">
-      <details open><summary>Do I need to know coding?</summary><p>No. You copy one folder into place, then type what reel you want in plain English or Hinglish. Claude writes all the code.</p></details>
-      <details><summary>Is it a one-time payment?</summary><p>Yes. Pay once and the skill is yours. No subscription. You do need your own paid Claude plan, which you pay to Anthropic separately.</p></details>
-      <details><summary>How many reels can I make?</summary><p>As many as you want. There is no limit from the skill. Your only limit is your Claude plan's usage.</p></details>
-      <details><summary>How do I get the files after paying?</summary><p>Right after payment you get a download link on screen and in your email. It includes the skill folder, a setup video and a sample prompt list.</p></details>
-      <details><summary>Can I use the reels for clients or my brand?</summary><p>Yes. Reels you make are yours to post and monetise. You can't resell or share the skill files themselves.</p></details>
-      <details><summary>What if it doesn't work for me?</summary><p>DM <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a> on Instagram and I'll help you set it up. See the <a href="policies.html#refund">refund policy</a> for details.</p></details>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="padding-top:20px">
+  <div class="wrap narrow">
+    <div class="center rv"><span class="eyebrow">Questions</span><h2>Questions, <span class="it">answered.</span></h2></div>
+    <div class="faq rv">
+      <details><summary>Can I use my own script and ideas?</summary><p>Yes. Type a one-line topic and it writes the script, or paste your own script and it animates exactly that.</p></details>
+      <details><summary>Do I need to know coding?</summary><p>No. You copy one folder into place, then type what reel you want in plain English or Hinglish. Claude writes all the code.</p></details>
+      <details><summary>Which tools does it work with?</summary><p>It's built and tested for Claude Code (inside the Claude desktop app). Other coding agents may work but aren't officially supported yet.</p></details>
+      <details><summary>Do I need to show my face or record my voice?</summary><p>No. The reels are fully animated and the voiceover is AI. You can use your own voice recording if you want.</p></details>
+      <details><summary>Can I use it for clients?</summary><p>Yes. Reels you make are yours to post and sell. You just can't resell or share the skill files.</p></details>
+      <details><summary>How do I get the files after paying?</summary><p>Right after payment you get a download link on screen and by email.</p></details>
+      <details><summary>Which style should I buy if I only get one?</summary><p>Paper Desk. It's the look behind most of my best reels and works for almost any AI-tools topic.</p></details>
+      <details><summary>Why so cheap? Will the price go up?</summary><p>This is launch pricing for my followers. The bundle price will go up as I add new styles.</p></details>
+      <details><summary>Will my reels perform like yours?</summary><p>I can't promise views. Those depend on your topics, niche and consistency. What the skills guarantee is that making a good-looking reel takes minutes instead of hours, so you can post far more often.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSE ================= -->
+<section style="padding-top:10px">
+  <div class="wrap narrow prose rv">
+    <h2>You've read this far <span class="it">for a reason.</span></h2>
+    <p>Maybe you want to grow your page. Maybe you want to turn it into income. Or maybe you just want videos that finally look as good as your ideas.</p>
+    <p>If you're not sure, try it. It costs less than one month of most AI video apps. Your first reel can be up tonight, and you're covered by the 7-day guarantee.</p>
+    <div style="margin-top:26px" class="center">
+      <div class="priceline"><b data-k="bundlePrice">₹999</b><s data-k="bundleWas">₹2,495</s></div>
+      <a class="btn block" data-buy="bundle" target="_blank" rel="noopener">Get all 5 skills →<small>Instant download · pay once</small></a>
+      <div class="assure"><span>7-day guarantee</span><span>Instant access</span></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>© <span id="yr"></span> ShortsUniversity · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a></div>
-    <div class="links">
-      <a href="policies.html#terms">Terms</a>
-      <a href="policies.html#privacy">Privacy</a>
-      <a href="policies.html#refund">Refunds</a>
-      <a href="policies.html#contact">Contact</a>
-    </div>
+    <div>Reel Skills by ShortsUniversity · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a></div>
+    <div class="links"><a href="policies.html#terms">Terms</a><a href="policies.html#privacy">Privacy</a><a href="policies.html#refund">Refunds</a><a href="policies.html#contact">Contact</a></div>
+    <p class="disc">Results vary. The numbers on this page are from my own Instagram and are not a promise of income or views. Not affiliated with Anthropic. Claude is a trademark of Anthropic.</p>
   </div>
 </footer>
 
 <div class="sticky" id="sticky">
-  <div><b>All 5 skills · ₹999</b><small>One-time · instant access</small></div>
-  <a class="btn sm" href="#bundle">Get it</a>
+  <div><small>Reel Skills · all 5 styles</small><b><span data-k="bundlePrice">₹999</span> · pay once</b></div>
+  <a class="btn sm" data-buy="bundle" target="_blank" rel="noopener">Get the skills</a>
 </div>
 
 <script>
 /* ============================================================
    EDIT EVERYTHING HERE. This is the only part you need to change.
-   - checkout: paste your Superprofile product link. Leave "" until launch;
-     the button then says "Coming soon" and opens your Instagram DMs.
-   - preview: path to a video (assets/xxx.mp4) or image (assets/xxx.jpg).
-     Leave "" to show the coloured placeholder.
+   checkout: paste your Superprofile product link. While it's "",
+             buttons say "Coming soon" and open your Instagram DMs.
+   preview / thumb: path to an image or video in /assets, or "".
    ============================================================ */
 const CONFIG = {
-  instagram: "https://ig.me/m/reelsuniai",       // where "Coming soon" buttons go
+  name: "",                       // your first name, e.g. "Rahul". Leave "" to stay as ShortsUniversity
+  avatar: "",                     // e.g. "assets/me.jpg"
+  instagramDM: "https://ig.me/m/reelsuniai",
+  stats: { views30:"495K+", views30full:"495,500", topReel:"122K", followers:"4.8K+", followersFull:"4,801" },
   bundle: { price: 999, checkout: "" },
   skills: [
     { name:"Paper Desk",   style:"Cut-paper explainer",  price:499, was:1499, checkout:"", preview:"", badge:"POPULAR",
-      desc:"Cream paper, tape stickers and hand-drawn arrows. The look behind my most-viewed reels.",
-      points:["Best for tool lists & comparisons","Sticker labels and price tags","~20 min per reel"],
-      colors:{bg:"#f4efe4", fg:"#d62828", rad:"6px"} },
+      desc:"Cream paper, tape stickers, price tags and arrows. The look behind my most-viewed reels.",
+      colors:{bg:"#f4efe4", fg:"#d62828", rad:"5px"} },
     { name:"Sticker Pop",  style:"Bold sticker cartoon", price:499, was:1499, checkout:"", preview:"", badge:"",
       desc:"Thick outlines, bright flat colours and bouncy pop-in motion that stops the scroll.",
-      points:["Best for hooks & hot takes","Bouncy kinetic text","~20 min per reel"],
       colors:{bg:"#ffd84d", fg:"#1b1a17", rad:"50%"} },
     { name:"Comic Panel",  style:"Comic book story",     price:499, was:1499, checkout:"", preview:"", badge:"NEW",
       desc:"Halftone dots, speech bubbles and panel-by-panel storytelling.",
-      points:["Best for stories & case studies","Speech bubbles with voice sync","~25 min per reel"],
       colors:{bg:"#e8f1ff", fg:"#1f4fd1", rad:"2px"} },
     { name:"Chalkboard",   style:"Teacher's board",      price:499, was:1499, checkout:"", preview:"", badge:"",
-      desc:"Chalk-drawn diagrams that write themselves on a green board. Built for tutorials.",
-      points:["Best for how-tos & education","Hand-written reveal animation","~20 min per reel"],
+      desc:"Chalk diagrams that draw themselves on a green board. Built for tutorials.",
       colors:{bg:"#24443a", fg:"#f4efe4", rad:"50%"} },
     { name:"Pixel Arcade", style:"Retro game",           price:499, was:1499, checkout:"", preview:"", badge:"NEW",
       desc:"8-bit sprites, score counters and level-up screens. Turns any topic into a game.",
-      points:["Best for listicles & challenges","Retro sound cues","~20 min per reel"],
       colors:{bg:"#1c1240", fg:"#ff5cb8", rad:"0"} },
+  ],
+  /* Your best reels for the "Real numbers" row. Paste the reel link + numbers from Insights. */
+  reels: [
+    { title:"The free Opus Clip killer", url:"https://instagram.com/reelsuniai", views:"122K", follows:"—", thumb:"", colors:{bg:"#f4efe4",fg:"#d62828"} },
+    { title:"Stop paying for these 4 apps", url:"https://instagram.com/reelsuniai", views:"27.9K", follows:"—", thumb:"", colors:{bg:"#ffd84d",fg:"#1b1a17"} },
+    { title:"One skill for every job", url:"https://instagram.com/reelsuniai", views:"—", follows:"—", thumb:"", colors:{bg:"#1b1a17",fg:"#f4efe4"} },
+    { title:"Reel #4", url:"https://instagram.com/reelsuniai", views:"—", follows:"—", thumb:"", colors:{bg:"#e8f1ff",fg:"#1f4fd1"} },
+    { title:"Reel #5", url:"https://instagram.com/reelsuniai", views:"—", follows:"—", thumb:"", colors:{bg:"#24443a",fg:"#f4efe4"} },
+    { title:"Reel #6", url:"https://instagram.com/reelsuniai", views:"—", follows:"—", thumb:"", colors:{bg:"#1c1240",fg:"#ff5cb8"} },
   ]
 };
 
 /* ---------- rendering (no need to edit below) ---------- */
+const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
 const inr = n => "₹" + n.toLocaleString("en-IN");
-const grid = document.getElementById("skillGrid");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const full = CONFIG.skills.reduce((t, s) => t + s.price, 0);
 
-function wireButton(a, link, label){
-  if (link){ a.href = link; a.textContent = label; }
-  else { a.href = CONFIG.instagram; a.textContent = "Coming soon · Notify me"; a.classList.add("soon"); }
+function setLink(a, link, liveHTML){
+  a.target = "_blank"; a.rel = "noopener";
+  if (link){ a.href = link; if (liveHTML) a.innerHTML = liveHTML; }
+  else { a.href = CONFIG.instagramDM; a.classList.add("soon");
+    a.innerHTML = a.classList.contains("sm") ? "Notify me" : `Coming soon · Notify me<small>DM me on Instagram to get the launch link</small>`; }
 }
 
+/* text slots */
+const slots = { ...CONFIG.stats, bundlePrice: inr(CONFIG.bundle.price), bundleWas: inr(full) };
+if (CONFIG.name){ slots.name = CONFIG.name; slots.signName = CONFIG.name; }
+$$("[data-k]").forEach(el => { if (slots[el.dataset.k]) el.textContent = slots[el.dataset.k]; });
+if (CONFIG.avatar) $("#avatar").innerHTML = `<img src="${esc(CONFIG.avatar)}" alt="">`;
+
+/* buy buttons */
+$$("[data-buy=bundle]").forEach(a => setLink(a, CONFIG.bundle.checkout));
+
+/* hero reel wall */
+const mini = s => s.preview && !/\.(mp4|webm|mov)$/i.test(s.preview)
+  ? `<div class="mini"><img src="${esc(s.preview)}" alt=""></div>`
+  : `<div class="mini" style="--bg:${s.colors.bg};--fg:${s.colors.fg}"><b>${esc(s.name)}</b><div><i></i><i></i></div></div>`;
+const row = CONFIG.skills.map(mini).join("");
+$("#marqA").innerHTML = (row + row + row + row);
+$("#marqB").innerHTML = ([...CONFIG.skills].reverse().map(mini).join("")).repeat(4);
+
+/* reels row */
+$("#reelRow").innerHTML = CONFIG.reels.map(r => `
+  <a class="rc" href="${esc(r.url)}" target="_blank" rel="noopener">
+    <div class="th" style="--bg:${r.colors.bg};--fg:${r.colors.fg}">${r.thumb ? `<img src="${esc(r.thumb)}" alt="" loading="lazy">` : ""}
+      <span class="play">▶</span>${r.thumb ? "" : `<b>${esc(r.title)}</b>`}</div>
+    <div class="meta"><div><span>Views</span><b>${esc(r.views)}</b></div><div><span>Follows</span><b>${esc(r.follows)}</b></div></div>
+  </a>`).join("");
+
+/* skill cards */
 CONFIG.skills.forEach((s, i) => {
-  const off = Math.round((1 - s.price / s.was) * 100);
   let media;
   if (/\.(mp4|webm|mov)$/i.test(s.preview)) media = `<video src="${esc(s.preview)}" autoplay muted loop playsinline preload="metadata"></video>`;
-  else if (s.preview) media = `<img src="${esc(s.preview)}" alt="${esc(s.name)} style example" loading="lazy">`;
-  else media = `<div class="ph" style="--bg:${s.colors.bg};--fg:${s.colors.fg};--rad:${s.colors.rad}">
-      <b>${esc(s.name)}</b><div class="shapes"><i></i><i></i><i></i></div></div>`;
-  const card = document.createElement("article");
-  card.className = "skill";
-  card.innerHTML = `
-    <div class="prev">${media}
-      <span class="tag num">SU ${String(i+1).padStart(2,"0")}/${String(CONFIG.skills.length).padStart(2,"0")}</span>
-      ${s.badge ? `<span class="badge">${esc(s.badge)}</span>` : ""}
-    </div>
-    <div class="body">
-      <div class="style">${esc(s.style)}</div>
-      <h3>${esc(s.name)}</h3>
-      <p>${esc(s.desc)}</p>
-      <ul>${s.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
-      <div class="price"><b>${inr(s.price)}</b><s>${inr(s.was)}</s><span class="off">${off}% OFF</span></div>
-      <a class="btn block" target="_blank" rel="noopener"></a>
-    </div>`;
-  wireButton(card.querySelector("a.btn"), s.checkout, `Buy ${s.name} · ${inr(s.price)}`);
-  grid.appendChild(card);
+  else if (s.preview) media = `<img src="${esc(s.preview)}" alt="${esc(s.name)} example" loading="lazy">`;
+  else media = `<div class="ph" style="--bg:${s.colors.bg};--fg:${s.colors.fg};--rad:${s.colors.rad}"><b>${esc(s.name)}</b><div class="shapes"><i></i><i></i><i></i></div></div>`;
+  const el = document.createElement("article");
+  el.className = "skill rv";
+  el.innerHTML = `<div class="prev">${media}<span class="num">SU ${String(i+1).padStart(2,"0")}/${String(CONFIG.skills.length).padStart(2,"0")}</span>${s.badge?`<span class="badge">${esc(s.badge)}</span>`:""}</div>
+    <div class="body"><div class="style">${esc(s.style)}</div><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p>
+    <div class="pr"><b>${inr(s.price)}</b><s>${inr(s.was)}</s></div><a class="btn sm block"></a></div>`;
+  setLink(el.querySelector("a"), s.checkout, `Buy ${esc(s.name)} · ${inr(s.price)}`);
+  $("#skillGrid").appendChild(el);
 });
 
-const full = CONFIG.skills.reduce((t, s) => t + s.price, 0);
-document.getElementById("bundlePrice").textContent = inr(CONFIG.bundle.price);
-document.getElementById("bundleWas").textContent = inr(full);
-document.getElementById("bundleSave").textContent = `SAVE ${inr(full - CONFIG.bundle.price)} (${Math.round((1 - CONFIG.bundle.price / full) * 100)}%)`;
-document.getElementById("bundleList").innerHTML =
-  CONFIG.skills.map(s => `<li>${esc(s.name)} <span style="color:#8d8776">· ${esc(s.style)}</span></li>`).join("") +
-  `<li>Setup video + prompt cheat-sheet</li><li>Free future styles added to the bundle</li>`;
-wireButton(document.getElementById("bundleBtn"), CONFIG.bundle.checkout, `Get the bundle · ${inr(CONFIG.bundle.price)}`);
-document.getElementById("yr").textContent = new Date().getFullYear();
+/* single-style picker */
+const pick = $("#pickSkill"), pickBtn = $("#pickBtn");
+pick.innerHTML = CONFIG.skills.map((s, i) => `<option value="${i}">${esc(s.name)} · ${inr(s.price)}</option>`).join("");
+const updPick = () => { const s = CONFIG.skills[pick.value]; pickBtn.classList.remove("soon"); pickBtn.textContent = `Buy ${s.name} →`; setLink(pickBtn, s.checkout, `Buy ${esc(s.name)} →`); if(!s.checkout) pickBtn.textContent = "Coming soon · Notify me"; };
+pick.addEventListener("change", updPick); updPick();
 
-/* show sticky bar on mobile after the hero */
-const sticky = document.getElementById("sticky"), bundleEl = document.getElementById("bundle");
+/* bundle list */
+$("#bundleList").innerHTML = CONFIG.skills.map(s => `<li>${esc(s.name)} <span style="color:#9a927f">· ${esc(s.style)}</span></li>`).join("")
+  + `<li>All scene templates + playbook</li><li>Bonus: 100 proven reel topics</li><li>Free future styles added to the bundle</li>`;
+
+/* reveal on scroll */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"}) : null;
+$$(".rv").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+
+/* sticky bar: show after the hero offer, hide on pricing */
+const sticky = $("#sticky"), offer = $(".offer"), pricing = $("#pricing");
 addEventListener("scroll", () => {
-  const r = bundleEl.getBoundingClientRect();
-  const onBundle = r.top < innerHeight && r.bottom > 0;
-  sticky.classList.toggle("show", scrollY > 500 && !onBundle);
+  const past = offer.getBoundingClientRect().bottom < 0;
+  const p = pricing.getBoundingClientRect(); const onPricing = p.top < innerHeight && p.bottom > 0;
+  sticky.classList.toggle("show", past && !onPricing);
 }, {passive:true});
 </script>
 </body>
