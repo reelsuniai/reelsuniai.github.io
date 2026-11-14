@@ -1,0 +1,45 @@
+{
+  "style": "classic",
+  "name": "ai-reels-how",
+  "cta": {
+    "keyword": "PIPELINE"
+  },
+  "presenter": {
+    "skin": "medium",
+    "hair": "swept",
+    "hairColor": "darkbrown",
+    "beard": "none",
+    "beanie": false,
+    "glasses": false,
+    "glassesStyle": "round",
+    "top": "tee",
+    "topColor": "#4A5260",
+    "innerColor": "#F6F5F1",
+    "accessories": [],
+    "face": "adult"
+  },
+  "captions": {
+    "emphasize": [
+      "AI",
+      "nobody",
+      "made.",
+      "magic",
+      "pipeline.",
+      "script.",
+      "hook,",
+      "loop,",
+      "payoff",
+      "140"
+    ],
+    "swap": {
+      "16": "one",
+      "29": "one"
+    }
+  },
+  "theme": {
+    "accent": "#FF3B1F"
+  },
+  "ui": {
+    "sentLink": "sent you the breakdown"
+  }
+}

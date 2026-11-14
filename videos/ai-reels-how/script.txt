@@ -1,0 +1,8 @@
+Everybody's posting AI reels right now, but nobody shows you how they're actually made.
+It's not one magic app, and by the end you'll see the whole pipeline.
+Step one is the script. An AI writes a hook, a curiosity loop and a payoff in about a hundred and forty words.
+Step two is the voice. A text to speech model reads it, and every word gets a timestamp.
+Step three is the visuals. Each scene is code, and every animation is cued to the exact word you hear.
+Step four is the review. The AI renders still frames, checks them, and fixes anything empty or off.
+Then it exports a vertical video, ready to post.
+Comment PIPELINE and I'll send you the full breakdown.
