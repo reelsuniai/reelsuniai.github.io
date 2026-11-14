@@ -630,6 +630,24 @@ body::after {
 }
 .toast[hidden] { display: none; }
 
+/* ── "Open in browser" bar, only inside Instagram / TikTok etc. ────────── */
+.inapp-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 55;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: calc(8px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px));
+  background: var(--yellow); color: var(--ink);
+  box-shadow: 0 6px 14px -6px rgba(0,10,40,.5);
+  font: 600 13.5px/1.25 var(--font-display);
+}
+.inapp-bar[hidden] { display: none; }
+.inapp-bar button {
+  min-height: 40px; padding: 0 14px; border: 0; border-radius: 999px;
+  font: 700 13.5px/1 var(--font-display); color: #fff; background: var(--ink); cursor: pointer;
+  white-space: nowrap;
+}
+.inapp-bar button:focus-visible { outline: 2px dashed var(--ink); outline-offset: 3px; }
+html.inapp .page { padding-top: calc(clamp(70px, 12vh, 104px) + 52px); }
+
 /* ── Footer ───────────────────────────────────────────────────────────── */
 .footer { margin-top: 40px; text-align: center; color: var(--on-mat); }
 .footer p { margin: 0; }
@@ -901,6 +919,39 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
     const inApp = /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|BytedanceWebview|Line\/|Snapchat|Twitter/i.test(navigator.userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
                   (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/i.test(navigator.userAgent);
+
+    /* Ask the phone to open a URL in its real browser.
+       iPhone: x-safari-https:// opens Safari. Android: intent:// opens Chrome
+       or the default browser. Apps can block these, so callers always keep a
+       fallback (the help sheet). */
+    const stayUrl = location.origin + location.pathname + "#inapp";
+    function openOutside(url) {
+      try {
+        if (isAndroid) {
+          const u = new URL(url);
+          location.href = "intent://" + u.host + u.pathname + u.search +
+            "#Intent;scheme=https;S.browser_fallback_url=" + encodeURIComponent(stayUrl) + ";end";
+          return true;
+        }
+        if (isIOS) { location.href = "x-safari-" + url; return true; }
+      } catch (e) {}
+      return false;
+    }
+
+    if (inApp) {
+      document.documentElement.classList.add("inapp");
+      const bar = el("div", "inapp-bar",
+        '<span>Downloads work best in ' + (isIOS ? "Safari" : "your browser") + '</span>' +
+        '<button type="button">Open in browser ↗</button>');
+      document.body.appendChild(bar);
+      bar.querySelector("button").addEventListener("click", function () {
+        openOutside(location.origin + location.pathname);
+        setTimeout(() => { if (document.visibilityState === "visible") { const d = document.querySelector("a.tile[download]"); showSheet(d ? d.href : location.href); } }, 1500);
+      });
+      // One automatic try on arrival (skipped if we were bounced back here).
+      if (location.hash !== "#inapp") setTimeout(() => openOutside(location.origin + location.pathname), 400);
+    }
 
     const toast = el("div", "toast");
     toast.hidden = true;
@@ -936,6 +987,13 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
     back.addEventListener("click", e => { if (e.target === back) close(); });
     back.querySelector(".sheet__close").addEventListener("click", close);
     document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+    function showSheet(href) {
+      urlBox.value = href;
+      back.querySelector("#sheet-try").href = href;
+      back.querySelector("#sheet-copy").textContent = "Copy download link";
+      back.hidden = false;
+      back.querySelector("#sheet-copy").focus();
+    }
 
     back.querySelector("#sheet-copy").addEventListener("click", function () {
       const btn = this;
@@ -953,11 +1011,10 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
       if (!a) return;
       if (inApp) {
         e.preventDefault();
-        urlBox.value = a.href;
-        back.querySelector("#sheet-try").href = a.href;
-        back.querySelector("#sheet-copy").textContent = "Copy download link";
-        back.hidden = false;
-        back.querySelector("#sheet-copy").focus();
+        const href = a.href;
+        openOutside(href);
+        // Still here after 1.5 s? The app blocked it: show the manual steps.
+        setTimeout(() => { if (document.visibilityState === "visible") showSheet(href); }, 1500);
       } else {
         say(isIOS ? "Downloading… find it in the Files app → Downloads"
                   : "Downloading… check your Downloads folder");
