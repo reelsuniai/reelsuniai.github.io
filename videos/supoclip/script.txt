@@ -1,0 +1,8 @@
+Someone just open-sourced a tool that turns one long podcast into a week of short clips.
+And you can run it on your own computer, I'll show you how at the end.
+It's called SupoClip. You paste a YouTube link or a Twitch VOD, or upload a file.
+AI reads the whole transcript, picks the most clip-worthy moments, and scores each one on hook, engagement and shareability.
+Then it crops everything to vertical, keeps the speaker's face centered, and adds word-synced captions and a hook title.
+There's an editor to trim and merge, and it can schedule posts straight to TikTok, YouTube and Instagram.
+No watermarks, no metered plans, and you can self-host it with one Docker command.
+Comment CLIPS and I'll send you the GitHub link.

@@ -1,0 +1,46 @@
+{
+  "style": "classic",
+  "name": "supoclip",
+  "cta": {
+    "keyword": "CLIPS"
+  },
+  "presenter": {
+    "skin": "medium",
+    "hair": "swept",
+    "hairColor": "darkbrown",
+    "beard": "none",
+    "beanie": false,
+    "glasses": false,
+    "glassesStyle": "round",
+    "top": "tee",
+    "topColor": "#4A5260",
+    "innerColor": "#F6F5F1",
+    "accessories": [],
+    "face": "adult"
+  },
+  "captions": {
+    "emphasize": [
+      "open-sourced",
+      "podcast",
+      "week",
+      "clips.",
+      "computer.",
+      "end.",
+      "SupoClip.",
+      "YouTube",
+      "Twitch"
+    ],
+    "swap": {
+      "2": "open-sourced",
+      "34": "SupoClip.",
+      "35": "",
+      "7": "one"
+    }
+  },
+  "theme": {
+    "accent": "#FF3B1F"
+  },
+  "ui": {
+    "sentLink": "sent you the GitHub link"
+  }
+}
