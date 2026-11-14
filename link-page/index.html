@@ -540,19 +540,8 @@ body::after {
 /* Featured: red card with a strip of tape */
 .tile--featured { color: #fff; background: var(--red); }
 .tile--featured .tile__desc, .tile--featured .tile__meta { color: rgba(255,255,255,.88); }
-.tile--featured .tile__icon { color: var(--red); background: #fff; border-color: #fff; }
-.tile--featured::before {           /* tape */
-  content: "";
-  position: absolute;
-  top: -11px;
-  left: 50%;
-  width: 84px;
-  height: 22px;
-  margin-left: -42px;
-  background: rgba(255,255,255,.62);
-  transform: rotate(-3deg);
-  box-shadow: 0 1px 2px rgba(0,0,0,.12);
-}
+.tile--featured .tile__icon { color: var(--ink); background: var(--yellow); border-color: var(--yellow); box-shadow: 0 4px 8px rgba(80,0,0,.3); }
+
 .tile__badge {
   position: absolute;
   top: -12px;
