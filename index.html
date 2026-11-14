@@ -219,7 +219,7 @@ body::after {
 .props { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .prop {
   position: absolute;
-  transform: rotate(var(--r, 0deg));
+  transform: translate3d(0, calc(var(--sy, 0px) * var(--px, 0)), 0) rotate(var(--r, 0deg));
   filter: drop-shadow(0 6px 8px rgba(0,15,60,.35));
 }
 .prop svg { display: block; width: 100%; height: auto; }
@@ -283,7 +283,7 @@ body::after {
   width: 100%;
   max-width: 460px;
   margin: 0 auto;
-  padding-block: clamp(70px, 12vh, 104px) calc(170px + env(safe-area-inset-bottom, 0px));
+  padding-block: clamp(70px, 12vh, 104px) calc(196px + env(safe-area-inset-bottom, 0px));
   padding-left: max(18px, env(safe-area-inset-left, 0px));
   padding-right: max(18px, env(safe-area-inset-right, 0px));
 }
@@ -630,23 +630,6 @@ body::after {
 }
 .toast[hidden] { display: none; }
 
-/* ── "Open in browser" bar, only inside Instagram / TikTok etc. ────────── */
-.inapp-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 55;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  padding: calc(8px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px));
-  background: var(--yellow); color: var(--ink);
-  box-shadow: 0 6px 14px -6px rgba(0,10,40,.5);
-  font: 600 13.5px/1.25 var(--font-display);
-}
-.inapp-bar[hidden] { display: none; }
-.inapp-bar button {
-  min-height: 40px; padding: 0 14px; border: 0; border-radius: 999px;
-  font: 700 13.5px/1 var(--font-display); color: #fff; background: var(--ink); cursor: pointer;
-  white-space: nowrap;
-}
-.inapp-bar button:focus-visible { outline: 2px dashed var(--ink); outline-offset: 3px; }
-html.inapp .page { padding-top: calc(clamp(70px, 12vh, 104px) + 52px); }
 
 /* ── Footer ───────────────────────────────────────────────────────────── */
 .footer { margin-top: 40px; text-align: center; color: var(--on-mat); }
@@ -679,7 +662,17 @@ html.inapp .page { padding-top: calc(clamp(70px, 12vh, 104px) + 52px); }
 .label--white.in { animation-name: slapWhite; }
 @keyframes slapRed   { 0% { opacity: 0; transform: rotate(-4deg) translateX(-10px) scale(1.3); } 60% { opacity: 1; transform: rotate(-4deg) translateX(-10px) scale(.97); } 100% { opacity: 1; transform: rotate(-4deg) translateX(-10px); } }
 @keyframes slapWhite { 0% { opacity: 0; transform: rotate(2deg) translateX(14px) scale(1.3); } 60% { opacity: 1; transform: rotate(2deg) translateX(14px) scale(.97); } 100% { opacity: 1; transform: rotate(2deg) translateX(14px); } }
-.links > li { animation: drop .7s cubic-bezier(.2,.9,.3,1.15) backwards; animation-delay: var(--d, 0ms); }
+/* Scroll reveal: each card drops onto the mat as it scrolls into view.
+   Only switched on by JS (html.js-reveal), so without JS everything shows. */
+html.js-reveal .links > li,
+html.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(48px) rotate(calc(var(--tilt, 0deg) * 6)) scale(.95);
+  transition: opacity .55s ease, transform .85s cubic-bezier(.22,1.35,.42,1);
+  transition-delay: var(--rd, 0ms);
+}
+html.js-reveal .links > li.shown,
+html.js-reveal .reveal.shown { opacity: 1; transform: none; }
 .fade { animation: fadeIn .8s ease backwards; animation-delay: var(--d, 0ms); }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -696,43 +689,28 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
 
   <!-- Desk props: decorative only. Delete any line to remove that prop. -->
   <div class="props" aria-hidden="true">
-    <!-- Claude sticker -->
-    <div class="prop in" style="top:18px;left:-6px;--r:-10deg;--d:700ms">
+    <!-- top corners (drift a little on scroll: --px) -->
+    <div class="prop in" style="top:16px;left:14px;--r:-7deg;--d:700ms;--px:-.18">
       <span class="pill"><svg viewBox="0 0 24 24"><g stroke="#D97757" stroke-width="2.6" stroke-linecap="round"><path d="M12 12 12 3"/><path d="M12 12 18.4 5.6"/><path d="M12 12 21 12"/><path d="M12 12 18.4 18.4"/><path d="M12 12 12 21"/><path d="M12 12 5.6 18.4"/><path d="M12 12 3 12"/><path d="M12 12 5.6 5.6"/><path d="M12 12 16.2 3.6"/><path d="M12 12 20.4 16.2"/><path d="M12 12 7.8 20.4"/><path d="M12 12 3.6 7.8"/></g></svg>Claude</span>
     </div>
-    <!-- window buttons -->
-    <div class="prop in" style="top:26px;right:12px;width:84px;--r:4deg;--d:800ms">
+    <div class="prop in" style="top:8px;right:14px;width:70px;--r:4deg;--d:800ms;--px:-.12">
       <svg viewBox="0 0 84 28"><g fill="#ffe01a" stroke="#0b1b4d" stroke-width="2"><rect x="1" y="1" width="24" height="24"/><rect x="30" y="1" width="24" height="24"/><rect x="59" y="1" width="24" height="24"/></g><g stroke="#0b1b4d" stroke-width="2.2" fill="none" stroke-linecap="round"><path d="M7 19h12"/><rect x="36" y="7" width="12" height="12"/><path d="M65 7l12 12M77 7 65 19"/></g></svg>
     </div>
-    <!-- ElevenLabs sticker -->
-    <div class="prop in" style="top:372px;right:-16px;--r:7deg;--d:900ms">
-      <span class="pill"><svg viewBox="0 0 24 24"><rect x="7" y="4" width="3.2" height="16" rx=".6" fill="#111"/><rect x="13.8" y="4" width="3.2" height="16" rx=".6" fill="#111"/></svg>ElevenLabs</span>
-    </div>
-    <!-- red play sticker -->
-    <div class="prop in" style="top:250px;left:-10px;width:64px;--r:-12deg;--d:1000ms">
-      <svg viewBox="0 0 64 46"><rect x="2" y="2" width="60" height="42" rx="12" fill="#e3170e" stroke="#fff" stroke-width="4"/><path d="M26 14v18l15-9z" fill="#fff"/></svg>
-    </div>
-    <!-- Higgsfield sticker -->
-    <div class="prop in" style="bottom:118px;left:30%;--r:-5deg;--d:1100ms">
-      <span class="pill pill--dark">higgsfield</span>
-    </div>
-    <!-- paper stars -->
-    <div class="prop in" style="top:150px;left:20px;width:34px;--r:-18deg;--d:1200ms">
+    <div class="prop in" style="top:34px;left:46%;width:22px;--r:-18deg;--d:900ms;--px:-.25">
       <svg viewBox="0 0 40 40"><defs><pattern id="np" width="4" height="3" patternUnits="userSpaceOnUse"><rect width="4" height="3" fill="#f3f1ea"/><rect y="2" width="3" height=".6" fill="#b9b6ad"/></pattern></defs><path d="M20 2l5.3 11.6 12.7 1.3-9.5 8.5 2.7 12.5L20 29.6 8.8 35.9l2.7-12.5L2 14.9l12.7-1.3z" fill="url(#np)"/></svg>
     </div>
-    <div class="prop in" style="top:63%;right:-6px;width:44px;--r:14deg;--d:1250ms">
-      <svg viewBox="0 0 40 40"><path d="M20 2l5.3 11.6 12.7 1.3-9.5 8.5 2.7 12.5L20 29.6 8.8 35.9l2.7-12.5L2 14.9l12.7-1.3z" fill="url(#np)"/></svg>
+    <!-- bottom: tool stickers + polaroid, below the footer -->
+    <div class="prop in" style="bottom:104px;left:16px;--r:-6deg;--d:300ms">
+      <span class="pill"><svg viewBox="0 0 24 24"><rect x="7" y="4" width="3.2" height="16" rx=".6" fill="#111"/><rect x="13.8" y="4" width="3.2" height="16" rx=".6" fill="#111"/></svg>ElevenLabs</span>
     </div>
-    <!-- yellow twinkles -->
-    <div class="prop twinkle" style="top:120px;right:30%;width:16px;--d:-1s"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#ffe01a"/></svg></div>
-    <div class="prop twinkle" style="top:56%;left:8px;width:14px;--d:-2s"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#ffe01a"/></svg></div>
-    <div class="prop twinkle" style="bottom:210px;right:16px;width:18px;--d:-.5s"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#ffe01a"/></svg></div>
-    <!-- GitHub sticker -->
-    <div class="prop in" style="bottom:40px;left:14px;width:58px;--r:-10deg;--d:1300ms">
+    <div class="prop in" style="bottom:46px;left:96px;--r:5deg;--d:380ms">
+      <span class="pill pill--dark">higgsfield</span>
+    </div>
+    <div class="prop in" style="bottom:30px;left:18px;width:54px;--r:-10deg;--d:460ms">
       <svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="27" fill="#111" stroke="#fff" stroke-width="4"/><g transform="translate(14 14) scale(1.25)" fill="#fff"><path d="M12 2.2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2.2Z"/></g></svg>
     </div>
-    <!-- polaroid -->
-    <div class="prop in polaroid" id="polaroid" style="bottom:28px;right:-8px;--r:8deg;--d:1350ms"><img alt=""><span>reelsuniai</span></div>
+    <div class="prop twinkle" style="bottom:150px;right:120px;width:16px;--d:-.5s"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#ffe01a"/></svg></div>
+    <div class="prop in polaroid" id="polaroid" style="bottom:26px;right:14px;--r:7deg;--d:540ms"><img alt=""><span>reelsuniai</span></div>
   </div>
 
   <main class="page">
@@ -745,7 +723,7 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
 
     <noscript><p class="noscript">This page needs JavaScript to show its links.</p></noscript>
 
-    <footer class="footer fade" id="footer" style="--d:1200ms"></footer>
+    <footer class="footer" id="footer"></footer>
   </main>
 </div>
 
@@ -835,10 +813,6 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
       if (pol) pol.src = CONFIG.avatar;
     }
 
-    const sel = el("span", "select fade"); sel.setAttribute("aria-hidden", "true");
-    host.appendChild(delay(sel, 900));
-    const cur = el("span", "cursor", ICONS.cursor); cur.setAttribute("aria-hidden", "true");
-    host.appendChild(cur);
     [["8%", "52%", "-1s"], ["86%", "8%", "-2s"]].forEach(function (p) {
       const sp = el("span", "spark twinkle", ICONS.spark); sp.setAttribute("aria-hidden", "true");
       sp.style.left = p[0]; sp.style.top = p[1]; sp.style.setProperty("--d", p[2]);
@@ -919,39 +893,6 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
     const inApp = /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|BytedanceWebview|Line\/|Snapchat|Twitter/i.test(navigator.userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
                   (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    const isAndroid = /Android/i.test(navigator.userAgent);
-
-    /* Ask the phone to open a URL in its real browser.
-       iPhone: x-safari-https:// opens Safari. Android: intent:// opens Chrome
-       or the default browser. Apps can block these, so callers always keep a
-       fallback (the help sheet). */
-    const stayUrl = location.origin + location.pathname + "#inapp";
-    function openOutside(url) {
-      try {
-        if (isAndroid) {
-          const u = new URL(url);
-          location.href = "intent://" + u.host + u.pathname + u.search +
-            "#Intent;scheme=https;S.browser_fallback_url=" + encodeURIComponent(stayUrl) + ";end";
-          return true;
-        }
-        if (isIOS) { location.href = "x-safari-" + url; return true; }
-      } catch (e) {}
-      return false;
-    }
-
-    if (inApp) {
-      document.documentElement.classList.add("inapp");
-      const bar = el("div", "inapp-bar",
-        '<span>Downloads work best in ' + (isIOS ? "Safari" : "your browser") + '</span>' +
-        '<button type="button">Open in browser ↗</button>');
-      document.body.appendChild(bar);
-      bar.querySelector("button").addEventListener("click", function () {
-        openOutside(location.origin + location.pathname);
-        setTimeout(() => { if (document.visibilityState === "visible") { const d = document.querySelector("a.tile[download]"); showSheet(d ? d.href : location.href); } }, 1500);
-      });
-      // One automatic try on arrival (skipped if we were bounced back here).
-      if (location.hash !== "#inapp") setTimeout(() => openOutside(location.origin + location.pathname), 400);
-    }
 
     const toast = el("div", "toast");
     toast.hidden = true;
@@ -1011,15 +952,50 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
       if (!a) return;
       if (inApp) {
         e.preventDefault();
-        const href = a.href;
-        openOutside(href);
-        // Still here after 1.5 s? The app blocked it: show the manual steps.
-        setTimeout(() => { if (document.visibilityState === "visible") showSheet(href); }, 1500);
+        showSheet(a.href);
       } else {
         say(isIOS ? "Downloading… find it in the Files app → Downloads"
                   : "Downloading… check your Downloads folder");
       }
     });
+  }
+
+  /* Scroll animation: cards (and the footer) drop in as they enter the screen,
+     and the corner props drift at their own speed for a little depth. */
+  function setupScroll() {
+    const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) return;
+    document.documentElement.classList.add("js-reveal");
+    const targets = [...document.querySelectorAll(".links > li")];
+    const foot = document.getElementById("footer");
+    if (foot) { foot.classList.add("reveal"); targets.push(foot); }
+    const io = new IntersectionObserver(function (entries) {
+      let k = 0;
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.style.setProperty("--rd", (k++ * 90) + "ms");
+        en.target.classList.add("shown");
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+    targets.forEach(t => io.observe(t));
+    // Safety net: never leave anything hidden for long.
+    setTimeout(function () {
+      targets.forEach(function (t) {
+        const r = t.getBoundingClientRect();
+        if (r.top < innerHeight && !t.classList.contains("shown")) t.classList.add("shown");
+      });
+    }, 2500);
+
+    const props = document.querySelector(".props");
+    let ticking = false;
+    addEventListener("scroll", function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        props && props.style.setProperty("--sy", scrollY + "px");
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
   function renderFooter() {
@@ -1039,6 +1015,7 @@ html.no-intro .in, html.no-intro .links > li, html.no-intro .fade { animation: n
   renderFooter();
   setupCounter();
   setupDownloads();
+  setupScroll();
 })();
 </script>
 </body>
