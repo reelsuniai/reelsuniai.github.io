@@ -332,7 +332,6 @@ footer .disc{max-width:640px;margin:14px auto 0;font-size:12px;line-height:1.6}
     <span class="tag" id="offerTag">LAUNCH OFFER</span>
     <span class="msg" id="offerMsg">All 5 skills <b data-px="bundle">₹999</b> <span class="hide-sm">instead of <span data-worth>₹2,495</span></span> · ends in</span>
     <span class="timer" data-timer></span>
-    <a class="go" href="#pricing">Claim →</a>
   </div>
 </div>
 
@@ -343,7 +342,7 @@ footer .disc{max-width:640px;margin:14px auto 0;font-size:12px;line-height:1.6}
       <a class="h" href="#how">How it works</a>
       <a class="h" href="#styles">Styles</a>
       <a class="h" href="#faq">FAQ</a>
-      <a class="mini" href="#pricing">Buy now</a>
+      <a class="mini" href="#pricing">Pricing</a>
     </div>
   </div>
 </nav>
@@ -381,7 +380,7 @@ footer .disc{max-width:640px;margin:14px auto 0;font-size:12px;line-height:1.6}
     </div>
 
     <div class="buy rv">
-      <a class="cta" data-buy="bundle" href="#pricing"><span>Get all 5 skills · <span data-px="bundle">₹999</span></span><small data-save="bundle">Save ₹1,496 · launch price</small></a>
+      <a class="cta" href="#pricing"><span>Get all 5 skills · <span data-px="bundle">₹999</span></span><small data-save="bundle">Save ₹1,496 · launch price</small></a>
       <a class="btn2" href="#pricing" data-goto-single>Buy one style · <span data-px="single">₹499</span><small>Pick any 1 of 5</small></a>
     </div>
     <div class="assure rv"><span>Instant download</span><span>Pay once, keep forever</span><span>7-day guarantee</span></div>
@@ -455,7 +454,6 @@ footer .disc{max-width:640px;margin:14px auto 0;font-size:12px;line-height:1.6}
     </div>
     <div class="fix rv">
       <h3>All three have the same fix:<br><span>you type, and the skill animates.</span></h3>
-      <a class="cta" data-buy="bundle" href="#pricing"><span>Get all 5 skills · <span data-px="bundle">₹999</span></span><small data-save="bundle">Save ₹1,496 · launch price</small></a>
     </div>
   </div>
 </section>
@@ -581,7 +579,7 @@ footer .disc{max-width:640px;margin:14px auto 0;font-size:12px;line-height:1.6}
     <div class="bigtimer" data-bigtimer><span class="timer" data-timer></span></div>
     <h2>Your next reel is<br><span class="sel">one prompt</span> away.</h2>
     <p class="lead" style="max-width:520px;margin:0 auto 28px">Every day you wait is another reel idea sitting in your notes. Start tonight. You're covered by the 7-day guarantee.</p>
-    <a class="cta" data-buy="bundle" href="#pricing"><span>Get all 5 skills · <span data-px="bundle">₹999</span></span><small data-save="bundle">Save ₹1,496 · launch price</small></a>
+    <a class="cta" href="#pricing"><span>See pricing ↓</span><small>One style <span data-px="single">₹499</span> · all 5 <span data-px="bundle">₹999</span></small></a>
     <div class="assure"><span>Instant download</span><span>7-day guarantee</span><span>Secure UPI checkout</span></div>
   </div>
 </section>
@@ -597,7 +595,7 @@ footer .disc{max-width:640px;margin:14px auto 0;font-size:12px;line-height:1.6}
 
 <div class="sticky" id="sticky">
   <div class="p"><b data-px="bundle">₹999</b><s data-worth>₹2,495</s><small id="stickyTime">Launch price · ends soon</small></div>
-  <a class="cta" data-buy="bundle" href="#pricing"><span>Get all 5 skills</span></a>
+  <a class="cta" href="#pricing"><span>See pricing</span></a>
 </div>
 
 <script>
@@ -722,9 +720,8 @@ function renderStyle(i){
     : `<div class="mock" style="--fg:${s.colors.fg};--rad:${s.colors.rad}"><b>${esc(s.name)}</b><div class="ln"></div><div class="ln"></div><div class="ln"></div><div class="shp"><i></i><i></i><i></i></div><div class="cp">one prompt → one reel</div></div>`;
   $("#info").innerHTML = `<div class="kick">${pad(i+1)} / ${pad(N)} · ${esc(s.kick)}</div><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p>
     <ul>${s.points.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-    <div class="row"><div class="pricetag"><b>${inr(p.s)}</b>${live ? `<s>${inr(CONFIG.single.regular)}</s>` : ""}</div><a class="btn2" id="styleBuy">Buy ${esc(s.name)}</a></div>
-    <div class="upsell">Or get <b>all 5 for ${inr(p.b)}</b>, about the price of two. <a href="#pricing">See bundle →</a></div>`;
-  const a = $("#styleBuy"); a.target = "_blank"; a.rel = "noopener"; a.href = s.checkout || CONFIG.instagramDM; if (!s.checkout) a.textContent = "Coming soon · Notify me";
+    <div class="row"><div class="pricetag"><b>${inr(p.s)}</b>${live ? `<s>${inr(CONFIG.single.regular)}</s>` : ""}</div></div>
+    <div class="upsell">Or all 5 for <b>${inr(p.b)}</b>, about the price of two. <a href="#pricing">See pricing ↓</a></div>`;
 }
 $("#tabs").innerHTML = CONFIG.skills.map(s => `<button role="tab">${esc(s.name)}</button>`).join("");
 $$("#tabs button").forEach((b, i) => b.addEventListener("click", () => { renderStyle(i); clearInterval(styleTimer); }));
