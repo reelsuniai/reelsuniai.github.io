@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Reel Skill · ShortsUniversity</title>
-<meta name="description" content="1M views in 2 weeks with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹999 for the first 50 buyers.">
+<meta name="description" content="950K views in 90 days with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹999 for the first 50 buyers.">
 <meta property="og:title" content="The Reel Skill by ShortsUniversity">
 <meta property="og:description" content="Type one line. Claude makes the whole animated reel. Launch price ₹999 for the first 50 buyers.">
 <meta property="og:type" content="website">
@@ -81,8 +81,8 @@ section{padding:110px 0}
 .hero h1{margin:22px auto 18px;max-width:920px}
 .hero .sub{max-width:660px;margin:0 auto}
 .reelrow{margin:44px 0 36px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.reelrow .tr{display:flex;gap:16px;width:max-content;animation:slide 45s linear infinite}
-.reelrow:hover .tr{animation-play-state:paused}
+.reelrow .tr{display:flex;gap:16px;width:max-content;animation:slide 60s linear infinite}
+.reelrow:hover .tr,.reelrow:focus-within .tr,.reelrow.hold .tr{animation-play-state:paused}
 .reelrow.rev .tr{animation-direction:reverse}
 @keyframes slide{to{transform:translateX(-50%)}}
 .rp{width:180px;aspect-ratio:9/16;border-radius:20px;border:3px solid #3a1a1e;background:var(--bgc,#1a0d10);overflow:hidden;position:relative;flex:none;box-shadow:0 18px 40px -18px #000;transition:transform .35s var(--pop)}
@@ -94,6 +94,11 @@ section{padding:110px 0}
 .rp .ph b em{font-style:italic;color:var(--gold)}
 .rp .ph .bx{margin-top:auto;height:38%;border-radius:10px;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);display:grid;place-items:center;font:800 20px var(--font);color:#fff}
 .rp .v{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.6);border-radius:999px;padding:3px 8px;font:700 11px var(--font)}
+.rp.ig{--cw:280px;width:var(--cw);height:calc(var(--cw) * 1.79);aspect-ratio:auto;background:#000;border-color:#3a1a1e}
+.rp.ig iframe{position:absolute;width:calc(var(--cw) * 1.458);left:calc(var(--cw) * -0.229);top:-54px;height:calc(var(--cw) * 2.4);border:0;background:#000}
+.rp.ig .open{position:absolute;top:8px;right:8px;z-index:2;background:rgba(0,0,0,.7);color:#fff;border-radius:999px;padding:4px 10px;font:700 11px var(--font);backdrop-filter:blur(6px)}
+.rp.ig .v{z-index:2}
+@media(max-width:600px){.rp.ig{--cw:220px}}
 .stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
 .stats div{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:12px 20px;min-width:150px;backdrop-filter:blur(10px)}
 .stats b{display:block;font:800 26px var(--font);letter-spacing:-.03em;color:var(--red)}
@@ -311,8 +316,8 @@ footer a:hover{color:#fff}
     <div class="rv"><a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹999</span><s data-reg>₹1,999</s></span></a></div>
     <div class="ok rv"><span>Instant download</span><span>Pay once</span><span>7-day guarantee</span><span>UPI accepted</span></div>
     <div class="stats rv">
-      <div><b data-k="viewsShort">1M</b><span data-k="periodLabel">views in 2 weeks</span></div>
-      <div><b data-k="followers">5.3K</b><span>followers</span></div>
+      <div><b data-k="viewsK">950K</b><span data-k="periodLabel">views in 90 days</span></div>
+      <div><b data-k="netFollowers">+5,218</b><span>new followers in 90 days</span></div>
       <div><b data-k="topReel">136K</b><span>views on one reel</span></div>
     </div>
 
@@ -346,12 +351,11 @@ footer a:hover{color:#fff}
     <h2 class="rv">Straight from <span class="r">my Instagram</span></h2>
     <p class="sub rv">No ads, no editor, no team. Every reel below was made with this skill.</p>
     <div class="mets">
-      <div class="box met rv"><span data-k="periodLabelCap">Views · last 2 weeks</span><b data-k="viewsFull">1,000,000+</b><em>↑ from reels made with one prompt</em>
+      <div class="box met rv"><span data-k="periodLabelCap">Views · last 2 weeks</span><b data-k="viewsFull">1,000,000+</b><em>↑ most of it from reels made with one prompt</em>
         <svg viewBox="0 0 300 56" preserveAspectRatio="none"><path class="l" d="M0,52 C40,51 70,50 100,48 C130,46 150,47 170,40 C190,30 200,10 215,22 C230,34 245,18 260,26 C275,34 285,6 300,4" fill="none" stroke="#ff3b3b" stroke-width="2.5"/></svg></div>
-      <div class="box met rv" style="--d:.08s"><span>Followers</span><b data-k="followersFull">5,301</b><em>↑ and growing daily</em></div>
+      <div class="box met rv" style="--d:.08s"><span>Followers</span><b data-k="followersFull">5,618</b><em><span data-k="netFollowers">+5,218</span> net in 90 days</em></div>
       <div class="box met rv" style="--d:.16s"><span>Top reel</span><b data-k="topReel">136K</b><em>views on a single reel</em></div>
     </div>
-    <div class="rcards" id="rcards"></div>
     <p class="note rv">From my Instagram dashboard. Results vary.</p>
   </div>
 </section>
@@ -384,7 +388,7 @@ footer a:hover{color:#fff}
       <span class="eye">My story</span>
       <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a></h2>
       <p>I run ShortsUniversity, a small page about Claude and AI tools. I didn't want to spend my evenings in a video editor, so I built a Claude skill: I type one line about a topic, and it writes, voices and animates the whole reel.</p>
-      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">2 weeks</span> my reels crossed <b data-k="viewsShort">1M views</b>, and I still haven't edited a single frame.</p>
+      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">2 weeks</span> my reels crossed <b data-k="viewsShort">1M views</b>, and the page grew by <b data-k="netFollowers">+5,218</b> followers. I still haven't edited a single frame.</p>
       <p>I'm not a big creator or a video pro. That's the point: <b>if it works for a small page like mine, it can work for yours.</b></p>
     </div>
   </div>
@@ -415,7 +419,6 @@ footer a:hover{color:#fff}
     <h2 class="rv">Any topic. <span class="r">One prompt each.</span></h2>
     <p class="sub rv">AI tools, tech, finance, the news. Every one of these came from a single line.</p>
   </div>
-  <div class="reelrow rev rv"><div class="tr" id="row2"></div></div>
   <div class="wrap c rv">
     <a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹999</span><s data-reg>₹1,999</s></span></a>
     <div class="ok"><span>7-day guarantee</span><span>UPI · GPay · PhonePe · cards</span></div>
@@ -615,17 +618,17 @@ const CONFIG = {
   checkout: "",
   instagramDM: "https://ig.me/m/reelsuniai",
   stats: {                                       // must match your real Instagram dashboard
-    viewsShort: "1M views", viewsFull: "1,000,000+", period: "2 weeks",
-    periodLabel: "views in 2 weeks", periodLabelCap: "Views · last 2 weeks",
-    followers: "5.3K", followersFull: "5,301", topReel: "136K",
+    viewsShort: "950K views", viewsK: "950K", viewsFull: "950,109", period: "90 days",
+    periodLabel: "views in 90 days", periodLabelCap: "Views · last 90 days",
+    followers: "5.6K", followersFull: "5,618", netFollowers: "+5,218", topReel: "136K",
   },
+  /* Your reels for the sliding row (Instagram reel IDs from the links). Add views if you want a badge. */
   reels: [
-    { title:"FREE Opus Clip <em>alternative</em>", tag:"AI TOOL", views:"136K", saves:"", comments:"", follows:"", url:"https://instagram.com/reelsuniai", video:"", thumb:"", bg:"#b5141a" },
-    { title:"One Prompt. <em>Full YouTube video.</em>", tag:"AI VIDEO", views:"67.3K", saves:"", comments:"", follows:"", url:"https://instagram.com/reelsuniai", video:"", thumb:"", bg:"#8e1015" },
-    { title:"Claude just <em>killed</em> ElevenLabs", tag:"CLAUDE", views:"", saves:"", comments:"", follows:"", url:"https://instagram.com/reelsuniai", video:"", thumb:"", bg:"#3a1a1e" },
-    { title:"STOP paying <em>for these</em>", tag:"AI TOOLS", views:"", saves:"", comments:"", follows:"", url:"https://instagram.com/reelsuniai", video:"", thumb:"", bg:"#c8191f" },
-    { title:"Free animated <em>reels skill</em>", tag:"SKILL", views:"", saves:"", comments:"", follows:"", url:"https://instagram.com/reelsuniai", video:"", thumb:"", bg:"#5a0f13" },
-    { title:"Claude does it <em>for free</em>", tag:"CLAUDE", views:"", saves:"", comments:"", follows:"", url:"https://instagram.com/reelsuniai", video:"", thumb:"", bg:"#7a1216" },
+    { id:"Dfpe1dpSizS", views:"" },
+    { id:"DfdySUsxaFu", views:"" },
+    { id:"Dfp2HztSljP", views:"" },
+    { id:"Dfn6Kg0Sr1x", views:"" },
+    { id:"Dfw8xJjyttY", views:"" },
   ],
 };
 
@@ -672,19 +675,10 @@ $$("[data-buy]").forEach(a => { a.target = "_blank"; a.rel = "noopener"; a.href 
 if (!CONFIG.checkout) $$("[data-buy]").forEach(a => { a.title = "Launching soon: DM me on Instagram for the link"; });
 
 /* reels */
-const reelHTML = r => {
-  const media = r.video ? `<video src="${esc(r.video)}" autoplay muted loop playsinline preload="metadata"></video>`
-    : r.thumb ? `<img src="${esc(r.thumb)}" alt="" loading="lazy">`
-    : `<div class="ph"><span class="t">${esc(r.tag)}</span><b>${allowEm(r.title)}</b><div class="bx">▶</div></div>`;
-  return `<a class="rp" style="--bgc:${esc(r.bg)}" href="${esc(r.url)}" target="_blank" rel="noopener">${media}${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</a>`;
-};
-const row = CONFIG.reels.map(reelHTML).join("");
-$("#row1").innerHTML = row + row + row;
-$("#row2").innerHTML = [...CONFIG.reels].reverse().map(reelHTML).join("").repeat(3);
-$("#rcards").innerHTML = CONFIG.reels.filter(r => r.views).slice(0, 3).map((r, i) => `<a class="box rcard rv" style="--d:${i * .08}s" href="${esc(r.url)}" target="_blank" rel="noopener">
-  ${reelHTML(r).replace(/^<a [^>]+>/, '<div class="rp" style="--bgc:' + esc(r.bg) + '">').replace(/<\/a>$/, "</div>")}
-  <div class="vw"><b>${esc(r.views)}</b><span>views</span></div>
-  ${(r.saves || r.comments || r.follows) ? `<div class="mini"><div><b>${esc(r.saves || "–")}</b><span>saves</span></div><div><b>${esc(r.comments || "–")}</b><span>comments</span></div><div><b>${esc(r.follows || "–")}</b><span>follows</span></div></div>` : ""}</a>`).join("");
+const reelHTML = r => `<div class="rp ig"><iframe src="https://www.instagram.com/reel/${esc(r.id)}/embed/" loading="lazy" scrolling="no" allowtransparency="true" title="Reel by @reelsuniai"></iframe>
+  <a class="open" href="https://www.instagram.com/reel/${esc(r.id)}/" target="_blank" rel="noopener">Watch ↗</a>${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</div>`;
+$("#row1").innerHTML = CONFIG.reels.map(reelHTML).join("").repeat(2);
+{ const rr = $(".reelrow"); let t; rr.addEventListener("pointerdown", () => { rr.classList.add("hold"); clearTimeout(t); t = setTimeout(() => rr.classList.remove("hold"), 10000); }); }
 
 /* file names marquee */
 const fns = [["SKILL.md","#3b7bf6"],["scenes.js","#d4b32b"],["hook.js","#d4b32b"],["captions.js","#d4b32b"],["voice.py","#3e6ea8"],["mix.py","#3e6ea8"],["render.mjs","#71b04a"],["paper.css","#b97be0"],["stamps.js","#d4b32b"],["hooks.md","#3b7bf6"],["playbook.pdf","#e0483c"],["setup.md","#3b7bf6"],["cta.js","#d4b32b"],["tiles.js","#d4b32b"]];
