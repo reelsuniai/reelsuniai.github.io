@@ -18,8 +18,8 @@
   --bg:#0b0b0c; --bg-2:#121214; --surf:#151517; --surf-2:#19191c; --surf-3:#212125;
   --ink:#fff; --ink-2:#d9c3c5; --ink-3:#9a8184; --ink-4:#6b5558;
   --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
-  --red:#ff3b3b; --red-2:#ff6a5c; --red-3:#c8191f; --red-glow:rgba(255,59,59,.5); --red-soft:rgba(255,59,59,.1); --acc:#ffb547; --acc-2:#ffd18a; --acc-soft:rgba(255,181,71,.1); --acc-line:rgba(255,181,71,.35);
-  --green:#3ee08f; --gold:#ffc94d;
+  --red:#ff3b3b; --red-2:#ff6a5c; --red-3:#c8191f; --red-glow:rgba(255,59,59,.5); --red-soft:rgba(255,59,59,.1); --acc:#7cc4ff; --acc-2:#bfe3ff; --acc-soft:rgba(124,196,255,.1); --acc-line:rgba(124,196,255,.38);
+  --green:#3ee08f; --gold:#7cc4ff;
   --font:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
   --pop:cubic-bezier(.2,.9,.3,1.2); --ease:cubic-bezier(.16,1,.3,1);
 }
@@ -28,7 +28,7 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:
   radial-gradient(900px 600px at 50% -10%,rgba(255,59,59,.10),transparent 65%),
-  radial-gradient(700px 500px at 100% 40%,rgba(255,181,71,.06),transparent 70%),
+  radial-gradient(700px 500px at 100% 40%,rgba(124,196,255,.07),transparent 70%),
   radial-gradient(700px 500px at 0% 80%,rgba(255,59,59,.05),transparent 70%),var(--bg)}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 80%)}
@@ -37,7 +37,7 @@ img,video{display:block;max-width:100%}
 .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
 .mid{max-width:760px;margin:0 auto}
 .c{text-align:center}
-.r{background:linear-gradient(90deg,#ff5a4f,#ffb547);-webkit-background-clip:text;background-clip:text;color:transparent}
+.r{color:var(--acc)}
 .skip{position:absolute;left:-999px}.skip:focus{left:10px;top:10px;background:#fff;color:#000;padding:8px 12px;border-radius:8px;z-index:99}
 
 h1{font-size:clamp(38px,6.4vw,70px);font-weight:800;letter-spacing:-.035em;line-height:1.04}
@@ -77,7 +77,7 @@ section{padding:110px 0}
 /* hero */
 .hero{padding:70px 0 30px;text-align:center}
 .pill{display:inline-flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;border-radius:999px;background:var(--surf);border:1px solid var(--line-2);font-size:14px;color:var(--ink-2)}
-.pill i{width:24px;height:24px;border-radius:50%;background:var(--acc);color:#1a1205;display:grid;place-items:center;font-style:normal;font-size:12px;box-shadow:0 0 14px rgba(255,181,71,.45)}
+.pill i{width:24px;height:24px;border-radius:50%;background:var(--acc);color:#04121f;display:grid;place-items:center;font-style:normal;font-size:12px;box-shadow:0 0 14px rgba(124,196,255,.45)}
 .hero h1{margin:22px auto 18px;max-width:920px}
 .hero .sub{max-width:660px;margin:0 auto}
 .slider{position:relative;margin:44px 0 36px}
@@ -86,7 +86,7 @@ section{padding:110px 0}
 .slider .track::-webkit-scrollbar{display:none}
 .snav{position:absolute;top:50%;z-index:5;width:46px;height:46px;margin-top:-23px;border-radius:50%;border:1px solid var(--acc-line);background:rgba(17,17,19,.92);color:var(--acc);font:700 26px/1 var(--font);cursor:pointer;
   display:grid;place-items:center;padding-bottom:3px;box-shadow:0 10px 24px -8px #000;transition:transform .3s var(--pop),background .2s}
-.snav:hover{transform:scale(1.08);background:var(--acc);color:#1a1205}
+.snav:hover{transform:scale(1.08);background:var(--acc);color:#04121f}
 .snav.prev{left:max(12px,calc(50% - 560px))}.snav.next{right:max(12px,calc(50% - 560px))}
 @media(max-width:600px){.snav{width:38px;height:38px;margin-top:-19px;font-size:22px}}
 @keyframes slide{to{transform:translateX(-50%)}}
@@ -103,6 +103,7 @@ section{padding:110px 0}
 .rp.ig iframe{position:absolute;width:calc(var(--cw) * 1.458);left:calc(var(--cw) * -0.229);top:-54px;height:calc(var(--cw) * 2.4);border:0;background:#000}
 .rp.ig .open{position:absolute;top:8px;right:8px;z-index:2;background:rgba(0,0,0,.7);color:#fff;border-radius:999px;padding:4px 10px;font:700 11px var(--font)}
 .rp.ig .v{z-index:2}
+.rp.ig .tap{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:2;pointer-events:none;background:rgba(4,18,31,.8);border:1px solid var(--acc-line);color:var(--acc-2);border-radius:999px;padding:5px 12px;font:700 11.5px var(--font);white-space:nowrap}
 .rp.vid{--cw:280px;width:var(--cw);height:calc(var(--cw) * 1.78);aspect-ratio:auto}
 .rp.vid video{width:100%;height:100%;object-fit:cover}
 .rp .snd{position:absolute;left:8px;top:8px;z-index:2;border:0;background:rgba(0,0,0,.7);color:#fff;border-radius:999px;padding:4px 10px;font:700 11px var(--font);cursor:pointer}
@@ -125,7 +126,7 @@ section{padding:110px 0}
 .chips small{font-size:12.5px;color:var(--ink-3);margin-left:4px}
 .ticks{list-style:none;display:grid;gap:12px}
 .ticks li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
-.ticks li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;border:2px solid var(--acc);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23ffb547' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.ticks li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;border:2px solid var(--acc);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%237cc4ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
 .ticks li b{color:#fff}
 .ticks li.x{color:var(--ink-3)}
 .ticks li.x::before{border-color:var(--ink-4);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 6.5l7 7M13.5 6.5l-7 7' stroke='%239a8184' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center/100% no-repeat}
@@ -170,7 +171,7 @@ section{padding:110px 0}
 .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:44px 0 36px}
 @media(max-width:760px){.tl{grid-template-columns:1fr}}
 .tl>div{padding:22px;text-align:left}
-.tl>div.now{background:linear-gradient(160deg,#ff5a4f,#d9831f);border-color:transparent;box-shadow:0 20px 50px -16px var(--red-glow)}
+.tl>div.now{background:linear-gradient(160deg,#ff4a4a,#b5141a);border-color:transparent;box-shadow:0 20px 50px -16px var(--red-glow)}
 .tl .tag{display:inline-block;background:#fff;color:var(--red-3);font:800 10.5px var(--font);letter-spacing:.1em;padding:4px 10px;border-radius:999px;margin-bottom:12px}
 .tl b{display:block;font:800 19px var(--font);margin-bottom:6px}
 .tl p{font-size:14.5px;color:var(--ink-2)}
@@ -235,7 +236,7 @@ section{padding:110px 0}
 @media(max-width:760px){.feats{grid-template-columns:1fr}}
 .feat{padding:24px;display:grid;grid-template-columns:auto 1fr;gap:14px}
 .feat.wide{grid-column:1/-1}
-.feat .ck{width:28px;height:28px;border-radius:50%;border:2.5px solid var(--acc);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23ffb547' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.feat .ck{width:28px;height:28px;border-radius:50%;border:2.5px solid var(--acc);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%237cc4ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
 .feat .k{font:800 11.5px var(--font);letter-spacing:.14em;color:var(--acc)}
 .feat h3{margin:4px 0 6px}
 .feat p{font-size:14.5px;color:var(--ink-2)}
@@ -361,7 +362,7 @@ footer a:hover{color:#fff}
     <p class="sub rv">No ads, no editor, no team. Every reel below was made with this skill.</p>
     <div class="mets">
       <div class="box met rv"><span data-k="periodLabelCap">Views · last 2 weeks</span><b data-k="viewsFull">1,000,000+</b><em>↑ most of it from reels made with one prompt</em>
-        <svg viewBox="0 0 300 56" preserveAspectRatio="none"><path class="l" d="M0,52 C40,51 70,50 100,48 C130,46 150,47 170,40 C190,30 200,10 215,22 C230,34 245,18 260,26 C275,34 285,6 300,4" fill="none" stroke="#ffb547" stroke-width="2.5"/></svg></div>
+        <svg viewBox="0 0 300 56" preserveAspectRatio="none"><path class="l" d="M0,52 C40,51 70,50 100,48 C130,46 150,47 170,40 C190,30 200,10 215,22 C230,34 245,18 260,26 C275,34 285,6 300,4" fill="none" stroke="#7cc4ff" stroke-width="2.5"/></svg></div>
       <div class="box met rv" style="--d:.08s"><span>Followers</span><b data-k="followersFull">5,618</b><em><span data-k="netFollowers">+5,218</span> net in 90 days</em></div>
       <div class="box met rv" style="--d:.16s"><span>Top reel</span><b data-k="topReel">136K</b><em>views on a single reel</em></div>
     </div>
@@ -411,7 +412,7 @@ footer a:hover{color:#fff}
     <p class="sub mid rv">Claude alone will make you a video. Most people post a few, get a few hundred views and stop. What grows a page is a format you can repeat every day: a hook that stops the scroll, pacing that holds attention, and the same quality on reel 1 and reel 50.</p>
     <div class="box cmp mid rv">
       <div class="hd"><div>Just Claude</div><div>This skill</div></div>
-      <div class="row"><div>Most pages stay stuck under 1,000 views</div><div>Proven on my page: <span data-k="viewsShort">1M views</span> in <span data-k="period">2 weeks</span></div></div>
+      <div class="row"><div>Most pages stay stuck under 1,000 views</div><div><span>Proven on my page: <span data-k="viewsShort">950K views</span> in <span data-k="period">90 days</span></span></div></div>
       <div class="row"><div>Makes up a new look every time</div><div>One fixed, recognisable style, every reel</div></div>
       <div class="row"><div>Guesses the hook and pacing</div><div>Hook and pacing rules from my best reels</div></div>
       <div class="row"><div>Captions just sit on screen</div><div>Word-timed captions with key words that pop</div></div>
@@ -689,7 +690,7 @@ const reelHTML = r => r.video
   ? `<div class="rp vid"><video src="${esc(r.video)}" ${r.poster ? `poster="${esc(r.poster)}"` : ""} autoplay muted loop playsinline preload="metadata"></video>
      <button class="snd" type="button">🔇 Sound</button><a class="open" href="https://www.instagram.com/reel/${esc(r.id)}/" target="_blank" rel="noopener" style="position:absolute;top:8px;right:8px;z-index:2;background:rgba(0,0,0,.7);border-radius:999px;padding:4px 10px;font:700 11px var(--font)">Watch ↗</a>${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</div>`
   : `<div class="rp ig"><iframe src="https://www.instagram.com/reel/${esc(r.id)}/embed/" loading="lazy" scrolling="no" allowtransparency="true" title="Reel by @reelsuniai"></iframe>
-     <a class="open" href="https://www.instagram.com/reel/${esc(r.id)}/" target="_blank" rel="noopener">Watch ↗</a>${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</div>`;
+     <a class="open" href="https://www.instagram.com/reel/${esc(r.id)}/" target="_blank" rel="noopener">Watch ↗</a><span class="tap">▶ Tap to play</span>${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</div>`;
 
 /* smooth auto-scrolling slider: swipe, drag, arrows, pauses while watching */
 (function(){
