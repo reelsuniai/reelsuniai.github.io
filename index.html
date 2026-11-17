@@ -15,22 +15,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0b0c; --bg-2:#121214; --surf:#151517; --surf-2:#19191c; --surf-3:#212125;
+  --bg:#14050a; --bg-2:#1c070d; --surf:rgba(58,12,20,.62); --surf-2:#260a11; --surf-3:#2f0d15;
   --ink:#fff; --ink-2:#d9c3c5; --ink-3:#9a8184; --ink-4:#6b5558;
-  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --line:rgba(255,120,130,.13); --line-2:rgba(255,120,130,.24);
   --red:#ff3b3b; --red-2:#ff6a5c; --red-3:#c8191f; --red-glow:rgba(255,59,59,.5); --red-soft:rgba(255,59,59,.1); --acc:#7cc4ff; --acc-2:#bfe3ff; --acc-soft:rgba(124,196,255,.1); --acc-line:rgba(124,196,255,.38);
   --green:#3ee08f; --gold:#7cc4ff;
   --font:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
   --pop:cubic-bezier(.2,.9,.3,1.2); --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
 body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(900px 600px at 50% -10%,rgba(255,59,59,.10),transparent 65%),
-  radial-gradient(700px 500px at 100% 40%,rgba(124,196,255,.07),transparent 70%),
-  radial-gradient(700px 500px at 0% 80%,rgba(255,59,59,.05),transparent 70%),var(--bg)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;
+  radial-gradient(1000px 640px at 50% -12%,rgba(255,50,60,.38),transparent 62%),
+  radial-gradient(800px 600px at 100% 35%,rgba(170,20,40,.22),transparent 70%),
+  radial-gradient(800px 600px at 0% 75%,rgba(170,20,40,.18),transparent 70%),
+  linear-gradient(180deg,#1a060b 0%,#14050a 50%,#0f0408 100%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,140,150,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,140,150,.07) 1px,transparent 1px);background-size:56px 56px;
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 80%)}
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%}
@@ -64,15 +65,18 @@ section{padding:110px 0}
 .ok span::before{content:"✓ ";color:var(--acc);font-weight:800}
 
 /* launch strip */
-.strip{position:sticky;top:0;z-index:60;background:#111113;border-bottom:1px solid var(--line-2);box-shadow:inset 0 -2px 0 rgba(255,59,59,.55)}
-.strip .in{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:8px 14px;font:600 13.5px var(--font)}
-.strip .tag{background:#fff;color:var(--red-3);font:800 10.5px var(--font);letter-spacing:.1em;padding:4px 9px;border-radius:999px}
+.strip{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(20,5,10,.92);border-bottom:1px solid var(--line-2);transition:transform .45s var(--ease),opacity .45s}
+.strip.hide{transform:translateY(-110%);opacity:0}
+body{padding-top:34px}
+.strip .in{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:nowrap;padding:6px 12px;font:600 12px var(--font);white-space:nowrap}
+.strip .tag{background:var(--red);color:#fff;font:800 9.5px var(--font);letter-spacing:.1em;padding:3px 8px;border-radius:999px}
+.strip .timer{font-size:11px}.strip .timer .u{padding:1px 5px;min-width:26px}
 .strip b{color:var(--gold)}
 .strip s{opacity:.6}
 .timer{display:inline-flex;gap:3px;align-items:center;font:700 13px var(--mono)}
 .timer .u{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:2px 6px;min-width:30px;text-align:center}
 .timer .u i{font-style:normal;font-size:9px;opacity:.7;margin-left:1px}
-@media(max-width:620px){.strip .in{font-size:12px;gap:8px}.strip .hs{display:none}}
+@media(max-width:620px){.strip .in{font-size:11px;gap:6px}.strip .hs{display:none}.strip .tag{display:none}.strip .timer .u{min-width:24px}}
 
 /* hero */
 .hero{padding:70px 0 30px;text-align:center}
@@ -248,7 +252,7 @@ section{padding:110px 0}
 .price-main{max-width:520px;margin:44px auto 0;padding:32px 30px;text-align:left;position:relative;overflow:hidden}
 .price-main::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(160deg,var(--acc),transparent 40%,transparent 60%,var(--red));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .price-main .head{text-align:center}
-.price-main .ptimer{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;background:#050304;border:1px solid var(--line-2);border-radius:12px;padding:9px 12px;margin:0 0 18px;font:700 13px var(--font)}
+.price-main .ptimer{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(0,0,0,.35);border:1px solid var(--line-2);border-radius:12px;padding:9px 12px;margin:0 0 18px;font:700 13px var(--font)}
 .price-main .ticks{margin:22px 0 26px}
 .price-main .buy{width:100%;justify-content:center}
 .pay{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:16px}
@@ -292,7 +296,7 @@ footer a{color:var(--ink-3)}
 footer a:hover{color:#fff}
 
 .sticky{position:fixed;left:50%;bottom:12px;transform:translate(-50%,160%);z-index:55;width:min(560px,calc(100% - 20px));display:flex;align-items:center;justify-content:space-between;gap:10px;
-  background:rgba(20,20,22,.94);border:1px solid var(--line-2);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 20px 50px -14px #000;transition:transform .5s var(--ease)}
+  background:rgba(34,8,14,.95);border:1px solid var(--line-2);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 20px 50px -14px #000;transition:transform .5s var(--ease)}
 .sticky.show{transform:translate(-50%,0)}
 .sticky .p b{font:800 19px var(--font)}.sticky .p s{color:var(--ink-3);font-size:13px;margin-left:5px}
 .sticky .p small{display:block;font-size:11.5px;color:var(--gold);font-weight:700}
@@ -307,8 +311,8 @@ footer a:hover{color:#fff}
 <!-- LAUNCH STRIP -->
 <div class="strip" id="strip">
   <div class="in">
-    <span class="tag" id="stripTag">🇮🇳 LAUNCH OFFER</span>
-    <span id="stripMsg">First <span data-spots-total>50</span> buyers: <b data-price>₹999</b> <s class="hs" data-reg>₹1,999</s> · <b data-left>50</b> spots left · ends in</span>
+    <span class="tag" id="stripTag">LAUNCH OFFER</span>
+    <span id="stripMsg">🇮🇳 First <span data-spots-total>50</span>: <b data-price>₹999</b> <s class="hs" data-reg>₹1,999</s> · <b data-left>50</b> left ·</span>
     <span class="timer" data-timer></span>
   </div>
 </div>
@@ -745,6 +749,9 @@ paint(); tick(); setInterval(tick, 1000);
 /* reveal */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
 $$(".rv").forEach(el => io.observe(el));
+
+/* launch strip: compact, hides once you scroll down */
+{ const st = $("#strip"); addEventListener("scroll", () => st.classList.toggle("hide", scrollY > 60), {passive:true}); }
 
 /* sticky bar */
 const sticky = $("#sticky"), heroBuy = $(".hero .buy"), pricing = $("#pricing");
