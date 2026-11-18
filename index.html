@@ -52,8 +52,7 @@ h3{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
 .sub b{color:#fff}
 section{padding:64px 0}
 
-/* reveal: .6s timing, auto-stagger siblings */
-document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('--d')) return; const sib = [...el.parentElement.children].filter(c => c.classList.contains('rv')); const i = sib.indexOf(el); if (i > 0) el.style.setProperty('--d', Math.min(i * .07, .35) + 's'); });
+
 .rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:translate3d(0,0,0)}
 
@@ -342,10 +341,33 @@ footer a:hover{color:#fff}
 .rcard .st b{color:var(--acc);font-weight:800;margin-right:5px;font-size:16px}
 @media(max-width:600px){.rcards{gap:8px}.rcard{padding:8px;border-radius:16px}.rcard .vw{margin:10px 2px 0}.rcard .vw b{font-size:20px}.rcard .vw span{font-size:12px}
   .rcard .st{margin:10px 2px 0;padding-top:8px;gap:4px}.rcard .st div{font-size:11.5px}.rcard .st b{font-size:13px;margin-right:3px}}
+
+/* spots line under buttons */
+.spotline{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font:600 13px var(--font);color:var(--ink-2);background:rgba(255,59,59,.08);border:1px solid var(--acc-line);border-radius:999px;padding:5px 12px}
+.spotline b{color:var(--acc);font-weight:800}
+.spotline .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(255,59,59,.6);animation:ping 1.8s infinite}
+.spotline .mb{display:inline-block;width:60px;height:5px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}
+.spotline .mb i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),#ff9a6b);border-radius:9px}
+@keyframes ping{70%{box-shadow:0 0 0 7px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+.spotwrap{display:block}
+/* real purchase toast */
+.toast{position:fixed;left:14px;bottom:84px;z-index:58;display:flex;gap:10px;align-items:center;max-width:290px;padding:10px 14px 10px 10px;border-radius:14px;background:rgba(8,17,39,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line-2);box-shadow:0 18px 40px -14px #000;
+  transform:translate3d(-130%,0,0);opacity:0;transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .7s}
+.toast.show{transform:translate3d(0,0,0);opacity:1}
+.toast i{flex:none;width:34px;height:34px;border-radius:10px;background:var(--acc-soft);border:1px solid var(--acc-line);display:grid;place-items:center;font-style:normal}
+.toast b{display:block;font-size:13.5px}.toast span{font-size:12px;color:var(--ink-3)}
+/* bonus card */
+.feat.bonus{border:1.5px dashed var(--acc-line);background:linear-gradient(180deg,rgba(255,59,59,.07),var(--surf))}
+/* scroll progress */
+.sprog{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#3b82ff,var(--acc));z-index:70;pointer-events:none}
+/* hero parallax */
+.hero .wrap:first-child{will-change:transform,opacity}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="sprog" id="sprog"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><i>🛒</i><div><b id="toastT"></b><span id="toastS"></span></div></div>
 
 <!-- LAUNCH STRIP -->
 <div class="strip" id="strip">
@@ -360,9 +382,9 @@ footer a:hover{color:#fff}
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="pill rv"><i>✦</i>Small page, real numbers, zero editing</span>
+    <span class="pill rv"><i>✦</i>Small page · real numbers · zero editing</span>
     <h1 class="rv" style="--d:.05s"><span class="r" data-k="viewsShort">1M views</span> in <span data-k="period">2 weeks</span> with reels made from <span class="r">one prompt</span></h1>
-    <p class="sub rv" style="--d:.1s">I'm not a big creator. My page has <span data-k="followers">5.3K</span> followers. I don't film and I don't edit: I type one line, and the skill writes, voices and animates the whole reel. <b>Your first one can be up tonight.</b></p>
+    <p class="sub rv" style="--d:.1s">No camera. No editing app. No ₹6,000/month AI tools. I type <b>one line</b> into Claude, and my skill writes, voices, animates and renders the whole reel. These are the exact files behind my page, and <b>your first reel can be live tonight.</b></p>
   </div>
   <div class="wall rv" id="heroWall" style="--d:.15s"><div class="track"></div></div>
   <div class="wrap">
@@ -469,9 +491,9 @@ footer a:hover{color:#fff}
 <!-- ANY NICHE -->
 <section style="padding-top:12px">
   <div class="wrap c">
-    <span class="eye rv">Any niche. English or Hinglish.</span>
-    <h2 class="rv">Any topic. <span class="r">One prompt each.</span></h2>
-    <p class="sub rv">AI tools, tech, finance, the news. Every one of these came from a single line.</p>
+    <span class="eye rv">Any niche. Any language.</span>
+    <h2 class="rv">Any niche. Any language. <span class="r">One prompt each.</span></h2>
+    <p class="sub rv">AI tools, tech, finance, cricket, movies, the news. English, Hinglish, Hindi and more. Every reel here came from a single line.</p>
   </div>
   <div class="wall rev rv" id="topicWall"><div class="track"></div></div>
   <div class="wrap c rv">
@@ -510,21 +532,28 @@ footer a:hover{color:#fff}
       <div class="fnames"><div class="tr" id="fn1"></div><div class="tr b" id="fn2"></div></div>
     </div>
 
-    <!-- EDIT THESE CARDS to match exactly what's in your skill -->
+    <!-- EDIT THESE CARDS so every line matches what is really in your skill folder -->
     <div class="feats">
-      <div class="box feat wide rv"><i class="ck"></i><div><span class="k">THE SKILL</span><h3>The exact system behind my reels</h3><p>One prompt in, a finished 1080×1920 reel out.</p>
-        <div class="tags"><span>paper-cutout style</span><span>sticker pop-ins</span><span>price-tag stamps</span><span>app tiles</span><span>zoom kicks</span><span>shake on impact</span><span>smooth easing</span><span>kinetic captions</span><span>accent-word italics</span><span>cuts on the spoken word</span></div></div></div>
-      <div class="box feat rv"><i class="ck"></i><div><span class="k">SOUND</span><h3>Voice + music</h3><p>Raw text-to-speech sounds like a robot. This sounds like a reel.</p>
-        <div class="tags"><span>English &amp; Hinglish voice</span><span>music auto-ducking</span><span>sound on every beat</span><span>or your own voice</span></div></div></div>
-      <div class="box feat rv" style="--d:.08s"><i class="ck"></i><div><span class="k">WRITING</span><h3>Hooks &amp; scripts</h3><p>The patterns behind my best reels, built into the skill.</p>
-        <div class="tags"><span>hook formulas</span><span>curiosity loops</span><span>"comment X" CTAs</span><span>caption + hashtags</span></div></div></div>
-      <div class="box feat rv"><i class="ck"></i><div><span class="k">SCENES</span><h3>Scene templates</h3><p>The building blocks I reuse, so Claude never starts from a blank page.</p>
-        <div class="tags"><span>hooks</span><span>reveals</span><span>lists</span><span>before / after</span><span>CTAs</span></div></div></div>
-      <div class="box feat rv" style="--d:.08s"><i class="ck"></i><div><span class="k">INCLUDED</span><h3>Guided setup</h3><p>Claude walks you through it in plain words. About 10 minutes, no coding.</p>
-        <div class="tags"><span>Mac / Windows</span><span>system check</span><span>free voice plan works</span></div></div></div>
+      <div class="box feat wide rv"><i class="ck"></i><div><span class="k">THE SKILL</span><h3>The exact system behind my reels</h3><p>One prompt in, a finished 1080×1920 reel out. Same look, same quality, every single time.</p>
+        <div class="tags"><span>paper-cutout scenes</span><span>sticker pop-ins</span><span>price-tag stamps</span><span>app tiles</span><span>zoom kicks</span><span>impact shake</span><span>smooth easing</span><span>halftone wipes</span><span>kinetic captions</span><span>accent-word italics</span><span>cuts on the spoken word</span><span>9:16, ready for Reels &amp; Shorts</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">SOUND</span><h3>The voice &amp; music chain</h3><p>The part nobody talks about. Raw text-to-speech sounds like a robot reading. This sounds like a real reel.</p>
+        <div class="tags"><span>voice tuned for retention</span><span>English · Hinglish · Hindi</span><span>sound on every beat</span><span>music auto-ducking</span><span>or use your own voice</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">WRITING</span><h3>The scripts behind my views, decoded</h3><p>My best reels taken apart beat by beat, so Claude writes hooks that stop the scroll.</p>
+        <div class="tags"><span>hook formulas</span><span>curiosity loops</span><span>banned boring openers</span><span>"comment X" CTAs</span><span>caption + hashtags</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">SCENES</span><h3>The scene library</h3><p>The building blocks from my own reels: hooks, reveals and CTAs your AI learns from.</p>
+        <div class="tags"><span>hooks</span><span>reveals</span><span>app lists</span><span>price drops</span><span>before / after</span><span>step-by-step</span><span>CTAs</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">QUALITY</span><h3>It checks its own reel before you do</h3><p>Claude reviews the frames, fixes text that's cut off or off-screen, and only hands you the version that passes.</p>
+        <div class="tags"><span>frame review</span><span>safe zones for IG buttons</span><span>text-fit check</span><span>preview stills</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">OPTIONAL</span><h3>A cartoon you, like mine</h3><p>Want a face without filming? Add a cartoon presenter that reacts to the script. Skip it and the reels work without one.</p>
+        <div class="tags"><span>cartoon presenter</span><span>reactions &amp; poses</span><span>no camera needed</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">INCLUDED</span><h3>Guided setup</h3><p>Claude checks your laptop and walks you through it in plain words. About 10 minutes, no coding.</p>
+        <div class="tags"><span>Mac / Windows</span><span>system check</span><span>free voice plan works</span><span>resume anytime</span></div></div></div>
       <div class="box feat rv"><i class="ck"></i><div><span class="k">INCLUDED</span><h3>Updates + commercial use</h3><p>Fixes and improvements included. Make reels for your brand or clients (just don't resell the skill).</p>
-        <div class="tags"><span>free updates</span><span>client work allowed</span></div></div></div>
-      <div class="box feat rv" style="--d:.08s"><i class="ck"></i><div><span class="k">INCLUDED</span><h3>7-day guarantee</h3><p>Can't get it working? Message me within 7 days. I'll fix it with you or refund you.</p></div></div>
+        <div class="tags"><span>free updates</span><span>new scenes</span><span>client work allowed</span></div></div></div>
+      <div class="box feat rv"><i class="ck"></i><div><span class="k">INCLUDED</span><h3>7-day guarantee</h3><p>Can't get it working? Message me within 7 days. I'll fix it with you, or refund you in full.</p>
+        <div class="tags"><span>DM support</span><span>full refund</span></div></div></div>
+      <div class="box feat wide bonus rv"><i class="ck"></i><div><span class="k">BONUS · LAUNCH BUYERS</span><h3>My viral hook bank</h3><p>The hooks and topic ideas behind my best-performing reels, ready to paste in as prompts.</p>
+        <div class="tags"><span>proven hooks</span><span>topic ideas for AI-tools pages</span><span>ready-to-paste prompts</span></div></div></div>
     </div>
   </div>
 </section>
@@ -643,9 +672,9 @@ footer a:hover{color:#fff}
 
 <footer>
   <div class="wrap">
-    <div>The Reel Skill · ShortsUniversity · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a></div>
+    <div>© <span id="yr">2026</span> ShortsUniversity · The Reel Skill · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a>. All rights reserved.</div>
     <p><a href="policies.html#terms">Terms</a> · <a href="policies.html#privacy">Privacy</a> · <a href="policies.html#refund">Refunds</a> · <a href="policies.html#contact">Contact</a></p>
-    <p>Licensed for your own and your clients' videos. Reselling or sharing the skill is not allowed.</p>
+    <p>The skill files, reels and page content are original work by ShortsUniversity. Licensed for your own and your clients' videos; copying, reselling or sharing the skill is not allowed.</p>
     <p>Results vary. Numbers shown are from my own Instagram, not a promise of income or growth. Claude is a product of Anthropic and is not affiliated with this product.</p>
   </div>
 </footer>
@@ -671,6 +700,9 @@ const CONFIG = {
   spotsTotal: 50, spotsClaimed: 0,
   offerEnds: "2026-11-30T23:59:00+05:30",
   checkout: "",
+  /* REAL recent purchases only (from Superprofile). Ask buyers before showing their name.
+     Example: { name:"Rahul", city:"Pune", when:"12 min ago" }. Empty = no pop-ups shown. */
+  recentBuyers: [],
   instagramDM: "https://ig.me/m/reelsuniai",
   stats: {                                       // must match your real Instagram dashboard
     viewsShort: "2M views", viewsK: "2M", viewsFull: "2,000,000+", period: "30 days",
@@ -786,6 +818,59 @@ addEventListener("scroll", () => {
   const past = heroBuy.getBoundingClientRect().bottom < 0, r = pricing.getBoundingClientRect(), onP = r.top < innerHeight && r.bottom > 0;
   sticky.classList.toggle("show", past && !onP);
 }, {passive:true});
+
+/* spots line under every main button (real numbers from CONFIG) */
+document.querySelectorAll("a.buy[data-buy]").forEach(a => {
+  if (a.closest("#sticky") || a.closest(".pricecard")) return;
+  const pct = Math.round(CONFIG.spotsClaimed / CONFIG.spotsTotal * 100);
+  const el = document.createElement("div"); el.className = "spotwrap"; el.setAttribute("data-spotsbox", "");
+  el.innerHTML = `<span class="spotline"><span class="dot"></span><b>${left}</b> of ${CONFIG.spotsTotal} launch spots left <span class="mb"><i style="width:${Math.max(pct, 0)}%"></i></span></span>`;
+  a.insertAdjacentElement("afterend", el);
+});
+if (!live) document.querySelectorAll(".spotwrap").forEach(e => e.remove());
+
+/* real purchase pop-ups (only if you add buyers in CONFIG.recentBuyers) */
+(function(){
+  const list = (CONFIG.recentBuyers || []).filter(b => b && b.name);
+  if (!list.length) return;
+  const t = $("#toast"); let i = 0;
+  const show = () => { const b = list[i++ % list.length]; $("#toastT").textContent = `${b.name}${b.city ? " from " + b.city : ""} got the skill`; $("#toastS").textContent = b.when || "recently"; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 5000); };
+  setTimeout(() => { show(); setInterval(show, 16000); }, 7000);
+})();
+
+/* count-up numbers when they scroll into view */
+(function(){
+  const els = document.querySelectorAll(".stats b, .met b, .rcard .vw b");
+  const parse = txt => { const m = txt.match(/^([+]?)([\d,.]+)([KkMm]?)(.*)$/); if (!m) return null; const n = parseFloat(m[2].replace(/,/g, "")); return {pre:m[1], n, suf:m[3], rest:m[4], dec:(m[2].split(".")[1] || "").length, comma:m[2].includes(",")}; };
+  const fmt = (v, p) => { let s = p.dec ? v.toFixed(p.dec) : Math.round(v).toString(); if (p.comma) s = Number(s).toLocaleString("en-US"); return p.pre + s + p.suf + p.rest; };
+  const io2 = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io2.unobserve(e.target);
+    const el = e.target, final = el.textContent.trim(), p = parse(final); if (!p || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t0 = performance.now(), D = 1400;
+    (function step(t){ const k = Math.min(1, (t - t0) / D), ease = 1 - Math.pow(1 - k, 4); el.textContent = k < 1 ? fmt(p.n * ease, p) : final; if (k < 1) requestAnimationFrame(step); })(t0);
+  }), {threshold:.6});
+  els.forEach(el => io2.observe(el));
+})();
+
+/* scroll progress + gentle hero parallax */
+(function(){
+  const bar = $("#sprog"), heroTxt = document.querySelector(".hero .wrap"), wall = $("#heroWall");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches; let ticking = false;
+  const run = () => {
+    const y = scrollY, H = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${H > 0 ? y / H : 0})`;
+    if (!reduce && y < innerHeight * 1.2){
+      heroTxt.style.transform = `translate3d(0,${y * .18}px,0)`; heroTxt.style.opacity = Math.max(0, 1 - y / (innerHeight * .9));
+      if (wall) wall.style.transform = `translate3d(0,${y * -.06}px,0)`;
+    }
+    ticking = false;
+  };
+  addEventListener("scroll", () => { if (!ticking){ ticking = true; requestAnimationFrame(run); } }, {passive:true});
+  run();
+})();
+
+/* reveal: .6s timing, auto-stagger siblings */
+document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('--d')) return; const sib = [...el.parentElement.children].filter(c => c.classList.contains('rv')); const i = sib.indexOf(el); if (i > 0) el.style.setProperty('--d', Math.min(i * .07, .35) + 's'); });
 </script>
 </body>
 </html>
