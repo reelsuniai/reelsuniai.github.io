@@ -51,7 +51,7 @@ h3{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
 section{padding:64px 0}
 
 
-.rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s)}
+.rv{opacity:0;transform:translate3d(0,16px,0);transition:opacity .8s cubic-bezier(.25,1,.5,1),transform .8s cubic-bezier(.25,1,.5,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:translate3d(0,0,0)}
 
 /* buttons */
@@ -356,6 +356,28 @@ footer a:hover{color:#fff}
 /* scroll progress */
 .sprog{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#3b82ff,var(--acc));z-index:70;pointer-events:none}
 /* hero parallax */
+
+/* recap checklist (reference layout) */
+.recap{max-width:640px;padding:6px 30px}
+.cl{list-style:none;text-align:left}
+.cl li{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.5;color:#fff}
+.cl li:last-child{border-bottom:0}
+.cl li::before{content:"";flex:none;width:30px;height:30px;margin-top:-2px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='14' cy='17' r='11.5' fill='none' stroke='%23ff3b3b' stroke-width='2.6'/%3E%3Cpath d='M8.5 16.5l4.2 4.3L28 5' fill='none' stroke='%23ff3b3b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.cl li.bonus{color:var(--acc);font-weight:800}
+.pcmp{max-width:640px;margin:16px auto 0;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;padding:0}
+.pcmp>div{padding:20px 22px;text-align:left}
+.pcmp .old{border-right:1px solid var(--line)}
+.pcmp .old s{display:block;font:800 clamp(34px,6vw,46px)/1 var(--font);color:var(--ink-4);letter-spacing:-.03em}
+.pcmp .new b{display:block;font:800 clamp(34px,6vw,46px)/1 var(--font);letter-spacing:-.03em}
+.pcmp span{display:block;margin-top:8px;font-size:14px;color:var(--ink-3)}
+.pcmp .g{color:var(--green);font-weight:700}
+.pcmp span span{display:inline;margin:0;color:inherit}
+@media(max-width:600px){.recap{padding:2px 18px}.cl li{gap:14px;padding:17px 0;font-size:15.5px}.cl li::before{width:26px;height:26px}.pcmp>div{padding:16px}}
+
+/* video: poster shows instantly, video fades in once it is actually playing */
+.phone{background:#0e2058 var(--poster) center/cover no-repeat}
+.phone video{opacity:0;transition:opacity .6s ease}
+.phone video.on{opacity:1}
 </style>
 </head>
 <body>
@@ -613,20 +635,24 @@ footer a:hover{color:#fff}
     <h2 class="rv">Scrolled straight <span class="r">to the bottom?</span></h2>
     <p class="sub rv">I get it. Here's everything, in one place.</p>
     <div class="box recap rv">
-      <ul class="ticks">
-        <li>The full reel skill: style, scenes, captions, sound</li>
-        <li>Hook &amp; scripting playbook</li>
-        <li>Setup guide, zero to first reel</li>
-        <li>Free updates</li>
+      <ul class="cl">
+        <li>The full reel skill: my style, scenes, captions and sound</li>
+        <li>The scene library from my own reels</li>
+        <li>The hook &amp; scripting playbook + optional cartoon presenter</li>
+        <li>Setup guide, zero to first reel (Claude walks you through it)</li>
+        <li>Fixes and updates included</li>
         <li>Commercial use for you and your clients</li>
-        <li>7-day guarantee</li>
+        <li class="bonus">Bonus: my viral hook bank</li>
+        <li>7-day guarantee: it works, or your money back</li>
       </ul>
     </div>
-    <div class="rv" style="margin-top:30px">
-      <div class="was" data-was>Regular <s data-reg>₹1,999</s></div>
-      <div class="big" data-price>₹999</div>
-      <a class="buy sm" data-buy href="#" style="margin-top:10px">Get the skill →</a>
-      <div class="fine">Instant download · pay once</div>
+    <div class="box pcmp rv">
+      <div class="old"><s data-reg>₹1,999</s><span id="afterLbl">after launch</span></div>
+      <div class="new"><b data-price>₹999</b><span class="g">You save <span id="saveAmt">₹1,000</span></span></div>
+    </div>
+    <div class="rv" style="margin-top:22px">
+      <a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹999</span></span></a>
+      <div class="fine">Instant download · pay once · UPI accepted</div>
     </div>
   </div>
 </section>
@@ -761,8 +787,8 @@ if (!CONFIG.checkout) $$("[data-buy]").forEach(a => { a.title = "Launching soon:
 /* reels */
 const igLink = r => `https://www.instagram.com/reel/${esc(r.id)}/`;
 const vsrc = r => r.video || `assets/reels/${r.id}.mp4`, csrc = r => r.cover || `assets/reels/${r.id}.jpg`;
-const vid = r => `<video src="${esc(vsrc(r))}" poster="${esc(csrc(r))}" muted loop playsinline autoplay preload="metadata" disablepictureinpicture></video>`;
-const phone = (r, badge) => `<a class="phone" href="${igLink(r)}" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">${vid(r)}${badge && r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</a>`;
+const vid = r => `<video data-src="${esc(vsrc(r))}" muted loop playsinline preload="none" disablepictureinpicture></video>`;
+const phone = (r, badge) => `<a class="phone" style="--poster:url('${esc(csrc(r))}')" href="${igLink(r)}" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">${vid(r)}${badge && r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</a>`;
 
 /* fill the two reel walls (list x2 so the -50% CSS slide loops seamlessly) */
 [["#heroWall", CONFIG.reels], ["#topicWall", [...CONFIG.reels].reverse()]].forEach(([sel, list]) => {
@@ -783,13 +809,12 @@ const blobCache = {};
 document.querySelectorAll(".phone video").forEach(v => {
   const kick = () => { const p = v.play(); if (p) p.catch(() => {}); };
   v.addEventListener("error", async () => {
-    const src = v.getAttribute("src"); if (v.dataset.fb) return; v.dataset.fb = 1;
+    const src = v.dataset.src || v.getAttribute("src"); if (v.dataset.fb) return; v.dataset.fb = 1;
     try { blobCache[src] = blobCache[src] || fetch(src).then(r => r.blob()).then(b => URL.createObjectURL(b)); v.src = await blobCache[src]; kick(); } catch(e){}
   });
-  v.addEventListener("loadeddata", kick, {once:true});
 });
 /* iOS low-power mode blocks autoplay until the first touch */
-addEventListener("touchstart", () => document.querySelectorAll(".phone video").forEach(v => { if (v.paused) v.play().catch(() => {}); }), {once:true, passive:true});
+addEventListener("touchstart", () => document.querySelectorAll(".phone video.on, .phone video[src]").forEach(v => { const r = v.getBoundingClientRect(); if (v.paused && r.right > 0 && r.left < innerWidth && r.bottom > 0 && r.top < innerHeight) v.play().catch(() => {}); }), {once:true, passive:true});
 
 /* file names marquee */
 const fns = [["SKILL.md","#3b7bf6"],["scenes.js","#d4b32b"],["hook.js","#d4b32b"],["captions.js","#d4b32b"],["voice.py","#3e6ea8"],["mix.py","#3e6ea8"],["render.mjs","#71b04a"],["paper.css","#b97be0"],["stamps.js","#d4b32b"],["hooks.md","#3b7bf6"],["playbook.pdf","#e0483c"],["setup.md","#3b7bf6"],["cta.js","#d4b32b"],["tiles.js","#d4b32b"]];
@@ -843,6 +868,15 @@ if (!live) document.querySelectorAll(".spotwrap").forEach(e => e.remove());
   els.forEach(el => io2.observe(el));
 })();
 
+/* recap price compare */
+(function(){
+  const d = new Date(CONFIG.offerEnds); d.setMinutes(d.getMinutes() + 1);
+  const lbl = $("#afterLbl"), sv = $("#saveAmt");
+  if (lbl) lbl.textContent = live ? `after launch (from ${d.toLocaleDateString("en-IN", {day:"numeric", month:"short"})} or 50 sales)` : "regular price";
+  if (sv) sv.textContent = inr(CONFIG.regular - CONFIG.price);
+  if (!live){ const c = $(".pcmp"); if (c) c.remove(); }
+})();
+
 /* ONE scroll handler, batched to the frame: progress bar, offer bar, sticky buy bar */
 (function(){
   const bar = $("#sprog"), st = $("#strip");
@@ -859,15 +893,23 @@ if (!live) document.querySelectorAll(".spotwrap").forEach(e => e.remove());
   run();
 })();
 
-/* only decode videos that are on screen (big smoothness win on phones) */
+/* only decode videos that are actually on screen; load on first view; fade in when playing */
 (function(){
-  const groups = ["#heroWall", "#topicWall", "#rcards"].map(q => $(q)).filter(Boolean);
-  const vo = new IntersectionObserver(es => es.forEach(e => e.target.querySelectorAll("video").forEach(v => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); })), {rootMargin:"150px 0px"});
-  groups.forEach(g => vo.observe(g));
+  const vids = [...document.querySelectorAll(".phone video")];
+  vids.forEach(v => {
+    v.addEventListener("playing", () => v.classList.add("on"));
+    v.addEventListener("error", () => v.classList.remove("on"));
+  });
+  const vo = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting){ if (!v.src){ v.src = v.dataset.src; } const p = v.play(); if (p) p.catch(() => {}); }
+    else if (!v.paused) v.pause();
+  }), {rootMargin:"60px 120px"});
+  vids.forEach(v => vo.observe(v));
 })();
 
 /* reveal: .6s timing, auto-stagger siblings */
-document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('--d')) return; const sib = [...el.parentElement.children].filter(c => c.classList.contains('rv')); const i = sib.indexOf(el); if (i > 0) el.style.setProperty('--d', Math.min(i * .07, .35) + 's'); });
+document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('--d')) return; const sib = [...el.parentElement.children].filter(c => c.classList.contains('rv')); const i = sib.indexOf(el); if (i > 0) el.style.setProperty('--d', Math.min(i * .06, .24) + 's'); });
 </script>
 </body>
 </html>
