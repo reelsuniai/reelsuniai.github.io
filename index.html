@@ -15,9 +15,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#040817; --bg-2:#081127; --surf:rgba(12,24,58,.72); --surf-2:#0c1a40; --surf-3:#071230;
-  --ink:#fff; --ink-2:#dce4ff; --ink-3:#aeb8e6; --ink-4:#7a86c2;
-  --line:rgba(122,134,194,.18); --line-2:rgba(122,134,194,.3);
+  --bg:#0b1a4a; --bg-2:#0e2058; --surf:rgba(22,42,110,.62); --surf-2:#142a72; --surf-3:#0f2260;
+  --ink:#fff; --ink-2:#e6ecff; --ink-3:#bfcbf3; --ink-4:#93a3d8;
+  --line:rgba(150,175,255,.2); --line-2:rgba(150,175,255,.32);
   --red:#ff3b3b; --red-2:#ff6a5c; --red-3:#c8191f; --red-glow:rgba(255,59,59,.5); --red-soft:rgba(255,59,59,.1); --acc:#ff3b3b; --acc-2:#ff7a7a; --acc-soft:rgba(255,59,59,.08); --acc-line:rgba(255,59,59,.4);
   --green:#3ee08f; --gold:#ff7a7a;
   --font:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
@@ -26,15 +26,13 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:-10%;z-index:-2;background:
-  radial-gradient(60% 45% at 50% 0%,rgba(30,110,255,.30),transparent 70%),
-  radial-gradient(40% 35% at 88% 28%,rgba(0,170,255,.13),transparent 70%),
-  radial-gradient(45% 40% at 8% 62%,rgba(70,60,230,.16),transparent 70%),
-  radial-gradient(35% 30% at 80% 92%,rgba(255,59,59,.07),transparent 70%),
-  linear-gradient(180deg,#071338 0%,#050d26 45%,#030714 100%);
-  animation:aurora 30s ease-in-out infinite alternate}
-@keyframes aurora{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-2%,1.5%,0) scale(1.04)}100%{transform:translate3d(2%,-1%,0) scale(1.02)}}
-body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(90,150,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(90,150,255,.07) 1px,transparent 1px);background-size:56px 56px;
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+  radial-gradient(70% 50% at 50% 0%,rgba(60,130,255,.42),transparent 72%),
+  radial-gradient(45% 40% at 92% 30%,rgba(40,170,255,.18),transparent 72%),
+  radial-gradient(50% 45% at 5% 65%,rgba(100,90,255,.2),transparent 72%),
+  radial-gradient(40% 35% at 85% 95%,rgba(255,59,59,.09),transparent 72%),
+  linear-gradient(180deg,#13286e 0%,#0e1f5a 40%,#0a1744 100%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(170,200,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(170,200,255,.08) 1px,transparent 1px);background-size:56px 56px;
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 80%)}
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%}
@@ -68,7 +66,7 @@ section{padding:64px 0}
 .ok span::before{content:"✓ ";color:var(--acc);font-weight:800}
 
 /* launch strip */
-.strip{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(4,8,23,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2);transition:transform .45s var(--ease),opacity .45s}
+.strip{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(12,28,80,.97);border-bottom:1px solid var(--line-2);transition:transform .45s var(--ease),opacity .45s}
 .strip.hide{transform:translateY(-110%);opacity:0}
 body{padding-top:34px}
 .strip .in{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:nowrap;padding:6px 12px;font:600 12px var(--font);white-space:nowrap}
@@ -304,29 +302,26 @@ footer a{color:var(--ink-3)}
 footer a:hover{color:#fff}
 
 .sticky{position:fixed;left:50%;bottom:12px;transform:translate(-50%,160%);z-index:55;width:min(560px,calc(100% - 20px));display:flex;align-items:center;justify-content:space-between;gap:10px;
-  background:rgba(8,17,39,.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 20px 50px -14px #000;transition:transform .5s var(--ease)}
+  background:rgba(16,34,95,.97);border:1px solid var(--line-2);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 20px 50px -14px #000;transition:transform .5s var(--ease)}
 .sticky.show{transform:translate(-50%,0)}
 .sticky .p b{font:800 19px var(--font)}.sticky .p s{color:var(--ink-3);font-size:13px;margin-left:5px}
 .sticky .p small{display:block;font-size:11.5px;color:var(--gold);font-weight:700}
 .sticky .buy{padding:11px 18px;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 3px 0 #8e1015}
 
-@media (prefers-reduced-motion:reduce){body::before{animation:none}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){*:not(.track){animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
 
 /* ===== reel wall (same build as reference: CSS-only slide, small phones, edge fade + blur) ===== */
 .wall{position:relative;margin:40px 0 34px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.wall::before,.wall::after{content:"";position:absolute;top:0;bottom:0;width:12%;z-index:2;pointer-events:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.wall::before{left:0;-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
-.wall::after{right:0;-webkit-mask-image:linear-gradient(270deg,#000,transparent);mask-image:linear-gradient(270deg,#000,transparent)}
 .wall .track{display:flex;gap:16px;width:max-content;padding:6px 0 14px;animation:slide 48s linear infinite;will-change:transform;backface-visibility:hidden}
 .wall.rev .track{animation-direction:reverse}
-.wall:hover .track{animation-play-state:paused}
-.phone{position:relative;flex:none;display:block;width:150px;transform:translateZ(0);aspect-ratio:9/16;padding:5px;border-radius:20px;background:linear-gradient(160deg,#1f3a7a,#0a1a45);
+@media (hover:hover){.wall:hover .track{animation-play-state:paused}}
+.phone{position:relative;flex:none;display:block;width:150px;transform:translateZ(0);aspect-ratio:9/16;padding:5px;border-radius:20px;background:linear-gradient(160deg,#2a4fae,#132e7a);
   box-shadow:0 18px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(143,176,255,.12);transition:transform .35s var(--pop)}
 .phone:hover{transform:translateY(-6px)}
 .phone video,.phone img{display:block;width:100%;height:100%;object-fit:cover;border-radius:15px;background:#081127}
 .phone .v{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);border-radius:999px;padding:2px 8px;font:700 10.5px var(--font);color:#fff}
 @media(min-width:768px){.phone{width:200px;padding:6px;border-radius:26px}.phone video,.phone img{border-radius:20px}}
-@media (prefers-reduced-motion:reduce){.wall .track{animation:none}.wall{overflow-x:auto}}
+
 
 /* ===== reel stats cards (reference layout) ===== */
 .rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
@@ -351,7 +346,7 @@ footer a:hover{color:#fff}
 @keyframes ping{70%{box-shadow:0 0 0 7px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
 .spotwrap{display:block}
 /* real purchase toast */
-.toast{position:fixed;left:14px;bottom:84px;z-index:58;display:flex;gap:10px;align-items:center;max-width:290px;padding:10px 14px 10px 10px;border-radius:14px;background:rgba(8,17,39,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line-2);box-shadow:0 18px 40px -14px #000;
+.toast{position:fixed;left:14px;bottom:84px;z-index:58;display:flex;gap:10px;align-items:center;max-width:290px;padding:10px 14px 10px 10px;border-radius:14px;background:rgba(16,34,95,.97);border:1px solid var(--line-2);box-shadow:0 18px 40px -14px #000;
   transform:translate3d(-130%,0,0);opacity:0;transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .7s}
 .toast.show{transform:translate3d(0,0,0);opacity:1}
 .toast i{flex:none;width:34px;height:34px;border-radius:10px;background:var(--acc-soft);border:1px solid var(--acc-line);display:grid;place-items:center;font-style:normal}
@@ -361,7 +356,6 @@ footer a:hover{color:#fff}
 /* scroll progress */
 .sprog{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#3b82ff,var(--acc));z-index:70;pointer-events:none}
 /* hero parallax */
-.hero .wrap:first-child{will-change:transform,opacity}
 </style>
 </head>
 <body>
@@ -810,14 +804,11 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 $$(".rv").forEach(el => io.observe(el));
 
 /* launch strip: compact, hides once you scroll down */
-{ const st = $("#strip"); addEventListener("scroll", () => st.classList.toggle("hide", scrollY > 60), {passive:true}); }
+
 
 /* sticky bar */
 const sticky = $("#sticky"), heroBuy = $(".hero .buy"), pricing = $("#pricing");
-addEventListener("scroll", () => {
-  const past = heroBuy.getBoundingClientRect().bottom < 0, r = pricing.getBoundingClientRect(), onP = r.top < innerHeight && r.bottom > 0;
-  sticky.classList.toggle("show", past && !onP);
-}, {passive:true});
+
 
 /* spots line under every main button (real numbers from CONFIG) */
 document.querySelectorAll("a.buy[data-buy]").forEach(a => {
@@ -852,21 +843,27 @@ if (!live) document.querySelectorAll(".spotwrap").forEach(e => e.remove());
   els.forEach(el => io2.observe(el));
 })();
 
-/* scroll progress + gentle hero parallax */
+/* ONE scroll handler, batched to the frame: progress bar, offer bar, sticky buy bar */
 (function(){
-  const bar = $("#sprog"), heroTxt = document.querySelector(".hero .wrap"), wall = $("#heroWall");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches; let ticking = false;
+  const bar = $("#sprog"), st = $("#strip");
+  let ticking = false, lastStrip = null, lastSticky = null;
   const run = () => {
     const y = scrollY, H = document.documentElement.scrollHeight - innerHeight;
-    bar.style.transform = `scaleX(${H > 0 ? y / H : 0})`;
-    if (!reduce && y < innerHeight * 1.2){
-      heroTxt.style.transform = `translate3d(0,${y * .18}px,0)`; heroTxt.style.opacity = Math.max(0, 1 - y / (innerHeight * .9));
-      if (wall) wall.style.transform = `translate3d(0,${y * -.06}px,0)`;
-    }
+    bar.style.transform = `scaleX(${H > 0 ? (y / H).toFixed(4) : 0})`;
+    const hideStrip = y > 60; if (hideStrip !== lastStrip){ st.classList.toggle("hide", hideStrip); lastStrip = hideStrip; }
+    const past = heroBuy.getBoundingClientRect().bottom < 0, r = pricing.getBoundingClientRect(), show = past && !(r.top < innerHeight && r.bottom > 0);
+    if (show !== lastSticky){ sticky.classList.toggle("show", show); lastSticky = show; }
     ticking = false;
   };
   addEventListener("scroll", () => { if (!ticking){ ticking = true; requestAnimationFrame(run); } }, {passive:true});
   run();
+})();
+
+/* only decode videos that are on screen (big smoothness win on phones) */
+(function(){
+  const groups = ["#heroWall", "#topicWall", "#rcards"].map(q => $(q)).filter(Boolean);
+  const vo = new IntersectionObserver(es => es.forEach(e => e.target.querySelectorAll("video").forEach(v => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); })), {rootMargin:"150px 0px"});
+  groups.forEach(g => vo.observe(g));
 })();
 
 /* reveal: .6s timing, auto-stagger siblings */
