@@ -706,7 +706,7 @@ if (!CONFIG.checkout) $$("[data-buy]").forEach(a => { a.title = "Launching soon:
 const igLink = r => `https://www.instagram.com/reel/${esc(r.id)}/`;
 const vsrc = r => r.video || `assets/reels/${r.id}.mp4`, csrc = r => r.cover || `assets/reels/${r.id}.jpg`;
 const reelHTML = r => `<div class="rp vid"><video src="${esc(vsrc(r))}" poster="${esc(csrc(r))}" muted loop playsinline preload="metadata" disablepictureinpicture></video>
-  <button class="snd" type="button" aria-label="Toggle sound">🔇</button><a class="open" href="${igLink(r)}" target="_blank" rel="noopener">Watch ↗</a>${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</div>`;
+  <a class="open" href="${igLink(r)}" target="_blank" rel="noopener">Watch ↗</a>${r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</div>`;
 
 /* play videos only while on screen (saves data + battery) */
 const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting){ v.play().catch(() => {}); } else v.pause(); }), {threshold:.25});
@@ -757,7 +757,7 @@ makeSlider($("#topicSlider"), [...CONFIG.reels].reverse(), -30);
   const top = CONFIG.reels.slice(0, 3);
   const stat = (v, l) => `<div><b>${esc(v || "–")}</b><span>${l}</span></div>`;
   g.innerHTML = top.map((r, i) => `<div class="box rcard rv" style="--d:${i * .07}s">
-    <div class="rp vid"><video src="${esc(vsrc(r))}" poster="${esc(csrc(r))}" muted loop playsinline preload="metadata"></video><button class="snd" type="button" aria-label="Toggle sound">🔇</button><a class="open" href="${igLink(r)}" target="_blank" rel="noopener">Watch ↗</a></div>
+    <div class="rp vid"><video src="${esc(vsrc(r))}" poster="${esc(csrc(r))}" muted loop playsinline preload="metadata"></video><a class="open" href="${igLink(r)}" target="_blank" rel="noopener">Watch ↗</a></div>
     <div class="vw"><b>${esc(r.views || "–")}</b><span>views</span></div>
     <div class="mini">${stat(r.saves, "saves")}${stat(r.comments, "comments")}${stat(r.follows, "follows")}</div></div>`).join("");
   watchVideos(g); soundButtons(g);
