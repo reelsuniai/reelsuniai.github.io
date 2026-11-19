@@ -524,6 +524,22 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .story .who span{display:block;font-size:14px;color:var(--ink-3)}
 .story .who a{color:var(--acc)}
 @media(max-width:480px){.story .avatar{width:68px;height:68px}}
+
+.chips2{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 20px}
+.chips2 .fi{width:44px;height:36px}
+.chips2 .t{width:34px;height:42px;border-radius:5px 12px 5px 5px;background:#f1f3fa;position:relative;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.chips2 .t i{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);font:800 8.5px var(--mono);font-style:normal;color:#fff;padding:1px 4px;border-radius:3px;white-space:nowrap}
+.chips2 .md i{background:#3b7bf6}.chips2 .js i{background:#d4b32b}.chips2 .py i{background:#3e6ea8}.chips2 .mjs i{background:#71b04a}.chips2 .pdf i{background:#e0483c}
+.chips2 .fc{color:var(--acc);font:800 16px var(--font);margin-left:4px}
+.folder .top .path{display:flex;align-items:center;gap:8px;margin-left:6px;white-space:nowrap}
+.folder .top small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.folder .top .fi{width:22px;height:18px}
+.dirs2{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:18px}
+.dirs2 div{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:12px;padding:10px 12px;text-align:left}
+.dirs2 .fi{width:30px;height:25px;flex:none}
+.dirs2 b{display:block;font-size:14px;color:#fff}
+.dirs2 small{display:block;font-size:12px;color:var(--ink-3)}
+@media(max-width:560px){.dirs2{grid-template-columns:1fr 1fr;padding:14px;gap:8px}}
 </style>
 </head>
 <body>
@@ -567,8 +583,8 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 
     <div class="box offerbox rv">
       <div class="l">
-        <b>You get a complete reel studio in one folder: the animation style, scene templates, voice setup and <em>the playbook behind my reels.</em></b>
-        <div class="chips"><span class="md">MD</span><span class="js">JS</span><span class="py">PY</span><span class="mjs">MJS</span><span class="pdf">PDF</span><small>one folder, plug and play</small></div>
+        <b>You get a <em>complete reel studio in one folder</em>: the animation engine, hundreds of building blocks, my scene library and the playbook behind my reels.</b>
+        <div class="chips2"><svg class="fi" viewBox="0 0 48 40" aria-hidden="true"><path d="M3 6a4 4 0 0 1 4-4h11l5 5h18a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#3a8bff"/><path d="M3 13h42v21a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#5aa2ff"/></svg><span class="t md"><i>MD</i></span><span class="t js"><i>JS</i></span><span class="t py"><i>PY</i></span><span class="t mjs"><i>MJS</i></span><span class="t pdf"><i>PDF</i></span><b class="fc" data-fcount>one folder</b></div>
         <ul class="ticks">
           <li>Describe your topic in one line and it does the rest, from the hook and the voiceover to the captions.</li>
           <li>Nothing to film and nothing to edit, so you can post every day without losing your evenings.</li>
@@ -710,7 +726,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   <div class="wrap c">
     <h2 class="rv">Every secret behind my reels.<br><span class="r">Yours today.</span></h2>
     <div class="box folder rv">
-      <div class="top"><i></i><i></i><i></i>&nbsp; 📁 reel-skill<small>one folder</small></div>
+      <div class="top"><i></i><i></i><i></i><span class="path"><svg class="fi" viewBox="0 0 48 40" aria-hidden="true"><path d="M3 6a4 4 0 0 1 4-4h11l5 5h18a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#3a8bff"/><path d="M3 13h42v21a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#5aa2ff"/></svg><b data-fname>reel-skill</b></span><small data-fmeta>one folder</small></div>
       <div class="files">
         <div class="file" style="--fc:#3b7bf6"><div class="doc"><i></i><i></i><i></i><span>MD</span></div>SKILL.md</div>
         <div class="file" style="--fc:#d4b32b"><div class="doc"><i></i><i></i><i></i><span>JS</span></div>scenes.js</div>
@@ -718,7 +734,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
         <div class="file" style="--fc:#71b04a"><div class="doc"><i></i><i></i><i></i><span>MJS</span></div>render.mjs</div>
         <div class="file" style="--fc:#e0483c"><div class="doc"><i></i><i></i><i></i><span>PDF</span></div>playbook.pdf</div>
       </div>
-      <div class="dirs"><span>scenes</span><span>captions</span><span>sound</span><span>hooks</span><span>guides</span><span>bonus</span></div>
+      <div class="dirs2" id="dirs2"></div>
       <div class="fnames"><div class="tr" id="fn1"></div><div class="tr b" id="fn2"></div></div>
     </div>
 
@@ -898,6 +914,9 @@ const CONFIG = {
   spotsTotal: 50, spotsClaimed: 0,
   offerEnds: "2026-11-30T23:59:00+05:30",
   logo: "assets/logo.svg",  /* replace with your real logo file, e.g. "assets/logo.png" */
+  /* Your skill folder. Count the real files and fill these in (they show on the page). */
+  skillFolder: { name:"reel-skill", files:"", size:"",
+    folders:[ {n:"engine", c:""}, {n:"scenes", c:""}, {n:"captions", c:""}, {n:"sound", c:""}, {n:"guides", c:""}, {n:"bonus", c:""} ] },
   theme: "navy",      /* "navy" | "teal" | "indigo"  — preview any: add ?themes to the URL */
   checkout: "",
   supportEmail: "",   /* e.g. "support@yourdomain.com" (also fill it in policies.html) */
@@ -1093,6 +1112,16 @@ miniTick(); setInterval(miniTick, 1000);
   els.forEach(el => io2.observe(el));
 })();
 
+/* skill folder texts */
+(function(){
+  const f = CONFIG.skillFolder || {}, n = String(f.files || "").trim(), sz = String(f.size || "").trim();
+  const meta = n ? `${n} files${sz ? " · " + sz : ""}` : "one folder, plug and play";
+  document.querySelectorAll("[data-fname]").forEach(e => e.textContent = f.name || "reel-skill");
+  document.querySelectorAll("[data-fmeta]").forEach(e => e.textContent = meta);
+  document.querySelectorAll("[data-fcount]").forEach(e => e.textContent = n ? `${n} files` : "one folder");
+  const d = $("#dirs2"); if (d) d.innerHTML = (f.folders || []).map(x => `<div><svg class="fi" viewBox="0 0 48 40" aria-hidden="true"><path d="M3 6a4 4 0 0 1 4-4h11l5 5h18a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#3a8bff"/><path d="M3 13h42v21a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#5aa2ff"/></svg><span><b>${esc(x.n)}</b><small>${x.c ? esc(x.c) + " files" : "folder"}</small></span></div>`).join("");
+})();
+
 /* logo */
 { const l = $("#logoImg"), lp = safePath(CONFIG.logo); if (l && lp) l.src = lp; }
 
@@ -1125,19 +1154,33 @@ miniTick(); setInterval(miniTick, 1000);
   run();
 })();
 
-/* only decode videos that are actually on screen; load on first view; fade in when playing */
+/* video loader: when a reel row is near the screen, load all its clips (only 5 files, cached),
+   then play the ones visible inside the row and pause the rest. No more thumbnail-only cards. */
 (function(){
   const vids = [...document.querySelectorAll(".phone video")];
-  vids.forEach(v => {
-    v.addEventListener("playing", () => v.classList.add("on"));
-    v.addEventListener("error", () => v.classList.remove("on"));
-  });
-  const vo = new IntersectionObserver(es => es.forEach(e => {
-    const v = e.target;
-    if (e.isIntersecting){ if (window.LOWDATA) return; if (!v.src){ v.src = v.dataset.src; } const p = v.play(); if (p) p.catch(() => {}); }
-    else if (!v.paused) v.pause();
-  }), {rootMargin:"60px 120px"});
-  vids.forEach(v => vo.observe(v));
+  vids.forEach(v => { v.addEventListener("playing", () => v.classList.add("on")); v.addEventListener("error", () => v.classList.remove("on")); });
+  if (window.LOWDATA) return;
+  const groups = [...document.querySelectorAll("#heroWall, #topicWall, #rcards")];
+  const near = new Map();
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    near.set(e.target, e.isIntersecting);
+    if (e.isIntersecting) e.target.querySelectorAll("video").forEach(v => { if (!v.src){ v.preload = "auto"; v.src = v.dataset.src; } });
+    else e.target.querySelectorAll("video").forEach(v => { if (!v.paused) v.pause(); });
+  }), {rootMargin:"400px 0px"});
+  groups.forEach(g => io.observe(g));
+  const tick = () => {
+    groups.forEach(g => {
+      if (!near.get(g)) return;
+      const gr = g.getBoundingClientRect(); if (gr.bottom < 0 || gr.top > innerHeight) { g.querySelectorAll("video").forEach(v => { if (!v.paused) v.pause(); }); return; }
+      const L = Math.max(0, gr.left) - 220, R = Math.min(innerWidth, gr.right) + 220;
+      g.querySelectorAll("video").forEach(v => {
+        const r = v.getBoundingClientRect(), show = r.right > L && r.left < R;
+        if (show && v.paused && v.src){ const p = v.play(); if (p) p.catch(() => {}); }
+        else if (!show && !v.paused) v.pause();
+      });
+    });
+  };
+  setInterval(tick, 250); addEventListener("scroll", tick, {passive:true});
 })();
 
 /* reveal: .6s timing, auto-stagger siblings */
@@ -1166,7 +1209,7 @@ document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('
 
 /* reel rows: auto-scroll a native scroller (works on every phone), swipe/drag to browse, tap opens the reel */
 (function(){
-  const SPEED = 38;                               // pixels per second
+  const SPEED = 62;                               // pixels per second
   document.querySelectorAll(".wall").forEach(w => {
     const t = w.querySelector(".track"); if (!t) return;
     const sc = document.createElement("div"); sc.className = "sc"; t.before(sc); sc.appendChild(t);
