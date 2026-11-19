@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>The Reel Skill · ShortsUniversity</title>
 <meta name="description" content="4M views in 30 days with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹999 for the first 50 buyers.">
 <meta property="og:title" content="The Reel Skill by ShortsUniversity">
@@ -634,7 +636,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   <div class="wrap">
     <div class="box story mid rv">
       <span class="eye">My story</span>
-      <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a></h2>
+      <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a></h2>
       <p>I run ShortsUniversity, a small page about Claude and AI tools. I didn't want to spend my evenings in a video editor, so I built a Claude skill: I type one line about a topic, and it writes, voices and animates the whole reel.</p>
       <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">2 weeks</span> my reels crossed <b data-k="viewsShort">1M views</b>, and the page passed <b data-k="followersK">10K+</b> followers. I still haven't edited a single frame.</p>
       <p>I'm not a big creator or a video pro. That's the point: <b>if it works for a small page like mine, it can work for yours.</b></p>
@@ -852,7 +854,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 
 <footer class="ref">
   <div class="wrap">
-    <p class="fr1">The Reel Skill · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a> · <a href="policies.html#contact">Support</a></p>
+    <p class="fr1">The Reel Skill · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a> · <a href="policies.html#contact">Support</a></p>
     <p>7-day guarantee. Licensed for your own and your clients' videos. Reselling or sharing the skill is not allowed.</p>
     <p>Results vary. Numbers shown are from my own Instagram, not a promise of income or growth.</p>
     <p class="fr3"><a href="policies.html#terms">Terms</a> · <a href="policies.html#privacy">Privacy</a> · <a href="policies.html#refund">Refunds</a> · © <span id="yr">2026</span> ShortsUniversity</p>
@@ -931,6 +933,9 @@ const CONFIG = {
 })();
 
 /* ---------------- logic ---------------- */
+/* security: only allow https links (or same-site relative paths) from CONFIG */
+const safeUrl = u => { try { if (!u) return ""; const raw = String(u).trim(); if (/^[a-z][a-z0-9+.-]*:/i.test(raw) && !/^https:/i.test(raw)) return ""; const x = new URL(raw, location.href); return (x.protocol === "https:" || x.origin === location.origin) ? x.href : ""; } catch(e){ return ""; } };
+const safePath = u => /^assets\/[\w./-]+$/.test(u || "") && !/\.\./.test(u) ? u : "";
 const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
 const inr = n => "₹" + n.toLocaleString("en-IN");
 const pad = n => String(n).padStart(2, "0");
@@ -969,14 +974,14 @@ function tick(){
 $$("[data-k]").forEach(el => { const v = CONFIG.stats[el.dataset.k]; if (v) el.textContent = v; });
 
 /* buy links */
-$$("[data-buy]").forEach(a => { a.target = "_blank"; a.rel = "noopener"; a.href = CONFIG.checkout || CONFIG.instagramDM; });
+$$("[data-buy]").forEach(a => { a.target = "_blank"; a.rel = "noopener noreferrer"; a.href = safeUrl(CONFIG.checkout) || safeUrl(CONFIG.instagramDM) || "https://instagram.com/reelsuniai"; });
 if (!CONFIG.checkout) $$("[data-buy]").forEach(a => { a.title = "Launching soon: DM me on Instagram for the link"; });
 
 /* reels */
-const igLink = r => `https://www.instagram.com/reel/${esc(r.id)}/`;
-const vsrc = r => r.video || `assets/reels/${r.id}.mp4`, csrc = r => r.cover || `assets/reels/${r.id}.jpg`;
+const igLink = r => /^[A-Za-z0-9_-]{5,40}$/.test(r.id || "") ? `https://www.instagram.com/reel/${r.id}/` : "https://instagram.com/reelsuniai";
+const rid = r => String(r.id || "").replace(/[^\w-]/g, ""), vsrc = r => safePath(r.video) || `assets/reels/${rid(r)}.mp4`, csrc = r => safePath(r.cover) || `assets/reels/${rid(r)}.jpg`;
 const vid = r => `<video data-src="${esc(vsrc(r))}" muted loop playsinline preload="none" disablepictureinpicture></video>`;
-const phone = (r, badge) => `<a class="phone" style="--poster:url('${esc(csrc(r))}')" href="${igLink(r)}" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">${vid(r)}${badge && r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</a>`;
+const phone = (r, badge) => `<a class="phone" style="--poster:url('${esc(csrc(r))}')" href="${igLink(r)}" target="_blank" rel="noopener noreferrer" aria-label="Watch reel on Instagram">${vid(r)}${badge && r.views ? `<span class="v">👁 ${esc(r.views)}</span>` : ""}</a>`;
 
 /* fill the two reel walls (list x2 so the -50% CSS slide loops seamlessly) */
 [["#heroWall", CONFIG.reels], ["#topicWall", [...CONFIG.reels].reverse()]].forEach(([sel, list]) => {
@@ -1073,7 +1078,7 @@ miniTick(); setInterval(miniTick, 1000);
 
 /* footer bits */
 { const t = $("#toTop"); if (t) t.addEventListener("click", e => { e.preventDefault(); scrollTo({top:0, behavior:"smooth"}); });
-  if (CONFIG.supportEmail){ const m = $("#fMail"); if (m) m.href = "mailto:" + CONFIG.supportEmail; } }
+  if (/^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(CONFIG.supportEmail || "")){ const m = $("#fMail"); if (m) m.href = "mailto:" + CONFIG.supportEmail; } }
 
 /* recap price compare */
 (function(){
@@ -1125,7 +1130,7 @@ document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('
   $("#mos1").innerHTML = covers.repeat(6); $("#mos2").innerHTML = [...CONFIG.reels].reverse().map(r => `<img src="${esc(csrc(r))}" alt="" loading="lazy">`).join("").repeat(6);
   if (!CONFIG.demoVideo){ box.classList.add("soon"); $("#dlab").textContent = "Demo video coming soon"; box.style.cursor = "default"; return; }
   $("#dlab").textContent = `Watch how it works · ${CONFIG.demoLength}`;
-  const start = () => { if (box.querySelector("video")) return; box.insertAdjacentHTML("beforeend", `<video src="${esc(CONFIG.demoVideo)}" ${CONFIG.demoPoster ? `poster="${esc(CONFIG.demoPoster)}"` : ""} controls playsinline autoplay></video>`); };
+  const start = () => { if (box.querySelector("video")) return; const dv = safePath(CONFIG.demoVideo), dp = safePath(CONFIG.demoPoster); if (!dv) return; box.insertAdjacentHTML("beforeend", `<video src="${esc(dv)}" ${dp ? `poster="${esc(dp)}"` : ""} controls playsinline autoplay></video>`); };
   box.addEventListener("click", start);
 })();
 
