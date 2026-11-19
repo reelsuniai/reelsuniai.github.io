@@ -336,11 +336,11 @@ footer a:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){*:not(.track){animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
 
 /* ===== reel wall (same build as reference: CSS-only slide, small phones, edge fade + blur) ===== */
-.wall{position:relative;margin:40px 0 34px}
-.wall .sc{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab}
-.wall .sc::-webkit-scrollbar{display:none}
-.wall .sc.drag{cursor:grabbing}
-.wall .track{display:flex;gap:16px;width:max-content;padding:6px 0 14px}
+.wall{position:relative;margin:40px 0 34px;overflow:hidden;contain:layout paint}
+.wall .track{display:flex;gap:16px;width:max-content;padding:6px 0 14px;-webkit-animation:slide var(--dur,40s) linear infinite;animation:slide var(--dur,40s) linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.wall.rev .track{-webkit-animation-direction:reverse;animation-direction:reverse}
+@media (hover:hover){.wall:hover .track{-webkit-animation-play-state:paused;animation-play-state:paused}}
+.wall.off .track{-webkit-animation-play-state:paused;animation-play-state:paused}
 .wall::before,.wall::after{content:"";position:absolute;top:0;bottom:0;width:8%;z-index:3;pointer-events:none}
 .wall::before{left:0;background:linear-gradient(90deg,var(--g-mid),transparent)}
 .wall::after{right:0;background:linear-gradient(270deg,var(--g-mid),transparent)}
@@ -408,7 +408,7 @@ footer a:hover{color:#fff}
 @media(min-width:768px){.phone::before{inset:6px;border-radius:20px}}
 .phone video{position:relative;z-index:1}
 .phone .v{z-index:2}
-.phone video{opacity:0;transition:opacity .6s ease}
+.phone video{opacity:0;transition:opacity .4s ease}
 .phone video.on{opacity:1}
 
 /* demo video card (reference structure) */
@@ -1043,7 +1043,7 @@ document.querySelectorAll(".phone video").forEach(v => {
   });
 });
 /* iOS low-power mode blocks autoplay until the first touch */
-addEventListener("touchstart", () => document.querySelectorAll(".phone video.on, .phone video[src]").forEach(v => { const r = v.getBoundingClientRect(); if (v.paused && r.right > 0 && r.left < innerWidth && r.bottom > 0 && r.top < innerHeight) v.play().catch(() => {}); }), {once:true, passive:true});
+
 
 /* file names marquee */
 const fns = [["SKILL.md","#3b7bf6"],["scenes.js","#d4b32b"],["hook.js","#d4b32b"],["captions.js","#d4b32b"],["voice.py","#3e6ea8"],["mix.py","#3e6ea8"],["render.mjs","#71b04a"],["paper.css","#b97be0"],["stamps.js","#d4b32b"],["hooks.md","#3b7bf6"],["playbook.pdf","#e0483c"],["setup.md","#3b7bf6"],["cta.js","#d4b32b"],["tiles.js","#d4b32b"]];
@@ -1154,33 +1154,26 @@ miniTick(); setInterval(miniTick, 1000);
   run();
 })();
 
-/* video loader: when a reel row is near the screen, load all its clips (only 5 files, cached),
-   then play the ones visible inside the row and pause the rest. No more thumbnail-only cards. */
+/* video loader: load a row's clips when it gets near, play them all while it's on screen, pause them all when it leaves.
+   No per-card play/pause switching (that caused flicker and stalls on iPhone). */
 (function(){
   const vids = [...document.querySelectorAll(".phone video")];
-  vids.forEach(v => { v.addEventListener("playing", () => v.classList.add("on")); v.addEventListener("error", () => v.classList.remove("on")); });
+  vids.forEach(v => v.addEventListener("loadeddata", () => v.classList.add("on"), {once:true}));
+  vids.forEach(v => v.addEventListener("playing", () => v.classList.add("on"), {once:true}));
   if (window.LOWDATA) return;
   const groups = [...document.querySelectorAll("#heroWall, #topicWall, #rcards")];
-  const near = new Map();
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    near.set(e.target, e.isIntersecting);
+  const play = v => { const p = v.play(); if (p) p.catch(() => {}); };
+  const load = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) e.target.querySelectorAll("video").forEach(v => { if (!v.src){ v.preload = "auto"; v.src = v.dataset.src; } });
-    else e.target.querySelectorAll("video").forEach(v => { if (!v.paused) v.pause(); });
-  }), {rootMargin:"400px 0px"});
-  groups.forEach(g => io.observe(g));
-  const tick = () => {
-    groups.forEach(g => {
-      if (!near.get(g)) return;
-      const gr = g.getBoundingClientRect(); if (gr.bottom < 0 || gr.top > innerHeight) { g.querySelectorAll("video").forEach(v => { if (!v.paused) v.pause(); }); return; }
-      const L = Math.max(0, gr.left) - 220, R = Math.min(innerWidth, gr.right) + 220;
-      g.querySelectorAll("video").forEach(v => {
-        const r = v.getBoundingClientRect(), show = r.right > L && r.left < R;
-        if (show && v.paused && v.src){ const p = v.play(); if (p) p.catch(() => {}); }
-        else if (!show && !v.paused) v.pause();
-      });
-    });
-  };
-  setInterval(tick, 250); addEventListener("scroll", tick, {passive:true});
+  }), {rootMargin:"600px 0px"});
+  const run = new IntersectionObserver(es => es.forEach(e => {
+    e.target.querySelectorAll("video").forEach(v => { if (e.isIntersecting){ if (v.paused) play(v); } else if (!v.paused) v.pause(); });
+  }), {rootMargin:"0px 0px", threshold:0});
+  groups.forEach(g => { load.observe(g); run.observe(g); });
+  /* iPhone Low Power Mode blocks autoplay until a touch: start visible rows on the first tap/scroll */
+  const kick = () => groups.forEach(g => { const r = g.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) g.querySelectorAll("video").forEach(v => { if (v.src && v.paused) play(v); }); });
+  addEventListener("touchstart", kick, {passive:true, once:true});
+  addEventListener("scroll", kick, {passive:true, once:true});
 })();
 
 /* reveal: .6s timing, auto-stagger siblings */
@@ -1207,40 +1200,14 @@ document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('
   if (d.date) set("#dNote", `From my Instagram dashboard, ${d.date}. Results vary.`);
 })();
 
-/* reel rows: auto-scroll a native scroller (works on every phone), swipe/drag to browse, tap opens the reel */
+/* reel rows: pure CSS marquee (GPU, never janks). Speed is constant on every screen size. */
 (function(){
-  const SPEED = 62;                               // pixels per second
-  document.querySelectorAll(".wall").forEach(w => {
-    const t = w.querySelector(".track"); if (!t) return;
-    const sc = document.createElement("div"); sc.className = "sc"; t.before(sc); sc.appendChild(t);
-    const rev = w.classList.contains("rev");
-    let pos = 0, last = performance.now(), holdUntil = 0, onScreen = true, dragging = false, moved = false, sx = 0, sl = 0;
-    const half = () => t.scrollWidth / 2;
-    const hold = ms => { holdUntil = performance.now() + ms; };
-    const wrap = () => { const h = half(); if (h <= 0) return; if (sc.scrollLeft >= h) sc.scrollLeft -= h; else if (sc.scrollLeft <= 0) sc.scrollLeft += h; pos = sc.scrollLeft; };
-    requestAnimationFrame(() => { pos = rev ? half() : 1; sc.scrollLeft = pos; });
-    new IntersectionObserver(es => { onScreen = es[0].isIntersecting; }).observe(w);
-    (function step(now){
-      const dt = Math.min(64, now - last); last = now;
-      if (onScreen && !dragging && now > holdUntil && document.visibilityState === "visible"){
-        const h = half();
-        if (h > 0){ pos += (rev ? -1 : 1) * SPEED * dt / 1000; if (pos >= h) pos -= h; if (pos <= 0) pos += h; sc.scrollLeft = pos; }
-      } else pos = sc.scrollLeft;
-      requestAnimationFrame(step);
-    })(last);
-    sc.addEventListener("scroll", () => { if (dragging || performance.now() < holdUntil) wrap(); }, {passive:true});
-    sc.addEventListener("touchstart", () => hold(3500), {passive:true});
-    sc.addEventListener("touchmove", () => hold(3500), {passive:true});
-    sc.addEventListener("wheel", () => hold(3000), {passive:true});
-    if (matchMedia("(hover:hover)").matches){
-      sc.addEventListener("mouseenter", () => hold(1e9));
-      sc.addEventListener("mouseleave", () => hold(600));
-    }
-    sc.addEventListener("mousedown", e => { dragging = true; moved = false; sx = e.clientX; sl = sc.scrollLeft; sc.classList.add("drag"); e.preventDefault(); });
-    addEventListener("mousemove", e => { if (!dragging) return; if (Math.abs(e.clientX - sx) > 6) moved = true; sc.scrollLeft = sl - (e.clientX - sx); wrap(); });
-    addEventListener("mouseup", () => { if (!dragging) return; dragging = false; sc.classList.remove("drag"); hold(1500); });
-    sc.addEventListener("click", e => { if (moved){ e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
-  });
+  const SPEED = 60;                                   // pixels per second
+  const setDur = () => document.querySelectorAll(".wall .track").forEach(t => { const half = t.scrollWidth / 2; if (half > 0) t.style.setProperty("--dur", (half / SPEED).toFixed(2) + "s"); });
+  setDur(); addEventListener("load", setDur);
+  /* stop sliding when the row is off screen (saves battery) */
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle("off", !e.isIntersecting)), {rootMargin:"100px 0px"});
+  document.querySelectorAll(".wall").forEach(w => io.observe(w));
 })();
 </script>
 </body>
