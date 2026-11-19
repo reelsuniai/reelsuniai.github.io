@@ -408,7 +408,10 @@ footer a:hover{color:#fff}
 @media(min-width:768px){.phone::before{inset:6px;border-radius:20px}}
 .phone video{position:relative;z-index:1}
 .phone .v{z-index:2}
-.phone video{opacity:0;transition:opacity .4s ease}
+.phone video,.phone>img{opacity:0;transition:opacity .4s ease}
+.phone>img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;border-radius:15px}
+.phone>img.on{opacity:1}
+@media(min-width:768px){.phone>img{border-radius:20px}}
 .phone video.on{opacity:1}
 
 /* demo video card (reference structure) */
@@ -1154,26 +1157,41 @@ miniTick(); setInterval(miniTick, 1000);
   run();
 })();
 
-/* video loader: load a row's clips when it gets near, play them all while it's on screen, pause them all when it leaves.
-   No per-card play/pause switching (that caused flicker and stalls on iPhone). */
+/* video loader: load a row's clips when it gets near, play them while on screen, pause when it leaves.
+   If the browser blocks autoplay (Claude app / some in-app browsers / iPhone Low Power Mode),
+   swap every clip for an animated image of the same 5 seconds — images always play. */
 (function(){
   const vids = [...document.querySelectorAll(".phone video")];
-  vids.forEach(v => v.addEventListener("loadeddata", () => v.classList.add("on"), {once:true}));
-  vids.forEach(v => v.addEventListener("playing", () => v.classList.add("on"), {once:true}));
-  if (window.LOWDATA) return;
+  vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.setAttribute("muted", ""); v.playsInline = true;
+    v.addEventListener("loadeddata", () => v.classList.add("on"), {once:true}); v.addEventListener("playing", () => v.classList.add("on"), {once:true}); });
   const groups = [...document.querySelectorAll("#heroWall, #topicWall, #rcards")];
-  const play = v => { const p = v.play(); if (p) p.catch(() => {}); };
+  let imgMode = false;
+  const useImages = () => {
+    if (imgMode) return; imgMode = true;
+    document.querySelectorAll(".phone video").forEach(v => {
+      const src = (v.dataset.src || v.getAttribute("src") || "").replace(/\.mp4(\?.*)?$/, ".webp"); if (!/\.webp$/.test(src)) return;
+      const img = new Image(); img.alt = ""; img.decoding = "async"; img.className = "on"; img.src = src;
+      img.onerror = () => img.remove();                // keep the poster if even the image fails
+      try { v.pause(); } catch(e){} v.replaceWith(img);
+    });
+  };
+  if (window.LOWDATA) return;
+  const play = v => { if (imgMode) return; v.muted = true; const p = v.play(); if (p) p.catch(err => { if (err && err.name === "NotAllowedError") useImages(); }); };
   const load = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) e.target.querySelectorAll("video").forEach(v => { if (!v.src){ v.preload = "auto"; v.src = v.dataset.src; } });
   }), {rootMargin:"600px 0px"});
   const run = new IntersectionObserver(es => es.forEach(e => {
     e.target.querySelectorAll("video").forEach(v => { if (e.isIntersecting){ if (v.paused) play(v); } else if (!v.paused) v.pause(); });
+    if (e.isIntersecting && !imgMode) setTimeout(() => {               // watchdog: on screen but still frozen? -> images
+      if (imgMode) return;
+      const r = e.target.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+      const vs = [...e.target.querySelectorAll("video")].filter(v => v.src);
+      if (vs.length && vs.every(v => v.paused || v.currentTime === 0)) useImages();
+    }, 3500);
   }), {rootMargin:"0px 0px", threshold:0});
   groups.forEach(g => { load.observe(g); run.observe(g); });
-  /* iPhone Low Power Mode blocks autoplay until a touch: start visible rows on the first tap/scroll */
   const kick = () => groups.forEach(g => { const r = g.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) g.querySelectorAll("video").forEach(v => { if (v.src && v.paused) play(v); }); });
-  addEventListener("touchstart", kick, {passive:true, once:true});
-  addEventListener("scroll", kick, {passive:true, once:true});
+  ["touchend", "click"].forEach(ev => addEventListener(ev, kick, {passive:true}));
 })();
 
 /* reveal: .6s timing, auto-stagger siblings */
