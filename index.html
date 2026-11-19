@@ -1170,8 +1170,10 @@ miniTick(); setInterval(miniTick, 1000);
     if (imgMode) return; imgMode = true;
     document.querySelectorAll(".phone video").forEach(v => {
       const src = (v.dataset.src || v.getAttribute("src") || "").replace(/\.mp4(\?.*)?$/, ".webp"); if (!/\.webp$/.test(src)) return;
-      const img = new Image(); img.alt = ""; img.decoding = "async"; img.className = "on"; img.src = src;
+      const img = new Image(); img.alt = ""; img.decoding = "async";
+      img.onload = () => { const show = () => img.classList.add("on"); (img.decode ? img.decode().then(show, show) : show()); };   // only show once fully downloaded
       img.onerror = () => img.remove();                // keep the poster if even the image fails
+      img.src = src;
       try { v.pause(); } catch(e){} v.replaceWith(img);
     });
   };
