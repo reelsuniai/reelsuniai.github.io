@@ -119,6 +119,7 @@ body{padding-top:34px}
 .snav.prev{left:max(12px,calc(50% - 560px))}.snav.next{right:max(12px,calc(50% - 560px))}
 @media(max-width:600px){.snav{width:38px;height:38px;margin-top:-19px;font-size:22px}}
 @keyframes slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@-webkit-keyframes slide{from{-webkit-transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(-50%,0,0)}}
 .rp{width:180px;aspect-ratio:9/16;border-radius:20px;border:3px solid var(--line-2);background:var(--bgc,#1a0d10);overflow:hidden;position:relative;flex:none;box-shadow:0 18px 40px -18px #000;transition:transform .35s var(--pop)}
 .rp:hover{transform:translateY(-6px) scale(1.03)}
 .rp video,.rp img{width:100%;height:100%;object-fit:cover}
@@ -335,8 +336,12 @@ footer a:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){*:not(.track){animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
 
 /* ===== reel wall (same build as reference: CSS-only slide, small phones, edge fade + blur) ===== */
-.wall{position:relative;margin:40px 0 34px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.wall .track{display:flex;gap:16px;width:max-content;padding:6px 0 14px;animation:slide 30s linear infinite;will-change:transform;backface-visibility:hidden}
+.wall{position:relative;margin:40px 0 34px;overflow:hidden}
+.wall .track{display:flex;gap:16px;width:max-content;padding:6px 0 14px;-webkit-animation:slide 30s linear infinite;animation:slide 30s linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.wall.js .track{-webkit-animation:none!important;animation:none!important}
+.wall::before,.wall::after{content:"";position:absolute;top:0;bottom:0;width:9%;z-index:3;pointer-events:none}
+.wall::before{left:0;background:linear-gradient(90deg,var(--g-mid),transparent)}
+.wall::after{right:0;background:linear-gradient(270deg,var(--g-mid),transparent)}
 .wall.rev .track{animation-direction:reverse}
 @media (hover:hover){.wall:hover .track{animation-play-state:paused}}
 .phone{position:relative;flex:none;display:block;width:150px;transform:translateZ(0);aspect-ratio:9/16;padding:5px;border-radius:20px;background:linear-gradient(160deg,var(--fr1),var(--fr2));
@@ -512,6 +517,13 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .feat .tags{gap:8px}
 .feat .tags span{font-size:13.5px;padding:6px 13px;border-color:var(--acc-line);background:rgba(255,59,59,.07);color:var(--ink-2)}
 @media(max-width:600px){.feat .tags span{font-size:13px;padding:5px 11px}}
+
+.story .who{display:flex;align-items:center;gap:16px;margin:6px 0 18px}
+.story .avatar{width:84px;height:84px;border-radius:50%;flex:none;box-shadow:0 0 0 3px var(--surf-2),0 0 0 5px var(--acc-line),0 14px 30px -10px rgba(255,59,59,.55)}
+.story .who b{display:block;font-size:19px;color:#fff;letter-spacing:-.02em}
+.story .who span{display:block;font-size:14px;color:var(--ink-3)}
+.story .who a{color:var(--acc)}
+@media(max-width:480px){.story .avatar{width:68px;height:68px}}
 </style>
 </head>
 <body>
@@ -636,9 +648,13 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   <div class="wrap">
     <div class="box story mid rv">
       <span class="eye">My story</span>
+      <div class="who">
+        <img class="avatar" src="assets/logo.svg" alt="ShortsUniversity logo" width="84" height="84" id="logoImg">
+        <div><b>ShortsUniversity</b><span>Claude + AI Tools · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a></span></div>
+      </div>
       <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a></h2>
       <p>I run ShortsUniversity, a small page about Claude and AI tools. I didn't want to spend my evenings in a video editor, so I built a Claude skill: I type one line about a topic, and it writes, voices and animates the whole reel.</p>
-      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">2 weeks</span> my reels crossed <b data-k="viewsShort">1M views</b>, and the page passed <b data-k="followersK">10K+</b> followers. I still haven't edited a single frame.</p>
+      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">4M views</b>, and the page passed <b data-k="followersK">10K+</b> followers. I still haven't edited a single frame.</p>
       <p>I'm not a big creator or a video pro. That's the point: <b>if it works for a small page like mine, it can work for yours.</b></p>
     </div>
   </div>
@@ -881,6 +897,7 @@ const CONFIG = {
   price: 999, regular: 1999,
   spotsTotal: 50, spotsClaimed: 0,
   offerEnds: "2026-11-30T23:59:00+05:30",
+  logo: "assets/logo.svg",  /* replace with your real logo file, e.g. "assets/logo.png" */
   theme: "navy",      /* "navy" | "teal" | "indigo"  — preview any: add ?themes to the URL */
   checkout: "",
   supportEmail: "",   /* e.g. "support@yourdomain.com" (also fill it in policies.html) */
@@ -1076,6 +1093,9 @@ miniTick(); setInterval(miniTick, 1000);
   els.forEach(el => io2.observe(el));
 })();
 
+/* logo */
+{ const l = $("#logoImg"), lp = safePath(CONFIG.logo); if (l && lp) l.src = lp; }
+
 /* footer bits */
 { const t = $("#toTop"); if (t) t.addEventListener("click", e => { e.preventDefault(); scrollTo({top:0, behavior:"smooth"}); });
   if (/^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(CONFIG.supportEmail || "")){ const m = $("#fMail"); if (m) m.href = "mailto:" + CONFIG.supportEmail; } }
@@ -1142,6 +1162,28 @@ document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('
   if (d.net){ set("#dNetLab", "Net followers"); set("#dNet", d.net); set("#dNetSub", d.netLabel); }
   else { set("#dNet", CONFIG.stats.topReel); }
   if (d.date) set("#dNote", `From my Instagram dashboard, ${d.date}. Results vary.`);
+})();
+
+/* slider watchdog: some phones (older iOS Safari, battery saver) freeze CSS marquees — fall back to JS */
+(function(){
+  document.querySelectorAll(".wall").forEach(w => {
+    const t = w.querySelector(".track"); if (!t) return;
+    const read = () => getComputedStyle(t).transform;
+    const a = read();
+    setTimeout(() => {
+      if (read() !== a && read() !== "none") return;          // CSS is moving it: nothing to do
+      w.classList.add("js");
+      const rev = w.classList.contains("rev"), dur = 30000;
+      let x = 0, last = performance.now(), paused = false;
+      w.addEventListener("mouseenter", () => paused = matchMedia("(hover:hover)").matches);
+      w.addEventListener("mouseleave", () => paused = false);
+      (function step(now){
+        const half = t.scrollWidth / 2, dt = Math.min(64, now - last); last = now;
+        if (!paused && half > 0){ x = (x + half * dt / dur) % half; t.style.transform = `translate3d(${rev ? -(half - x) : -x}px,0,0)`; }
+        requestAnimationFrame(step);
+      })(last);
+    }, 1200);
+  });
 })();
 </script>
 </body>
