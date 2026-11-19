@@ -3,63 +3,139 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Policies · ShortsUniversity</title>
-<meta name="description" content="Terms, privacy, refund policy and contact for ShortsUniversity reel skills.">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<title>Policies · The Reel Skill</title>
+<meta name="description" content="Terms & conditions, privacy policy, refund & cancellation, delivery policy and contact for The Reel Skill by ShortsUniversity.">
+<meta name="theme-color" content="#06103a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ff3b3b'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23fff'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-weight='700' font-size='32' text-anchor='middle' fill='%23ff3b3b'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f4efe4;--card:#fffdf8;--ink:#1b1a17;--ink-2:#55514a;--line:#d9d0bd;--red:#d62828}
+:root{--ink:#fff;--ink-2:#e6ecff;--ink-3:#bfcbf3;--ink-4:#93a3d8;--line:rgba(150,175,255,.2);--line-2:rgba(150,175,255,.32);--red:#ff3b3b;--surf:rgba(16,32,96,.6)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--paper);color:var(--ink);font:16px/1.65 'Inter',system-ui,sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:32px 16px 80px}
+html{scroll-behavior:smooth}
+body{font:16px/1.7 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;
+  background:radial-gradient(70% 45% at 50% 0%,rgba(45,105,255,.35),transparent 72%),linear-gradient(180deg,#0b1d66 0%,#081650 40%,#050d36 100%) fixed}
 a{color:var(--red)}
-h1{font-size:clamp(32px,6vw,48px);letter-spacing:-.03em;margin:18px 0 6px}
-h1 i{font-family:'Instrument Serif',serif;font-weight:400;color:var(--red)}
-.muted{color:var(--ink-2);font-size:14px}
-nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 8px}
-nav a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;text-decoration:none;color:var(--ink);font-size:14px}
-section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;margin-top:20px;scroll-margin-top:16px}
-h2{font-size:22px;margin-bottom:10px}
-p,li{color:var(--ink-2);margin-bottom:10px}
-ul{padding-left:20px}
+.wrap{max-width:820px;margin:0 auto;padding:28px 20px 90px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--ink-2);text-decoration:none;font-weight:600;border:1px solid var(--line-2);border-radius:999px;padding:6px 14px}
+h1{font-size:clamp(32px,6vw,48px);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin:26px 0 8px}
+h1 span{color:var(--red)}
+.muted{color:var(--ink-4);font-size:14px}
+nav.toc{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:14px 0;margin:10px 0 4px;background:linear-gradient(180deg,#0b1d66 70%,transparent)}
+nav.toc a{flex:none;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:600;border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;background:rgba(255,255,255,.04)}
+nav.toc a:hover{border-color:var(--red);color:#fff}
+section{background:var(--surf);border:1px solid var(--line-2);border-radius:20px;padding:26px;margin-top:18px;scroll-margin-top:70px}
+h2{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+h3{font-size:16px;margin:16px 0 6px}
+p,li{color:var(--ink-3);margin-bottom:10px}
+ul{padding-left:22px}
+b{color:#fff}
+.fill{background:rgba(255,59,59,.16);border:1px dashed rgba(255,59,59,.6);color:#fff;border-radius:6px;padding:0 6px;font-weight:700}
+.note{border-left:3px solid var(--red);background:rgba(255,59,59,.08);border-radius:10px;padding:12px 14px;margin:12px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.grid div{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(255,255,255,.03)}
+.grid b{display:block}
+@media(max-width:560px){.grid{grid-template-columns:1fr}section{padding:20px}}
+footer{margin-top:34px;color:var(--ink-4);font-size:13px;text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a href="index.html">← Back to skills</a>
-  <h1>Policies <i>&amp; contact</i></h1>
-  <p class="muted">Last updated: November 2026</p>
-  <nav><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#refund">Refunds</a><a href="#contact">Contact</a></nav>
+  <a class="back" href="index.html">← Back to The Reel Skill</a>
+  <h1>Policies <span>&amp; contact</span></h1>
+  <p class="muted">Last updated: 19 November 2026 · Applies to purchases of The Reel Skill from ShortsUniversity.</p>
+
+  <nav class="toc" aria-label="Policy sections">
+    <a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#refund">Refund &amp; cancellation</a><a href="#delivery">Delivery</a><a href="#contact">Contact &amp; grievance</a>
+  </nav>
 
   <section id="terms">
-    <h2>Terms of use</h2>
-    <p>ShortsUniversity ("we") sells digital skill files for Claude Code ("Skills"). When you buy a Skill you get a personal, non-transferable licence to use it on your own devices.</p>
+    <h2>Terms &amp; conditions</h2>
+    <p>These terms apply when you buy or use <b>The Reel Skill</b> ("the Skill"), a digital product sold by <b>ShortsUniversity</b>, run by <span class="fill">[Your full legal name]</span>, <span class="fill">[City, State]</span>, India ("we", "us"). By buying, you agree to them.</p>
+    <h3>What you're buying</h3>
     <ul>
-      <li>You may use reels you make with a Skill for personal, brand or client work, including paid work.</li>
-      <li>You may not resell, share, upload or redistribute the Skill files, in whole or in part.</li>
-      <li>Skills need a separate paid Claude plan from Anthropic and may use third-party services (for example a voiceover provider). Those services have their own terms and charges.</li>
+      <li>Downloadable skill files for Claude, plus setup guides and any bonuses described on the sales page at the time of purchase.</li>
+      <li>A personal, non-transferable, non-exclusive licence to use the Skill on your own devices.</li>
+    </ul>
+    <h3>What you can and can't do</h3>
+    <ul>
+      <li><b>You can</b> use reels you make with the Skill for personal, brand or client work, including paid work.</li>
+      <li><b>You can't</b> resell, share, upload, publish or redistribute the Skill files, in whole or in part, or pass off the Skill as your own product.</li>
+    </ul>
+    <h3>Third-party tools</h3>
+    <ul>
+      <li>The Skill needs a separate paid Claude plan from Anthropic and may use third-party services such as a voiceover provider. Their terms and charges apply and are not part of this purchase.</li>
       <li>ShortsUniversity is an independent creator and is not affiliated with or endorsed by Anthropic. "Claude" is a trademark of Anthropic.</li>
-      <li>Results such as views and followers depend on your content and are not guaranteed.</li>
+    </ul>
+    <h3>Results &amp; liability</h3>
+    <ul>
+      <li>Views, followers and income depend on your content, niche and consistency. Numbers on the sales page are our own results and are not a guarantee.</li>
+      <li>To the extent allowed by law, our total liability for any claim is limited to the amount you paid for the Skill.</li>
+    </ul>
+    <h3>Pricing</h3>
+    <ul>
+      <li>Prices are in Indian Rupees (INR) and include applicable taxes. Launch prices are valid only for the stated period or number of buyers, after which the regular price applies.</li>
+      <li>These terms are governed by the laws of India. Courts at <span class="fill">[Your city]</span> have jurisdiction.</li>
     </ul>
   </section>
 
   <section id="privacy">
-    <h2>Privacy</h2>
-    <p>This website does not use cookies or collect personal data. Payments are handled by our checkout provider (Superprofile and its payment partners). They collect your name, email and payment details to process your order and send your files. We receive your name and email to deliver the product and provide support. We never sell your data.</p>
+    <h2>Privacy policy</h2>
+    <p>We collect only what we need to sell and deliver the Skill.</p>
+    <ul>
+      <li><b>What we collect:</b> your name, email and phone number, and order details, through our checkout provider (Superprofile and its payment partners). We never see or store your card, UPI or bank details.</li>
+      <li><b>Why:</b> to deliver your files, send updates about the product you bought, and give support.</li>
+      <li><b>Sharing:</b> we don't sell or rent your data. It is shared only with the services that process payment and delivery.</li>
+      <li><b>This website</b> does not use advertising cookies or trackers.</li>
+      <li><b>Your rights:</b> you can ask us to see, correct or delete your data at any time using the contact details below.</li>
+    </ul>
   </section>
 
   <section id="refund">
-    <h2>Refund policy</h2>
-    <p>Skills are digital files delivered instantly, so all sales are generally final.</p>
-    <p>If a Skill does not work for you after following the setup guide, contact us within 7 days of purchase. We'll help you fix it first. If we can't get it working, we'll refund you in full.</p>
-    <p>One refund per customer. A refund ends your licence to use the Skill. Refunds are not given for not having a paid Claude plan, or after files have been shared with others.</p>
+    <h2>Refund &amp; cancellation policy</h2>
+    <div class="note"><b>Short version:</b> if you can't get the Skill working, tell us within 7 days. We'll help you fix it, and if it still doesn't work, you get a full refund.</div>
+    <h3>Eligibility</h3>
+    <ul>
+      <li>Contact us within <b>7 days</b> of purchase, with your order email and a short description of the problem.</li>
+      <li>We'll first help you set it up (most issues are fixed in one chat). If we can't get it working, we refund <b>100%</b> of what you paid.</li>
+    </ul>
+    <h3>Not eligible</h3>
+    <ul>
+      <li>Requests after 7 days, or simple change of mind after downloading.</li>
+      <li>Not having, or not wanting to pay for, the required Claude plan or other third-party tools listed on the sales page.</li>
+      <li>Cases where the Skill files have been shared, resold or published.</li>
+    </ul>
+    <h3>How refunds are paid</h3>
+    <ul>
+      <li>Approved refunds go back to your original payment method within <b>5–7 working days</b> (bank timelines may vary).</li>
+      <li>One refund per customer. A refund ends your licence and you must delete the Skill files.</li>
+    </ul>
+    <h3>Cancellation</h3>
+    <p>The Skill is delivered instantly after payment, so an order can't be cancelled once it's complete. If a payment was deducted but you didn't receive your files, contact us and we'll deliver them or refund you.</p>
+  </section>
+
+  <section id="delivery">
+    <h2>Delivery policy</h2>
+    <ul>
+      <li>The Skill is a <b>digital product</b>. Nothing is shipped physically.</li>
+      <li>Your download link appears on screen right after payment and is emailed to the address you entered at checkout, usually within minutes.</li>
+      <li>Didn't get it within 1 hour? Check your spam folder, then contact us and we'll send it manually.</li>
+    </ul>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>The fastest way to reach us is an Instagram DM: <a href="https://ig.me/m/reelsuniai" target="_blank" rel="noopener">@reelsuniai</a>.</p>
-    <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
-    <p>We usually reply within 24 hours.</p>
+    <h2>Contact &amp; grievance</h2>
+    <div class="grid">
+      <div><b>Instagram (fastest)</b><a href="https://ig.me/m/reelsuniai" target="_blank" rel="noopener">DM @reelsuniai</a></div>
+      <div><b>Email</b><span class="fill">[support email]</span></div>
+      <div><b>Grievance officer</b><span class="fill">[Your full name]</span></div>
+      <div><b>Address</b><span class="fill">[City, State, India]</span></div>
+    </div>
+    <p style="margin-top:14px">We reply within <b>24 hours</b> and resolve complaints within <b>7 working days</b>.</p>
   </section>
+
+  <footer>© 2026 ShortsUniversity · The Reel Skill · All rights reserved.</footer>
 </div>
 </body>
 </html>
