@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>The Reel Skill · ShortsUniversity</title>
-<meta name="description" content="4M views in 30 days with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹999 for the first 50 buyers.">
+<meta name="description" content="4M views in 30 days with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹499 for the first 50 buyers.">
 <meta property="og:title" content="The Reel Skill by ShortsUniversity">
-<meta property="og:description" content="Type one line. Claude makes the whole animated reel. Launch price ₹999 for the first 50 buyers.">
+<meta property="og:description" content="Type one line. Claude makes the whole animated reel. Launch price ₹499 for the first 50 buyers.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0708">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e8302a'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23fff'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-weight='700' font-size='32' text-anchor='middle' fill='%23e8302a'%3ER%3C/text%3E%3C/svg%3E">
@@ -543,6 +543,24 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .dirs2 b{display:block;font-size:14px;color:#fff}
 .dirs2 small{display:block;font-size:12px;color:var(--ink-3)}
 @media(max-width:560px){.dirs2{grid-template-columns:1fr 1fr;padding:14px;gap:8px}}
+
+.claim{width:100%;margin:10px 0 8px;text-align:left}
+.claim .lab{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:6px}
+.claim .lab b{color:var(--acc)}
+.claim .bar{height:9px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden}
+.claim .bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#ff7a5c,var(--acc));transition:width 1.4s cubic-bezier(.25,1,.5,1)}
+.sty{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;text-align:left}
+.st2{padding:14px 14px 18px}
+.st2 .sw{aspect-ratio:4/3;border-radius:14px;background:var(--c);padding:14px;display:flex;flex-direction:column;gap:8px;color:var(--f)}
+.st2 .sw b{font:800 20px var(--font)}
+.st2 .sw i{height:7px;border-radius:4px;background:var(--f);opacity:.5}.st2 .sw i+i{width:60%;opacity:.3}
+.st2 .sw u{margin-top:auto;display:flex;gap:6px}.st2 .sw em{flex:1;aspect-ratio:1;border-radius:8px;background:var(--f);opacity:.8}
+.st2 h3{margin:12px 2px 4px;font-size:18px}.st2 p{font-size:14px;color:var(--ink-3);margin:0 2px}
+@media(max-width:700px){.sty{grid-template-columns:1fr}}
+.close2{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;padding:30px}
+.close2 .cp{text-align:center;border-left:1px solid var(--line-2);padding-left:24px}
+.close2 .cl.mini2 li{padding:10px 0;font-size:15px}
+@media(max-width:760px){.close2{grid-template-columns:1fr;padding:22px}.close2 .cp{border-left:0;border-top:1px solid var(--line-2);padding:20px 0 0}}
 </style>
 </head>
 <body>
@@ -554,7 +572,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 <div class="strip" id="strip">
   <div class="in">
     <span class="tag" id="stripTag">LAUNCH OFFER</span>
-    <span id="stripMsg">🇮🇳 Early-bird <b data-price>₹999</b> <s class="hs" data-reg>₹1,999</s> · price goes up in</span>
+    <span id="stripMsg">🇮🇳 Early-bird <b data-price>₹499</b> <s class="hs" data-reg>₹999</s> · price goes up in</span>
     <span class="timer" data-timer></span>
   </div>
 </div>
@@ -576,7 +594,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   </div></div>
   <div class="wall rv" id="heroWall" style="--d:.15s"><div class="track"></div></div>
   <div class="wrap">
-    <div class="rv"><a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹999</span><s data-reg>₹1,999</s></span></a></div>
+    <div class="rv"><a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹499</span><s data-reg>₹999</s></span></a></div>
     <div class="ok rv"><span>Instant download</span><span>Pay once</span><span>7-day guarantee</span><span>UPI accepted</span></div>
     <div class="stats rv">
       <div><b data-k="viewsK">2M</b><span data-k="periodLabel">views in 30 days</span></div>
@@ -596,13 +614,14 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       </div>
       <div class="pricecard">
         <span class="offchip" data-offchip>LAUNCH OFFER · 50% OFF</span>
-        <div class="was" data-was>Regular <s data-reg>₹1,999</s></div>
-        <div class="big" data-price>₹999</div>
+        <div class="was" data-was>Regular <s data-reg>₹999</s></div>
+        <div class="big" data-price>₹499</div>
         <div class="ladder" data-spotsbox>
-          <div class="step now"><span class="tg">LIVE NOW</span><b data-price>₹999</b><small>Early-bird · first <span data-spots-total>50</span> buyers</small></div>
+          <div class="step now"><span class="tg">LIVE NOW</span><b data-price>₹499</b><small>Early-bird · first <span data-spots-total>50</span> buyers</small></div>
           <div class="arr">→</div>
-          <div class="step"><span class="tg">NEXT</span><b data-regp>₹1,999</b><small>When launch ends</small></div>
+          <div class="step"><span class="tg">NEXT</span><b data-regp>₹999</b><small>When launch ends</small></div>
         </div>
+        <div class="claim" data-spotsbox><div class="lab"><span>Early-bird spots claimed</span><b><span data-claimed>0</span> / <span data-spots-total>25</span></b></div><div class="bar"><i data-bar></i></div></div>
         <div class="tierline" data-spotsbox><span class="dot"></span><span data-tiermsg>Early-bird price is only for the first 50 buyers</span></div>
         <a class="buy sm" data-buy href="#">Get the skill →</a>
         <div class="fine">Instant download · pay once</div>
@@ -706,7 +725,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   </div>
   <div class="wall rev rv" id="topicWall"><div class="track"></div></div>
   <div class="wrap c rv">
-    <a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹999</span><s data-reg>₹1,999</s></span></a>
+    <a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹499</span><s data-reg>₹999</s></span></a>
     <div class="ok"><span>7-day guarantee</span><span>UPI · GPay · PhonePe · cards</span></div>
   </div>
 </section>
@@ -767,6 +786,16 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   </div>
 </section>
 
+<!-- STYLES -->
+<section style="padding-top:12px">
+  <div class="wrap c">
+    <span class="eye rv">Included</span>
+    <h2 class="rv">3 styles. <span class="r">One price.</span></h2>
+    <p class="sub rv">Pick the look per reel. All three come in the same folder.</p>
+    <div class="sty" id="styles"></div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap c">
@@ -775,18 +804,20 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
     <div class="box price-main rv">
       <div class="head">
         <span class="offchip" data-offchip>LAUNCH OFFER · 50% OFF</span>
-        <div class="was" data-was>Regular price <s data-reg>₹1,999</s></div>
-        <div class="big"><span data-price>₹999</span><small>pay once</small></div>
+        <div class="was" data-was>Regular price <s data-reg>₹999</s></div>
+        <div class="big"><span data-price>₹499</span><small>pay once</small></div>
       </div>
       <div class="ladder wide" data-spotsbox>
-          <div class="step now"><span class="tg">LIVE NOW</span><b data-price>₹999</b><small>Early-bird · first <span data-spots-total>50</span> buyers</small></div>
+          <div class="step now"><span class="tg">LIVE NOW</span><b data-price>₹499</b><small>Early-bird · first <span data-spots-total>50</span> buyers</small></div>
           <div class="arr">→</div>
-          <div class="step"><span class="tg">NEXT</span><b data-regp>₹1,999</b><small>When launch ends</small></div>
+          <div class="step"><span class="tg">NEXT</span><b data-regp>₹999</b><small>When launch ends</small></div>
         </div>
+        <div class="claim" data-spotsbox><div class="lab"><span>Early-bird spots claimed</span><b><span data-claimed>0</span> / <span data-spots-total>25</span></b></div><div class="bar"><i data-bar></i></div></div>
         <div class="tierline" data-spotsbox><span class="dot"></span><span data-tiermsg>Early-bird price is only for the first 50 buyers</span></div>
       <div class="ptimer" data-ptimer>⏰ Launch price ends in <span class="timer" data-timer></span></div>
       <ul class="ticks">
-        <li>The full reel skill: style, scenes, captions, sound</li>
+        <li><span><b>All 3 styles</b>: classic, 3D, illustrated</span></li>
+        <li>The full reel skill: scenes, captions, sound</li>
         <li>Hook &amp; scripting playbook</li>
         <li>Guided setup, zero to first reel</li>
         <li>Unlimited reels for you, your brand and your clients</li>
@@ -844,11 +875,11 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       </ul>
     </div>
     <div class="box pcmp rv">
-      <div class="old"><s data-reg>₹1,999</s><span id="afterLbl">after launch</span></div>
-      <div class="new"><b data-price>₹999</b><span class="g">You save <span id="saveAmt">₹1,000</span></span></div>
+      <div class="old"><s data-reg>₹999</s><span id="afterLbl">after launch</span></div>
+      <div class="new"><b data-price>₹499</b><span class="g">You save <span id="saveAmt">₹1,000</span></span></div>
     </div>
     <div class="rv" style="margin-top:22px">
-      <a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹999</span></span></a>
+      <a class="buy" data-buy href="#">Get the skill <span class="px"><span data-price>₹499</span></span></a>
       <div class="fine">Instant download · pay once · UPI accepted</div>
     </div>
   </div>
@@ -865,7 +896,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       <details><summary>What do I need?</summary><p>A paid Claude plan (Pro or Max), a laptop (Mac or Windows) and internet. A free voiceover account works to start.</p></details>
       <details><summary>Do I need to record my voice or be on camera?</summary><p>No. The reels are fully animated with an AI voice. You can use your own voice if you want.</p></details>
       <details><summary>Can I use it for clients?</summary><p>Yes. Reels you make are yours to post and sell. You just can't resell or share the skill.</p></details>
-      <details><summary>What is the launch offer?</summary><p>The first <span data-spots-total>50</span> buyers get it for <span data-price>₹999</span> instead of <span data-reg>₹1,999</span>. Once 50 spots are taken or the timer ends, whichever comes first, the price goes back to <span data-reg>₹1,999</span>.</p></details>
+      <details><summary>What is the launch offer?</summary><p>The first <span data-spots-total>50</span> buyers get it for <span data-price>₹499</span> instead of <span data-reg>₹999</span>. Once 50 spots are taken or the timer ends, whichever comes first, the price goes back to <span data-reg>₹999</span>.</p></details>
       <details><summary>How do I pay?</summary><p>UPI (GPay, PhonePe, Paytm), debit/credit cards or netbanking, through a secure checkout. You get the download link instantly on screen and by email.</p></details>
       <details><summary>Will my reels perform like mine?</summary><p>I can't promise views. They depend on your topics and consistency. What the skill does is make a polished animated reel take minutes instead of hours, so you can post far more often.</p></details>
     </div>
@@ -874,14 +905,20 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 
 <!-- CLOSE -->
 <section style="padding-top:12px">
-  <div class="wrap c mid">
-    <h2 class="rv">You've read this far <span class="r">for a reason.</span></h2>
-    <p class="sub rv">Maybe you want to grow your page. Maybe you want to grow your business. Or maybe you just want videos that finally look as good as your ideas.</p>
-    <p class="sub rv"><b>Your first reel can be up tonight, and if you can't make it work, you have 7 days to get your money back.</b></p>
-    <div class="rv" style="margin-top:28px">
-      <div class="big" data-price>₹999</div>
-      <a class="buy sm" data-buy href="#" style="margin-top:10px">Get the skill →</a>
-      <div class="fine">Instant download · pay once · 7-day guarantee</div>
+  <div class="wrap">
+    <div class="box close2 rv">
+      <div class="ct">
+        <span class="eye">Last thing</span>
+        <h2>You've read this far <span class="r">for a reason.</span></h2>
+        <p class="sub">Grow your page, grow your business, or just make videos that finally look as good as your ideas. Your first reel can be up tonight.</p>
+        <ul class="cl mini2"><li>3 styles, one price</li><li>Instant download</li><li>7-day money-back guarantee</li></ul>
+      </div>
+      <div class="cp">
+        <div class="was" data-was>Regular <s data-reg>₹999</s></div>
+        <div class="big" data-price>₹499</div>
+        <a class="buy" data-buy href="#">Get the skill →</a>
+        <div class="fine">Pay once · UPI accepted</div>
+      </div>
     </div>
   </div>
 </section>
@@ -897,7 +934,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 </footer>
 
 <div class="sticky" id="sticky">
-  <div class="p"><b data-price>₹999</b><s data-reg>₹1,999</s><small id="stickyMsg">Early-bird price · ends soon</small></div>
+  <div class="p"><b data-price>₹499</b><s data-reg>₹999</s><small id="stickyMsg">Early-bird price · ends soon</small></div>
   <a class="buy" data-buy href="#">Get the skill</a>
 </div>
 
@@ -913,13 +950,19 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
    reels: add your reels (video/thumb in /assets, url, views...).
    ============================================================== */
 const CONFIG = {
-  price: 999, regular: 1999,
-  spotsTotal: 50, spotsClaimed: 0,
+  price: 499, regular: 999,
+  spotsTotal: 25, spotsClaimed: 0,   /* set spotsClaimed to your REAL sales count (e.g. 6) */
   offerEnds: "2026-11-30T23:59:00+05:30",
   logo: "assets/logo.svg",  /* replace with your real logo file, e.g. "assets/logo.png" */
   /* Your skill folder. Count the real files and fill these in (they show on the page). */
   skillFolder: { name:"reel-skill", files:"", size:"",
     folders:[ {n:"engine", c:""}, {n:"scenes", c:""}, {n:"captions", c:""}, {n:"sound", c:""}, {n:"guides", c:""}, {n:"bonus", c:""} ] },
+  /* The 3 styles in the skill (name + one line). */
+  styles: [
+    { n:"Classic", d:"Paper-cutout explainer, stamps and price tags", c:"#f4efe4", f:"#ff3b3b" },
+    { n:"3D", d:"Depth, bloom and camera moves for big reveals", c:"#1d2a6b", f:"#7cc4ff" },
+    { n:"Illustrated", d:"Cartoon presenter and hand-drawn scenes", c:"#ffe08a", f:"#1b1a17" },
+  ],
   theme: "navy",      /* "navy" | "teal" | "indigo"  — preview any: add ?themes to the URL */
   checkout: "",
   supportEmail: "",   /* e.g. "support@yourdomain.com" (also fill it in policies.html) */
@@ -989,6 +1032,7 @@ function paint(){
   $$("[data-price]").forEach(e => e.textContent = inr(now));
   $$("[data-reg]").forEach(e => { e.textContent = inr(CONFIG.regular); if (!live && e.tagName === "S") e.style.display = "none"; });
   $$("[data-left]").forEach(e => e.textContent = left);
+  $$("[data-claimed]").forEach(e => e.textContent = CONFIG.spotsClaimed);
   $$("[data-spots-total]").forEach(e => e.textContent = CONFIG.spotsTotal);
   $$("[data-offchip]").forEach(e => e.textContent = `LAUNCH OFFER · ${off}% OFF`);
   $$("[data-bar]").forEach(e => setTimeout(() => e.style.width = (CONFIG.spotsClaimed / CONFIG.spotsTotal * 100) + "%", 400));
@@ -1124,6 +1168,9 @@ miniTick(); setInterval(miniTick, 1000);
   document.querySelectorAll("[data-fcount]").forEach(e => e.textContent = n ? `${n} files` : "one folder");
   const d = $("#dirs2"); if (d) d.innerHTML = (f.folders || []).map(x => `<div><svg class="fi" viewBox="0 0 48 40" aria-hidden="true"><path d="M3 6a4 4 0 0 1 4-4h11l5 5h18a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#3a8bff"/><path d="M3 13h42v21a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" fill="#5aa2ff"/></svg><span><b>${esc(x.n)}</b><small>${x.c ? esc(x.c) + " files" : "folder"}</small></span></div>`).join("");
 })();
+
+/* styles */
+{ const g = $("#styles"); if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="box st2 rv" style="--d:${i * .06}s"><div class="sw" style="--c:${esc(x.c)};--f:${esc(x.f)}"><b>${esc(x.n)}</b><i></i><i></i><u><em></em><em></em><em></em></u></div><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
 
 /* logo */
 { const l = $("#logoImg"), lp = safePath(CONFIG.logo); if (l && lp) l.src = lp; }
