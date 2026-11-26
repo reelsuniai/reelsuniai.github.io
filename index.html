@@ -625,7 +625,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
     <div class="stats rv">
       <div><b data-k="viewsK">2M</b><span data-k="periodLabel">views in 30 days</span></div>
       <div><b data-k="followersK">7K+</b><span>followers</span></div>
-      <div><b data-k="topReel">136K</b><span>views on one reel</span></div>
+      <div><b data-k="topReel">150K</b><span>views on one reel</span></div>
     </div>
 
     <div class="box offerbox rv">
@@ -678,7 +678,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       </div>
       <div class="igs">
         <div><span class="lab">Followers</span><b class="num" id="dFollowers">7,000+</b><em class="chg" id="dFollowersChg"></em></div>
-        <div id="dNetBox"><span class="lab" id="dNetLab">Top reel</span><b class="num r" id="dNet">136K</b><em class="sub2" id="dNetSub">views on one reel</em></div>
+        <div id="dNetBox"><span class="lab" id="dNetLab">Top reel</span><b class="num r" id="dNet">150K</b><em class="sub2" id="dNetSub">views on one reel</em></div>
       </div>
     </div>
     <div class="rcards" id="rcards"></div>
@@ -718,7 +718,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       </div>
       <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a></h2>
       <p>I run ShortsUniversity, a small page about Claude and AI tools. I didn't want to spend my evenings in a video editor, so I built a Claude skill: I type one line about a topic, and it writes, voices and animates the whole reel.</p>
-      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">4M views</b>, and the page passed <b data-k="followersK">7K+</b> followers. I still haven't edited a single frame.</p>
+      <p>My Opus Clip reel got <b data-k="topReel">150K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">4M views</b>, and the page passed <b data-k="followersK">7K+</b> followers. I still haven't edited a single frame.</p>
       <p>I'm not a big creator or a video pro. That's the point: <b>if it works for a small page like mine, it can work for yours.</b></p>
     </div>
   </div>
@@ -955,7 +955,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
     <p class="fr1">The Reel Skill · <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a> · <a href="policies.html#contact">Support</a></p>
     <p>7-day guarantee. Licensed for your own and your clients' videos. Reselling or sharing the skill is not allowed.</p>
     <p>Results vary. Numbers shown are from my own Instagram, not a promise of income or growth.</p>
-    <p class="fr3"><a href="policies.html#terms">Terms</a> · <a href="policies.html#privacy">Privacy</a> · <a href="policies.html#refund">Refunds</a> · © <span id="yr">2026</span> ShortsUniversity</p>
+    <p class="fr3">© <span id="yr">2026</span> ShortsUniversity</p>
   </div>
 </footer>
 
@@ -1004,17 +1004,17 @@ const CONFIG = {
   stats: {                                       // must match your real Instagram dashboard
     viewsShort: "4M views", viewsK: "4M", viewsFull: "4,000,000+", period: "30 days",
     periodLabel: "views in 30 days", periodLabelCap: "Views · last 30 days",
-    followers: "7K", followersFull: "7,000+", followersK: "7K+", topReel: "136K",
+    followers: "7K", followersFull: "7,000+", followersK: "7K+", topReel: "150K",
   },
   /* Your reels for the slider. id = the part after /reel/ in the link.
      Covers live in assets/reels/<id>.jpg (or set cover:"...").
      To make a reel AUTOPLAY, add its MP4: video:"assets/reel1.mp4" (Instagram's player can't autoplay). */
   reels: [
     /* video/cover live in assets/reels/<id>.mp4 / .jpg. Fill saves, comments, follows from each reel's Insights. */
-    { id:"Dfpe1dpSizS", title:"Free Opus Clip alternative", views:"136K",  saves:"", comments:"", follows:"" },
+    { id:"Dfpe1dpSizS", title:"Free Opus Clip alternative", views:"150K",  saves:"", comments:"", follows:"" },
     { id:"", video:"assets/reels/gta3d.mp4", cover:"assets/reels/gta3d.jpg", title:"GTA 6 3D explainer", views:"", saves:"", comments:"", follows:"" },
-    { id:"DfdySUsxaFu", title:"One prompt, full YouTube video", views:"67.3K", saves:"", comments:"", follows:"" },
-    { id:"Dfp2HztSljP", title:"Stop paying for these 4 apps", views:"", saves:"", comments:"", follows:"" },
+    { id:"DfdySUsxaFu", title:"One prompt, full YouTube video", views:"72.4K", saves:"", comments:"", follows:"" },
+    { id:"Dfp2HztSljP", title:"Stop paying for these 4 apps", views:"60.7K", saves:"", comments:"", follows:"" },
     { id:"Dfn6Kg0Sr1x", title:"Full movie scenes, free", views:"", saves:"", comments:"", follows:"" },
     { id:"Dfw8xJjyttY", title:"GTA 6 free", views:"", saves:"", comments:"", follows:"" },
     { id:"", video:"assets/reels/3d.mp4", cover:"assets/reels/3d.jpg", title:"3D style", views:"", saves:"", comments:"", follows:"" },   /* add its reel id to make the tap open it */
@@ -1104,7 +1104,7 @@ const phone = (r, badge) => `<a class="phone" style="--poster:url('${esc(csrc(r)
 (function(){
   const g = $("#rcards"); if (!g) return;
   const line = (v, l) => v ? `<div><b>${esc(v)}</b>${l}</div>` : "";
-  g.innerHTML = CONFIG.reels.slice(0, 3).map((r, i) => `<div class="box rcard rv" style="--d:${i * .07}s">${phone(r, false)}
+  g.innerHTML = ["Dfpe1dpSizS", "DfdySUsxaFu", "Dfp2HztSljP"].map(id => CONFIG.reels.find(r => r.id === id)).filter(Boolean).map((r, i) => `<div class="box rcard rv" style="--d:${i * .07}s">${phone(r, false)}
     <div class="vw"><b>${esc(r.views || "–")}</b><span>views</span></div>
     ${(r.saves || r.comments || r.follows) ? `<div class="st">${line(r.saves, "saves")}${line(r.comments, "comments")}${line(r.follows, "follows")}</div>` : ""}</div>`).join("");
 })();
