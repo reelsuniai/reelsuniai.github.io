@@ -561,6 +561,10 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .close2 .cp{text-align:center;border-left:1px solid var(--line-2);padding-left:24px}
 .close2 .cl.mini2 li{padding:10px 0;font-size:15px}
 @media(max-width:760px){.close2{grid-template-columns:1fr;padding:22px}.close2 .cp{border-left:0;border-top:1px solid var(--line-2);padding:20px 0 0}}
+.st2 .sw.vid{position:relative;padding:0;overflow:hidden}
+.st2 .sw.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.st2 .sw.vid b{position:relative;z-index:1;margin:12px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.st2 .sw.vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 </style>
 </head>
 <body>
@@ -598,7 +602,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
     <div class="ok rv"><span>Instant download</span><span>Pay once</span><span>7-day guarantee</span><span>UPI accepted</span></div>
     <div class="stats rv">
       <div><b data-k="viewsK">2M</b><span data-k="periodLabel">views in 30 days</span></div>
-      <div><b data-k="followersK">10K+</b><span>followers</span></div>
+      <div><b data-k="followersK">7K+</b><span>followers</span></div>
       <div><b data-k="topReel">136K</b><span>views on one reel</span></div>
     </div>
 
@@ -651,7 +655,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
         <div class="axis"><span id="dFrom"></span><span id="dTo"></span></div>
       </div>
       <div class="igs">
-        <div><span class="lab">Followers</span><b class="num" id="dFollowers">10,000+</b><em class="chg" id="dFollowersChg"></em></div>
+        <div><span class="lab">Followers</span><b class="num" id="dFollowers">7,000+</b><em class="chg" id="dFollowersChg"></em></div>
         <div id="dNetBox"><span class="lab" id="dNetLab">Top reel</span><b class="num r" id="dNet">136K</b><em class="sub2" id="dNetSub">views on one reel</em></div>
       </div>
     </div>
@@ -692,7 +696,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       </div>
       <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a></h2>
       <p>I run ShortsUniversity, a small page about Claude and AI tools. I didn't want to spend my evenings in a video editor, so I built a Claude skill: I type one line about a topic, and it writes, voices and animates the whole reel.</p>
-      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">4M views</b>, and the page passed <b data-k="followersK">10K+</b> followers. I still haven't edited a single frame.</p>
+      <p>My Opus Clip reel got <b data-k="topReel">136K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">4M views</b>, and the page passed <b data-k="followersK">7K+</b> followers. I still haven't edited a single frame.</p>
       <p>I'm not a big creator or a video pro. That's the point: <b>if it works for a small page like mine, it can work for yours.</b></p>
     </div>
   </div>
@@ -960,7 +964,7 @@ const CONFIG = {
   /* The 3 styles in the skill (name + one line). */
   styles: [
     { n:"Classic", d:"Paper-cutout explainer, stamps and price tags", c:"#f4efe4", f:"#ff3b3b" },
-    { n:"3D", d:"Depth, bloom and camera moves for big reveals", c:"#1d2a6b", f:"#7cc4ff" },
+    { n:"3D", d:"Depth, bloom and camera moves for big reveals", c:"#1d2a6b", f:"#7cc4ff", video:"assets/reels/3d.mp4", cover:"assets/reels/3d.jpg" },
     { n:"Illustrated", d:"Cartoon presenter and hand-drawn scenes", c:"#ffe08a", f:"#1b1a17" },
   ],
   theme: "navy",      /* "navy" | "teal" | "indigo"  — preview any: add ?themes to the URL */
@@ -974,11 +978,11 @@ const CONFIG = {
   demoVideo: "", demoPoster: "", demoLength: "30s",
   /* Instagram dashboard card (copy from Insights). Leave a field "" to hide that line. */
   dash: { handle:"@reelsuniai", range:"Last 30 days", views:"4,000,000+", viewsChange:"", from:"", to:"",
-          followers:"10,000+", followersChange:"", net:"", netLabel:"in 30 days", date:"" },
+          followers:"7,000+", followersChange:"", net:"", netLabel:"in 30 days", date:"" },
   stats: {                                       // must match your real Instagram dashboard
     viewsShort: "4M views", viewsK: "4M", viewsFull: "4,000,000+", period: "30 days",
     periodLabel: "views in 30 days", periodLabelCap: "Views · last 30 days",
-    followers: "10K", followersFull: "10,000+", followersK: "10K+", topReel: "136K",
+    followers: "7K", followersFull: "7,000+", followersK: "7K+", topReel: "136K",
   },
   /* Your reels for the slider. id = the part after /reel/ in the link.
      Covers live in assets/reels/<id>.jpg (or set cover:"...").
@@ -990,6 +994,7 @@ const CONFIG = {
     { id:"Dfp2HztSljP", title:"Stop paying for these 4 apps", views:"", saves:"", comments:"", follows:"" },
     { id:"Dfn6Kg0Sr1x", title:"Full movie scenes, free", views:"", saves:"", comments:"", follows:"" },
     { id:"Dfw8xJjyttY", title:"GTA 6 free", views:"", saves:"", comments:"", follows:"" },
+    { id:"", video:"assets/reels/3d.mp4", cover:"assets/reels/3d.jpg", title:"3D style", views:"", saves:"", comments:"", follows:"" },   /* add its reel id to make the tap open it */
   ],
 };
 
@@ -1170,7 +1175,7 @@ miniTick(); setInterval(miniTick, 1000);
 })();
 
 /* styles */
-{ const g = $("#styles"); if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="box st2 rv" style="--d:${i * .06}s"><div class="sw" style="--c:${esc(x.c)};--f:${esc(x.f)}"><b>${esc(x.n)}</b><i></i><i></i><u><em></em><em></em><em></em></u></div><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
+{ const g = $("#styles"); if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="box st2 rv" style="--d:${i * .06}s">${safePath(x.video) ? `<div class="sw vid" style="--c:${esc(x.c)}"><video src="${esc(safePath(x.video))}" poster="${esc(safePath(x.cover))}" muted loop playsinline autoplay preload="metadata"></video><b>${esc(x.n)}</b></div>` : `<div class="sw" style="--c:${esc(x.c)};--f:${esc(x.f)}"><b>${esc(x.n)}</b><i></i><i></i><u><em></em><em></em><em></em></u></div>`}<h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
 
 /* logo */
 { const l = $("#logoImg"), lp = safePath(CONFIG.logo); if (l && lp) l.src = lp; }
@@ -1215,7 +1220,7 @@ miniTick(); setInterval(miniTick, 1000);
   let imgMode = false;
   const useImages = () => {
     if (imgMode) return; imgMode = true;
-    document.querySelectorAll(".phone video").forEach(v => {
+    document.querySelectorAll(".phone video, .st2 video").forEach(v => {
       const src = (v.dataset.src || v.getAttribute("src") || "").replace(/\.mp4(\?.*)?$/, ".webp"); if (!/\.webp$/.test(src)) return;
       const img = new Image(); img.alt = ""; img.decoding = "async";
       img.onload = () => { const show = () => img.classList.add("on"); (img.decode ? img.decode().then(show, show) : show()); };   // only show once fully downloaded
@@ -1225,18 +1230,26 @@ miniTick(); setInterval(miniTick, 1000);
     });
   };
   if (window.LOWDATA) return;
-  const play = v => { if (imgMode) return; v.muted = true; const p = v.play(); if (p) p.catch(err => { if (err && err.name === "NotAllowedError") useImages(); }); };
+  const play = v => { if (imgMode) return; if (!v.src && v.dataset.src){ v.preload = "auto"; v.src = v.dataset.src; } v.muted = true; const p = v.play(); if (p) p.catch(err => { if (err && err.name === "NotAllowedError") useImages(); else if (err && err.name === "AbortError") v.addEventListener("canplay", () => { if (v.paused) play(v); }, {once:true}); }); };
   const load = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) e.target.querySelectorAll("video").forEach(v => { if (!v.src){ v.preload = "auto"; v.src = v.dataset.src; } });
   }), {rootMargin:"600px 0px"});
   const run = new IntersectionObserver(es => es.forEach(e => {
     e.target.querySelectorAll("video").forEach(v => { if (e.isIntersecting){ if (v.paused) play(v); } else if (!v.paused) v.pause(); });
-    if (e.isIntersecting && !imgMode) setTimeout(() => {               // watchdog: on screen but still frozen? -> images
-      if (imgMode) return;
-      const r = e.target.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
-      const vs = [...e.target.querySelectorAll("video")].filter(v => v.src);
-      if (vs.length && vs.every(v => v.paused || v.currentTime === 0)) useImages();
-    }, 3500);
+    if (e.isIntersecting && !imgMode && !e.target.dataset.wd){        // watchdog: loaded but never plays -> blocked -> images
+      e.target.dataset.wd = 1; let strikes = 0, tries = 0;
+      const check = () => {
+        if (imgMode || ++tries > 8) return;
+        const rr = e.target.getBoundingClientRect();
+        if (rr.bottom < 0 || rr.top > innerHeight){ tries--; e.target.dataset.wd = ""; return; }   // scrolled away: judge again next time it is on screen
+        const vs = [...e.target.querySelectorAll("video")].filter(v => v.src);
+        if (vs.some(v => !v.paused && v.currentTime > 0)) return;                 // playing fine
+        if (vs.some(v => v.readyState >= 2)) strikes++;                             // has data but frozen
+        if (strikes >= 2) return useImages();
+        setTimeout(check, 1500);
+      };
+      setTimeout(check, 2500);
+    }
   }), {rootMargin:"0px 0px", threshold:0});
   groups.forEach(g => { load.observe(g); run.observe(g); });
   const kick = () => groups.forEach(g => { const r = g.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) g.querySelectorAll("video").forEach(v => { if (v.src && v.paused) play(v); }); });
