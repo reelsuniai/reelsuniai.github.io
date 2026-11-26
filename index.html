@@ -568,6 +568,25 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .st2 .sw.vid{aspect-ratio:9/16;background:#000}
 .st2 .sw.vid .nm{position:absolute;left:10px;top:10px;margin:0;z-index:2;white-space:nowrap;max-width:calc(100% - 16px);overflow:hidden;text-overflow:ellipsis;background:rgba(0,0,0,.62);color:#fff;border-radius:999px;padding:5px 12px;font:800 13px var(--font);text-shadow:none}
 @media(max-width:700px){.sty{grid-template-columns:repeat(3,1fr);gap:8px}.st2{padding:6px 6px 10px}.st2 h3{font-size:14px;margin:8px 2px 2px}.st2 p{font-size:11.5px;line-height:1.35}.st2 .sw.vid .nm{font-size:10.5px;padding:3px 8px;left:6px;top:6px}}
+
+/* styles: full-screen stacking panels */
+.sty{display:block;margin-top:24px;text-align:left}
+.sp{position:-webkit-sticky;position:sticky;top:0;height:100vh;height:100svh;min-height:560px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,var(--g-top),var(--g-mid) 70%);border-top:1px solid var(--line-2);border-radius:28px 28px 0 0;box-shadow:0 -24px 50px -20px rgba(0,0,0,.7)}
+.spin{display:flex;align-items:center;gap:48px;width:min(980px,92vw)}
+.svid{position:relative;flex:none;height:min(80svh,760px);height:min(80vh,760px);aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000 center/cover no-repeat;box-shadow:0 30px 70px -20px #000,0 0 0 1px var(--line-2)}
+.svid video,.svid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svid .nm{position:absolute;left:12px;top:12px;z-index:2;background:rgba(0,0,0,.62);color:#fff;border-radius:999px;padding:6px 14px;font:800 14px var(--font);white-space:nowrap}
+.stx .eye{margin-bottom:10px}
+.stx h3{font:800 clamp(36px,5.5vw,64px)/1 var(--font);letter-spacing:-.035em}
+.stx p{font-size:clamp(16px,1.8vw,19px);color:var(--ink-2);margin-top:14px;max-width:420px}
+.stx .nx{display:inline-block;margin-top:22px;font:700 14px var(--font);color:var(--ink-3)}
+.stx .nx.go{color:var(--acc)}
+@media(max-width:760px){
+  .spin{flex-direction:column;gap:14px;text-align:center}
+  .svid{height:62vh;height:62svh}
+  .stx h3{font-size:34px}.stx p{margin:8px auto 0;font-size:15.5px}.stx .nx{margin-top:10px}
+}
 </style>
 </head>
 <body>
@@ -798,9 +817,9 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   <div class="wrap c">
     <span class="eye rv">Included</span>
     <h2 class="rv">3 styles. <span class="r">One price.</span></h2>
-    <p class="sub rv">Pick the look per reel. All three come in the same folder.</p>
-    <div class="sty" id="styles"></div>
+    <p class="sub rv">Pick the look per reel. All three come in the same folder. Scroll to see each one.</p>
   </div>
+  <div class="sty" id="styles"></div>
 </section>
 
 <!-- PRICING -->
@@ -968,7 +987,7 @@ const CONFIG = {
   styles: [
     { n:"Classic", d:"Paper-cutout explainer with stamps, price tags and a cartoon presenter", video:"assets/reels/style-classic.mp4", cover:"assets/reels/style-classic.jpg" },
     { n:"3D", d:"Depth, light and camera moves for big product and tech reveals", video:"assets/reels/style-3d.mp4", cover:"assets/reels/style-3d.jpg" },
-    { n:"Minimal Dark", d:"Clean dark tech explainer with labels and callouts", video:"assets/reels/style-minimal.mp4", cover:"assets/reels/style-minimal.jpg" },
+    { n:"Illustrated", d:"Hand-drawn scenes with a cartoon presenter that reacts to every line", video:"assets/reels/style-illustrated.mp4", cover:"assets/reels/style-illustrated.jpg" },
   ],
   theme: "navy",      /* "navy" | "teal" | "indigo"  — preview any: add ?themes to the URL */
   checkout: "",
@@ -993,6 +1012,7 @@ const CONFIG = {
   reels: [
     /* video/cover live in assets/reels/<id>.mp4 / .jpg. Fill saves, comments, follows from each reel's Insights. */
     { id:"Dfpe1dpSizS", title:"Free Opus Clip alternative", views:"136K",  saves:"", comments:"", follows:"" },
+    { id:"", video:"assets/reels/gta3d.mp4", cover:"assets/reels/gta3d.jpg", title:"GTA 6 3D explainer", views:"", saves:"", comments:"", follows:"" },
     { id:"DfdySUsxaFu", title:"One prompt, full YouTube video", views:"67.3K", saves:"", comments:"", follows:"" },
     { id:"Dfp2HztSljP", title:"Stop paying for these 4 apps", views:"", saves:"", comments:"", follows:"" },
     { id:"Dfn6Kg0Sr1x", title:"Full movie scenes, free", views:"", saves:"", comments:"", follows:"" },
@@ -1179,7 +1199,10 @@ miniTick(); setInterval(miniTick, 1000);
 })();
 
 /* styles */
-{ const g = $("#styles"); if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="box st2 rv" style="--d:${i * .06}s">${safePath(x.video) ? `<div class="sw vid"><video data-src="${esc(safePath(x.video))}" poster="${esc(safePath(x.cover))}" muted loop playsinline preload="none"></video><b class="nm">${esc(x.n)} style</b></div>` : `<div class="sw" style="--c:${esc(x.c)};--f:${esc(x.f)}"><b>${esc(x.n)}</b><i></i><i></i><u><em></em><em></em><em></em></u></div>`}<h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
+{ const g = $("#styles"); const L = (CONFIG.styles || []).length; if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="sp" style="--i:${i}"><div class="spin rv">
+    <div class="svid"><video data-src="${esc(safePath(x.video))}" poster="${esc(safePath(x.cover))}" muted loop playsinline preload="none"></video><b class="nm">${esc(x.n)} style</b></div>
+    <div class="stx"><span class="eye">${String(i + 1).padStart(2, "0")} / ${String(L).padStart(2, "0")}</span><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p>${i < L - 1 ? '<span class="nx">Scroll for the next style ↓</span>' : '<a class="nx go" href="#pricing">All 3 for one price ↓</a>'}</div>
+  </div></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
 
 /* logo */
 { const l = $("#logoImg"), lp = safePath(CONFIG.logo); if (l && lp) l.src = lp; }
@@ -1217,14 +1240,14 @@ miniTick(); setInterval(miniTick, 1000);
    If the browser blocks autoplay (Claude app / some in-app browsers / iPhone Low Power Mode),
    swap every clip for an animated image of the same 5 seconds — images always play. */
 (function(){
-  const vids = [...document.querySelectorAll(".phone video, .st2 video")];
+  const vids = [...document.querySelectorAll(".phone video, .svid video")];
   vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.setAttribute("muted", ""); v.playsInline = true;
     v.addEventListener("loadeddata", () => v.classList.add("on"), {once:true}); v.addEventListener("playing", () => v.classList.add("on"), {once:true}); });
   const groups = [...document.querySelectorAll("#heroWall, #topicWall, #rcards, #styles")];
   let imgMode = false;
   const useImages = () => {
     if (imgMode) return; imgMode = true;
-    document.querySelectorAll(".phone video, .st2 video").forEach(v => {
+    document.querySelectorAll(".phone video, .svid video").forEach(v => {
       const src = (v.dataset.src || v.getAttribute("src") || "").replace(/\.mp4(\?.*)?$/, ".webp"); if (!/\.webp$/.test(src)) return;
       const img = new Image(); img.alt = ""; img.decoding = "async";
       img.onload = () => { const show = () => img.classList.add("on"); (img.decode ? img.decode().then(show, show) : show()); };   // only show once fully downloaded
