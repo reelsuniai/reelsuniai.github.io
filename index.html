@@ -565,6 +565,9 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .st2 .sw.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .st2 .sw.vid b{position:relative;z-index:1;margin:12px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6)}
 .st2 .sw.vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.st2 .sw.vid{aspect-ratio:9/16;background:#000}
+.st2 .sw.vid .nm{position:absolute;left:10px;top:10px;margin:0;z-index:2;white-space:nowrap;max-width:calc(100% - 16px);overflow:hidden;text-overflow:ellipsis;background:rgba(0,0,0,.62);color:#fff;border-radius:999px;padding:5px 12px;font:800 13px var(--font);text-shadow:none}
+@media(max-width:700px){.sty{grid-template-columns:repeat(3,1fr);gap:8px}.st2{padding:6px 6px 10px}.st2 h3{font-size:14px;margin:8px 2px 2px}.st2 p{font-size:11.5px;line-height:1.35}.st2 .sw.vid .nm{font-size:10.5px;padding:3px 8px;left:6px;top:6px}}
 </style>
 </head>
 <body>
@@ -963,9 +966,9 @@ const CONFIG = {
     folders:[ {n:"engine", c:""}, {n:"scenes", c:""}, {n:"captions", c:""}, {n:"sound", c:""}, {n:"guides", c:""}, {n:"bonus", c:""} ] },
   /* The 3 styles in the skill (name + one line). */
   styles: [
-    { n:"Classic", d:"Paper-cutout explainer, stamps and price tags", c:"#f4efe4", f:"#ff3b3b" },
-    { n:"3D", d:"Depth, bloom and camera moves for big reveals", c:"#1d2a6b", f:"#7cc4ff", video:"assets/reels/3d.mp4", cover:"assets/reels/3d.jpg" },
-    { n:"Illustrated", d:"Cartoon presenter and hand-drawn scenes", c:"#ffe08a", f:"#1b1a17" },
+    { n:"Classic", d:"Paper-cutout explainer with stamps, price tags and a cartoon presenter", video:"assets/reels/style-classic.mp4", cover:"assets/reels/style-classic.jpg" },
+    { n:"3D", d:"Depth, light and camera moves for big product and tech reveals", video:"assets/reels/style-3d.mp4", cover:"assets/reels/style-3d.jpg" },
+    { n:"Minimal Dark", d:"Clean dark tech explainer with labels and callouts", video:"assets/reels/style-minimal.mp4", cover:"assets/reels/style-minimal.jpg" },
   ],
   theme: "navy",      /* "navy" | "teal" | "indigo"  — preview any: add ?themes to the URL */
   checkout: "",
@@ -995,6 +998,7 @@ const CONFIG = {
     { id:"Dfn6Kg0Sr1x", title:"Full movie scenes, free", views:"", saves:"", comments:"", follows:"" },
     { id:"Dfw8xJjyttY", title:"GTA 6 free", views:"", saves:"", comments:"", follows:"" },
     { id:"", video:"assets/reels/3d.mp4", cover:"assets/reels/3d.jpg", title:"3D style", views:"", saves:"", comments:"", follows:"" },   /* add its reel id to make the tap open it */
+    { id:"", video:"assets/reels/minimal.mp4", cover:"assets/reels/minimal.jpg", title:"Minimal Dark style", views:"", saves:"", comments:"", follows:"" },
   ],
 };
 
@@ -1175,7 +1179,7 @@ miniTick(); setInterval(miniTick, 1000);
 })();
 
 /* styles */
-{ const g = $("#styles"); if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="box st2 rv" style="--d:${i * .06}s">${safePath(x.video) ? `<div class="sw vid" style="--c:${esc(x.c)}"><video src="${esc(safePath(x.video))}" poster="${esc(safePath(x.cover))}" muted loop playsinline autoplay preload="metadata"></video><b>${esc(x.n)}</b></div>` : `<div class="sw" style="--c:${esc(x.c)};--f:${esc(x.f)}"><b>${esc(x.n)}</b><i></i><i></i><u><em></em><em></em><em></em></u></div>`}<h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
+{ const g = $("#styles"); if (g) g.innerHTML = (CONFIG.styles || []).map((x, i) => `<div class="box st2 rv" style="--d:${i * .06}s">${safePath(x.video) ? `<div class="sw vid"><video data-src="${esc(safePath(x.video))}" poster="${esc(safePath(x.cover))}" muted loop playsinline preload="none"></video><b class="nm">${esc(x.n)} style</b></div>` : `<div class="sw" style="--c:${esc(x.c)};--f:${esc(x.f)}"><b>${esc(x.n)}</b><i></i><i></i><u><em></em><em></em><em></em></u></div>`}<h3>${esc(x.n)}</h3><p>${esc(x.d)}</p></div>`).join(""); g && g.querySelectorAll(".rv").forEach(el => (typeof io !== "undefined" && io.observe) ? io.observe(el) : el.classList.add("in")); }
 
 /* logo */
 { const l = $("#logoImg"), lp = safePath(CONFIG.logo); if (l && lp) l.src = lp; }
@@ -1213,10 +1217,10 @@ miniTick(); setInterval(miniTick, 1000);
    If the browser blocks autoplay (Claude app / some in-app browsers / iPhone Low Power Mode),
    swap every clip for an animated image of the same 5 seconds — images always play. */
 (function(){
-  const vids = [...document.querySelectorAll(".phone video")];
+  const vids = [...document.querySelectorAll(".phone video, .st2 video")];
   vids.forEach(v => { v.muted = true; v.defaultMuted = true; v.setAttribute("muted", ""); v.playsInline = true;
     v.addEventListener("loadeddata", () => v.classList.add("on"), {once:true}); v.addEventListener("playing", () => v.classList.add("on"), {once:true}); });
-  const groups = [...document.querySelectorAll("#heroWall, #topicWall, #rcards")];
+  const groups = [...document.querySelectorAll("#heroWall, #topicWall, #rcards, #styles")];
   let imgMode = false;
   const useImages = () => {
     if (imgMode) return; imgMode = true;
