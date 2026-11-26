@@ -1,0 +1,9 @@
+skill/
+videos/*/build/*
+!videos/*/build/words.json
+!videos/*/build/word_index.txt
+videos/*/stills/t*.jpg
+node_modules/
+CLAUDE.md
+AGENTS.md
+.claude/

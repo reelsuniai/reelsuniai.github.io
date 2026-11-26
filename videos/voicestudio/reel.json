@@ -1,0 +1,59 @@
+{
+  "style": "classic",
+  "name": "VoiceStudio",
+  "cta": {
+    "keyword": "VOICE"
+  },
+  "presenter": {
+    "skin": "fair",
+    "hair": "crop",
+    "hairColor": "black",
+    "beard": "none",
+    "beanie": false,
+    "cap": true,
+    "capColor": "#151515",
+    "capPatch": true,
+    "glasses": true,
+    "glassesStyle": "round",
+    "glassesColor": "#111111",
+    "glassesW": 6,
+    "top": "overshirt",
+    "topColor": "#B5462E",
+    "innerColor": "#1F2024",
+    "accessories": [
+      "necklace"
+    ],
+    "face": "young",
+    "dock": {
+      "x": 870,
+      "y": 2045,
+      "s": 0.84
+    },
+    "beardColor": "black",
+    "sunglasses": false,
+    "freckles": false,
+    "blush": false,
+    "mole": false
+  },
+  "captions": {
+    "emphasize": []
+  },
+  "theme": {
+    "accent": "#FF3B1F",
+    "paper": "#EBE8E7"
+  },
+  "ui": {
+    "sentLink": "here's the link"
+  },
+  "voice": {
+    "voice_id": "y0s2ExEMuum3muUnA6Zd",
+    "model": "eleven_flash_v2_5"
+  },
+  "brand": "VoiceStudio",
+  "tagline": "free \u00b7 open source \u00b7 runs offline",
+  "hook": {
+    "paid": "ElevenLabs",
+    "pill": "OPEN SOURCE",
+    "stamp": "FREE"
+  }
+}
