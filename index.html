@@ -587,6 +587,10 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
   .svid{height:62vh;height:62svh}
   .stx h3{font-size:34px}.stx p{margin:8px auto 0;font-size:15.5px}.stx .nx{margin-top:10px}
 }
+.demo.playing{cursor:default}
+.demo.playing .dplay,.demo.playing .dlab,.demo.playing .dtag,.demo.playing .dt{display:none}
+.demo video{object-fit:contain;background:#000}
+.demo{background:#eef1f8 var(--dposter,none) center/cover no-repeat}
 </style>
 </head>
 <body>
@@ -997,7 +1001,7 @@ const CONFIG = {
   recentBuyers: [],
   instagramDM: "https://ig.me/m/reelsuniai",
   /* Demo video above the reels. Put the file in assets/ e.g. "assets/demo.mp4" (+ optional poster). */
-  demoVideo: "", demoPoster: "", demoLength: "30s",
+  demoVideo: "assets/demo-1080.mp4", demoVideoSmall: "assets/demo-720.mp4", demoPoster: "assets/demo-poster.jpg", demoLength: "24s",
   /* Instagram dashboard card (copy from Insights). Leave a field "" to hide that line. */
   dash: { handle:"@reelsuniai", range:"Last 30 days", views:"4,000,000+", viewsChange:"", from:"", to:"",
           followers:"7,000+", followersChange:"", net:"", netLabel:"in 30 days", date:"" },
@@ -1293,7 +1297,13 @@ document.querySelectorAll('.rv').forEach(el => { if (el.style.getPropertyValue('
   $("#mos1").innerHTML = covers.repeat(6); $("#mos2").innerHTML = [...CONFIG.reels].reverse().map(r => `<img src="${esc(csrc(r))}" alt="" loading="lazy">`).join("").repeat(6);
   if (!CONFIG.demoVideo){ box.classList.add("soon"); $("#dlab").textContent = "Demo video coming soon"; box.style.cursor = "default"; return; }
   $("#dlab").textContent = `Watch how it works · ${CONFIG.demoLength}`;
-  const start = () => { if (box.querySelector("video")) return; const dv = safePath(CONFIG.demoVideo), dp = safePath(CONFIG.demoPoster); if (!dv) return; box.insertAdjacentHTML("beforeend", `<video src="${esc(dv)}" ${dp ? `poster="${esc(dp)}"` : ""} controls playsinline autoplay></video>`); };
+  const start = () => { if (box.querySelector("video")) return; const c = navigator.connection || {}, big = safePath(CONFIG.demoVideo), small = safePath(CONFIG.demoVideoSmall), dp = safePath(CONFIG.demoPoster);
+    const wantBig = big && !c.saveData && !/(^|-)(2g|3g)$/.test(c.effectiveType || "") && (box.clientWidth * (devicePixelRatio || 1) >= 700);
+    const dv = wantBig ? big : (small || big); if (!dv) return;
+    box.classList.add("playing");
+    box.insertAdjacentHTML("beforeend", `<video src="${esc(dv)}" ${dp ? `poster="${esc(dp)}"` : ""} controls playsinline autoplay preload="auto" controlslist="nodownload"></video>`);
+    const v = box.querySelector("video"); v.muted = false; const pr = v.play(); if (pr) pr.catch(() => { v.muted = true; v.play().catch(() => {}); });
+    v.addEventListener("error", () => { if (dv !== small && small){ v.src = small; v.play().catch(() => {}); } }); };
   box.addEventListener("click", start);
 })();
 
