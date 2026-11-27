@@ -1103,10 +1103,10 @@ const phone = (r, badge) => `<a class="phone" style="--poster:url('${esc(csrc(r)
 /* reel stats cards */
 (function(){
   const g = $("#rcards"); if (!g) return;
-  const line = (v, l) => v ? `<div><b>${esc(v)}</b>${l}</div>` : "";
+  const line = (v, l) => `<div><b>${esc(v || "–")}</b>${l}</div>`;
   g.innerHTML = ["Dfpe1dpSizS", "DfdySUsxaFu", "Dfp2HztSljP"].map(id => CONFIG.reels.find(r => r.id === id)).filter(Boolean).map((r, i) => `<div class="box rcard rv" style="--d:${i * .07}s">${phone(r, false)}
     <div class="vw"><b>${esc(r.views || "–")}</b><span>views</span></div>
-    ${(r.saves || r.comments || r.follows) ? `<div class="st">${line(r.saves, "saves")}${line(r.comments, "comments")}${line(r.follows, "follows")}</div>` : ""}</div>`).join("");
+    <div class="st">${line(r.saves, "saves")}${line(r.comments, "comments")}${line(r.follows, "follows")}</div></div>`).join("");
 })();
 
 /* reliable playback: if a host can't stream the file (no range support), load it as a blob instead */
