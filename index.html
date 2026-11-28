@@ -420,7 +420,7 @@ footer a:hover{color:#fff}
 .demo .mr{display:flex;gap:8px;width:max-content;animation:slide 60s linear infinite}
 .demo .mr.b{animation-direction:reverse}
 .demo .mr img{width:68px;aspect-ratio:9/16;object-fit:cover;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
-.demo::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 50%,rgba(238,241,248,.95),rgba(238,241,248,.55) 70%,rgba(238,241,248,.15));z-index:1}
+.demo::after{content:"";position:absolute;inset:0;background:radial-gradient(42% 28% at 50% 50%,rgba(238,241,248,.96),rgba(238,241,248,0) 100%);z-index:1}
 .demo .dtag{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:2;background:#fff;color:#111;font:700 11px var(--font);padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.12);white-space:nowrap}
 .demo .dt{position:absolute;left:6%;right:6%;top:50%;transform:translateY(-50%);z-index:2;text-align:center;color:#0b0f1e;font:800 clamp(20px,4.4vw,40px)/1.15 var(--font);letter-spacing:-.035em}
 .demo .pillw{display:inline-block;background:#0b0f1e;color:#fff;border-radius:999px;padding:0 .45em;font-size:.95em}
@@ -602,6 +602,8 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .buy:hover{transform:translateY(-3px) scale(1.02);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -3px 0 rgba(0,0,0,.18),0 8px 0 #8e1015,0 14px 22px -4px rgba(0,0,0,.45),0 24px 56px -10px rgba(255,59,59,.9)}
 .buy:active{transform:translateY(4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 0 #8e1015,0 8px 18px -8px rgba(255,59,59,.7)}
 @media (prefers-reduced-motion:reduce){.buy::after{animation:none;display:none}}
+.demo .mr img{filter:none}.demo .dplay::before{display:none}
+.pill{max-width:min(560px,92vw);text-align:left;line-height:1.35}
 </style>
 </head>
 <body>
@@ -622,7 +624,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="pill rv"><img class="plogo" src="assets/logo.svg" alt="ShortsUniversity" width="28" height="28">Small page · real numbers · zero editing</span>
+    <span class="pill rv"><img class="plogo" src="assets/logo.svg" alt="ShortsUniversity" width="28" height="28">For creators and founders who want to post every day without editing</span>
     <h1 class="rv" style="--d:.05s"><span class="r" data-k="viewsShort">1M views</span> in <span data-k="period">2 weeks</span> with reels made from <span class="r">one prompt</span></h1>
     <p class="sub rv" style="--d:.1s">No camera. No editing app. No ₹6,000/month AI tools. I type <b>one line</b> into Claude, and my skill writes, voices, animates and renders the whole reel. These are the exact files behind my page, and <b>your first reel can be live tonight.</b></p>
   </div>
