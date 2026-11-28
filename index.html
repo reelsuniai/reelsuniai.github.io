@@ -606,6 +606,15 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .pill{max-width:min(560px,92vw);text-align:left;line-height:1.35}
 .demo .mr{animation:none!important;transform:translateX(-40px)}
 .demo .mr.b{transform:translateX(-120px)}
+
+/* smoother fast scrolling */
+.sp{box-shadow:none;contain:layout paint}
+.box,.rcard,.feat{contain:layout paint}
+.wall{content-visibility:auto;contain-intrinsic-size:auto 420px}
+.hero,#styles,#styles .sp{content-visibility:visible}
+/* trust row under CTAs */
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:10px;font:600 12.5px var(--font);color:var(--ink-3)}
+.trust span{display:inline-flex;align-items:center;gap:5px}
 </style>
 </head>
 <body>
@@ -1172,8 +1181,9 @@ document.querySelectorAll("[data-regp]").forEach(e => e.textContent = inr(CONFIG
 document.querySelectorAll("a.buy[data-buy]").forEach(a => {
   if (a.closest("#sticky") || a.closest(".pricecard") || a.closest(".price-main")) return;
   const el = document.createElement("div"); el.className = "spotwrap"; el.setAttribute("data-spotsbox", "");
-  el.innerHTML = `<span class="spotline"><span class="dot"></span>⚡ Price goes up to <b>${inr(CONFIG.regular)}</b> in <b class="mini-t" data-mtimer>…</b></span>`;
+  el.innerHTML = `<span class="spotline"><span class="dot"></span>⏰ Launch offer ends · price goes to <b>${inr(CONFIG.regular)}</b> in <b class="mini-t" data-mtimer>…</b></span>`;
   a.insertAdjacentElement("afterend", el);
+  const t = document.createElement("div"); t.className = "trust"; t.innerHTML = '<span>🔒 Secure checkout</span><span>⚡ Instant download</span><span>↩️ 7-day refund</span><span>🇮🇳 UPI accepted</span>'; el.insertAdjacentElement("afterend", t);
 });
 if (!live) document.querySelectorAll(".spotwrap").forEach(e => e.remove());
 const miniTick = () => {
