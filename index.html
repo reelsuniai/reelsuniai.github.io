@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>The Reel Skill · ShortsUniversity</title>
-<meta name="description" content="4M views in 30 days with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹499 for the first 50 buyers.">
+<meta name="description" content="2M views in 30 days with reels made from one prompt. The Claude skill behind @reelsuniai. Launch price ₹499 for the first 50 buyers.">
 <meta property="og:title" content="The Reel Skill by ShortsUniversity">
 <meta property="og:description" content="Type one line. Claude makes the whole animated reel. Launch price ₹499 for the first 50 buyers.">
 <meta property="og:type" content="website">
@@ -591,6 +591,17 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 .demo.playing .dplay,.demo.playing .dlab,.demo.playing .dtag,.demo.playing .dt{display:none}
 .demo video{object-fit:contain;background:#000}
 .demo{background:#eef1f8 var(--dposter,none) center/cover no-repeat}
+
+.pill .plogo{width:28px;height:28px;border-radius:50%;flex:none;box-shadow:0 0 12px rgba(255,59,59,.45)}
+/* CTA: glare sweep + deeper 3D pop */
+.buy{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#ff7a68 0%,var(--red) 45%,#d81f24 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -3px 0 rgba(0,0,0,.18),0 6px 0 #8e1015,0 10px 18px -4px rgba(0,0,0,.45),0 18px 44px -10px rgba(255,59,59,.75)}
+.buy::before{content:"";position:absolute;inset:0 0 50% 0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,0));z-index:-1;pointer-events:none}
+.buy::after{content:"";position:absolute;top:-30%;bottom:-30%;width:38%;left:-60%;transform:skewX(-22deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:glare 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes glare{0%,55%{left:-60%}100%{left:140%}}
+.buy:hover{transform:translateY(-3px) scale(1.02);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -3px 0 rgba(0,0,0,.18),0 8px 0 #8e1015,0 14px 22px -4px rgba(0,0,0,.45),0 24px 56px -10px rgba(255,59,59,.9)}
+.buy:active{transform:translateY(4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 0 #8e1015,0 8px 18px -8px rgba(255,59,59,.7)}
+@media (prefers-reduced-motion:reduce){.buy::after{animation:none;display:none}}
 </style>
 </head>
 <body>
@@ -611,7 +622,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="pill rv"><i>✦</i>Small page · real numbers · zero editing</span>
+    <span class="pill rv"><img class="plogo" src="assets/logo.svg" alt="ShortsUniversity" width="28" height="28">Small page · real numbers · zero editing</span>
     <h1 class="rv" style="--d:.05s"><span class="r" data-k="viewsShort">1M views</span> in <span data-k="period">2 weeks</span> with reels made from <span class="r">one prompt</span></h1>
     <p class="sub rv" style="--d:.1s">No camera. No editing app. No ₹6,000/month AI tools. I type <b>one line</b> into Claude, and my skill writes, voices, animates and renders the whole reel. These are the exact files behind my page, and <b>your first reel can be live tonight.</b></p>
   </div>
@@ -628,7 +639,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
     <div class="ok rv"><span>Instant download</span><span>Pay once</span><span>7-day guarantee</span><span>UPI accepted</span></div>
     <div class="stats rv">
       <div><b data-k="viewsK">2M</b><span data-k="periodLabel">views in 30 days</span></div>
-      <div><b data-k="followersK">7K+</b><span>followers</span></div>
+      <div><b data-k="followersK">6.5K+</b><span>followers</span></div>
       <div><b data-k="topReel">150K</b><span>views on one reel</span></div>
     </div>
 
@@ -671,7 +682,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       <div class="igh"><span class="ig"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><b id="dHandle">@reelsuniai</b></span><span class="rng" id="dRange">Last 30 days</span></div>
       <div class="igv">
         <span class="lab">Views</span>
-        <b class="num" id="dViews">4,000,000+</b>
+        <b class="num" id="dViews">2,000,000+</b>
         <em class="chg" id="dViewsChg"></em>
         <svg class="chart" viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
           <defs><linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff3b3b" stop-opacity=".45"/><stop offset="1" stop-color="#ff3b3b" stop-opacity="0"/></linearGradient></defs>
@@ -681,7 +692,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
         <div class="axis"><span id="dFrom"></span><span id="dTo"></span></div>
       </div>
       <div class="igs">
-        <div><span class="lab">Followers</span><b class="num" id="dFollowers">7,000+</b><em class="chg" id="dFollowersChg"></em></div>
+        <div><span class="lab">Followers</span><b class="num" id="dFollowers">6,500+</b><em class="chg" id="dFollowersChg"></em></div>
         <div id="dNetBox"><span class="lab" id="dNetLab">Top reel</span><b class="num r" id="dNet">150K</b><em class="sub2" id="dNetSub">views on one reel</em></div>
       </div>
     </div>
@@ -722,7 +733,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
       </div>
       <h2>hey, it's <a href="https://instagram.com/reelsuniai" target="_blank" rel="noopener noreferrer">@reelsuniai</a></h2>
       <p>I run ShortsUniversity, a small page about Claude and AI tools. I didn't want to spend my evenings in a video editor, so I built a Claude skill: I type one line about a topic, and it writes, voices and animates the whole reel.</p>
-      <p>My Opus Clip reel got <b data-k="topReel">150K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">4M views</b>, and the page passed <b data-k="followersK">7K+</b> followers. I still haven't edited a single frame.</p>
+      <p>My Opus Clip reel got <b data-k="topReel">150K</b> views. In the last <span data-k="period">30 days</span> my reels crossed <b data-k="viewsShort">2M views</b>, and the page passed <b data-k="followersK">6.5K+</b> followers. I still haven't edited a single frame.</p>
       <p>I'm not a big creator or a video pro. That's the point: <b>if it works for a small page like mine, it can work for yours.</b></p>
     </div>
   </div>
@@ -736,7 +747,7 @@ footer.ref .fr3{margin-top:10px;font-size:12px}
     <p class="sub mid rv">Claude alone will make you a video. Most people post a few, get a few hundred views and stop. What grows a page is a format you can repeat every day: a hook that stops the scroll, pacing that holds attention, and the same quality on reel 1 and reel 50.</p>
     <div class="box cmp mid rv">
       <div class="hd"><div>Just Claude</div><div>This skill</div></div>
-      <div class="row"><div>Most pages stay stuck under 1,000 views</div><div><span>Proven on my page: <span data-k="viewsShort">4M views</span> in <span data-k="period">30 days</span></span></div></div>
+      <div class="row"><div>Most pages stay stuck under 1,000 views</div><div><span>Proven on my page: <span data-k="viewsShort">2M views</span> in <span data-k="period">30 days</span></span></div></div>
       <div class="row"><div>Makes up a new look every time</div><div>One fixed, recognisable style, every reel</div></div>
       <div class="row"><div>Guesses the hook and pacing</div><div>Hook and pacing rules from my best reels</div></div>
       <div class="row"><div>Captions just sit on screen</div><div>Word-timed captions with key words that pop</div></div>
@@ -1003,12 +1014,12 @@ const CONFIG = {
   /* Demo video above the reels. Put the file in assets/ e.g. "assets/demo.mp4" (+ optional poster). */
   demoVideo: "assets/demo-1080.mp4", demoVideoSmall: "assets/demo-720.mp4", demoPoster: "assets/demo-poster.jpg", demoLength: "24s",
   /* Instagram dashboard card (copy from Insights). Leave a field "" to hide that line. */
-  dash: { handle:"@reelsuniai", range:"Last 30 days", views:"4,000,000+", viewsChange:"", from:"", to:"",
-          followers:"7,000+", followersChange:"", net:"", netLabel:"in 30 days", date:"" },
+  dash: { handle:"@reelsuniai", range:"Last 30 days", views:"2,000,000+", viewsChange:"", from:"", to:"",
+          followers:"6,500+", followersChange:"", net:"", netLabel:"in 30 days", date:"" },
   stats: {                                       // must match your real Instagram dashboard
-    viewsShort: "4M views", viewsK: "4M", viewsFull: "4,000,000+", period: "30 days",
+    viewsShort: "2M views", viewsK: "2M", viewsFull: "2,000,000+", period: "30 days",
     periodLabel: "views in 30 days", periodLabelCap: "Views · last 30 days",
-    followers: "7K", followersFull: "7,000+", followersK: "7K+", topReel: "150K",
+    followers: "6.5K", followersFull: "6,500+", followersK: "6.5K+", topReel: "150K",
   },
   /* Your reels for the slider. id = the part after /reel/ in the link.
      Covers live in assets/reels/<id>.jpg (or set cover:"...").
@@ -1066,6 +1077,7 @@ function paint(){
   $$("[data-reg]").forEach(e => { e.textContent = inr(CONFIG.regular); if (!live && e.tagName === "S") e.style.display = "none"; });
   $$("[data-left]").forEach(e => e.textContent = left);
   $$("[data-claimed]").forEach(e => e.textContent = CONFIG.spotsClaimed);
+  if (!CONFIG.spotsClaimed) $$(".claim").forEach(e => e.remove());
   $$("[data-spots-total]").forEach(e => e.textContent = CONFIG.spotsTotal);
   $$("[data-offchip]").forEach(e => e.textContent = `LAUNCH OFFER · ${off}% OFF`);
   $$("[data-bar]").forEach(e => setTimeout(() => e.style.width = (CONFIG.spotsClaimed / CONFIG.spotsTotal * 100) + "%", 400));
@@ -1107,10 +1119,10 @@ const phone = (r, badge) => `<a class="phone" style="--poster:url('${esc(csrc(r)
 /* reel stats cards */
 (function(){
   const g = $("#rcards"); if (!g) return;
-  const line = (v, l) => `<div><b>${esc(v || "–")}</b>${l}</div>`;
+  const line = (v, l) => v ? `<div><b>${esc(v)}</b>${l}</div>` : "";
   g.innerHTML = ["Dfpe1dpSizS", "DfdySUsxaFu", "Dfp2HztSljP"].map(id => CONFIG.reels.find(r => r.id === id)).filter(Boolean).map((r, i) => `<div class="box rcard rv" style="--d:${i * .07}s">${phone(r, false)}
     <div class="vw"><b>${esc(r.views || "–")}</b><span>views</span></div>
-    <div class="st">${line(r.saves, "saves")}${line(r.comments, "comments")}${line(r.follows, "follows")}</div></div>`).join("");
+    ${(r.saves || r.comments || r.follows) ? `<div class="st">${line(r.saves, "saves")}${line(r.comments, "comments")}${line(r.follows, "follows")}</div>` : ""}</div>`).join("");
 })();
 
 /* reliable playback: if a host can't stream the file (no range support), load it as a blob instead */
